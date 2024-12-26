@@ -83,7 +83,7 @@ const FormQuestion = () => {
             </div>
           </div>
           <div className="form-step-2__img">
-            <img src="/public/img/img-step-2.png" alt="img" />
+            <img src="/img/img-step-2.png" alt="img" />
           </div>
         </div>
       )
@@ -127,7 +127,7 @@ const FormQuestion = () => {
             </div>
           </div>
           <div className="form-step-4__img">
-            <img src="/public/img/img-step-4.png" alt="img" />
+            <img src="/img/img-step-4.png" alt="img" />
           </div>
         </div>
       )
@@ -146,7 +146,7 @@ const FormQuestion = () => {
                   <>
                     <div className="form-step-5__label">
                       <div className="form-step-5__img-icon">
-                        <img src="/public/icons/icons-step-5-1.png" alt="img" />
+                        <img src="/icons/icons-step-5-1.png" alt="img" />
                       </div>
                       Lose weight
                     </div>
@@ -160,7 +160,7 @@ const FormQuestion = () => {
                   <>
                     <div className="form-step-5__label">
                       <div className="form-step-5__img-icon">
-                        <img src="/public/icons/icons-step-5-2.png" alt="img" />
+                        <img src="/icons/icons-step-5-2.png" alt="img" />
                       </div>
                       Maintain weight and get fit
                     </div>
