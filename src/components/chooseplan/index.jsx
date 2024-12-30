@@ -4,7 +4,7 @@ import { LiaWeightSolid } from 'react-icons/lia';
 import './style.scss';
 
 const ChoosePlan = () => {
-    const [selectedPlan, setSelectedPlan] = useState('1-Week Trial');
+    const [selectedPlan, setSelectedPlan] = useState('');
 
     const plans = [
         {
@@ -12,19 +12,19 @@ const ChoosePlan = () => {
             label: '4-WEEK PLAN',
             originalPrice: '₫70,000',
             highlightedPrice: '₫10,000',
-            perDay: '₫10,000 per day',
+            perDay: ' per day',
         },
         {
             name: '4-Week Plan',
             originalPrice: '₫224,000',
             highlightedPrice: '₫8,000',
-            perDay: '₫8,000 per day',
+            perDay: ' per day',
         },
         {
             name: '12-Week Plan',
             originalPrice: '₫504,000',
             highlightedPrice: '₫6,000',
-            perDay: '₫6,000 per day',
+            perDay: ' per day',
         },
     ];
 
@@ -63,11 +63,18 @@ const ChoosePlan = () => {
                         className={`plan-card ${selectedPlan === plan.name ? 'selected' : ''}`}
                         onClick={() => handlePlanSelection(plan.name)}
                     >
-                        <h3>{plan.name}</h3>
+                        <div className="plan-header">
+                            <h3>{plan.name}</h3>
+                            <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>
+                                {selectedPlan === plan.name && <span className="tick">✔</span>}
+                            </div>
+                        </div>
                         {plan.label && <div className="plan-label">{plan.label}</div>}
                         <div className="original-price">{plan.originalPrice}</div>
-                        <div className="highlighted-price">{plan.highlightedPrice}</div>
-                        <div className="per-day">{plan.perDay}</div>
+                        <div className="highlighted-section">
+                            <span className="highlighted-price">{plan.highlightedPrice}</span>
+                            <span className="per-day">{plan.perDay}</span>
+                        </div>
                     </div>
                 ))}
             </div>
