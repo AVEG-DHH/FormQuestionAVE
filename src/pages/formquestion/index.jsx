@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button, Box, Typography, FormControl, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import { db, ref, set } from '../../firebase';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './style.scss';
 
 const FormQuestion = () => {
-    const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(0);
     const [showButtonNext, setShowButtonNext] = useState(false);
     const [formStep1, setFormStep1] = useState(null);
@@ -208,33 +206,36 @@ const FormQuestion = () => {
     };
 
     return (
-        <Box className="block-form-question">
-            <Typography variant="h6" sx={{ marginBottom: 3 }}>
-                <div className={`step-content step-${currentStep}`}>{steps[currentStep].content}</div>
-            </Typography>
-
-            <Box sx={{ display: 'flex', gap: 2 }}>
+        <>
+            <Box className="block-form-question">
                 {currentStep > 0 && (
-                    <Box className="back-btn-container">
-                        <Button variant="contained" color="secondary" onClick={handleBack}>
-                            Back
-                        </Button>
-                    </Box>
+                    <div style={{ width: '100%' }}>
+                        <Box className="back-btn-container">
+                            <Button variant="contained" color="secondary" onClick={handleBack}>
+                                Back
+                            </Button>
+                        </Box>
+                    </div>
                 )}
+                <Typography variant="h6" sx={{ marginBottom: 3 }}>
+                    <div className={`step-content step-${currentStep}`}>{steps[currentStep].content}</div>
+                </Typography>
 
-                {currentStep < steps.length - 1 ? (
-                    showButtonNext && (
-                        <Button variant="contained" color="primary" onClick={handleNext}>
-                            Continue
+                <Box sx={{ display: 'flex', gap: 2 }}>
+                    {currentStep < steps.length - 1 ? (
+                        showButtonNext && (
+                            <Button variant="contained" color="primary" onClick={handleNext}>
+                                Continue
+                            </Button>
+                        )
+                    ) : (
+                        <Button variant="contained" color="success" onClick={handleSubmit}>
+                            Finish
                         </Button>
-                    )
-                ) : (
-                    <Button variant="contained" color="success" onClick={handleSubmit}>
-                        Finish
-                    </Button>
-                )}
+                    )}
+                </Box>
             </Box>
-        </Box>
+        </>
     );
 };
 
