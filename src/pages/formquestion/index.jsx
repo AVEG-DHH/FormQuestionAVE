@@ -200,7 +200,8 @@ const FormQuestion = () => {
         })
             .then(() => {
                 alert('Dữ liệu đã được thêm!');
-                window.location.href = 'https://naturalcleansing.work/pages/get-your-plan-with-a-bigger-discount';
+                // window.location.href = 'https://naturalcleansing.work/pages/get-your-plan-with-a-bigger-discount';
+                navigate('/checkout');
             })
             .catch((error) => {
                 console.error('Lỗi khi thêm dữ liệu:', error);
