@@ -1,183 +1,206 @@
 $primary-color: #ea749b;
 
 .block-form-question {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 80px;
 }
 .step-content {
-  opacity: 1;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateY(0);
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(0);
 }
 
 .step-content.fade-out {
-  opacity: 0;
-  transform: translateY(-50px); /* Optional: Move the content up a bit */
+    opacity: 0;
+    transform: translateY(-50px); /* Optional: Move the content up a bit */
 }
 
 .step-content.fade-in {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .step.exiting {
-  opacity: 0;
-  transform: translateX(-100%); /* Đẩy bước ra khỏi màn hình bên trái */
+    opacity: 0;
+    transform: translateX(-100%); /* Đẩy bước ra khỏi màn hình bên trái */
 }
 
 .form-step-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  h1 {
-    font-size: 32px;
-    font-weight: bold;
-  }
-
-  .form-step-1__content {
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 2%;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .form-step-1__img {
-      width: 23%;
-
-      img {
-        width: 100%;
-        height: fit-content;
-        object-fit: cover;
-      }
-
-      .form-step-1__btn {
-        background: $primary-color;
-        padding: 8px 12px;
-        border-radius: 8px;
-        color: #fff;
+    h1 {
+        font-size: 48px;
         font-weight: bold;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+        margin-bottom: 24px;
     }
-  }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+
+    .form-step-1__content {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 2%;
+        border-bottom: 1px solid #ededed;
+        padding-bottom: 20px;
+        cursor: pointer;
+
+        .form-step-1__img {
+            width: 23%;
+            background-color: #f6f7f9;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            .form-step-1__btn {
+                background: $primary-color;
+                padding: 8px 12px;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
 }
 
 .form-step-2 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2%;
-  align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    align-items: center;
 
-  .form-step-2__content {
-    width: 49%;
+    .form-step-2__content {
+        width: 49%;
 
-    .form-step-2__title__color {
-      color: $primary-color;
-      font-weight: bold;
-      font-size: 32px;
+        .form-step-2__title__color {
+            color: $primary-color;
+            font-weight: bold;
+            font-size: 32px;
+        }
     }
-  }
 
-  .form-step-2__img {
-    width: 40%;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .form-step-2__img {
+        width: 40%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
-  }
 }
 
 .form-step-4 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2%;
-  align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    align-items: center;
 
-  .form-step-4__content {
-    width: 49%;
+    .form-step-4__content {
+        width: 49%;
 
-    .form-step-4__title__color {
-      font-weight: bold;
-      font-size: 32px;
+        .form-step-4__title__color {
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        .form-step-4__desc {
+            &__bold {
+                font-weight: bold;
+            }
+        }
     }
 
-    .form-step-4__desc {
-      &__bold {
-        font-weight: bold;
-      }
+    .form-step-4__img {
+        width: 49%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
-  }
-
-  .form-step-4__img {
-    width: 49%;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
 }
 
 .form-step-5 {
-  .form-step-5__label {
-    display: flex;
-    align-items: center;
-    column-gap: 12px;
+    .form-step-5__label {
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
 
-    .form-step-5__img-icon {
-      width: 36px;
-      height: 36px;
+        .form-step-5__img-icon {
+            width: 36px;
+            height: 36px;
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
     }
-  }
+}
+
+.back-btn-container {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: 100;
 }
 
 @media (max-width: 900px) {
-  .form-step-1__content .form-step-1__img {
-    width: 48% !important;
-  }
+    .form-step-1__content .form-step-1__img {
+        width: 48% !important;
+    }
 }
 
 @media (max-width: 680px) {
-  .form-step-1 {
-    h1 {
-      font-size: 24px;
-    }
+    .form-step-1 {
+        h1 {
+            font-size: 24px;
+        }
 
-    h2 {
-      font-size: 16px;
-    }
+        h2 {
+            font-size: 16px;
+        }
 
-    .form-step-1__btn {
-      font-size: 14px;
-      padding: 6px 8px !important;
+        .form-step-1__btn {
+            font-size: 14px;
+            padding: 6px 8px !important;
+        }
     }
-  }
 }
 
 @media (max-width: 500px) {
-  .form-step-1 {
-    h1 {
-      font-size: 16px;
-      text-align: center;
-    }
+    .form-step-1 {
+        h1 {
+            font-size: 16px;
+            text-align: center;
+        }
 
-    h2 {
-      font-size: 12px;
+        h2 {
+            font-size: 12px;
+        }
     }
-  }
 }
