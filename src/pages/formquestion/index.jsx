@@ -51,40 +51,6 @@ const FormQuestion = () => {
                             </div>
                         </div>
                     </div>
-
-                    <Typography
-                        variant="body2"
-                        sx={{
-                            textAlign: 'center',
-                            fontSize: '17px',
-                            fontWeight: 400,
-                            color: '#171717',
-                            lineHeight: 1.5,
-                            mt: 2,
-                            '& strong': {
-                                fontWeight: 700,
-                            },
-                            '& a': {
-                                color: '#007bff',
-                                textDecoration: 'none',
-                                '&:hover': {
-                                    textDecoration: 'underline',
-                                },
-                            },
-                        }}
-                    >
-                        By<strong> choosing your age and continuing</strong>, you agree to our{' '}
-                        <a href="/terms-of-service" target="_blank">
-                            Terms of Service
-                        </a>{' '}
-                        |{' '}
-                        <a href="/privacy-policy" target="_blank">
-                            Privacy Policy
-                        </a>
-                        .
-                        <br />
-                        Please review before continuing.
-                    </Typography>
                 </div>
             ),
         },
@@ -234,8 +200,7 @@ const FormQuestion = () => {
         })
             .then(() => {
                 alert('Dữ liệu đã được thêm!');
-                // window.location.href = 'https://naturalcleansing.work/pages/get-your-plan-with-a-bigger-discount';
-                navigate('/checkout');
+                window.location.href = 'https://naturalcleansing.work/pages/get-your-plan-with-a-bigger-discount';
             })
             .catch((error) => {
                 console.error('Lỗi khi thêm dữ liệu:', error);
