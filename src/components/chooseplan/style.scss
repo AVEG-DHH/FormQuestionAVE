@@ -4,24 +4,54 @@
     padding: 20px;
 
     h1 {
-        font-size: 28px;
+        font-size: 30px;
         margin-bottom: 20px;
     }
 
-    .goals {
+    .goals-container {
         display: flex;
+        align-items: center;
         justify-content: center;
         gap: 40px;
         margin-bottom: 20px;
+        border-radius: 8px;
+        padding: 10px;
 
-        span {
-            font-size: 14px;
-            color: #888;
+        .goal-section,
+        .target-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .goal-icon,
+            .target-icon {
+                font-size: 30px;
+                color: #0073e6;
+            }
+
+            .goal-text,
+            .target-text {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    font-size: 20px;
+                    color: #555;
+                    padding: 5px 0px;
+                }
+
+                strong {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #000;
+                }
+            }
         }
 
-        strong {
-            font-size: 16px;
-            color: #000;
+        .divider {
+            height: 40px;
+            width: 1px;
+            background-color: #ddd;
         }
     }
 
@@ -127,20 +157,6 @@
 
             &:hover {
                 text-decoration: underline;
-            }
-        }
-    }
-}
-
-@media (max-width: 600px) {
-    .choose-plan {
-        .plans {
-            flex-direction: column;
-
-            .plan-card {
-                width: 60%;
-                margin: auto;
-                text-align: center;
             }
         }
     }
