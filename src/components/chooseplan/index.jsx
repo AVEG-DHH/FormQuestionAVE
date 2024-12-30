@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { TbTargetArrow } from 'react-icons/tb';
+import { LiaWeightSolid } from 'react-icons/lia';
 import './style.scss';
 
 const ChoosePlan = () => {
@@ -33,11 +35,26 @@ const ChoosePlan = () => {
     return (
         <div className="choose-plan">
             <h1>Choose Your Plan</h1>
-            <div className="goals">
-                <span>Goal</span>
-                <strong>Lose weight</strong>
-                <span>Target weight</span>
-                <strong>60 kg</strong>
+            <div className="goals-container">
+                <div className="goal-section">
+                    <div className="goal-icon">
+                        <TbTargetArrow />
+                    </div>
+                    <div className="goal-text">
+                        <span>Goal</span>
+                        <strong>Lose weight</strong>
+                    </div>
+                </div>
+                <div className="divider" />
+                <div className="target-section">
+                    <div className="target-icon">
+                        <LiaWeightSolid />
+                    </div>
+                    <div className="target-text">
+                        <span>Target weight</span>
+                        <strong>60 kg</strong>
+                    </div>
+                </div>
             </div>
             <div className="plans">
                 {plans.map((plan) => (
