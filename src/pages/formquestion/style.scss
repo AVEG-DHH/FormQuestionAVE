@@ -170,7 +170,7 @@ $primary-color: #ea749b;
     }
 }
 
-.css-3grzhq-MuiTypography-root {
+.custom-block-step {
     height: 70vh;
     display: flex;
     margin: 24px 0 !important;
@@ -179,9 +179,9 @@ $primary-color: #ea749b;
     border-bottom: 1px solid lightgray;
 }
 
-button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-colorPrimary.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-colorPrimary.css-1abvrni-MuiButtonBase-root-MuiButton-root {
+.custom-btn-continue {
     width: 200px;
-    border-radius: 20px;
+    border-radius: 20px !important;
 }
 
 @media (max-width: 900px) {

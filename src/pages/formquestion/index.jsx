@@ -217,19 +217,19 @@ const FormQuestion = () => {
                         </Box>
                     </div>
                 )}
-                <Typography variant="h6" sx={{ marginBottom: 3 }}>
+                <Typography variant="h6" className='custom-block-step' sx={{ marginBottom: 3 }}>
                     <div className={`step-content step-${currentStep}`}>{steps[currentStep].content}</div>
                 </Typography>
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
                     {currentStep < steps.length - 1 ? (
                         showButtonNext && (
-                            <Button variant="contained" color="primary" onClick={handleNext}>
+                            <Button className='custom-btn-continue' variant="contained" color="primary" onClick={handleNext}>
                                 Continue
                             </Button>
                         )
                     ) : (
-                        <Button variant="contained" color="success" onClick={handleSubmit}>
+                        <Button className='custom-btn-continue' variant="contained" color="success" onClick={handleSubmit}>
                             Finish
                         </Button>
                     )}
