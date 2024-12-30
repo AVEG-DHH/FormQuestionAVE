@@ -131,3 +131,31 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+    .choose-plan {
+        .plans {
+            flex-direction: column;
+
+            .plan-card {
+                width: 60%;
+                margin: auto;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .choose-plan {
+        .plans {
+            flex-direction: column;
+
+            .plan-card {
+                width: 60%;
+                margin: auto;
+                text-align: center;
+            }
+        }
+    }
+}
