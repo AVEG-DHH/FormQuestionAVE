@@ -4,7 +4,7 @@ import { LiaWeightSolid } from 'react-icons/lia';
 import './style.scss';
 
 const ChoosePlan = () => {
-    const [selectedPlan, setSelectedPlan] = useState('');
+    const [selectedPlan, setSelectedPlan] = useState('4-Week Plan');
 
     const plans = [
         {
