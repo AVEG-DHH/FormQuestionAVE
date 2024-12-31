@@ -9,7 +9,6 @@ const ChoosePlan = () => {
     const plans = [
         {
             name: '1-Week Trial',
-            label: '4-WEEK PLAN',
             originalPrice: '₫70,000',
             highlightedPrice: '₫10,000',
             perDay: ' per day',
@@ -22,7 +21,7 @@ const ChoosePlan = () => {
             highlightedPrice: '₫8,000',
             perDay: ' per day',
             checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
+                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEQzRZRVNFMUJGMFFGVzhDSjYyMFJF',
         },
         {
             name: '12-Week Plan',
@@ -41,7 +40,8 @@ const ChoosePlan = () => {
     const handleCheckout = () => {
         const selectedPlanData = plans.find((plan) => plan.name === selectedPlan);
         if (selectedPlanData) {
-            window.location.href = selectedPlanData.checkoutLink;
+            const iframe = document.getElementById('checkout-iframe');
+            iframe.contentWindow.postMessage({ action: 'redirect', checkoutLink: selectedPlanData.checkoutLink }, '*');
         }
     };
 
