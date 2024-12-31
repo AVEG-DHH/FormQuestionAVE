@@ -5,31 +5,27 @@ import './style.scss';
 
 const ChoosePlan = () => {
     const [selectedPlan, setSelectedPlan] = useState('4-Week Plan');
+    const [isAgreed, setIsAgreed] = useState(false);
 
     const plans = [
         {
             name: '1-Week Trial',
+            label: '4-WEEK PLAN',
             originalPrice: '₫70,000',
             highlightedPrice: '₫10,000',
             perDay: ' per day',
-            checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
         },
         {
             name: '4-Week Plan',
             originalPrice: '₫224,000',
             highlightedPrice: '₫8,000',
             perDay: ' per day',
-            checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEQzRZRVNFMUJGMFFGVzhDSjYyMFJF',
         },
         {
             name: '12-Week Plan',
             originalPrice: '₫504,000',
             highlightedPrice: '₫6,000',
             perDay: ' per day',
-            checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
         },
     ];
 
@@ -37,12 +33,8 @@ const ChoosePlan = () => {
         setSelectedPlan(planName);
     };
 
-    const handleCheckout = () => {
-        const selectedPlanData = plans.find((plan) => plan.name === selectedPlan);
-        if (selectedPlanData) {
-            const iframe = document.getElementById('checkout-iframe');
-            iframe.contentWindow.postMessage({ action: 'redirect', checkoutLink: selectedPlanData.checkoutLink }, '*');
-        }
+    const handleCheckboxChange = (event) => {
+        setIsAgreed(event.target.checked);
     };
 
     return (
@@ -69,7 +61,6 @@ const ChoosePlan = () => {
                     </div>
                 </div>
             </div>
-
             <div className="plans">
                 {plans.map((plan) => (
                     <div
@@ -93,13 +84,13 @@ const ChoosePlan = () => {
                 ))}
             </div>
             <div className="terms">
-                <input type="checkbox" id="terms" />
+                <input type="checkbox" id="terms" checked={isAgreed} onChange={handleCheckboxChange} />
                 <label htmlFor="terms">
                     I agree to the <a href="#">Terms and Conditions</a>, <a href="#">Privacy policy</a>,{' '}
                     <a href="#">Subscription policy</a>, and the <a href="#">Refund and Cancellation policy</a>.
                 </label>
             </div>
-            <button className="get-plan-button" onClick={handleCheckout}>
+            <button className={`get-plan-button ${isAgreed ? 'enabled' : 'disabled'}`} disabled={!isAgreed}>
                 GET MY PLAN
             </button>
             <p className="disclaimer">
