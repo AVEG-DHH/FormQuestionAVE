@@ -203,6 +203,16 @@
     .terms {
         margin-bottom: 20px;
 
+        input[type='checkbox'] {
+            width: 20px;
+            height: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
         label {
             font-size: 14px;
 
@@ -222,13 +232,22 @@
         color: #fff;
         border: none;
         padding: 10px 20px;
-        border-radius: 8px;
         font-size: 16px;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
-        transition: 0.3s;
+        transition: background-color 0.3s ease;
 
-        &:hover {
-            background-color: #4a148c;
+        &.enabled {
+            background-color: $primary-color;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        &.disabled {
+            background-color: $sub-color;
+            color: $text-light;
+            cursor: not-allowed;
         }
     }
 
