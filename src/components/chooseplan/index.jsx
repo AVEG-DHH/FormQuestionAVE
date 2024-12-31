@@ -13,23 +13,36 @@ const ChoosePlan = () => {
             originalPrice: '₫70,000',
             highlightedPrice: '₫10,000',
             perDay: ' per day',
+            checkoutLink:
+                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
         },
         {
             name: '4-Week Plan',
             originalPrice: '₫224,000',
             highlightedPrice: '₫8,000',
             perDay: ' per day',
+            checkoutLink:
+                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
         },
         {
             name: '12-Week Plan',
             originalPrice: '₫504,000',
             highlightedPrice: '₫6,000',
             perDay: ' per day',
+            checkoutLink:
+                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
         },
     ];
 
     const handlePlanSelection = (planName) => {
         setSelectedPlan(planName);
+    };
+
+    const handleCheckout = () => {
+        const selectedPlanData = plans.find((plan) => plan.name === selectedPlan);
+        if (selectedPlanData) {
+            window.location.href = selectedPlanData.checkoutLink;
+        }
     };
 
     return (
@@ -56,6 +69,7 @@ const ChoosePlan = () => {
                     </div>
                 </div>
             </div>
+
             <div className="plans">
                 {plans.map((plan) => (
                     <div
@@ -85,7 +99,9 @@ const ChoosePlan = () => {
                     <a href="#">Subscription policy</a>, and the <a href="#">Refund and Cancellation policy</a>.
                 </label>
             </div>
-            <button className="get-plan-button">GET MY PLAN</button>
+            <button className="get-plan-button" onClick={handleCheckout}>
+                GET MY PLAN
+            </button>
             <p className="disclaimer">
                 By clicking START MY TRIAL, I agree that the plan I have selected will automatically renew until I
                 cancel, BetterMe will automatically charge my payment method ₫224,000 every 4-week. I can cancel online
