@@ -1,5 +1,17 @@
 @use '../../untils.scss' as *;
 
+@keyframes button-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .choose-plan {
     text-align: center;
     font-family: Arial, sans-serif;
@@ -202,6 +214,9 @@
 
     .terms {
         margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         input[type='checkbox'] {
             width: 20px;
@@ -228,20 +243,23 @@
     }
 
     .get-plan-button {
+        width: 22vw;
+        height: 6vh;
         background-color: $primary-color;
         color: #fff;
         border: none;
         padding: 10px 20px;
         font-size: 16px;
-        border: none;
-        border-radius: 5px;
+        border-radius: 50px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: transform 0.1s ease-in-out;
+        font-size: 18px;
+        font-weight: 550;
 
         &.enabled {
             background-color: $primary-color;
-            color: #fff;
-            cursor: pointer;
+            color: $text-light;
+            animation: button-pulse 1.25s cubic-bezier(0.66, 0, 0, 1) infinite;
         }
 
         &.disabled {
@@ -312,12 +330,23 @@
     }
 }
 
+@media (max-width: 768px) {
+    .choose-plan {
+        .get-plan-button {
+            width: 40%;
+        }
+    }
+}
+
 @media (max-width: 480px) {
     .choose-plan {
         .plans {
             .plan-card {
                 flex-direction: column;
             }
+        }
+        .get-plan-button {
+            width: 100%;
         }
     }
 }

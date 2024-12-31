@@ -40,6 +40,12 @@ const ChoosePlan = () => {
         setIsAgreed(event.target.checked);
     };
 
+    const handleGetMyPlan = () => {
+        console.log('Get my plan: ', selectedPlan);
+        // Gửi giá trị selectedPlan đến parent window
+        window.parent.postMessage({ selectedPlan }, '*');
+    };
+
     return (
         <div className="choose-plan">
             <h1>Choose Your Plan</h1>
@@ -99,7 +105,11 @@ const ChoosePlan = () => {
                     <a href="#">Subscription policy</a>, and the <a href="#">Refund and Cancellation policy</a>.
                 </label>
             </div>
-            <button className={`get-plan-button ${isAgreed ? 'enabled' : 'disabled'}`} disabled={!isAgreed}>
+            <button
+                className={`get-plan-button ${isAgreed ? 'enabled' : 'disabled'}`}
+                disabled={!isAgreed}
+                onClick={handleGetMyPlan}
+            >
                 GET MY PLAN
             </button>
             <p className="disclaimer">
