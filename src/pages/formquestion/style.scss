@@ -1,4 +1,5 @@
-$primary-color: #ea749b;
+@use '../../untils.scss' as *;
+
 
 .block-form-question {
     display: flex;
