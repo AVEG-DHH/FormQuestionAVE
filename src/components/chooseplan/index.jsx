@@ -9,7 +9,6 @@ const ChoosePlan = () => {
     const plans = [
         {
             name: '1-Week Trial',
-            label: '4-WEEK PLAN',
             originalPrice: '₫70,000',
             highlightedPrice: '₫10,000',
             perDay: ' per day',
@@ -33,6 +32,14 @@ const ChoosePlan = () => {
 
     const handlePlanSelection = (planName) => {
         setSelectedPlan(planName);
+    };
+
+    const handleCheckout = () => {
+        const selectedPlanData = plans.find((plan) => plan.name === selectedPlan);
+        if (selectedPlanData) {
+            const iframe = document.getElementById('checkout-iframe');
+            iframe.contentWindow.postMessage({ action: 'redirect', checkoutLink: selectedPlanData.checkoutLink }, '*');
+        }
     };
 
     return (
@@ -59,6 +66,7 @@ const ChoosePlan = () => {
                     </div>
                 </div>
             </div>
+
             <div className="plans">
                 {plans.map((plan) => (
                     <>
@@ -94,7 +102,9 @@ const ChoosePlan = () => {
                     <a href="#">Subscription policy</a>, and the <a href="#">Refund and Cancellation policy</a>.
                 </label>
             </div>
-            <button className="get-plan-button">GET MY PLAN</button>
+            <button className="get-plan-button" onClick={handleCheckout}>
+                GET MY PLAN
+            </button>
             <p className="disclaimer">
                 By clicking START MY TRIAL, I agree that the plan I have selected will automatically renew until I
                 cancel, BetterMe will automatically charge my payment method ₫224,000 every 4-week. I can cancel online
