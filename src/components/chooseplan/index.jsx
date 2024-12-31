@@ -12,24 +12,21 @@ const ChoosePlan = () => {
             originalPrice: '₫70,000',
             highlightedPrice: '₫10,000',
             perDay: ' per day',
-            checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
+            mostPopular: false,
         },
         {
             name: '4-Week Plan',
             originalPrice: '₫224,000',
             highlightedPrice: '₫8,000',
             perDay: ' per day',
-            checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEQzRZRVNFMUJGMFFGVzhDSjYyMFJF',
+            mostPopular: true,
         },
         {
             name: '12-Week Plan',
             originalPrice: '₫504,000',
             highlightedPrice: '₫6,000',
             perDay: ' per day',
-            checkoutLink:
-                'https://naturalcleansing.work/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkdEOUpTNUJQMFI3VDlRRkJROUpNSjha',
+            mostPopular: false,
         },
     ];
 
@@ -72,24 +69,30 @@ const ChoosePlan = () => {
 
             <div className="plans">
                 {plans.map((plan) => (
-                    <div
-                        key={plan.name}
-                        className={`plan-card ${selectedPlan === plan.name ? 'selected' : ''}`}
-                        onClick={() => handlePlanSelection(plan.name)}
-                    >
-                        <div className="plan-header">
-                            <h3>{plan.name}</h3>
-                            <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>
-                                {selectedPlan === plan.name && <span className="tick">✔</span>}
+                    <>
+                        <div
+                            key={plan.name}
+                            className={`plan-card ${selectedPlan === plan.name ? 'selected' : ''}`}
+                            onClick={() => handlePlanSelection(plan.name)}
+                        >
+                            {plan.mostPopular && <div className="block-plans-title">MOST POPULAR</div>}
+                            <div className="plan-header-parent">
+                                <div className="plan-header">
+                                    <h3>{plan.name}</h3>
+
+                                    {plan.label && <div className="plan-label">{plan.label}</div>}
+                                    <div className="original-price">{plan.originalPrice}</div>
+                                </div>
+                                <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>
+                                    {selectedPlan === plan.name && <span className="tick">✔</span>}
+                                </div>
+                            </div>
+                            <div className="highlighted-section">
+                                <span className="highlighted-price">{plan.highlightedPrice}</span>
+                                <span className="per-day">{plan.perDay}</span>
                             </div>
                         </div>
-                        {plan.label && <div className="plan-label">{plan.label}</div>}
-                        <div className="original-price">{plan.originalPrice}</div>
-                        <div className="highlighted-section">
-                            <span className="highlighted-price">{plan.highlightedPrice}</span>
-                            <span className="per-day">{plan.perDay}</span>
-                        </div>
-                    </div>
+                    </>
                 ))}
             </div>
             <div className="terms">
