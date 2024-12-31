@@ -239,14 +239,14 @@
         transition: background-color 0.3s ease;
 
         &.enabled {
-            background-color: #007bff;
+            background-color: $primary-color;
             color: #fff;
             cursor: pointer;
         }
 
         &.disabled {
-            background-color: #ccc;
-            color: #666;
+            background-color: $sub-color;
+            color: $text-light;
             cursor: not-allowed;
         }
     }
