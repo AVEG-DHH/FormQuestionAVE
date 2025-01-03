@@ -6,10 +6,10 @@ const UIFormStep2 = ({ handleNextStep2 }) => {
         <>
             <div className="form-step-2">
                 <div>What is your Gender?</div>
-                <FormControl>
+                <FormControl className='form-step-2__radio'>
                     <RadioGroup name="radio-buttons-group" onChange={handleNextStep2}>
-                        <FormControlLabel value="Male" control={<Radio />} label="Male" />
-                        <FormControlLabel value="Female" control={<Radio />} label="Female" />
+                        <FormControlLabel className='form-step-2__label' value="Male" control={<Radio />} label="Male" />
+                        <FormControlLabel className='form-step-2__label' value="Female" control={<Radio />} label="Female" />
                     </RadioGroup>
                 </FormControl>
             </div>

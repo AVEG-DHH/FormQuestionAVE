@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect, useState } from 'react';
 import {
     Button,
@@ -12,24 +11,22 @@ import {
     TextField,
 } from '@mui/material';
 import { db, ref, set } from '../../firebase';
-import { IoIosClose } from 'react-icons/io';
 import LockIcon from '@mui/icons-material/Lock';
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep2 from '../../components/step/uiformstep2';
 import './style.scss';
+import UIFormStep3 from '../../components/step/uiformstep3';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [showButtonNext, setShowButtonNext] = useState(false);
-    const [selectedUnit, setSelectedUnit] = useState('cm');
-    const [cmValue, setCmValue] = React.useState('');
-    const [ftValue, setFtValue] = React.useState('');
-    const [inValue, setInValue] = React.useState('');
+
+    // state - Step 2
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-    const [isWarningVisible, setIsWarningVisible] = useState(true);
     const [isInputValid, setIsInputValid] = useState(false);
 
     const [formStep1, setFormStep1] = useState(null);
+    const [formStep2, setFormStep2] = useState({ questionGender: '' });
     const [formStep3, setFormStep3] = useState({ question: 'Yes' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
 
@@ -42,33 +39,9 @@ const FormQuestion = () => {
 
     // Function Step 2:
     const handleNextStep2 = (value) => {
-        setFormStep3({ question: value.target.value });
+        setFormStep2({ questionGender: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
-
-    useEffect(() => {
-        if (selectedUnit === 'cm') {
-            setIsInputValid(cmValue >= 90 && cmValue <= 243);
-        } else if (selectedUnit === 'ft') {
-            const isValidFt = ftValue >= 3 && ftValue <= 8;
-            const isValidIn = inValue >= 0 && inValue <= 11;
-            setIsInputValid(isValidFt && isValidIn);
-        }
-    }, [selectedUnit, cmValue, ftValue, inValue]);
-
-    const handleCheckboxChange = (e) => {
-        setIsCheckboxChecked(e.target.checked);
-    };
-
-    const handleCloseWarning = () => {
-        setIsWarningVisible(false);
-    };
-
-    useEffect(() => {
-        if (!isCheckboxChecked && (cmValue || ftValue || inValue)) {
-            setIsWarningVisible(true);
-        }
-    }, [cmValue, ftValue, inValue, isCheckboxChecked]);
 
     const steps = [
         {
@@ -82,208 +55,12 @@ const FormQuestion = () => {
 
         {
             id: 3,
-            content: (
-                <div className="form-step-6">
-                    <h1>How tall are you?</h1>
-                    <div className="form-step-6__container">
-                        <div className="form-step-6__height">
-                            <div className="form-step-6__toggle">
-                                <button
-                                    className={`toggle-btn ${selectedUnit === 'ft' ? 'active' : ''}`}
-                                    onClick={() => setSelectedUnit('ft')}
-                                >
-                                    ft
-                                </button>
-                                <button
-                                    className={`toggle-btn ${selectedUnit === 'cm' ? 'active' : ''}`}
-                                    onClick={() => setSelectedUnit('cm')}
-                                >
-                                    cm
-                                </button>
-                            </div>
-                        </div>
-                        <div className="form-step-6__input">
-                            {selectedUnit === 'cm' ? (
-                                <>
-                                    <div className="input-wrapper">
-                                        <input
-                                            value={cmValue}
-                                            onChange={(e) => {
-                                                const value = e.target.value.replace(/\D/, ''); // Only numeric values
-                                                setCmValue(value);
-                                            }}
-                                            placeholder="Height"
-                                        />
-                                        <span className="input-unit">cm</span>
-                                    </div>
-                                    {cmValue === '' || cmValue < 90 || cmValue > 243 ? (
-                                        <p>
-                                            Please, enter a value from <strong>90 cm</strong> to <strong>243 cm</strong>
-                                        </p>
-                                    ) : null}
-                                </>
-                            ) : (
-                                <>
-                                    <div className="input-wrapper ft-in">
-                                        <div className="input-group">
-                                            <input
-                                                value={ftValue}
-                                                onChange={(e) => {
-                                                    const value = e.target.value.replace(/\D/, '');
-                                                    setFtValue(value);
-                                                }}
-                                                placeholder="Height"
-                                            />
-                                            <span className="input-unit">ft</span>
-                                        </div>
-                                        <div className="input-group">
-                                            <input
-                                                value={inValue}
-                                                onChange={(e) => {
-                                                    const value = e.target.value.replace(/\D/, '');
-                                                    setInValue(value);
-                                                }}
-                                                placeholder="Height"
-                                            />
-                                            <span className="input-unit">in</span>
-                                        </div>
-                                    </div>
-                                    {ftValue === '' ||
-                                    ftValue < 3 ||
-                                    ftValue > 8 ||
-                                    inValue === '' ||
-                                    inValue < 0 ||
-                                    inValue > 11 ? (
-                                        <p>
-                                            Please, enter a value from <strong>3 ft</strong> to{' '}
-                                            <strong>8 ft 11 in</strong>
-                                        </p>
-                                    ) : null}
-                                </>
-                            )}
-                        </div>
-
-                        <div className="form-step-6__checkbox">
-                            <input type="checkbox" id="consent" onChange={handleCheckboxChange} />
-                            <label htmlFor="consent">
-                                I consent to BetterMe processing my health onboarding data to provide services and
-                                enhance my user experience.{' '}
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                    Privacy Policy
-                                </a>
-                            </label>
-                            {/* Conditionally show warning message if checkbox is unchecked and input is entered */}
-                            {!isCheckboxChecked && (cmValue || ftValue || inValue) && isWarningVisible && (
-                                <div className="error-message-consent">
-                                    <span>Consent required to continue</span>
-                                    <IoIosClose className="close-btn" onClick={handleCloseWarning}>
-                                        &times;
-                                    </IoIosClose>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            ),
+            content: <UIFormStep3 isCheckboxChecked={isCheckboxChecked} setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
 
         {
             id: 4,
-            content: (
-                <div className="form-step-6">
-                    <h1>What’s your current weight?</h1>
-                    <div className="form-step-6__container">
-                        <div className="form-step-6__height">
-                            <div className="form-step-6__toggle">
-                                <button
-                                    className={`toggle-btn ${selectedUnit === 'lbs' ? 'active' : ''}`}
-                                    onClick={() => setSelectedUnit('lbs')}
-                                >
-                                    lbs
-                                </button>
-                                <button
-                                    className={`toggle-btn ${selectedUnit === 'kg' ? 'active' : ''}`}
-                                    onClick={() => setSelectedUnit('cm')}
-                                >
-                                    kg
-                                </button>
-                            </div>
-                        </div>
-                        <div className="form-step-6__input">
-                            {selectedUnit === 'cm' ? (
-                                <>
-                                    <div className="input-wrapper">
-                                        <input
-                                            value={cmValue}
-                                            onChange={(e) => {
-                                                const value = e.target.value.replace(/\D/, ''); // Only numeric values
-                                                setCmValue(value);
-                                            }}
-                                            placeholder="Height"
-                                        />
-                                        <span className="input-unit">cm</span>
-                                    </div>
-                                    {cmValue === '' || cmValue < 90 || cmValue > 243 ? (
-                                        <p>
-                                            Please, enter a value from <strong>90 cm</strong> to <strong>243 cm</strong>
-                                        </p>
-                                    ) : null}
-                                </>
-                            ) : (
-                                <>
-                                    <div className="input-wrapper ft-in">
-                                        <div className="input-group">
-                                            <input
-                                                value={ftValue}
-                                                onChange={(e) => {
-                                                    const value = e.target.value.replace(/\D/, '');
-                                                    setFtValue(value);
-                                                }}
-                                                placeholder="Height"
-                                            />
-                                            <span className="input-unit">ft</span>
-                                        </div>
-                                        <div className="input-group">
-                                            <input
-                                                value={inValue}
-                                                onChange={(e) => {
-                                                    const value = e.target.value.replace(/\D/, '');
-                                                    setInValue(value);
-                                                }}
-                                                placeholder="Height"
-                                            />
-                                            <span className="input-unit">in</span>
-                                        </div>
-                                    </div>
-                                    {ftValue === '' ||
-                                    ftValue < 3 ||
-                                    ftValue > 8 ||
-                                    inValue === '' ||
-                                    inValue < 0 ||
-                                    inValue > 11 ? (
-                                        <p>
-                                            Please, enter a value from <strong>3 ft</strong> to{' '}
-                                            <strong>8 ft 11 in</strong>
-                                        </p>
-                                    ) : null}
-                                </>
-                            )}
-                        </div>
-
-                        <div className="form-step-6__checkbox">
-                            {/* Conditionally show warning message if checkbox is unchecked and input is entered */}
-                            {!isCheckboxChecked && (cmValue || ftValue || inValue) && isWarningVisible && (
-                                <div className="error-message-consent">
-                                    <span>Consent required to continue</span>
-                                    <IoIosClose className="close-btn" onClick={handleCloseWarning}>
-                                        &times;
-                                    </IoIosClose>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            ),
+            content: <div className="form-step-6"></div>,
         },
         {
             id: 5,
@@ -579,6 +356,7 @@ const FormQuestion = () => {
     ];
 
     const handleNext = () => {
+        setIsCheckboxChecked(false);
         setShowButtonNext(false); // Disable button during transition
 
         const currentStepElement = document.querySelector(`.step-${currentStep}`);
@@ -640,6 +418,7 @@ const FormQuestion = () => {
             });
     };
     console.log(formStep1);
+    console.log(formStep2);
     return (
         <>
             <Box className="block-form-question">
@@ -658,17 +437,28 @@ const FormQuestion = () => {
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
                     {currentStep < steps.length - 1 ? (
-                        showButtonNext && (
+                        showButtonNext &&
+                        (isCheckboxChecked ? (
                             <Button
                                 className="custom-btn-continue"
                                 variant="contained"
                                 color="primary"
                                 onClick={handleNext}
-                                disabled={!isCheckboxChecked || !isInputValid}
+                                disabled={!isCheckboxChecked}
                             >
                                 Continue
                             </Button>
-                        )
+                        ) : (
+                            <Button
+                                className="custom-btn-continue"
+                                variant="contained"
+                                color="primary"
+                                onClick={handleNext}
+                                disabled={!isInputValid}
+                            >
+                                Continue
+                            </Button>
+                        ))
                     ) : (
                         <Button
                             className="custom-btn-continue"

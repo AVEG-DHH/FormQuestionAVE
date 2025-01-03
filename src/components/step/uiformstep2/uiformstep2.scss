@@ -13,28 +13,43 @@
         font-size: 40px;
         font-weight: 600;
         margin-bottom: 30px;
-        line-height: 1.05;
+        line-height: 1.5;
     }
 
-    .MuiFormControl-root {
-        width: 100%;
+    .form-step-2__radio {
         min-width: 500px;
+
+        .form-step-2__label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            border: 1px solid $border-color;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            flex-direction: row-reverse;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $border-color;
+            }
+        }
     }
+}
 
-    .MuiFormControlLabel-root {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        border: 1px solid $border-color;
-        border-radius: 8px;
-        padding: 10px 20px;
-        margin-bottom: 10px;
-        flex-direction: row-reverse;
-        cursor: pointer;
+@media (max-width: 600px) {
+    .form-step-2 {
+        .form-step-2__radio {
+            min-width: 300px;
+        }
+    }
+}
 
-        &:hover {
-            background-color: $border-color;
+@media (max-width: 425px) {
+    .form-step-2 {
+        .form-step-2__radio {
+            min-width: 200px;
         }
     }
 }
