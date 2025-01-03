@@ -3,10 +3,10 @@ import {
     Button,
     Box,
     Typography,
-    FormControl,
-    RadioGroup,
-    FormControlLabel,
-    Radio,
+    // FormControl,
+    // RadioGroup,
+    // FormControlLabel,
+    // Radio,
     Link,
     TextField,
 } from '@mui/material';
@@ -17,6 +17,16 @@ import UIFormStep2 from '../../components/step/uiformstep2';
 import UIFormStep4 from '../../components/step/uiformstep4';
 import './style.scss';
 import UIFormStep3 from '../../components/step/uiformstep3';
+import UIFormStep5 from '../../components/step/uiformstep5';
+import UIFormStep6 from '../../components/step/uiformstep6';
+import UIFormStep7 from '../../components/step/uiformstep7';
+import UIFormStep8 from '../../components/step/uiformstep8';
+import UIFormStep10 from '../../components/step/uiformstep10';
+import UIFormStep11 from '../../components/step/uiformstep11';
+import UIFormStep12 from '../../components/step/uiformstep12';
+import UIFormStep13 from '../../components/step/uiformstep13';
+import UIFormStep14 from '../../components/step/uiformstep14';
+import UIFormStep15 from '../../components/step/uiformstep15';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -28,7 +38,18 @@ const FormQuestion = () => {
 
     const [formStep1, setFormStep1] = useState(null);
     const [formStep2, setFormStep2] = useState({ questionGender: '' });
-    const [formStep3, setFormStep3] = useState({ question: 'Yes' });
+    const [formStep3, setFormStep3] = useState({ height: '' });
+    const [formStep4, setFormStep4] = useState({ weight: '' });
+    const [formStep5, setFormStep5] = useState({ questionGoal: '' });
+    const [formStep6, setFormStep6] = useState({ questionExercise: '' });
+    const [formStep7, setFormStep7] = useState({ questionHealthIssuse: '' });
+    const [formStep8, setFormStep8] = useState({ questionPOP: '' });
+    const [formStep10, setFormStep10] = useState({ questionInjuries: '' });
+    const [formStep11, setFormStep11] = useState({ questionDailyEnergy: '' });
+    const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
+    const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
+    const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
+    const [formStep15, setFormStep15] = useState({ questionEquipment: '' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
 
     // Function Step 1:
@@ -44,6 +65,74 @@ const FormQuestion = () => {
         setTimeout(() => handleNext(), 300);
     };
 
+    // Function Step 3:
+    const handleNextStep3 = (value) => {
+        setFormStep3({ height: value });
+    };
+    // Function Step 4:
+    const handleNextStep4 = (value) => {
+        setFormStep4({ weight: value });
+    };
+
+    // Function Step 5:
+    const handleNextStep5 = (value) => {
+        setFormStep5({ questionGoal: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 6:
+    const handleNextStep6 = (value) => {
+        setFormStep6({ questionExercise: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 7:
+    const handleNextStep7 = (value) => {
+        setFormStep7({ questionHealthIssuse: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 8:
+    const handleNextStep8 = (value) => {
+        setFormStep8({ questionPOP: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 10:
+    const handleNextStep10 = (value) => {
+        setFormStep10({ questionInjuries: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 11:
+    const handleNextStep11 = (value) => {
+        setFormStep11({ questionDailyEnergy: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 12:
+    const handleNextStep12 = (value) => {
+        setFormStep12({ questionTypeExercise: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 13:
+    const handleNextStep13 = (value) => {
+        setFormStep13({ questionWorkoutPD: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 13:
+    const handleNextStep14 = (value) => {
+        setFormStep14({ questionWorkoutPD: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    const handleNextStep15 = (value) => {
+        setFormStep15({ questionEquipment: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
     const steps = [
         {
             id: 1,
@@ -53,101 +142,35 @@ const FormQuestion = () => {
             id: 2,
             content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
         },
-
         {
             id: 3,
-            content: <UIFormStep3 isCheckboxChecked={isCheckboxChecked} setIsCheckboxChecked={setIsCheckboxChecked} />,
+            content: (
+                <UIFormStep3
+                    handleNextStep3={handleNextStep3}
+                    isCheckboxChecked={isCheckboxChecked}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
         },
-
         {
             id: 4,
-            content: <UIFormStep4 isInputValid={isInputValid} setIsInputValid={setIsInputValid} />,
+            content: <UIFormStep4 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
         },
         {
             id: 5,
-            content: (
-                <div className="form-step-5">
-                    <h1>What is your fitness goal?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="fitness-goal"
-                            // onChange={(e) => setFormStep5({ goal: e.target.value })}
-                        >
-                            <FormControlLabel value="Lose weight" control={<Radio />} label="Lose weight" />
-                            <FormControlLabel value="Maintain weight" control={<Radio />} label="Maintain weight" />
-                            <FormControlLabel value="Gain muscle" control={<Radio />} label="Gain muscle" />
-                            <FormControlLabel
-                                value="Improve overall health"
-                                control={<Radio />}
-                                label="Improve overall health"
-                            />
-                            <FormControlLabel value="Other" control={<Radio />} label="Other" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
         },
         {
             id: 6,
-            content: (
-                <div className="form-step-6">
-                    <h1>How many days a week do you want to exercise?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="exercise-frequency"
-                            // onChange={(e) => setFormStep6({ frequency: e.target.value })}
-                        >
-                            <FormControlLabel value="2 days" control={<Radio />} label="2 days" />
-                            <FormControlLabel value="3 days" control={<Radio />} label="3 days" />
-                            <FormControlLabel value="4 days" control={<Radio />} label="4 days" />
-                            <FormControlLabel value="5 or more days" control={<Radio />} label="5 or more days" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
         },
         {
             id: 7,
-            content: (
-                <div className="form-step-7">
-                    <h1>Do you have any health issues?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="health-issues"
-                            // onChange={(e) => setFormStep7({ issue: e.target.value })}
-                        >
-                            <FormControlLabel value="None" control={<Radio />} label="None" />
-                            <FormControlLabel value="Back pain" control={<Radio />} label="Back pain" />
-                            <FormControlLabel value="Joint pain" control={<Radio />} label="Joint pain" />
-                            <FormControlLabel
-                                value="High/low blood pressure"
-                                control={<Radio />}
-                                label="High/low blood pressure"
-                            />
-                            <FormControlLabel value="Diabetes" control={<Radio />} label="Diabetes" />
-                            <FormControlLabel value="Other" control={<Radio />} label="Other" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
         },
         {
             id: 8,
-            content: (
-                <div className="form-step-8">
-                    <h1>Are you pregnant or postpartum?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="pregnancy-status"
-                            // onChange={(e) => setFormStep8({ status: e.target.value })}
-                        >
-                            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="No" control={<Radio />} label="No" />
-                            <FormControlLabel value="Not applicable" control={<Radio />} label="Not applicable" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep8 handleNextStep8={handleNextStep8} />,
         },
         {
             id: 9,
@@ -162,150 +185,27 @@ const FormQuestion = () => {
         },
         {
             id: 10,
-            content: (
-                <div className="form-step-10">
-                    <h1>Have you experienced any injuries or mobility issues?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="injury-history"
-                            // onChange={(e) => setFormStep10({ injury: e.target.value })}
-                        >
-                            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="No" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        {/* {formStep10.injury === 'Yes' && (
-                            <textarea
-                                placeholder="Please provide details"
-                                // onChange={(e) => setFormStep10({ injuryDetails: e.target.value })}
-                            ></textarea>
-                        )} */}
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
         },
         {
             id: 11,
-            content: (
-                <div className="form-step-11">
-                    <h1>What is your daily energy level?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="energy-level"
-                            // onChange={(e) => setFormStep11({ energy: e.target.value })}
-                        >
-                            <FormControlLabel value="High" control={<Radio />} label="High" />
-                            <FormControlLabel value="Medium" control={<Radio />} label="Medium" />
-                            <FormControlLabel
-                                value="Low - I often feel tired"
-                                control={<Radio />}
-                                label="Low - I often feel tired"
-                            />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep11 handleNextStep11={handleNextStep11} />,
         },
         {
             id: 12,
-            content: (
-                <div className="form-step-12">
-                    <h1>What type of exercises do you enjoy?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="exercise-preference"
-                            // onChange={(e) => setFormStep12({ preference: e.target.value })}
-                        >
-                            <FormControlLabel
-                                value="Cardio (running, jumping rope)"
-                                control={<Radio />}
-                                label="Cardio (running, jumping rope)"
-                            />
-                            <FormControlLabel
-                                value="Strength (weights, planks)"
-                                control={<Radio />}
-                                label="Strength (weights, planks)"
-                            />
-                            <FormControlLabel value="Yoga/Pilates" control={<Radio />} label="Yoga/Pilates" />
-                            <FormControlLabel
-                                value="Flexibility/Balance exercises"
-                                control={<Radio />}
-                                label="Flexibility/Balance exercises"
-                            />
-                            <FormControlLabel value="Not sure yet" control={<Radio />} label="Not sure yet" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
         },
         {
             id: 13,
-            content: (
-                <div className="form-step-13">
-                    <h1>How much time do you usually spend on a workout?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="workout-duration"
-                            // onChange={(e) => setFormStep13({ duration: e.target.value })}
-                        >
-                            <FormControlLabel
-                                value="Less than 15 minutes"
-                                control={<Radio />}
-                                label="Less than 15 minutes"
-                            />
-                            <FormControlLabel value="15-30 minutes" control={<Radio />} label="15-30 minutes" />
-                            <FormControlLabel value="30-60 minutes" control={<Radio />} label="30-60 minutes" />
-                            <FormControlLabel
-                                value="More than 60 minutes"
-                                control={<Radio />}
-                                label="More than 60 minutes"
-                            />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
         },
         {
             id: 14,
-            content: (
-                <div className="form-step-14">
-                    <h1>Where do you prefer to work out?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="workout-location"
-                            // onChange={(e) => setFormStep14({ location: e.target.value })}
-                        >
-                            <FormControlLabel value="At home" control={<Radio />} label="At home" />
-                            <FormControlLabel value="Outdoors" control={<Radio />} label="Outdoors" />
-                            <FormControlLabel value="In a gym" control={<Radio />} label="In a gym" />
-                            <FormControlLabel value="No preference" control={<Radio />} label="No preference" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
         },
         {
             id: 15,
-            content: (
-                <div className="form-step-15">
-                    <h1>What equipment do you have access to?</h1>
-                    <FormControl>
-                        <RadioGroup
-                            name="workout-equipment"
-                            // onChange={(e) => setFormStep15({ equipment: e.target.value })}
-                        >
-                            <FormControlLabel value="None" control={<Radio />} label="None" />
-                            <FormControlLabel value="Chair/mat" control={<Radio />} label="Chair/mat" />
-                            <FormControlLabel value="Dumbbells" control={<Radio />} label="Dumbbells" />
-                            <FormControlLabel value="Resistance bands" control={<Radio />} label="Resistance bands" />
-                            <FormControlLabel
-                                value="Other advanced equipment"
-                                control={<Radio />}
-                                label="Other advanced equipment"
-                            />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
         },
 
         {
@@ -358,7 +258,8 @@ const FormQuestion = () => {
 
     const handleNext = () => {
         setIsCheckboxChecked(false);
-        setShowButtonNext(false); // Disable button during transition
+        setIsInputValid(false);
+        setShowButtonNext(false);
 
         const currentStepElement = document.querySelector(`.step-${currentStep}`);
         currentStepElement.classList.add('fade-out'); // Add fade-out class
@@ -390,7 +291,20 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
-        if (currentStep == 0 || currentStep == 1) {
+        if (
+            currentStep == 0 ||
+            currentStep == 1 ||
+            currentStep == 4 ||
+            currentStep == 5 ||
+            currentStep == 6 ||
+            currentStep == 7 ||
+            currentStep == 9 ||
+            currentStep == 10 ||
+            currentStep == 11 ||
+            currentStep == 12 ||
+            currentStep == 13 ||
+            currentStep == 14
+        ) {
             setShowButtonNext(false);
         }
     }, [currentStep]);
@@ -420,6 +334,19 @@ const FormQuestion = () => {
     };
     console.log(formStep1);
     console.log(formStep2);
+    console.log(formStep3);
+    console.log(formStep4);
+    console.log(formStep5);
+    console.log(formStep6);
+    console.log(formStep7);
+    console.log(formStep8);
+    console.log(formStep10);
+    console.log(formStep11);
+    console.log(formStep12);
+    console.log(formStep13);
+    console.log(formStep14);
+    console.log(formStep15);
+
     return (
         <>
             <Box className="block-form-question">

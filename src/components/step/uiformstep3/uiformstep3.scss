@@ -1,6 +1,6 @@
 @use '../../../untils.scss' as *;
 
-.form-step-6 {
+.form-step-3 {
     text-align: center;
 
     h1 {
@@ -75,6 +75,7 @@
                 text-align: center;
                 border: none;
                 outline: none;
+                width: 80%;
             }
 
             .input-unit {
@@ -89,7 +90,6 @@
                     align-items: center;
 
                     input {
-                        width: 10vw;
                         text-align: center;
                     }
                 }
@@ -142,6 +142,34 @@
             text-align: start;
             font-size: 18px;
             font-weight: bold;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .form-step-3__container {
+        max-width: 60vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-step-3 {
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .form-step-3__input {
+        .input-wrapper {
+            input {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .input-unit {
+                font-size: 24px;
+            }
         }
     }
 }
