@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Button, Box, Typography, Link, TextField } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
-import LockIcon from '@mui/icons-material/Lock';
+import { BiArrowBack } from 'react-icons/bi';
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep2 from '../../components/step/uiformstep2';
 import UIFormStep4 from '../../components/step/uiformstep4';
-import './style.scss';
 import UIFormStep3 from '../../components/step/uiformstep3';
 import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
@@ -19,6 +18,8 @@ import UIFormStep13 from '../../components/step/uiformstep13';
 import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
 import UIFormStep19 from '../../components/step/uiformstep19';
+import UIFormStep20 from '../../components/step/uiformstep20';
+import './style.scss';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -28,7 +29,7 @@ const FormQuestion = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [isInputValid, setIsInputValid] = useState(false);
 
-    const [formStep1, setFormStep1] = useState(null);
+    const [formStep1, setFormStep1] = useState('');
     const [formStep2, setFormStep2] = useState({ questionGender: '' });
     const [formStep3, setFormStep3] = useState({ height: '' });
     const [formStep4, setFormStep4] = useState({ weight: '' });
@@ -140,6 +141,7 @@ const FormQuestion = () => {
             id: 2,
             content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
         },
+
         {
             id: 3,
             content: (
@@ -150,103 +152,73 @@ const FormQuestion = () => {
                 />
             ),
         },
+
         {
             id: 4,
             content: <UIFormStep4 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
         },
+
         {
             id: 5,
             content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
         },
+
         {
             id: 6,
             content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
         },
+
         {
             id: 7,
             content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
         },
+
         {
             id: 8,
             content: <UIFormStep8 handleNextStep8={handleNextStep8} />,
         },
+
         {
             id: 9,
             content: <UIFormStep9 handleNextStep9={handleNextStep9} setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
+
         {
             id: 10,
             content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
         },
+
         {
             id: 11,
             content: <UIFormStep11 handleNextStep11={handleNextStep11} />,
         },
+
         {
             id: 12,
             content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
         },
+
         {
             id: 13,
             content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
         },
+
         {
             id: 14,
             content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
         },
+
         {
             id: 15,
             content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
         },
         {
             id: 19,
-            content: <UIFormStep19 />,
+            content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
         {
             id: 20,
-            content: (
-                <div className="form-step-20">
-                    <Box className="form-step-20__box">
-                        <Typography className="form-step-20__box-h4" variant="h4">
-                            Enter your email to get your
-                        </Typography>
-                        <Typography className="form-step-20__box-h4 form-step-20__box-color" variant="h4">
-                            personalized Chair Yoga Plan
-                        </Typography>
-                        <form style={{ width: '100%' }}>
-                            <TextField
-                                label="Your email"
-                                variant="outlined"
-                                fullWidth
-                                error={formStep20.error}
-                                helperText={formStep20.error ? "This field shouldn't be empty" : ''}
-                                value={formStep20.email}
-                                onChange={(e) => setFormStep20({ email: e.target.value })}
-                                sx={{ mb: 2 }}
-                            />
-                        </form>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 1,
-                                fontSize: '14px',
-                                color: 'gray',
-                            }}
-                        >
-                            <LockIcon fontSize="small" />
-                            <Typography variant="body2">
-                                We respect your privacy and are committed to protecting your personal data. Your data
-                                will be processed in accordance with our{' '}
-                                <Link href="#" underline="always" color="inherit">
-                                    Privacy Policy
-                                </Link>
-                                .
-                            </Typography>
-                        </Box>
-                    </Box>
-                </div>
-            ),
+            content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
         },
     ];
 
@@ -285,7 +257,20 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
-        if (currentStep == 0 || currentStep == 14) {
+        if (
+            currentStep == 0 ||
+            currentStep == 1 ||
+            currentStep == 4 ||
+            currentStep == 5 ||
+            currentStep == 6 ||
+            currentStep == 7 ||
+            currentStep == 9 ||
+            currentStep == 10 ||
+            currentStep == 11 ||
+            currentStep == 12 ||
+            currentStep == 13 ||
+            currentStep == 14
+        ) {
             setShowButtonNext(false);
         }
     }, [currentStep]);
@@ -298,20 +283,35 @@ const FormQuestion = () => {
             setFormStep20({ error: false });
         }
 
-        const userId = Date.now(); // Tạo id người dùng tạm thời
+        window.parent.postMessage('redirect', '*');
 
-        set(ref(db, 'customer-answer/' + userId), {
-            Age: formStep1.age,
-            Question: formStep3.question,
-            EmailCustomer: formStep20.email,
-        })
-            .then(() => {
-                alert('Dữ liệu đã được thêm!');
-                window.parent.postMessage('redirect', '*');
-            })
-            .catch((error) => {
-                console.error('Lỗi khi thêm dữ liệu:', error);
-            });
+        // const userId = Date.now(); // Tạo id người dùng tạm thời
+
+        // set(ref(db, 'customer-answer/' + userId), {
+        //     Age: formStep1.age,
+        //     questionGender: formStep2.questionGender,
+        //     height: formStep3.height,
+        //     weight: formStep4.weight,
+        //     questionGoal: formStep5.questionGoal,
+        //     questionExercise: formStep6.questionExercise,
+        //     questionHealthIssuse: formStep7.questionHealthIssuse,
+        //     questionPOP: formStep8.questionPOP,
+        //     questionFoods: formStep9.questionFoods,
+        //     questionInjuries: formStep10.questionInjuries,
+        //     questionDailyEnergy: formStep11.questionDailyEnergy,
+        //     questionTypeExercise: formStep12.questionTypeExercise,
+        //     questionWorkoutPD: formStep13.questionWorkoutPD,
+        //     questionWorkoutPref: formStep14.questionWorkoutPref,
+        //     questionEquipment: formStep15.questionEquipment,
+        //     EmailCustomer: formStep20.email,
+        // })
+        //     .then(() => {
+        //         alert('Dữ liệu đã được thêm!');
+        //         window.parent.postMessage('redirect', '*');
+        //     })
+        //     .catch((error) => {
+        //         console.error('Lỗi khi thêm dữ liệu:', error);
+        //     });
     };
     console.log(formStep1);
     console.log(formStep2);
@@ -336,7 +336,7 @@ const FormQuestion = () => {
                     <div style={{ width: '100%' }}>
                         <Box className="back-btn-container">
                             <Button variant="contained" color="secondary" onClick={handleBack}>
-                                Back
+                                <BiArrowBack size={24} />
                             </Button>
                         </Box>
                     </div>
@@ -375,7 +375,6 @@ const FormQuestion = () => {
                             variant="contained"
                             color="success"
                             onClick={handleSubmit}
-                            disabled={!isCheckboxChecked || !isInputValid}
                         >
                             Finish
                         </Button>
