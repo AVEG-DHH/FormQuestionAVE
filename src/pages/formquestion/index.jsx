@@ -14,6 +14,7 @@ import { db, ref, set } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep2 from '../../components/step/uiformstep2';
+import UIFormStep4 from '../../components/step/uiformstep4';
 import './style.scss';
 import UIFormStep3 from '../../components/step/uiformstep3';
 
@@ -60,7 +61,7 @@ const FormQuestion = () => {
 
         {
             id: 4,
-            content: <div className="form-step-6"></div>,
+            content: <UIFormStep4 isInputValid={isInputValid} setIsInputValid={setIsInputValid} />,
         },
         {
             id: 5,
