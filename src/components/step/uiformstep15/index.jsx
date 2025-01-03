@@ -1,5 +1,5 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import './UIFormStep15.scss';
+import './uiformstep15.scss';
 // eslint-disable-next-line react/prop-types
 const UIFormStep15 = ({ handleNextStep15 }) => {
     return (
