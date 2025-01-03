@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Box, Typography, CircularProgress, Card, CardContent, Rating, Stack } from '@mui/material';
 import './uiformstep19.scss';
 
-const UIFormStep19 = () => {
+const UIFormStep19 = ({ setIsCheckboxChecked }) => {
     const [progress, setProgress] = useState(0);
     const totalTime = 6000; // Tổng thời gian: 5 giây (5000ms)
     const intervalTime = 100; // Mỗi lần cập nhật: 100ms
@@ -18,6 +18,10 @@ const UIFormStep19 = () => {
                 return prev + step;
             });
         }, intervalTime);
+
+        setTimeout(() => {
+            setIsCheckboxChecked(true);
+        }, 12000);
 
         return () => clearInterval(timer);
     }, []);
@@ -37,7 +41,7 @@ const UIFormStep19 = () => {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        <Typography variant="caption" component="div" color="textSecondary" className='text-percent'>
+                        <Typography variant="caption" component="div" color="textSecondary" className="text-percent">
                             {`${Math.round(progress)}%`}
                         </Typography>
                     </Box>
