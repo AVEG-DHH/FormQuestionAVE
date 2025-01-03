@@ -1,0 +1,40 @@
+@use '../../../untils.scss' as *;
+
+.form-step-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 20px;
+
+    div {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        line-height: 1.05;
+    }
+
+    .MuiFormControl-root {
+        width: 100%;
+        min-width: 500px;
+    }
+
+    .MuiFormControlLabel-root {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        flex-direction: row-reverse;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $border-color;
+        }
+    }
+}

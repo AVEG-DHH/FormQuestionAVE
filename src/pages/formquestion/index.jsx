@@ -12,17 +12,15 @@ import {
     TextField,
 } from '@mui/material';
 import { db, ref, set } from '../../firebase';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import LockIcon from '@mui/icons-material/Lock';
 import { IoIosClose } from 'react-icons/io';
-
+import LockIcon from '@mui/icons-material/Lock';
+import UIFormStep1 from '../../components/step/uiformstep1';
+import UIFormStep2 from '../../components/step/uiformstep2';
 import './style.scss';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [showButtonNext, setShowButtonNext] = useState(false);
-    const [formStep1, setFormStep1] = useState(null);
-    const [formStep3, setFormStep3] = useState({ question: 'Yes' });
     const [selectedUnit, setSelectedUnit] = useState('cm');
     const [cmValue, setCmValue] = React.useState('');
     const [ftValue, setFtValue] = React.useState('');
@@ -30,7 +28,23 @@ const FormQuestion = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [isWarningVisible, setIsWarningVisible] = useState(true);
     const [isInputValid, setIsInputValid] = useState(false);
+
+    const [formStep1, setFormStep1] = useState(null);
+    const [formStep3, setFormStep3] = useState({ question: 'Yes' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
+
+    // Function Step 1:
+    const handleNextStep1 = (value) => {
+        setFormStep1({ age: value });
+        setShowButtonNext(true);
+        handleNext();
+    };
+
+    // Function Step 2:
+    const handleNextStep2 = (value) => {
+        setFormStep3({ question: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
 
     useEffect(() => {
         if (selectedUnit === 'cm') {
@@ -41,12 +55,6 @@ const FormQuestion = () => {
             setIsInputValid(isValidFt && isValidIn);
         }
     }, [selectedUnit, cmValue, ftValue, inValue]);
-
-    const handleNextStep1 = (value) => {
-        setFormStep1({ age: value });
-        setShowButtonNext(true);
-        handleNext();
-    };
 
     const handleCheckboxChange = (e) => {
         setIsCheckboxChecked(e.target.checked);
@@ -65,59 +73,11 @@ const FormQuestion = () => {
     const steps = [
         {
             id: 1,
-            content: (
-                <div className="form-step-1">
-                    <h1>WALL PILATES WORKOUT PLAN</h1>
-                    <h2>BASED ON YOUR AGE</h2>
-                    <div className="form-step-1__content">
-                        <div className="form-step-1__img" onClick={() => handleNextStep1('18-29')}>
-                            <img src="/img/age-18-29.png" alt="img" />
-                            <div className="form-step-1__btn">
-                                Age: 18-29 <ChevronRightIcon />
-                            </div>
-                        </div>
-                        <div className="form-step-1__img" onClick={() => handleNextStep1('30-39')}>
-                            <img src="/img/age-30-39.png" alt="img" />
-                            <div className="form-step-1__btn">
-                                Age: 30-39 <ChevronRightIcon />
-                            </div>
-                        </div>
-                        <div className="form-step-1__img" onClick={() => handleNextStep1('40-49')}>
-                            <img src="/img/age-40-49.png" alt="img" />
-                            <div className="form-step-1__btn">
-                                Age: 40-49 <ChevronRightIcon />
-                            </div>
-                        </div>
-                        <div className="form-step-1__img" onClick={() => handleNextStep1('50+')}>
-                            <img src="/img/age-50+.png" alt="img" />
-                            <div className="form-step-1__btn">
-                                Age: 50+ <ChevronRightIcon />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ),
+            content: <UIFormStep1 handleNextStep1={handleNextStep1} />,
         },
-
         {
             id: 2,
-            content: (
-                <div className="form-step-3">
-                    <div>What is your Gender?</div>
-                    <FormControl>
-                        <RadioGroup
-                            name="radio-buttons-group"
-                            onChange={(e) => {
-                                setFormStep3({ question: e.target.value });
-                                setTimeout(() => handleNext(), 300);
-                            }}
-                        >
-                            <FormControlLabel value="Male" control={<Radio />} label="Male" />
-                            <FormControlLabel value="Female" control={<Radio />} label="Female" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
-            ),
+            content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
         },
 
         {
@@ -230,10 +190,97 @@ const FormQuestion = () => {
         {
             id: 4,
             content: (
-                <div className="form-step-4">
-                    <h1>What is your current weight?</h1>
-                    <div className="form-step-4__input">
-                        <input type="number" placeholder="Enter your weight (kg)" />
+                <div className="form-step-6">
+                    <h1>What’s your current weight?</h1>
+                    <div className="form-step-6__container">
+                        <div className="form-step-6__height">
+                            <div className="form-step-6__toggle">
+                                <button
+                                    className={`toggle-btn ${selectedUnit === 'lbs' ? 'active' : ''}`}
+                                    onClick={() => setSelectedUnit('lbs')}
+                                >
+                                    lbs
+                                </button>
+                                <button
+                                    className={`toggle-btn ${selectedUnit === 'kg' ? 'active' : ''}`}
+                                    onClick={() => setSelectedUnit('cm')}
+                                >
+                                    kg
+                                </button>
+                            </div>
+                        </div>
+                        <div className="form-step-6__input">
+                            {selectedUnit === 'cm' ? (
+                                <>
+                                    <div className="input-wrapper">
+                                        <input
+                                            value={cmValue}
+                                            onChange={(e) => {
+                                                const value = e.target.value.replace(/\D/, ''); // Only numeric values
+                                                setCmValue(value);
+                                            }}
+                                            placeholder="Height"
+                                        />
+                                        <span className="input-unit">cm</span>
+                                    </div>
+                                    {cmValue === '' || cmValue < 90 || cmValue > 243 ? (
+                                        <p>
+                                            Please, enter a value from <strong>90 cm</strong> to <strong>243 cm</strong>
+                                        </p>
+                                    ) : null}
+                                </>
+                            ) : (
+                                <>
+                                    <div className="input-wrapper ft-in">
+                                        <div className="input-group">
+                                            <input
+                                                value={ftValue}
+                                                onChange={(e) => {
+                                                    const value = e.target.value.replace(/\D/, '');
+                                                    setFtValue(value);
+                                                }}
+                                                placeholder="Height"
+                                            />
+                                            <span className="input-unit">ft</span>
+                                        </div>
+                                        <div className="input-group">
+                                            <input
+                                                value={inValue}
+                                                onChange={(e) => {
+                                                    const value = e.target.value.replace(/\D/, '');
+                                                    setInValue(value);
+                                                }}
+                                                placeholder="Height"
+                                            />
+                                            <span className="input-unit">in</span>
+                                        </div>
+                                    </div>
+                                    {ftValue === '' ||
+                                    ftValue < 3 ||
+                                    ftValue > 8 ||
+                                    inValue === '' ||
+                                    inValue < 0 ||
+                                    inValue > 11 ? (
+                                        <p>
+                                            Please, enter a value from <strong>3 ft</strong> to{' '}
+                                            <strong>8 ft 11 in</strong>
+                                        </p>
+                                    ) : null}
+                                </>
+                            )}
+                        </div>
+
+                        <div className="form-step-6__checkbox">
+                            {/* Conditionally show warning message if checkbox is unchecked and input is entered */}
+                            {!isCheckboxChecked && (cmValue || ftValue || inValue) && isWarningVisible && (
+                                <div className="error-message-consent">
+                                    <span>Consent required to continue</span>
+                                    <IoIosClose className="close-btn" onClick={handleCloseWarning}>
+                                        &times;
+                                    </IoIosClose>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             ),
@@ -592,7 +639,7 @@ const FormQuestion = () => {
                 console.error('Lỗi khi thêm dữ liệu:', error);
             });
     };
-
+    console.log(formStep1);
     return (
         <>
             <Box className="block-form-question">
