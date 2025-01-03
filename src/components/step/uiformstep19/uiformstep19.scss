@@ -1,0 +1,50 @@
+@use '../../../untils.scss' as *;
+
+.chair-yoga-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+
+    .block-Circular {
+        width: 120px !important;
+        height: 120px !important;
+        color: $primary-color;
+    }
+
+    .text-percent {
+        font-size: 24px;
+        font-weight: bold;
+        color: $text-dark;
+    }
+}
+
+.progress-section {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 16px;
+}
+
+.progress-bar {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.progress-text {
+    margin-top: 8px;
+}
+
+.testimonial-card {
+    max-width: 400px;
+    margin-top: 16px;
+}
+
+.testimonial-rating {
+    margin-bottom: 8px;
+}
+
+.testimonial-author {
+    margin-top: 16px;
+    font-style: italic;
+}

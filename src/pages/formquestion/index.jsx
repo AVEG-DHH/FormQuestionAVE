@@ -1,15 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-    Button,
-    Box,
-    Typography,
-    // FormControl,
-    // RadioGroup,
-    // FormControlLabel,
-    // Radio,
-    Link,
-    TextField,
-} from '@mui/material';
+import { Button, Box, Typography, Link, TextField } from '@mui/material';
 import { db, ref, set } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 import UIFormStep1 from '../../components/step/uiformstep1';
@@ -21,12 +11,14 @@ import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep7 from '../../components/step/uiformstep7';
 import UIFormStep8 from '../../components/step/uiformstep8';
+import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep10 from '../../components/step/uiformstep10';
 import UIFormStep11 from '../../components/step/uiformstep11';
 import UIFormStep12 from '../../components/step/uiformstep12';
 import UIFormStep13 from '../../components/step/uiformstep13';
 import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
+import UIFormStep19 from '../../components/step/uiformstep19';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -44,6 +36,7 @@ const FormQuestion = () => {
     const [formStep6, setFormStep6] = useState({ questionExercise: '' });
     const [formStep7, setFormStep7] = useState({ questionHealthIssuse: '' });
     const [formStep8, setFormStep8] = useState({ questionPOP: '' });
+    const [formStep9, setFormStep9] = useState({ questionFoods: '' });
     const [formStep10, setFormStep10] = useState({ questionInjuries: '' });
     const [formStep11, setFormStep11] = useState({ questionDailyEnergy: '' });
     const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
@@ -96,6 +89,11 @@ const FormQuestion = () => {
     const handleNextStep8 = (value) => {
         setFormStep8({ questionPOP: value.target.value });
         setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 9:
+    const handleNextStep9 = (value) => {
+        setFormStep9({ questionFoods: value });
     };
 
     // Function Step 10:
@@ -174,14 +172,7 @@ const FormQuestion = () => {
         },
         {
             id: 9,
-            content: (
-                <div className="form-step-9">
-                    <h1>Do you have any food allergies or follow a special diet?</h1>
-                    <div className="form-step-9__input">
-                        <input type="text" placeholder="Example: Dairy-free, Vegan, Gluten-free, None" />
-                    </div>
-                </div>
-            ),
+            content: <UIFormStep9 handleNextStep9={handleNextStep9} setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
         {
             id: 10,
@@ -207,7 +198,10 @@ const FormQuestion = () => {
             id: 15,
             content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
         },
-
+        {
+            id: 19,
+            content: <UIFormStep19 />,
+        },
         {
             id: 20,
             content: (
@@ -291,20 +285,7 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
-        if (
-            currentStep == 0 ||
-            currentStep == 1 ||
-            currentStep == 4 ||
-            currentStep == 5 ||
-            currentStep == 6 ||
-            currentStep == 7 ||
-            currentStep == 9 ||
-            currentStep == 10 ||
-            currentStep == 11 ||
-            currentStep == 12 ||
-            currentStep == 13 ||
-            currentStep == 14
-        ) {
+        if (currentStep == 0 || currentStep == 14) {
             setShowButtonNext(false);
         }
     }, [currentStep]);
@@ -340,6 +321,7 @@ const FormQuestion = () => {
     console.log(formStep6);
     console.log(formStep7);
     console.log(formStep8);
+    console.log(formStep9);
     console.log(formStep10);
     console.log(formStep11);
     console.log(formStep12);
