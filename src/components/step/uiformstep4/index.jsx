@@ -1,13 +1,13 @@
 import './uiformstep4.scss';
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-
-const UIFormStep4 = ({ setIsInputValid }) => {
+// eslint-disable-next-line react/prop-types
+const UIFormStep4 = ({ setIsInputValid, handleNextStep4 }) => {
     const [selectedUnit, setSelectedUnit] = useState('kg');
     const [weightValue, setWeightValue] = useState('');
 
     useEffect(() => {
         const numericValue = parseFloat(weightValue);
+        console.log(numericValue);
         if (
             weightValue.trim() !== '' &&
             ((selectedUnit === 'kg' && numericValue >= 25 && numericValue <= 300) ||
@@ -17,7 +17,12 @@ const UIFormStep4 = ({ setIsInputValid }) => {
         } else {
             setIsInputValid(false);
         }
+        handleNextStep4(selectedUnit === 'kg' ? `${weightValue} kg` : `${weightValue} lbs`);
     }, [weightValue, selectedUnit, setIsInputValid]);
+
+    useEffect(() => {
+        setWeightValue('');
+    }, [selectedUnit]);
 
     return (
         <div className="form-step-4">
@@ -62,10 +67,6 @@ const UIFormStep4 = ({ setIsInputValid }) => {
             </div>
         </div>
     );
-};
-
-UIFormStep4.propTypes = {
-    setIsInputValid: PropTypes.func.isRequired,
 };
 
 export default UIFormStep4;

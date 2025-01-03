@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
 import './uiformstep3.scss';
 // eslint-disable-next-line react/prop-types
-const UIFormStep3 = ({ isCheckboxChecked, setIsCheckboxChecked }) => {
+const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked }) => {
     const [selectedUnit, setSelectedUnit] = useState('cm');
     const [cmValue, setCmValue] = useState('');
     const [ftValue, setFtValue] = useState('');
@@ -10,20 +10,45 @@ const UIFormStep3 = ({ isCheckboxChecked, setIsCheckboxChecked }) => {
     const [isWarningVisible, setIsWarningVisible] = useState(true);
 
     useEffect(() => {
-        if (!isCheckboxChecked && (cmValue || ftValue || inValue)) {
+        if ((!isCheckboxChecked || cmValue === '' || cmValue < 90 || cmValue > 243) && ftValue === '') {
             setIsWarningVisible(true);
-        }else {
-            setIsWarningVisible(false);
+            return;
         }
+
+        if (
+            (!isCheckboxChecked ||
+                ftValue === '' ||
+                ftValue < 3 ||
+                ftValue > 8 ||
+                inValue === '' ||
+                inValue < 0 ||
+                inValue > 11) &&
+            cmValue === ''
+        ) {
+            setIsWarningVisible(true);
+            return;
+        }
+
+        handleNextStep3(selectedUnit === 'cm' ? `${cmValue} cm` : `${ftValue} ft ${inValue} in`);
+        setIsWarningVisible(false);
     }, [cmValue, ftValue, inValue, isCheckboxChecked]);
+
+    useEffect(() => {
+        if (selectedUnit === 'cm') {
+            setFtValue('');
+            setInValue('');
+        } else {
+            setCmValue('');
+        }
+    }, [selectedUnit]);
 
     return (
         <>
-            <div className="form-step-6">
+            <div className="form-step-3">
                 <h1>How tall are you?</h1>
-                <div className="form-step-6__container">
-                    <div className="form-step-6__height">
-                        <div className="form-step-6__toggle">
+                <div className="form-step-3__container">
+                    <div className="form-step-3__height">
+                        <div className="form-step-3__toggle">
                             <button
                                 className={`toggle-btn ${selectedUnit === 'ft' ? 'active' : ''}`}
                                 onClick={() => setSelectedUnit('ft')}
@@ -38,7 +63,7 @@ const UIFormStep3 = ({ isCheckboxChecked, setIsCheckboxChecked }) => {
                             </button>
                         </div>
                     </div>
-                    <div className="form-step-6__input">
+                    <div className="form-step-3__input">
                         {selectedUnit === 'cm' ? (
                             <>
                                 <div className="input-wrapper">
@@ -68,7 +93,7 @@ const UIFormStep3 = ({ isCheckboxChecked, setIsCheckboxChecked }) => {
                                                 const value = e.target.value.replace(/\D/, '');
                                                 setFtValue(value);
                                             }}
-                                            placeholder="Height"
+                                            placeholder=""
                                         />
                                         <span className="input-unit">ft</span>
                                     </div>
@@ -79,7 +104,7 @@ const UIFormStep3 = ({ isCheckboxChecked, setIsCheckboxChecked }) => {
                                                 const value = e.target.value.replace(/\D/, '');
                                                 setInValue(value);
                                             }}
-                                            placeholder="Height"
+                                            placeholder=""
                                         />
                                         <span className="input-unit">in</span>
                                     </div>
@@ -98,8 +123,13 @@ const UIFormStep3 = ({ isCheckboxChecked, setIsCheckboxChecked }) => {
                         )}
                     </div>
 
-                    <div className="form-step-6__checkbox">
-                        <input type="checkbox" id="consent" onChange={(e) => setIsCheckboxChecked(e.target.checked)} />
+                    <div className="form-step-3__checkbox">
+                        <input
+                            type="checkbox"
+                            value={isCheckboxChecked}
+                            id="consent"
+                            onChange={(e) => setIsCheckboxChecked(e.target.checked)}
+                        />
                         <label htmlFor="consent">
                             I consent to BetterMe processing my health onboarding data to provide services and enhance
                             my user experience.{' '}
