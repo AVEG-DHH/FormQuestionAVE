@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Typography, CircularProgress, Card, CardContent, Rating, Stack } from '@mui/material';
 import './uiformstep19.scss';
 
 const UIFormStep19 = ({ setIsCheckboxChecked }) => {
     const [progress, setProgress] = useState(0);
-    const totalTime = 6000; // Tổng thời gian: 5 giây (5000ms)
+    const totalTime = 6000; // Tổng thời gian: 6 giây (6000ms)
     const intervalTime = 100; // Mỗi lần cập nhật: 100ms
 
     useEffect(() => {
@@ -13,18 +14,15 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
             setProgress((prev) => {
                 if (prev >= 100) {
                     clearInterval(timer);
+                    setIsCheckboxChecked(true);
                     return 100;
                 }
                 return prev + step;
             });
         }, intervalTime);
 
-        setTimeout(() => {
-            setIsCheckboxChecked(true);
-        }, 12000);
-
         return () => clearInterval(timer);
-    }, []);
+    }, [setIsCheckboxChecked]);
 
     return (
         <Box className="chair-yoga-container">
@@ -75,6 +73,10 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
             </Card>
         </Box>
     );
+};
+
+UIFormStep19.propTypes = {
+    setIsCheckboxChecked: PropTypes.func.isRequired,
 };
 
 export default UIFormStep19;

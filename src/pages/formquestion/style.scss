@@ -63,9 +63,48 @@
     border-bottom: 1px solid lightgray;
 }
 
+.back-btn-container {
+    position: relative;
+    top: -40px;
+    left: 0;
+
+    button {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid $border-color;
+        background-color: transparent;
+        color: $text-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $backgroud-light;
+            border-color: $border-color;
+        }
+
+        &:active {
+            background-color: $disabled-color;
+            border-color: $border-color;
+        }
+    }
+}
+
 .custom-btn-continue {
-    width: 200px;
-    border-radius: 20px !important;
+    background-color: $primary-color !important;
+    color: $text-light;
+    border: none;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+        background-color: $disabled-color !important;
+        color: $text-light;
+    }
 }
 
 @media (max-width: 768px) {
