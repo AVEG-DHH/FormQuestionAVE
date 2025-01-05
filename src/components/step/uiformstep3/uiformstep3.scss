@@ -1,5 +1,23 @@
 @use '../../../untils.scss' as *;
 
+@keyframes horizontal-shaking {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .form-step-3 {
     text-align: center;
 
@@ -108,11 +126,23 @@
     }
 
     &__checkbox {
-        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 30px !important;
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
         label {
             font-size: 14px;
             color: $sub-color;
+            line-height: 1.4;
 
             a {
                 color: #007bff;
@@ -121,27 +151,35 @@
         }
 
         input {
-            margin-right: 10px;
+            margin: 0;
+            cursor: pointer;
+            width: 24px;
+            height: 25px;
         }
 
         .close-btn {
             cursor: pointer;
-            font-size: 20px;
+            font-size: 40px;
+            font-weight: bold;
         }
 
         .error-message-consent {
             background-color: $error-color;
-            margin-top: 16px;
-            align-items: center;
-            display: flex;
+            margin-top: 8px;
             padding: 10px;
             border-radius: 16px;
-            min-width: 20vw;
-            color: $text-light;
-            gap: 8px;
-            text-align: start;
-            font-size: 18px;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 16px;
             font-weight: bold;
+            justify-content: space-between;
+            min-width: 95%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            &.horizontal-shaking {
+                animation: horizontal-shaking 0.5s ease-in-out forwards;
+            }
         }
     }
 }
