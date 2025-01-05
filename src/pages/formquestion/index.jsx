@@ -137,6 +137,7 @@ const FormQuestion = () => {
             id: 1,
             content: <UIFormStep1 handleNextStep1={handleNextStep1} />,
         },
+
         {
             id: 2,
             content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
@@ -285,33 +286,33 @@ const FormQuestion = () => {
 
         window.parent.postMessage('redirect', '*');
 
-        // const userId = Date.now(); // Tạo id người dùng tạm thời
+        const userId = Date.now();
+        const customerData = {
+            Age: formStep1.age || null,
+            questionGender: formStep2.questionGender || null,
+            height: formStep3.height || null,
+            weight: formStep4.weight || null,
+            questionGoal: formStep5.questionGoal || null,
+            questionExercise: formStep6.questionExercise || null,
+            questionHealthIssues: formStep7.questionHealthIssuse || null,
+            questionPOP: formStep8.questionPOP || null,
+            questionFoods: formStep9.questionFoods || null,
+            questionInjuries: formStep10.questionInjuries || null,
+            questionDailyEnergy: formStep11.questionDailyEnergy || null,
+            questionTypeExercise: formStep12.questionTypeExercise || null,
+            questionWorkoutPD: formStep13.questionWorkoutPD || null,
+            questionWorkoutPref: formStep14.questionWorkoutPref || null,
+            questionEquipment: formStep15.questionEquipment || null,
+            EmailCustomer: formStep20.email || null,
+        };
 
-        // set(ref(db, 'customer-answer/' + userId), {
-        //     Age: formStep1.age,
-        //     questionGender: formStep2.questionGender,
-        //     height: formStep3.height,
-        //     weight: formStep4.weight,
-        //     questionGoal: formStep5.questionGoal,
-        //     questionExercise: formStep6.questionExercise,
-        //     questionHealthIssuse: formStep7.questionHealthIssuse,
-        //     questionPOP: formStep8.questionPOP,
-        //     questionFoods: formStep9.questionFoods,
-        //     questionInjuries: formStep10.questionInjuries,
-        //     questionDailyEnergy: formStep11.questionDailyEnergy,
-        //     questionTypeExercise: formStep12.questionTypeExercise,
-        //     questionWorkoutPD: formStep13.questionWorkoutPD,
-        //     questionWorkoutPref: formStep14.questionWorkoutPref,
-        //     questionEquipment: formStep15.questionEquipment,
-        //     EmailCustomer: formStep20.email,
-        // })
-        //     .then(() => {
-        //         alert('Dữ liệu đã được thêm!');
-        //         window.parent.postMessage('redirect', '*');
-        //     })
-        //     .catch((error) => {
-        //         console.error('Lỗi khi thêm dữ liệu:', error);
-        //     });
+        set(ref(db, `customer-answer/${userId}`), customerData)
+            .then(() => {
+                alert('Dữ liệu đã được thêm thành công!');
+            })
+            .catch((error) => {
+                console.error('Lỗi khi thêm dữ liệu lên Firebase:', error);
+            });
     };
     console.log(formStep1);
     console.log(formStep2);
