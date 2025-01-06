@@ -19,11 +19,13 @@ import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
 import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
+import Loading from '../../components/loading';
 import './style.scss';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [showButtonNext, setShowButtonNext] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     // state - Step 2
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -224,6 +226,7 @@ const FormQuestion = () => {
     ];
 
     const handleNext = () => {
+        setIsLoading(true);
         setIsCheckboxChecked(false);
         setIsInputValid(false);
         setShowButtonNext(false);
@@ -274,6 +277,9 @@ const FormQuestion = () => {
         ) {
             setShowButtonNext(false);
         }
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
     }, [currentStep]);
 
     const handleSubmit = () => {
@@ -314,24 +320,16 @@ const FormQuestion = () => {
                 console.error('Lỗi khi thêm dữ liệu lên Firebase:', error);
             });
     };
-    console.log(formStep1);
-    console.log(formStep2);
-    console.log(formStep3);
-    console.log(formStep4);
-    console.log(formStep5);
-    console.log(formStep6);
-    console.log(formStep7);
-    console.log(formStep8);
-    console.log(formStep9);
-    console.log(formStep10);
-    console.log(formStep11);
-    console.log(formStep12);
-    console.log(formStep13);
-    console.log(formStep14);
-    console.log(formStep15);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+    }, []);
 
     return (
         <>
+            {isLoading && <Loading />}
             <Box className="block-form-question">
                 {currentStep > 0 && (
                     <div>

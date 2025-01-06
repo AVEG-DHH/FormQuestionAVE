@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { IoIosClose } from 'react-icons/io';
+import { Checkbox, FormControlLabel, Link } from '@mui/material';
 import './uiformstep3.scss';
 import PropTypes from 'prop-types';
 
@@ -127,19 +128,24 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
 
                 <div className="form-step-3__checkbox">
                     <div className="checkbox-container">
-                        <input
-                            type="checkbox"
-                            checked={isCheckboxChecked}
-                            id="consent"
-                            onChange={(e) => setIsCheckboxChecked(e.target.checked)}
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={isCheckboxChecked}
+                                    onChange={(e) => setIsCheckboxChecked(e.target.checked)}
+                                    color="primary"
+                                />
+                            }
+                            label={
+                                <>
+                                    I consent to Natural Cleansing processing my health onboarding to provide services
+                                    and enhance my user experience.{' '}
+                                    <Link href="#" target="_blank" rel="noopener noreferrer">
+                                        Privacy Policy
+                                    </Link>
+                                </>
+                            }
                         />
-                        <label htmlFor="consent">
-                            I consent to Natural Cleansing processing my health onboarding to provide services and
-                            enhance my user experience.{' '}
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                Privacy Policy
-                            </a>
-                        </label>
                     </div>
                     {!isCheckboxChecked && (cmValue !== '' || ftValue !== '' || inValue !== '') && isWarningVisible && (
                         <div className={`error-message-consent ${isWarningVisible ? 'horizontal-shaking' : ''}`}>
