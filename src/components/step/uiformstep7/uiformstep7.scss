@@ -35,6 +35,20 @@
             &:hover {
                 background-color: $border-color;
             }
+
+            .form-step-7__content {
+                display: flex;
+                align-items: center;
+            }
+
+            .form-step-7__icon {
+                margin-right: 8px;
+                font-size: 24px;
+                color: $text-dark;
+                background-color: $disabled-color;
+                border-radius: 50%;
+                padding: 8px;
+            }
         }
     }
 }

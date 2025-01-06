@@ -1,4 +1,5 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { MdClose } from 'react-icons/md';
 import './uiformstep7.scss';
 // eslint-disable-next-line react/prop-types
 const UIFormStep7 = ({ handleNextStep7 }) => {
@@ -12,38 +13,88 @@ const UIFormStep7 = ({ handleNextStep7 }) => {
                             className="form-step-7__label"
                             value="None"
                             control={<Radio />}
-                            label="None"
+                            label={
+                                <p className="form-step-7__content">
+                                    <MdClose className="form-step-7__icon" />
+                                    None
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-7__label"
                             value="Back pain"
                             control={<Radio />}
-                            label="Back pain"
+                            label={
+                                <p className="form-step-7__content">
+                                    <img
+                                        src="/icons/back-pain-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-7__icon"
+                                    />
+                                    Back pain
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-7__label"
                             value="Joint pain"
                             control={<Radio />}
-                            label="Joint pain"
+                            label={
+                                <p className="form-step-7__content">
+                                    <img
+                                        src="/icons/knee-joint-pain-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-7__icon"
+                                    />
+                                    Joint pain
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-7__label"
                             value="High/low blood pressure"
                             control={<Radio />}
-                            label="High/low blood pressure"
+                            label={
+                                <p className="form-step-7__content">
+                                    <img
+                                        src="/icons/blood-pressure-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-7__icon"
+                                    />
+                                    High/low blood pressure
+                                </p>
+                            }
                         />
 
                         <FormControlLabel
                             className="form-step-7__label"
                             value="Diabetes"
                             control={<Radio />}
-                            label="Diabetes"
+                            label={
+                                <p className="form-step-7__content">
+                                    <img
+                                        src="/icons/diabetes.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-7__icon"
+                                    />
+                                    Diabetes
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-7__label"
                             value="Other"
                             control={<Radio />}
-                            label="Other"
+                            label={
+                                <p className="form-step-7__content">
+                                    <img
+                                        src="/icons/more-options-ellipsis-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-7__icon"
+                                    />
+                                    Other
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>
