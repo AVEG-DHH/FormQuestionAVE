@@ -334,14 +334,13 @@ const FormQuestion = () => {
         <>
             <Box className="block-form-question">
                 {currentStep > 0 && (
-                    <div style={{ width: '100%' }}>
-                        <Box className="back-btn-container">
-                            <Button variant="contained" color="secondary" onClick={handleBack}>
-                                <BiArrowBack size={24} />
-                            </Button>
-                        </Box>
+                    <div>
+                        <div className="back-btn-container" onClick={handleBack}>
+                            <BiArrowBack />
+                        </div>
                     </div>
                 )}
+
                 <Typography variant="h6" className="custom-block-step" sx={{ marginBottom: 3 }}>
                     <div className={`step-content step-${currentStep}`}>{steps[currentStep].content}</div>
                 </Typography>

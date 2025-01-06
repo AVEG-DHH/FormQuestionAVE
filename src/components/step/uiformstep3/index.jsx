@@ -36,16 +36,7 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
         } else if (errorMessageRef.current) {
             errorMessageRef.current.classList.remove('horizontal-shaking');
         }
-    }, [
-        cmValue,
-        ftValue,
-        inValue,
-        isCheckboxChecked,
-        selectedUnit,
-        hasClosedWarning,
-        handleNextStep3,
-        checkWarningVisibility,
-    ]);
+    }, [cmValue, ftValue, inValue, isCheckboxChecked, selectedUnit, hasClosedWarning, checkWarningVisibility]);
 
     useEffect(() => {
         if (selectedUnit === 'cm') {
@@ -56,17 +47,16 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
         }
     }, [selectedUnit]);
 
-    // Đảm bảo chỉ hiển thị lại cảnh báo khi người dùng thay đổi input
     useEffect(() => {
         if ((cmValue !== '' || ftValue !== '' || inValue !== '') && hasClosedWarning) {
-            setHasClosedWarning(false); // Reset trạng thái khi có thay đổi giá trị
-            setIsWarningVisible(true); // Hiển thị lại cảnh báo
+            setHasClosedWarning(false);
+            setIsWarningVisible(true);
         }
     }, [cmValue, ftValue, inValue, hasClosedWarning]);
 
     const handleCloseWarning = () => {
         setIsWarningVisible(false);
-        setHasClosedWarning(true); // Cập nhật trạng thái để ẩn cảnh báo khi người dùng nhấn đóng
+        setHasClosedWarning(true);
     };
 
     return (
@@ -144,8 +134,8 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
                             onChange={(e) => setIsCheckboxChecked(e.target.checked)}
                         />
                         <label htmlFor="consent">
-                            I consent to Natural Cleansing processing my health onboarding <br /> to provide services
-                            and enhance my user experience.{' '}
+                            I consent to Natural Cleansing processing my health onboarding to provide services and
+                            enhance my user experience.{' '}
                             <a href="#" target="_blank" rel="noopener noreferrer">
                                 Privacy Policy
                             </a>
