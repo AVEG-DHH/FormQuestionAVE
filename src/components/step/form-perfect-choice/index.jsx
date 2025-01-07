@@ -8,8 +8,11 @@ const UIFormStep2 = ({ handleNextStep2 }) => {
         <div className="form-step-2">
             <div className="form-step-2__content">
                 <div className="form-step-2__question">
-                    <h1>Over 2 million women</h1>
-                    <p>in their 40s have already tried Natural Cleansing</p>
+                    <h1>Natural Cleansing is the perfect choice for workouts at any fitness level.</h1>
+                    <p>
+                        Just follow our guidance, embrace the journey, and get ready to achieve your dream physique with
+                        ease!
+                    </p>
                 </div>
 
                 <div className="form-step-2__img">

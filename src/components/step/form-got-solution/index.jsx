@@ -8,8 +8,12 @@ const UIFormStep2 = ({ handleNextStep2 }) => {
         <div className="form-step-2">
             <div className="form-step-2__content">
                 <div className="form-step-2__question">
-                    <h1>Over 2 million women</h1>
-                    <p>in their 40s have already tried Natural Cleansing</p>
+                    <h1>We’ve got the solution!</h1>
+                    <p>
+                        {' '}
+                        For women in their XXXs, Natural Cleansing is an excellent choice to YYY with minimal effort.
+                        Just 10-15 minutes a day to start seeing the first results.
+                    </p>
                 </div>
 
                 <div className="form-step-2__img">
