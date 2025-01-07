@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
 import UIFormStep1 from '../../components/step/uiformstep1';
-import UIFormStep2 from '../../components/step/uiformstep2';
+import UIFormStep1_1 from '../../components/step/uiformstep1_1';
 import UIFormStep4 from '../../components/step/uiformstep4';
 import UIFormStep3 from '../../components/step/uiformstep3';
 import UIFormStep5 from '../../components/step/uiformstep5';
@@ -31,7 +31,7 @@ const FormQuestion = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [isInputValid, setIsInputValid] = useState(false);
 
-    const [formStep1, setFormStep1] = useState('');
+    const [formStep1, setFormStep1] = useState({ age: '' });
     const [formStep2, setFormStep2] = useState({ questionGender: '' });
     const [formStep3, setFormStep3] = useState({ height: '' });
     const [formStep4, setFormStep4] = useState({ weight: '' });
@@ -142,7 +142,7 @@ const FormQuestion = () => {
 
         {
             id: 2,
-            content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
+            content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
         },
 
         {
@@ -263,7 +263,6 @@ const FormQuestion = () => {
     useEffect(() => {
         if (
             currentStep == 0 ||
-            currentStep == 1 ||
             currentStep == 4 ||
             currentStep == 5 ||
             currentStep == 6 ||
