@@ -1,9 +1,5 @@
 @use '../../../untils.scss' as *;
 
-.custom-block-step {
-    border-bottom: none !important;
-}
-
 .form-step-6 {
     display: flex;
     flex-direction: column;
@@ -95,9 +91,9 @@
 }
 
 @media (max-width: 600px) {
-    .block-form-question {
-        padding-top: 20px !important;  
-    }
+    // .block-form-question {
+    //     padding-top: 20px !important;  
+    // }
 
     .form-step-6 {
         justify-content: start;

@@ -34,6 +34,13 @@ const UIFormStep1 = ({ handleNextStep1 }) => {
                         </div>
                     </div>
                 </div>
+                <div className="form-step-1__footer">
+                    <p>
+                        By choosing your age and continuing you agree to our <a href="#">Terms of Service</a> |{' '}
+                        <a href="#">Privacy Policy</a>
+                    </p>
+                    <p>Please review before continuing</p>
+                </div>
             </div>
         </>
     );
