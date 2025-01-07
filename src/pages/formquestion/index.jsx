@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
-import { BiArrowBack } from 'react-icons/bi';
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep2 from '../../components/step/uiformstep2';
 import UIFormStep4 from '../../components/step/uiformstep4';
@@ -330,16 +329,8 @@ const FormQuestion = () => {
     return (
         <>
             {isLoading && <Loading />}
-            <Header /> 
+            <Header currentStep={currentStep} handleBack={handleBack} />
             <Box className="block-form-question">
-                {currentStep > 0 && (
-                    <div>
-                        {/* <div className="back-btn-container" onClick={handleBack}>
-                            <BiArrowBack />
-                        </div> */}
-                    </div>
-                )}
-
                 <Typography variant="h6" className="custom-block-step" sx={{ marginBottom: 3 }}>
                     <div className={`step-content step-${currentStep}`}>{steps[currentStep].content}</div>
                 </Typography>
