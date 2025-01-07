@@ -51,7 +51,7 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
                 150 million people
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-                have chosen BetterMe
+                have chosen Natural Cleansing
             </Typography>
 
             {/* Testimonial Section */}
