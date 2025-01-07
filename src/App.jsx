@@ -4,6 +4,7 @@ import FormQuestion from './pages/formquestion';
 import HighlightYourPlan from './pages/highlightyourplan';
 import Goal from './pages/goal';
 import Loading from './components/loading';
+import ExportExcel from './pages/exportexcel';
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
                     <Route path="/highlight-your-plan" element={<HighlightYourPlan />} />
                     <Route path="/goal" element={<Goal />} />
                     <Route path="/loading" element={<Loading />} />
-
+                    <Route path="/ave-export-excel" element={<ExportExcel />} />
                 </Routes>
             </Router>
         </>

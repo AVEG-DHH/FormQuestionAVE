@@ -1,0 +1,72 @@
+@use '../../untils.scss' as *;
+
+.header {
+    height: 88px;
+    position: sticky;
+    top: 0;
+    border: 1px solid $border-color;
+
+    &-content {
+        height: 100%;
+        padding: 0 60px;
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+
+        &-btn-back {
+            display: flex;
+            &-icons {
+                width: 24px;
+                height: 24px;
+                padding: 12px;
+                border: 1px solid rgba(23, 23, 23, 0.46);
+                border-radius: 50%;
+                color: $text-dark;
+
+                &:hover {
+                    cursor: pointer;
+                    background: rgba(23, 23, 23, 0.06);
+                    border: 1px solid rgba(23, 23, 23, 0.06);
+                }
+            }
+        }
+
+        &-img {
+            height: 100%;
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 56px;
+
+        &-content {
+            padding: 0 20px;
+            column-gap: 0;
+
+            &-btn-back {
+                &-icons {
+                    border: none;
+                    padding: 0;
+                    color: $text-dark;
+
+                    &:hover {
+                        background: none;
+                        border: none;
+                    }
+                }
+            }
+
+            &-img {
+                flex: 1;
+                text-align: center;
+                margin-left: -24px;
+            }
+        }
+    }
+}

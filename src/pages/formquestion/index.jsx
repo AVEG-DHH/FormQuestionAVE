@@ -20,6 +20,7 @@ import UIFormStep15 from '../../components/step/uiformstep15';
 import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
 import Loading from '../../components/loading';
+import Header from '../../components/header';
 import './style.scss';
 
 const FormQuestion = () => {
@@ -290,8 +291,6 @@ const FormQuestion = () => {
             setFormStep20({ error: false });
         }
 
-        window.parent.postMessage('redirect', '*');
-
         const userId = Date.now();
         const customerData = {
             Age: formStep1.age || null,
@@ -315,6 +314,7 @@ const FormQuestion = () => {
         set(ref(db, `customer-answer/${userId}`), customerData)
             .then(() => {
                 alert('Dữ liệu đã được thêm thành công!');
+                window.parent.postMessage('redirect', '*');
             })
             .catch((error) => {
                 console.error('Lỗi khi thêm dữ liệu lên Firebase:', error);
@@ -330,12 +330,13 @@ const FormQuestion = () => {
     return (
         <>
             {isLoading && <Loading />}
+            <Header /> 
             <Box className="block-form-question">
                 {currentStep > 0 && (
                     <div>
-                        <div className="back-btn-container" onClick={handleBack}>
+                        {/* <div className="back-btn-container" onClick={handleBack}>
                             <BiArrowBack />
-                        </div>
+                        </div> */}
                     </div>
                 )}
 
