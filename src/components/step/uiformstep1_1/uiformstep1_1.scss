@@ -30,3 +30,32 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .form-step-1_1 {
+        &-content {
+            flex-direction: column;
+            &__img {
+                height: 52vh;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-step-1_1 {
+        &-content {
+            &__title {
+                h1 {
+                    font-size: $font-size-title-medium-sp;
+                }
+                p {
+                    font-size: $font-size-text-sp;
+                }
+            }
+            &__img {
+                height: 40vh;
+            }
+        }
+    }
+}

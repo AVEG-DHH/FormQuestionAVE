@@ -16,6 +16,7 @@
 
         &-btn-back {
             display: flex;
+            z-index: 99;
             &-icons {
                 width: 24px;
                 height: 24px;
