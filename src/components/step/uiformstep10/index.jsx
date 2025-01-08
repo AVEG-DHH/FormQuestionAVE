@@ -1,20 +1,57 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { IoFemaleSharp, IoMale } from 'react-icons/io5';
 import './uiformstep10.scss';
 // eslint-disable-next-line react/prop-types
-const UIFormStep10 = ({ handleNextStep10 }) => {
+const UIFormStep10 = ({ handleNextStep2 }) => {
     return (
         <>
             <div className="form-step-10">
-                <div>Have you experienced any injuries or mobility issues?</div>
+                <div>Have you tried practicing these exercises at home before?</div>
                 <FormControl className="form-step-10__radio">
-                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep10}>
-                        <FormControlLabel className="form-step-10__label" value="Yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel className="form-step-10__label" value="No" control={<Radio />} label="No" />
+                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep2}>
                         <FormControlLabel
                             className="form-step-10__label"
-                            value="Other"
+                            value="Almost every day"
                             control={<Radio />}
-                            label="Other"
+                            label={
+                                <p className="form-step-10__content">
+                                    <IoMale className="form-step-10__icon" />
+                                    Almost every day
+                                </p>
+                            }
+                        />
+                        <FormControlLabel
+                            className="form-step-10__label"
+                            value="Several times a week"
+                            control={<Radio />}
+                            label={
+                                <p className="form-step-10__content">
+                                    <IoFemaleSharp className="form-step-10__icon" />
+                                    Several times a week
+                                </p>
+                            }
+                        />
+                        <FormControlLabel
+                            className="form-step-10__label"
+                            value="Several times a month"
+                            control={<Radio />}
+                            label={
+                                <p className="form-step-10__content">
+                                    <IoFemaleSharp className="form-step-10__icon" />
+                                    Several times a month
+                                </p>
+                            }
+                        />
+                        <FormControlLabel
+                            className="form-step-10__label"
+                            value="Never"
+                            control={<Radio />}
+                            label={
+                                <p className="form-step-10__content">
+                                    <IoFemaleSharp className="form-step-10__icon" />
+                                    Never
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>
@@ -22,5 +59,4 @@ const UIFormStep10 = ({ handleNextStep10 }) => {
         </>
     );
 };
-
 export default UIFormStep10;
