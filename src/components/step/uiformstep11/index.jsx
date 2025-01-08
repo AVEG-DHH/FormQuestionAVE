@@ -1,5 +1,5 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import './UIFormStep11.scss';
+import './uiformstep11.scss';
 
 // eslint-disable-next-line react/prop-types
 const UIFormStep11 = ({ handleNextStep1 }) => {
