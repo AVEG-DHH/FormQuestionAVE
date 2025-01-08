@@ -5,8 +5,6 @@ import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
 import UIFormStep2 from '../../components/step/uiformstep2';
 import UIFormStep2_1 from '../../components/step/uiformstep2_1';
-import UIFormStep18 from '../../components/step/uiformstep18';
-import UIFormStep18_1 from '../../components/step/uiformstep18_1';
 import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep7 from '../../components/step/uiformstep7';
@@ -18,6 +16,9 @@ import UIFormStep12 from '../../components/step/uiformstep12';
 import UIFormStep13 from '../../components/step/uiformstep13';
 import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
+import UIFormStep18 from '../../components/step/uiformstep18';
+import UIFormStep18_1 from '../../components/step/uiformstep18_1';
+import UIFormStep18_2 from '../../components/step/uiformstep18_2';
 import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
 import UIFormStep21 from '../../components/step/uiformstep21';
@@ -49,6 +50,7 @@ const FormQuestion = () => {
     const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
     const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
     const [formStep15, setFormStep15] = useState({ questionEquipment: '' });
+    const [formStep18_2, setFormStep18_2] = useState({ questionAge: '' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
     const [formStep21, setFormStep21] = useState({ questionName: '' });
 
@@ -135,6 +137,11 @@ const FormQuestion = () => {
 
     const handleNextStep15 = (value) => {
         setFormStep15({ questionEquipment: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    const handleNextStep18_2 = (value) => {
+        setFormStep18_2({ questionAge: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
@@ -225,33 +232,37 @@ const FormQuestion = () => {
         //     ),
         // },
 
-        {
-            id: 15,
-            content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
-        },
-        {
-            id: 16,
-            content: (
-                <UIFormStep18
-                    handleNextStep3={handleNextStep3}
-                    isCheckboxChecked={isCheckboxChecked}
-                    setIsCheckboxChecked={setIsCheckboxChecked}
-                />
-            ),
-        },
+        // {
+        //     id: 15,
+        //     content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
+        // },
+        // {
+        //     id: 16,
+        //     content: (
+        //         <UIFormStep18
+        //             handleNextStep3={handleNextStep3}
+        //             isCheckboxChecked={isCheckboxChecked}
+        //             setIsCheckboxChecked={setIsCheckboxChecked}
+        //         />
+        //     ),
+        // },
 
+        // {
+        //     id: 17,
+        //     content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+        // },
         {
-            id: 17,
-            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+            id: 18,
+            content: <UIFormStep18_2 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
         },
-        {
-            id: 19,
-            content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
-        },
-        {
-            id: 20,
-            content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
-        },
+        // {
+        //     id: 19,
+        //     content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        // },
+        // {
+        //     id: 20,
+        //     content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
+        // },
         {
             id: 21,
             content: <UIFormStep21 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
@@ -295,17 +306,17 @@ const FormQuestion = () => {
 
     useEffect(() => {
         if (
-            currentStep == 0 ||
-            currentStep == 2 ||
+            // currentStep == 0 ||
+            // currentStep == 2 ||
             // currentStep == 3 ||
-            currentStep == 4 ||
-            currentStep == 5 ||
-            currentStep == 6 ||
-            currentStep == 7 ||
-            currentStep == 9 ||
-            currentStep == 10 ||
-            currentStep == 11 ||
-            currentStep == 12 ||
+            // currentStep == 4 ||
+            // currentStep == 5 ||
+            // currentStep == 6 ||
+            // currentStep == 7 ||
+            // currentStep == 9 ||
+            // currentStep == 10 ||
+            // currentStep == 11 ||
+            // currentStep == 12 ||
             currentStep == 13 ||
             currentStep == 14
         ) {
