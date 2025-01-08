@@ -1,9 +1,8 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import { IoScaleOutline } from 'react-icons/io5';
-import { GiGymBag } from 'react-icons/gi';
-
+import PropTypes from 'prop-types';
 import './uiformstep5.scss';
-// eslint-disable-next-line react/prop-types
+
 const UIFormStep5 = ({ handleNextStep5 }) => {
     return (
         <>
@@ -88,5 +87,7 @@ const UIFormStep5 = ({ handleNextStep5 }) => {
         </>
     );
 };
-
+UIFormStep5.propTypes = {
+    handleNextStep5: PropTypes.func.isRequired,
+};
 export default UIFormStep5;
