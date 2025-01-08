@@ -1,7 +1,8 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import { MdClose } from 'react-icons/md';
+import PropTypes from 'prop-types';
 import './uiformstep7.scss';
-// eslint-disable-next-line react/prop-types
+
 const UIFormStep7 = ({ handleNextStep7 }) => {
     return (
         <>
@@ -102,5 +103,7 @@ const UIFormStep7 = ({ handleNextStep7 }) => {
         </>
     );
 };
-
+UIFormStep7.propTypes = {
+    handleNextStep7: PropTypes.func.isRequired,
+};
 export default UIFormStep7;

@@ -1,6 +1,7 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import PropTypes from 'prop-types';
 import './uiformstep6.scss';
-// eslint-disable-next-line react/prop-types
+
 const UIFormStep6 = ({ handleNextStep6 }) => {
     return (
         <>
@@ -43,5 +44,7 @@ const UIFormStep6 = ({ handleNextStep6 }) => {
         </>
     );
 };
-
+UIFormStep6.propTypes = {
+    handleNextStep6: PropTypes.func.isRequired,
+};
 export default UIFormStep6;

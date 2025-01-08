@@ -9,6 +9,8 @@ import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep6_1 from '../../components/step/uiformstep6_1';
 import UIFormStep7 from '../../components/step/uiformstep7';
+import UIFormStep7_1 from '../../components/step/uiformstep7_1';
+import UIFormStep7_2 from '../../components/step/uiformstep7_2';
 import UIFormStep8 from '../../components/step/uiformstep8';
 import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep10 from '../../components/step/uiformstep10';
@@ -44,6 +46,8 @@ const FormQuestion = () => {
     const [formStep5, setFormStep5] = useState({ questionGoal: '' });
     const [formStep6, setFormStep6] = useState({ questionExercise: '' });
     const [formStep7, setFormStep7] = useState({ questionHealthIssuse: '' });
+    const [formStep7_1, setFormStep7_1] = useState({ questionYourBuild: '' });
+    const [formStep7_2, setFormStep7_2] = useState({ questionDreambody: '' });
     const [formStep8, setFormStep8] = useState({ questionPOP: '' });
     const [formStep9, setFormStep9] = useState({ questionFoods: '' });
     const [formStep10, setFormStep10] = useState({ questionInjuries: '' });
@@ -95,6 +99,20 @@ const FormQuestion = () => {
     const handleNextStep7 = (value) => {
         setFormStep7({ questionHealthIssuse: value.target.value });
         setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 7_1:
+    const handleNextStep7_1 = (value) => {
+        setFormStep7_1({ questionYourBuild: value });
+        setShowButtonNext(true);
+        handleNext();
+    };
+
+    // Function Step 7_2:
+    const handleNextStep7_2 = (value) => {
+        setFormStep7_2({ questionDreambody: value });
+        setShowButtonNext(true);
+        handleNext();
     };
 
     // Function Step 8:
@@ -197,6 +215,14 @@ const FormQuestion = () => {
         {
             id: 8,
             content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
+        },
+        {
+            id: 9,
+            content: <UIFormStep7_1 handleNextStep7_1={handleNextStep7_1} />,
+        },
+        {
+            id: 10,
+            content: <UIFormStep7_2 handleNextStep7_2={handleNextStep7_2} />,
         },
 
         // {
@@ -333,6 +359,7 @@ const FormQuestion = () => {
             currentStep == 4 ||
             currentStep == 5 ||
             currentStep == 7 ||
+            currentStep == 8 ||
             // currentStep == 9 ||
             // currentStep == 10 ||
             // currentStep == 11 ||
@@ -394,6 +421,10 @@ const FormQuestion = () => {
     }, []);
     console.log(formStep5);
     console.log(formStep6);
+    console.log(formStep7);
+    console.log(formStep7_1);
+    console.log(formStep7_2);
+
     return (
         <>
             {isLoading && <Loading />}
