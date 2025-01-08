@@ -1,36 +1,34 @@
-import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './uiformstep11.scss';
+
 // eslint-disable-next-line react/prop-types
-const UIFormStep11 = ({ handleNextStep11 }) => {
+const UIFormStep11 = ({ handleNextStep1 }) => {
     return (
         <>
             <div className="form-step-11">
-                <div>What is your daily energy level?</div>
-                <FormControl className="form-step-11__radio">
-                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep11}>
-                        <FormControlLabel
-                            className="form-step-11__label"
-                            value="High"
-                            control={<Radio />}
-                            label="High"
-                        />
-                        <FormControlLabel
-                            className="form-step-11__label"
-                            value="Medium"
-                            control={<Radio />}
-                            label="Medium"
-                        />
-                        <FormControlLabel
-                            className="form-step-11__label"
-                            value="Low - I often feel tired"
-                            control={<Radio />}
-                            label="Low - I often feel tired"
-                        />
-                    </RadioGroup>
-                </FormControl>
+                <h1>Do you struggle with any of the following?</h1>
+                <div className="form-step-11__content">
+                    <div className="form-step-11__img" onClick={() => handleNextStep1('Sensitive back')}>
+                        <img src="/img/age-40-49.png" alt="img" />
+                        <div className="form-step-11__btn">
+                            Sensitive back <ChevronRightIcon />
+                        </div>
+                    </div>
+                    <div className="form-step-11__img" onClick={() => handleNextStep1('Sensitive knees')}>
+                        <img src="/img/age-50-59.png" alt="img" />
+                        <div className="form-step-11__btn">
+                            Age: Sensitive knees <ChevronRightIcon />
+                        </div>
+                    </div>
+                    <div className="form-step-11__img" onClick={() => handleNextStep1('None of the above')}>
+                        <img src="/img/age-60-69.png" alt="img" />
+                        <div className="form-step-11__btn">
+                            None of the above <ChevronRightIcon />
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );
 };
-
 export default UIFormStep11;

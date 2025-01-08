@@ -3,8 +3,8 @@ import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
-import UIFormStep4 from '../../components/step/uiformstep4';
-import UIFormStep3 from '../../components/step/uiformstep3';
+import UIFormStep18 from '../../components/step/uiformstep18';
+import UIFormStep18_1 from '../../components/step/uiformstep18_1';
 import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep7 from '../../components/step/uiformstep7';
@@ -148,7 +148,7 @@ const FormQuestion = () => {
         {
             id: 3,
             content: (
-                <UIFormStep3
+                <UIFormStep18
                     handleNextStep3={handleNextStep3}
                     isCheckboxChecked={isCheckboxChecked}
                     setIsCheckboxChecked={setIsCheckboxChecked}
@@ -158,7 +158,7 @@ const FormQuestion = () => {
 
         {
             id: 4,
-            content: <UIFormStep4 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
         },
 
         {
