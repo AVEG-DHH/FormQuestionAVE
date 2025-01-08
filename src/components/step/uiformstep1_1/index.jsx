@@ -19,7 +19,7 @@ const UIFormStep1_1 = ({ setIsCheckboxChecked, age }) => {
                     </p>
                 </div>
                 <div className="form-step-1_1-content__img">
-                    <img src="/public/img/form-step-6.png" alt="img" />
+                    <img src="/img/form-step-6.png" alt="img" />
                 </div>
             </div>
         </div>
