@@ -244,6 +244,10 @@ const FormQuestion = () => {
             id: 20,
             content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
         },
+        {
+            id: 21,
+            content: <UIFormStep21 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+        },
     ];
 
     const handleNext = () => {
