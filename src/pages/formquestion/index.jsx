@@ -161,6 +161,14 @@ const FormQuestion = () => {
             id: 4,
             content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
+        {
+            id: 5,
+            content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
+        },
+        {
+            id: 6,
+            content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
+        },
 
         // {
         //     id: 7,
@@ -353,7 +361,8 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, []);
-    console.log(formStep2);
+    console.log(formStep5);
+
     return (
         <>
             {isLoading && <Loading />}
