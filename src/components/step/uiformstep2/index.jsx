@@ -1,7 +1,8 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import { IoFemaleSharp, IoMale } from 'react-icons/io5';
+import PropTypes from 'prop-types';
 import './uiformstep2.scss';
-// eslint-disable-next-line react/prop-types
+
 const UIFormStep2 = ({ handleNextStep2 }) => {
     return (
         <>
@@ -36,5 +37,8 @@ const UIFormStep2 = ({ handleNextStep2 }) => {
             </div>
         </>
     );
+};
+UIFormStep2.propTypes = {
+    handleNextStep2: PropTypes.func.isRequired,
 };
 export default UIFormStep2;
