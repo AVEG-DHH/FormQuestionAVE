@@ -11,7 +11,7 @@ const UIFormStep1_1 = ({ setIsCheckboxChecked, age }) => {
             <div className="form-step-1_1-content">
                 <div className="form-step-1_1-content__title">
                     <h1>
-                        Over 2 million <br /> women
+                        Over 1 million <br /> women
                     </h1>
                     <p>
                         in <span>their {age.substring(0, 2)}s</span> have already tried <br />

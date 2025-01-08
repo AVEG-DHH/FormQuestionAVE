@@ -1,52 +1,29 @@
-import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import { IoFemaleSharp, IoMale } from 'react-icons/io5';
-import './uiformstep2.scss';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import './uiformstep2_1.scss';
 
-// eslint-disable-next-line react/prop-types
-const UIFormStep2 = ({ handleNextStep2 }) => {
+const UIFormStep2_1 = ({ setIsCheckboxChecked }) => {
+    useEffect(() => {
+        setIsCheckboxChecked(true);
+    }, [setIsCheckboxChecked]);
     return (
-        <div className="form-step-2">
-            <div className="form-step-2__content">
-                <div className="form-step-2__question">
-                    <h1>Natural Cleansing is the perfect choice for workouts at any fitness level.</h1>
+        <div className="form-step-2_1">
+            <div className="form-step-2_1-content">
+                <div className="form-step-2_1-content__title">
+                    <h1><span>Natural Cleansing</span> is the perfect choice for workouts at any fitness level!</h1>
                     <p>
                         Just follow our guidance, embrace the journey, and get ready to achieve your dream physique with
                         ease!
                     </p>
                 </div>
-
-                <div className="form-step-2__img">
-                    <FormControl className="form-step-2__radio">
-                        <RadioGroup name="radio-buttons-group" onChange={handleNextStep2}>
-                            <FormControlLabel
-                                className="form-step-2__label"
-                                value="Male"
-                                control={<Radio />}
-                                label={
-                                    <p className="form-step-2__label-content">
-                                        <IoMale className="form-step-2__icon" />
-                                        Male
-                                    </p>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-2__label"
-                                value="Female"
-                                control={<Radio />}
-                                label={
-                                    <p className="form-step-2__label-content">
-                                        <IoFemaleSharp className="form-step-2__icon" />
-                                        Female
-                                    </p>
-                                }
-                            />
-                            <img src="/img/form-step-6.png" alt="img" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
+                {/* <div className="form-step-2_1-content__img">
+                    <img src="/img/form-step-6.png" alt="img" />
+                </div> */}
             </div>
         </div>
     );
 };
-
-export default UIFormStep2;
+UIFormStep2_1.propTypes = {
+    setIsCheckboxChecked: PropTypes.func.isRequired,
+};
+export default UIFormStep2_1;

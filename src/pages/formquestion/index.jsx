@@ -3,6 +3,8 @@ import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
+import UIFormStep2 from '../../components/step/uiformstep2';
+import UIFormStep2_1 from '../../components/step/uiformstep2_1';
 import UIFormStep18 from '../../components/step/uiformstep18';
 import UIFormStep18_1 from '../../components/step/uiformstep18_1';
 import UIFormStep5 from '../../components/step/uiformstep5';
@@ -33,7 +35,7 @@ const FormQuestion = () => {
     const [isInputValid, setIsInputValid] = useState(false);
 
     const [formStep1, setFormStep1] = useState({ age: '' });
-    const [formStep2, setFormStep2] = useState({ questionGender: '' });
+    const [formStep2, setFormStep2] = useState({ questionHomeEx: '' });
     const [formStep3, setFormStep3] = useState({ height: '' });
     const [formStep4, setFormStep4] = useState({ weight: '' });
     const [formStep5, setFormStep5] = useState({ questionGoal: '' });
@@ -59,7 +61,7 @@ const FormQuestion = () => {
 
     // Function Step 2:
     const handleNextStep2 = (value) => {
-        setFormStep2({ questionGender: value.target.value });
+        setFormStep2({ questionHomeEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
@@ -147,20 +149,18 @@ const FormQuestion = () => {
             content: <UIFormStep1 handleNextStep1={handleNextStep1} />,
         },
 
-        // {
-        //     id: 2,
-        //     content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
-        // },
-
-        // {
-        //     id: 5,
-        //     content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
-        // },
-
-        // {
-        //     id: 6,
-        //     content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
-        // },
+        {
+            id: 2,
+            content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
+        },
+        {
+            id: 3,
+            content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
+        },
+        {
+            id: 4,
+            content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
 
         // {
         //     id: 7,
@@ -217,21 +217,32 @@ const FormQuestion = () => {
         //     ),
         // },
 
-        // {
-        //     id: 17,
-        //     content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
-        // },
-        // {
-        //     id: 19,
-        //     content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
-        // },
-        // {
-        //     id: 20,
-        //     content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
-        // },
         {
-            id: 21,
-            content: <UIFormStep21 setIsInputValid={setIsInputValid} handleNextStep21={handleNextStep21} />,
+            id: 15,
+            content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
+        },
+        {
+            id: 16,
+            content: (
+                <UIFormStep18
+                    handleNextStep3={handleNextStep3}
+                    isCheckboxChecked={isCheckboxChecked}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
+        },
+
+        {
+            id: 17,
+            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+        },
+        {
+            id: 19,
+            content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
+        {
+            id: 20,
+            content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
         },
     ];
 
@@ -272,17 +283,17 @@ const FormQuestion = () => {
 
     useEffect(() => {
         if (
-            // currentStep == 0 ||
-            // currentStep == 2 ||
+            currentStep == 0 ||
+            currentStep == 2 ||
             // currentStep == 3 ||
-            // currentStep == 4 ||
-            // currentStep == 5 ||
-            // currentStep == 6 ||
-            // currentStep == 7 ||
-            // currentStep == 9 ||
-            // currentStep == 10 ||
-            // currentStep == 11 ||
-            // currentStep == 12 ||
+            currentStep == 4 ||
+            currentStep == 5 ||
+            currentStep == 6 ||
+            currentStep == 7 ||
+            currentStep == 9 ||
+            currentStep == 10 ||
+            currentStep == 11 ||
+            currentStep == 12 ||
             currentStep == 13 ||
             currentStep == 14
         ) {
@@ -338,7 +349,7 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, []);
-
+    console.log(formStep2);
     return (
         <>
             {isLoading && <Loading />}
