@@ -6,12 +6,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 80vh;
     padding: 20px;
     margin-top: 70px;
 
     div {
-        font-size: 40px;
+        font-size: $font-size-title-small-pc;
         font-weight: 600;
         margin-bottom: 30px;
         line-height: 1.5;
@@ -49,6 +48,14 @@
                 border-radius: 50%;
                 padding: 8px;
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-step-7 {
+        div {
+            font-size: $font-size-title-small-sp;
         }
     }
 }
