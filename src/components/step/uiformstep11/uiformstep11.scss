@@ -1,94 +1,76 @@
 @use '../../../untils.scss' as *;
-
-.form-step-11 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 8px;
+.struggle-container {
     text-align: center;
+    padding: 16px;
 
-    h1 {
-        font-size: $font-size-title-medium-pc;
-        font-weight: bold;
+    .title {
+        margin-bottom: 24px;
     }
 
-    h2 {
-        font-size: $font-size-text-pc;
-        font-weight: 400;
-        color: rgba(23, 23, 23, 0.56);
+    .struggle-card {
+        border: 2px solid transparent;
+        border-radius: 10px;
+        transition: 0.3s;
+
+        &.selected {
+            border-color: #4caf50;
+        }
     }
 
-    .form-step-11__content {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 2%;
-        padding-bottom: 20px;
-        cursor: pointer;
+    .card-content {
+        position: relative;
+        text-align: center;
+        padding: 16px;
 
-        .form-step-11__img {
-            width: 23%;
-            background-color: #f6f7f9;
-            border-radius: 8px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-            img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                transition: transform 0.6s ease;
+        .checkbox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            border-radius: 50%;
+        }
+    }
 
-                &:hover {
-                    transform: scale(1.05);
-                }
+    .card-label {
+        margin-top: 8px;
+    }
+
+    .selected-options {
+        margin-top: 24px;
+
+        h6 {
+            margin-bottom: 8px;
+        }
+    }
+
+    // Điều chỉnh cho màn hình di động
+    @media (max-width: 768px) {
+        height: 70vh;
+        width: 90%;
+        margin: 0 auto;
+        overflow-y: auto;
+
+        .continue-button {
+            position: sticky;
+            bottom: 16px;
+            margin-top: 16px;
+            z-index: 10;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 24px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #45a049;
             }
-
-            .form-step-11__btn {
-                background: $primary-color;
-                padding: 8px 12px;
-                border-radius: 8px;
-                font-size: $font-size-input-pc;
-                color: #fff;
-                font-weight: bold;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
-    }
-
-    .form-step-11__footer {
-        p {
-            line-height: 1.2;
-        }
-        a {
-            color: $primary-color;
-        }
-    }
-}
-@media (max-width: 1024px) {
-    .form-step-11 {
-        .form-step-11__content {
-            row-gap: 20px;
-            .form-step-11__img {
-                width: 48% !important;
-            }
-        }
-        h1 {
-            font-size: $font-size-title-medium-sp;
-        }
-
-        h2 {
-            font-size: $font-size-text-sp;
-        }
-
-        .form-step-11__btn {
-            font-size: 16px !important;
-            padding: 6px 8px !important;
-        }
-
-        .form-step-11__footer {
-            font-size: $font-size-input-sp;
         }
     }
 }

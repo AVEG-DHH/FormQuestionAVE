@@ -51,7 +51,7 @@ const FormQuestion = () => {
     const [formStep8, setFormStep8] = useState({ questionPOP: '' });
     const [formStep9, setFormStep9] = useState({ questionTarget: '' });
     const [formStep10, setFormStep10] = useState({ questionOftenEx: '' });
-    const [formStep11, setFormStep11] = useState({ questionDailyEnergy: '' });
+    const [formStep11, setFormStep11] = useState({ questionStruggle: '' });
     const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
     const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
     const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
@@ -135,8 +135,7 @@ const FormQuestion = () => {
 
     // Function Step 11:
     const handleNextStep11 = (value) => {
-        setFormStep11({ questionDailyEnergy: value.target.value });
-        setTimeout(() => handleNext(), 300);
+        setFormStep11({ questionStruggle: value });
     };
 
     // Function Step 12:
@@ -235,7 +234,7 @@ const FormQuestion = () => {
         },
         {
             id: 12,
-            content: <UIFormStep11 handleNextStep10={handleNextStep10} />,
+            content: <UIFormStep11 handleNextStep11={handleNextStep11} setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
 
         // {
@@ -429,6 +428,7 @@ const FormQuestion = () => {
     console.log(formStep7_2);
     console.log(formStep9);
     console.log(formStep10);
+    console.log(formStep11);
 
     return (
         <>
