@@ -2,13 +2,13 @@ import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import { IoFemaleSharp, IoMale } from 'react-icons/io5';
 import './uiformstep10.scss';
 // eslint-disable-next-line react/prop-types
-const UIFormStep10 = ({ handleNextStep2 }) => {
+const UIFormStep10 = ({ handleNextStep10 }) => {
     return (
         <>
             <div className="form-step-10">
-                <div>Have you tried practicing these exercises at home before?</div>
+                <div>How often do you exercise?</div>
                 <FormControl className="form-step-10__radio">
-                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep2}>
+                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep10}>
                         <FormControlLabel
                             className="form-step-10__label"
                             value="Almost every day"

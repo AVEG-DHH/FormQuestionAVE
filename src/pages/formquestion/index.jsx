@@ -49,8 +49,8 @@ const FormQuestion = () => {
     const [formStep7_1, setFormStep7_1] = useState({ questionYourBuild: '' });
     const [formStep7_2, setFormStep7_2] = useState({ questionDreambody: '' });
     const [formStep8, setFormStep8] = useState({ questionPOP: '' });
-    const [formStep9, setFormStep9] = useState({ questionFoods: '' });
-    const [formStep10, setFormStep10] = useState({ questionInjuries: '' });
+    const [formStep9, setFormStep9] = useState({ questionTarget: '' });
+    const [formStep10, setFormStep10] = useState({ questionOftenEx: '' });
     const [formStep11, setFormStep11] = useState({ questionDailyEnergy: '' });
     const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
     const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
@@ -123,12 +123,13 @@ const FormQuestion = () => {
 
     // Function Step 9:
     const handleNextStep9 = (value) => {
-        setFormStep9({ questionFoods: value });
+        setFormStep9({ questionTarget: value.target.value });
+        setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 10:
     const handleNextStep10 = (value) => {
-        setFormStep10({ questionInjuries: value.target.value });
+        setFormStep10({ questionOftenEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
@@ -224,16 +225,18 @@ const FormQuestion = () => {
             id: 10,
             content: <UIFormStep7_2 handleNextStep7_2={handleNextStep7_2} />,
         },
-
-        // {
-        //     id: 8,
-        //     content: <UIFormStep8 handleNextStep8={handleNextStep8} />,
-        // },
-
-        // {
-        //     id: 9,
-        //     content: <UIFormStep9 handleNextStep9={handleNextStep9} setIsCheckboxChecked={setIsCheckboxChecked} />,
-        // },
+        {
+            id: 11,
+            content: <UIFormStep9 handleNextStep9={handleNextStep9} />,
+        },
+        {
+            id: 12,
+            content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
+        },
+        {
+            id: 12,
+            content: <UIFormStep11 handleNextStep10={handleNextStep10} />,
+        },
 
         // {
         //     id: 10,
@@ -360,9 +363,9 @@ const FormQuestion = () => {
             currentStep == 5 ||
             currentStep == 7 ||
             currentStep == 8 ||
-            // currentStep == 9 ||
-            // currentStep == 10 ||
-            // currentStep == 11 ||
+            currentStep == 9 ||
+            currentStep == 10 ||
+            currentStep == 11 ||
             // currentStep == 12 ||
             currentStep == 13 ||
             currentStep == 14
@@ -424,6 +427,8 @@ const FormQuestion = () => {
     console.log(formStep7);
     console.log(formStep7_1);
     console.log(formStep7_2);
+    console.log(formStep9);
+    console.log(formStep10);
 
     return (
         <>
