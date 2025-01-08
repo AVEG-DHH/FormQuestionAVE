@@ -7,6 +7,7 @@ import UIFormStep2 from '../../components/step/uiformstep2';
 import UIFormStep2_1 from '../../components/step/uiformstep2_1';
 import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
+import UIFormStep6_1 from '../../components/step/uiformstep6_1';
 import UIFormStep7 from '../../components/step/uiformstep7';
 import UIFormStep8 from '../../components/step/uiformstep8';
 import UIFormStep9 from '../../components/step/uiformstep9';
@@ -176,11 +177,20 @@ const FormQuestion = () => {
             id: 6,
             content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
         },
-
-        // {
-        //     id: 7,
-        //     content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
-        // },
+        {
+            id: 7,
+            content: (
+                <UIFormStep6_1
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    age={formStep1.age}
+                    questionGoal={formStep5.questionGoal}
+                />
+            ),
+        },
+        {
+            id: 8,
+            content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
+        },
 
         // {
         //     id: 8,
@@ -306,13 +316,11 @@ const FormQuestion = () => {
 
     useEffect(() => {
         if (
-            // currentStep == 0 ||
-            // currentStep == 2 ||
-            // currentStep == 3 ||
-            // currentStep == 4 ||
-            // currentStep == 5 ||
-            // currentStep == 6 ||
-            // currentStep == 7 ||
+            currentStep == 0 ||
+            currentStep == 2 ||
+            currentStep == 4 ||
+            currentStep == 5 ||
+            currentStep == 7 ||
             // currentStep == 9 ||
             // currentStep == 10 ||
             // currentStep == 11 ||
@@ -372,7 +380,7 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, []);
-    console.log(formStep5);
+    console.log(formStep6);
 
     return (
         <>

@@ -9,7 +9,7 @@
     padding: 20px;
 
     .form-step-6-header {
-        font-size: 40px;
+        font-size: $font-size-title-small-pc;
         font-weight: 600;
         margin-bottom: 30px;
         line-height: 1.5;
@@ -78,8 +78,10 @@
 }
 
 @media (max-width: 768px) {
-    .block-form-question {
-        padding-top: 0 !important;  
+    .form-step-6 {
+        .form-step-6-header {
+            font-size: $font-size-title-small-sp;
+        }
     }
 
     .form-step-6 {
@@ -90,17 +92,7 @@
 }
 
 @media (max-width: 600px) {
-    // .block-form-question {
-    //     padding-top: 20px !important;  
-    // }
-
     .form-step-6 {
-        justify-content: start;
-
-        .form-step-6-header {
-            font-size: 24px;
-        }
-
         .form-step-6-body {
             flex-direction: column;
 
@@ -116,10 +108,6 @@
 }
 
 @media (max-width: 425px) {
-    .block-form-question {
-        padding-top: 0 !important;  
-    }
-    
     .form-step-6 {
         .form-step-6__radio {
             min-width: 200px;
