@@ -1,9 +1,13 @@
 @use '../../../untils.scss' as *;
 
 .form-step-11-3 {
+    padding: 0 15rem;
+
     &-content {
         display: flex;
         align-items: center;
+        gap: 5%;
+
         &__title {
             display: flex;
             flex-direction: column;
@@ -11,10 +15,12 @@
 
             h1 {
                 font-size: $font-size-title-medium-pc;
-                color: $primary-color;
+                color: $text-dark;
+                font-weight: bold;
             }
             p {
                 font-size: $font-size-text-pc;
+                line-height: 1.2;
 
                 span {
                     font-weight: bold;

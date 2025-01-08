@@ -1,12 +1,13 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import PropTypes from 'prop-types';
 import './uiformstep16.scss';
 
-const UIFormStep16 = ({ handleNextStep13 }) => {
+const UIFormStep16 = ({ handleNextStep16 }) => {
     return (
         <div className="form-step-16">
             <div>What type of diet do you prefer?</div>
             <FormControl className="form-step-16__radio">
-                <RadioGroup name="radio-buttons-group" onChange={handleNextStep13}>
+                <RadioGroup name="radio-buttons-group" onChange={handleNextStep16}>
                     <div className="form-step-16__columns">
                         {/* Left Column */}
                         <div className="form-step-16__left-column">
@@ -136,6 +137,10 @@ const UIFormStep16 = ({ handleNextStep13 }) => {
             </FormControl>
         </div>
     );
+};
+
+UIFormStep16.propTypes = {
+    handleNextStep16: PropTypes.func.isRequired, // Xác định handleNextStep16 là một hàm bắt buộc
 };
 
 export default UIFormStep16;
