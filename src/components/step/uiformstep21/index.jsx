@@ -1,4 +1,4 @@
-import './UIFormStep21.scss';
+import './uiformstep21.scss';
 import { useState } from 'react';
 
 const UIFormStep21 = () => {
