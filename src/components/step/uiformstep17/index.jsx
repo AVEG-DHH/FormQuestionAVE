@@ -1,13 +1,13 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import './uiformstep17.scss';
 // eslint-disable-next-line react/prop-types
-const UIFormStep17 = ({ handleNextStep13 }) => {
+const UIFormStep17 = ({ handleNextStep17 }) => {
     return (
         <>
             <div className="form-step-17">
-                <div>What`&apos`s your main reason to get in shape?</div>
+                <div>What&apos;s your main reason to get in shape?</div>
                 <FormControl className="form-step-17__radio">
-                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep13}>
+                    <RadioGroup name="radio-buttons-group" onChange={handleNextStep17}>
                         <FormControlLabel
                             className="form-step-17__label"
                             value="Feel more confident in my body"
