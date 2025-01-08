@@ -12,7 +12,7 @@ const UIFormStep20 = ({ formStep20, setFormStep20 }) => {
                         Enter your email to get your
                     </Typography>
                     <Typography className="form-step-20__box-h4 form-step-20__box-color" variant="h4">
-                        personalized Chair Yoga Plan
+                        personalized Workout Plan
                     </Typography>
                     <form style={{ width: '100%' }}>
                         <TextField
