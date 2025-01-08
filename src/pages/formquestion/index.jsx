@@ -20,6 +20,7 @@ import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
 import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
+import UIFormStep21 from '../../components/step/uiformstep21';
 import Loading from '../../components/loading';
 import Header from '../../components/header';
 import './style.scss';
@@ -49,6 +50,7 @@ const FormQuestion = () => {
     const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
     const [formStep15, setFormStep15] = useState({ questionEquipment: '' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
+    const [formStep21, setFormStep21] = useState({ questionName: '' });
 
     // Function Step 1:
     const handleNextStep1 = (value) => {
@@ -136,6 +138,11 @@ const FormQuestion = () => {
         setTimeout(() => handleNext(), 300);
     };
 
+    const handleNextStep21 = (value) => {
+        setFormStep21({ questionName: value });
+        setTimeout(() => handleNext(), 300);
+    };
+
     const steps = [
         {
             id: 1,
@@ -155,55 +162,60 @@ const FormQuestion = () => {
             content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
 
-        {
-            id: 5,
-            content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
-        },
+        // {
+        //     id: 7,
+        //     content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
+        // },
 
-        {
-            id: 6,
-            content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
-        },
+        // {
+        //     id: 8,
+        //     content: <UIFormStep8 handleNextStep8={handleNextStep8} />,
+        // },
 
-        {
-            id: 7,
-            content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
-        },
+        // {
+        //     id: 9,
+        //     content: <UIFormStep9 handleNextStep9={handleNextStep9} setIsCheckboxChecked={setIsCheckboxChecked} />,
+        // },
 
-        {
-            id: 8,
-            content: <UIFormStep8 handleNextStep8={handleNextStep8} />,
-        },
+        // {
+        //     id: 10,
+        //     content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
+        // },
 
-        {
-            id: 9,
-            content: <UIFormStep9 handleNextStep9={handleNextStep9} setIsCheckboxChecked={setIsCheckboxChecked} />,
-        },
+        // {
+        //     id: 11,
+        //     content: <UIFormStep11 handleNextStep11={handleNextStep11} />,
+        // },
 
-        {
-            id: 10,
-            content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
-        },
+        // {
+        //     id: 12,
+        //     content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
+        // },
 
-        {
-            id: 11,
-            content: <UIFormStep11 handleNextStep11={handleNextStep11} />,
-        },
+        // {
+        //     id: 13,
+        //     content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
+        // },
 
-        {
-            id: 12,
-            content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
-        },
+        // {
+        //     id: 14,
+        //     content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
+        // },
 
-        {
-            id: 13,
-            content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
-        },
-
-        {
-            id: 14,
-            content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
-        },
+        // {
+        //     id: 15,
+        //     content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
+        // },
+        // {
+        //     id: 16,
+        //     content: (
+        //         <UIFormStep18
+        //             handleNextStep3={handleNextStep3}
+        //             isCheckboxChecked={isCheckboxChecked}
+        //             setIsCheckboxChecked={setIsCheckboxChecked}
+        //         />
+        //     ),
+        // },
 
         {
             id: 15,
@@ -291,6 +303,8 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, [currentStep]);
+
+    console.log(formStep21);
 
     const handleSubmit = () => {
         if (!formStep20.email) {
