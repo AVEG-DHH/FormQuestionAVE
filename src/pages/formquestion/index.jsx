@@ -146,22 +146,6 @@ const FormQuestion = () => {
         },
 
         {
-            id: 3,
-            content: (
-                <UIFormStep18
-                    handleNextStep3={handleNextStep3}
-                    isCheckboxChecked={isCheckboxChecked}
-                    setIsCheckboxChecked={setIsCheckboxChecked}
-                />
-            ),
-        },
-
-        {
-            id: 4,
-            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
-        },
-
-        {
             id: 5,
             content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
         },
@@ -216,6 +200,21 @@ const FormQuestion = () => {
             content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
         },
         {
+            id: 3,
+            content: (
+                <UIFormStep18
+                    handleNextStep3={handleNextStep3}
+                    isCheckboxChecked={isCheckboxChecked}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
+        },
+
+        {
+            id: 4,
+            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+        },
+        {
             id: 19,
             content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
@@ -263,6 +262,8 @@ const FormQuestion = () => {
     useEffect(() => {
         if (
             currentStep == 0 ||
+            currentStep == 2 ||
+            currentStep == 3 ||
             currentStep == 4 ||
             currentStep == 5 ||
             currentStep == 6 ||
