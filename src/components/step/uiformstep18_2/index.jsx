@@ -2,7 +2,7 @@ import './uiformstep18_2.scss';
 import { useEffect, useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-const UIFormStep18_2 = ({ setIsInputValid, handleNextStep4 }) => {
+const UIFormStep18_2 = ({ setIsInputValid, handleNextStep18_2 }) => {
     const [ageValue, setAgeValue] = useState('');
 
     useEffect(() => {
@@ -16,7 +16,8 @@ const UIFormStep18_2 = ({ setIsInputValid, handleNextStep4 }) => {
         }
 
         // Truyền tuổi hợp lệ về component cha
-        handleNextStep4(numericValue);
+        handleNextStep18_2(numericValue);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ageValue, setIsInputValid]);
 
     return (

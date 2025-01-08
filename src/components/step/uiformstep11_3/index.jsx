@@ -24,6 +24,5 @@ const UIFormStep11_3 = ({ setIsCheckboxChecked }) => {
 };
 UIFormStep11_3.propTypes = {
     setIsCheckboxChecked: PropTypes.func.isRequired,
-    age: PropTypes.string.isRequired,
 };
 export default UIFormStep11_3;

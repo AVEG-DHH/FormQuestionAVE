@@ -15,7 +15,12 @@ import UIFormStep8 from '../../components/step/uiformstep8';
 import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep10 from '../../components/step/uiformstep10';
 import UIFormStep11 from '../../components/step/uiformstep11';
+import UIFormStep11_1 from '../../components/step/uiformstep11_1';
+import UIFormStep11_2 from '../../components/step/uiformstep11_2';
+import UIFormStep11_3 from '../../components/step/uiformstep11_3';
 import UIFormStep12 from '../../components/step/uiformstep12';
+import UIFormStep12_1 from '../../components/step/uiformstep12_1';
+import UIFormStep12_2 from '../../components/step/uiformstep12_2';
 import UIFormStep13 from '../../components/step/uiformstep13';
 import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
@@ -53,7 +58,10 @@ const FormQuestion = () => {
     const [formStep9, setFormStep9] = useState({ questionTarget: '' });
     const [formStep10, setFormStep10] = useState({ questionOftenEx: '' });
     const [formStep11, setFormStep11] = useState({ questionStruggle: '' });
+    const [formStep11_2, setFormStep11_2] = useState({ questionEnergyLevel: '' });
     const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
+    const [formStep12_1, setFormStep12_1] = useState({ questionStruggleSleep: '' });
+    const [formStep12_2, setformStep12_2] = useState({ questionSleep: '' });
     const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
     const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
     const [formStep15, setFormStep15] = useState({ questionEquipment: '' });
@@ -65,6 +73,7 @@ const FormQuestion = () => {
 
     // Function Step 1:
     const handleNextStep1 = (value) => {
+        console.log(value);
         setFormStep1({ age: value });
         setShowButtonNext(true);
         handleNext();
@@ -72,6 +81,7 @@ const FormQuestion = () => {
 
     // Function Step 2:
     const handleNextStep2 = (value) => {
+        console.log(value.target.value);
         setFormStep2({ questionHomeEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -82,29 +92,34 @@ const FormQuestion = () => {
     };
     // Function Step 4:
     const handleNextStep4 = (value) => {
+        console.log(value);
         setFormStep4({ weight: value });
     };
 
     // Function Step 5:
     const handleNextStep5 = (value) => {
+        console.log(value.target.value);
         setFormStep5({ questionGoal: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 6:
     const handleNextStep6 = (value) => {
+        console.log(value.target.value);
         setFormStep6({ questionExercise: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 7:
     const handleNextStep7 = (value) => {
+        console.log(value.target.value);
         setFormStep7({ questionHealthIssuse: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 7_1:
     const handleNextStep7_1 = (value) => {
+        console.log(value);
         setFormStep7_1({ questionYourBuild: value });
         setShowButtonNext(true);
         handleNext();
@@ -112,6 +127,7 @@ const FormQuestion = () => {
 
     // Function Step 7_2:
     const handleNextStep7_2 = (value) => {
+        console.log(value);
         setFormStep7_2({ questionDreambody: value });
         setShowButtonNext(true);
         handleNext();
@@ -125,24 +141,48 @@ const FormQuestion = () => {
 
     // Function Step 9:
     const handleNextStep9 = (value) => {
+        console.log(value.target.value);
         setFormStep9({ questionTarget: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 10:
     const handleNextStep10 = (value) => {
+        console.log(value.target.value);
         setFormStep10({ questionOftenEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 11:
     const handleNextStep11 = (value) => {
+        console.log(value);
         setFormStep11({ questionStruggle: value });
+    };
+
+    // Function Step 11_2:
+    const handleNextStep11_2 = (value) => {
+        console.log(value.target.value);
+        setFormStep11_2({ questionEnergyLevel: value.target.value });
+        setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 12:
     const handleNextStep12 = (value) => {
-        setFormStep12({ questionTypeExercise: value.target.value });
+        setFormStep12({ questionTypeExercise: value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 12_1:
+    const handleNextStep12_1 = (value) => {
+        console.log(value.target.value);
+        setFormStep12_1({ questionStruggleSleep: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    // Function Step 12_2:
+    const handleNextStep12_2 = (value) => {
+        console.log(value.target.value);
+        setformStep12_2({ questionSleep: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
@@ -164,18 +204,20 @@ const FormQuestion = () => {
     };
 
     const handleNextStep16 = (value) => {
+        console.log(value.target.value);
         setFormStep16({ questionDiet: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     const handleNextStep17 = (value) => {
+        console.log(value.target.value);
         setFormStep17({ questionMainReason: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     const handleNextStep18_2 = (value) => {
-        setFormStep18_2({ questionAge: value.target.value });
-        setTimeout(() => handleNext(), 300);
+        console.log(value);
+        setFormStep18_2({ questionAge: value });
     };
 
     const handleNextStep21 = (value) => {
@@ -188,7 +230,6 @@ const FormQuestion = () => {
             id: 1,
             content: <UIFormStep1 handleNextStep1={handleNextStep1} />,
         },
-
         {
             id: 2,
             content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
@@ -236,11 +277,31 @@ const FormQuestion = () => {
             content: <UIFormStep9 handleNextStep9={handleNextStep9} />,
         },
         {
+            id: 25,
+            content: <UIFormStep11_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
+        {
+            id: 26,
+            content: <UIFormStep11_2 handleNextStep11_2={handleNextStep11_2} />,
+        },
+        {
+            id: 27,
+            content: <UIFormStep11_3 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
+        {
             id: 12,
             content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
         },
         {
-            id: 12,
+            id: 23,
+            content: <UIFormStep12_1 handleNextStep12_1={handleNextStep12_1} />,
+        },
+        {
+            id: 24,
+            content: <UIFormStep12_2 handleNextStep12_2={handleNextStep12_2} />,
+        },
+        {
+            id: 13,
             content: <UIFormStep11 handleNextStep11={handleNextStep11} setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
 
@@ -286,12 +347,12 @@ const FormQuestion = () => {
 
         {
             id: 22,
-            content: <UIFormStep16 handleNextStep14={handleNextStep16} />,
+            content: <UIFormStep16 handleNextStep16={handleNextStep16} />,
         },
 
         {
             id: 17,
-            content: <UIFormStep17 handleNextStep14={handleNextStep17} />,
+            content: <UIFormStep17 handleNextStep17={handleNextStep17} />,
         },
 
         // {
@@ -315,7 +376,7 @@ const FormQuestion = () => {
         // },
         {
             id: 18,
-            content: <UIFormStep18_2 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+            content: <UIFormStep18_2 setIsInputValid={setIsInputValid} handleNextStep18_2={handleNextStep18_2} />,
         },
         // {
         //     id: 19,
@@ -338,16 +399,24 @@ const FormQuestion = () => {
         setShowButtonNext(false);
 
         const currentStepElement = document.querySelector(`.step-${currentStep}`);
-        currentStepElement.classList.add('fade-out'); // Add fade-out class
+        if (currentStepElement) {
+            currentStepElement.classList.add('fade-out');
+        }
 
         setTimeout(() => {
-            setCurrentStep((prevStep) => prevStep + 1); // Proceed to the next step
+            setCurrentStep((prevStep) => prevStep + 1);
             const nextStepElement = document.querySelector(`.step-${currentStep + 1}`);
-            nextStepElement.classList.add('fade-in'); // Add fade-in class to next step
-            currentStepElement.classList.remove('fade-out'); // Remove fade-out class
-        }, 500); // Match the duration of the fade transition
 
-        setShowButtonNext(true); // Re-enable the button after transition
+            if (nextStepElement) {
+                nextStepElement.classList.add('fade-in');
+            }
+
+            if (currentStepElement) {
+                currentStepElement.classList.remove('fade-out');
+            }
+        }, 500);
+
+        setShowButtonNext(true);
     };
 
     const handleBack = () => {
@@ -368,18 +437,18 @@ const FormQuestion = () => {
 
     useEffect(() => {
         if (
-            currentStep == 0 ||
-            currentStep == 2 ||
-            currentStep == 4 ||
-            currentStep == 5 ||
-            currentStep == 7 ||
-            currentStep == 8 ||
-            currentStep == 9 ||
-            currentStep == 10 ||
-            currentStep == 11 ||
+            // currentStep == 0 ||
+            currentStep == 2
+            // currentStep == 4 ||
+            // currentStep == 5 ||
+            // currentStep == 7 ||
+            // currentStep == 8 ||
+            // currentStep == 9 ||
+            // currentStep == 10 ||
+            // currentStep == 11 ||
             // currentStep == 12 ||
-            currentStep == 13 ||
-            currentStep == 14
+            // currentStep == 13 ||
+            // currentStep == 14
         ) {
             setShowButtonNext(false);
         }
@@ -387,8 +456,6 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, [currentStep]);
-
-    console.log(formStep21);
 
     const handleSubmit = () => {
         if (!formStep20.email) {
@@ -433,15 +500,6 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, []);
-    console.log(formStep5);
-    console.log(formStep6);
-    console.log(formStep7);
-    console.log(formStep7_1);
-    console.log(formStep7_2);
-    console.log(formStep9);
-    console.log(formStep10);
-    console.log(formStep11);
-    console.log(formStep16);
 
     return (
         <>

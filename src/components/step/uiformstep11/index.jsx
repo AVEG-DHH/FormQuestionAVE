@@ -26,6 +26,7 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
         } else {
             setIsCheckboxChecked(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected, setIsCheckboxChecked]);
 
     return (

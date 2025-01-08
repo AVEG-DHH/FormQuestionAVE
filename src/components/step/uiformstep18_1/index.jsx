@@ -18,7 +18,7 @@ const UIFormStep4 = ({ setIsInputValid, handleNextStep4 }) => {
             setIsInputValid(false);
         }
         handleNextStep4(selectedUnit === 'kg' ? `${weightValue} kg` : `${weightValue} lbs`);
-    }, [weightValue, selectedUnit, setIsInputValid]);
+    }, [weightValue, selectedUnit, setIsInputValid, handleNextStep4]);
 
     useEffect(() => {
         setWeightValue('');
