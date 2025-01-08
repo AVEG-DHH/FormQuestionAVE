@@ -19,6 +19,7 @@ import UIFormStep12 from '../../components/step/uiformstep12';
 import UIFormStep13 from '../../components/step/uiformstep13';
 import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
+import UIFormStep16 from '../../components/step/uiformstep16';
 import UIFormStep17 from '../../components/step/uiformstep17';
 import UIFormStep18 from '../../components/step/uiformstep18';
 import UIFormStep18_1 from '../../components/step/uiformstep18_1';
@@ -57,6 +58,7 @@ const FormQuestion = () => {
     const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
     const [formStep15, setFormStep15] = useState({ questionEquipment: '' });
     const [formStep17, setFormStep17] = useState({ questionMainReason: '' });
+    const [formStep16, setFormStep16] = useState({ questionDiet: '' });
     const [formStep18_2, setFormStep18_2] = useState({ questionAge: '' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
     const [formStep21, setFormStep21] = useState({ questionName: '' });
@@ -158,6 +160,11 @@ const FormQuestion = () => {
 
     const handleNextStep15 = (value) => {
         setFormStep15({ questionEquipment: value.target.value });
+        setTimeout(() => handleNext(), 300);
+    };
+
+    const handleNextStep16 = (value) => {
+        setFormStep16({ questionDiet: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
@@ -276,6 +283,11 @@ const FormQuestion = () => {
         //         />
         //     ),
         // },
+
+        {
+            id: 22,
+            content: <UIFormStep16 handleNextStep14={handleNextStep16} />,
+        },
 
         {
             id: 17,
@@ -429,6 +441,7 @@ const FormQuestion = () => {
     console.log(formStep9);
     console.log(formStep10);
     console.log(formStep11);
+    console.log(formStep16);
 
     return (
         <>
