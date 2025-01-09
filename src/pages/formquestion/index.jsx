@@ -29,6 +29,7 @@ import UIFormStep17 from '../../components/step/uiformstep17';
 import UIFormStep18 from '../../components/step/uiformstep18';
 import UIFormStep18_1 from '../../components/step/uiformstep18_1';
 import UIFormStep18_2 from '../../components/step/uiformstep18_2';
+import UIFormStep18_3 from '../../components/step/uiformstep18_3';
 import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
 import UIFormStep21 from '../../components/step/uiformstep21';
@@ -88,6 +89,7 @@ const FormQuestion = () => {
 
     // Function Step 3:
     const handleNextStep3 = (value) => {
+        console.log(value);
         setFormStep3({ height: value });
     };
     // Function Step 4:
@@ -379,24 +381,28 @@ const FormQuestion = () => {
         //     id: 15,
         //     content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
         // },
-        // {
-        //     id: 16,
-        //     content: (
-        //         <UIFormStep18
-        //             handleNextStep3={handleNextStep3}
-        //             isCheckboxChecked={isCheckboxChecked}
-        //             setIsCheckboxChecked={setIsCheckboxChecked}
-        //         />
-        //     ),
-        // },
-
-        // {
-        //     id: 17,
-        //     content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
-        // },
         {
-            id: 18,
+            id: 97,
+            content: (
+                <UIFormStep18
+                    handleNextStep3={handleNextStep3}
+                    isCheckboxChecked={isCheckboxChecked}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
+        },
+
+        {
+            id: 98,
+            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+        },
+        {
+            id: 99,
             content: <UIFormStep18_2 setIsInputValid={setIsInputValid} handleNextStep18_2={handleNextStep18_2} />,
+        },
+        {
+            id: 100,
+            content: <UIFormStep18_3 />,
         },
         // {
         //     id: 19,
@@ -407,7 +413,7 @@ const FormQuestion = () => {
         //     content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
         // },
         {
-            id: 21,
+            id: 100,
             content: <UIFormStep21 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
         },
     ];
