@@ -8,7 +8,7 @@
     padding: 20px;
 
     div {
-        font-size: $font-size-title-medium-pc;
+        font-size: $font-size-title-small-pc;
         font-weight: 600;
         margin-bottom: 30px;
         line-height: 1.5;
@@ -36,15 +36,7 @@
             .form-step-2__content {
                 display: flex;
                 align-items: center;
-            }
-
-            .form-step-2__icon {
-                margin-right: 8px;
-                font-size: 24px;
-                color: $text-dark;
-                background-color: $disabled-color;
-                border-radius: 50%;
-                padding: 8px;
+                font-weight: bold;
             }
         }
     }
