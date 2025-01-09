@@ -4,18 +4,25 @@ import './uiformstep11.scss';
 
 const options = [
     { id: 1, label: 'Sensitive back', image: '/img/age-40-49.png', value: 'Sensitive back' },
-    { id: 2, label: 'Age: Sensitive knees', image: '/img/age-50-59.png', value: 'Sensitive knees' },
+    { id: 2, label: 'Sensitive knees', image: '/img/age-50-59.png', value: 'Sensitive knees' },
     { id: 3, label: 'None of the above', image: '/img/age-70+.png', value: 'None of the above' },
 ];
 // eslint-disable-next-line react/prop-types
 const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
     const [selected, setSelected] = useState([]);
 
-    const handleClick = (value) => {
-        if (selected.includes(value)) {
-            setSelected(selected.filter((item) => item !== value));
+    const handleClick = (label) => {
+        if (label === 'None of the above') {
+            // Nếu chọn "None of the above", chỉ giữ lại label này và xóa hết mục khác
+            setSelected((prev) => (prev.includes(label) ? [] : [label]));
         } else {
-            setSelected([...selected, value]);
+            // Nếu chọn mục khác, bỏ chọn "None of the above"
+            setSelected((prev) => {
+                const newSelection = prev.includes(label)
+                    ? prev.filter((item) => item !== label) // Bỏ chọn mục hiện tại
+                    : [...prev.filter((item) => item !== 'None of the above'), label]; // Bỏ "None of the above" nếu nó đang được chọn
+                return newSelection;
+            });
         }
     };
 
@@ -51,10 +58,10 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
                     </Grid>
                 ))}
             </Grid>
-            <Box className="selected-options">
+            {/* <Box className="selected-options">
                 <Typography variant="h6">Selected Options:</Typography>
                 <Typography>{selected.join(', ') || 'None'}</Typography>
-            </Box>
+            </Box> */}
         </Box>
     );
 };
