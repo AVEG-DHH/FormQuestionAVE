@@ -10,10 +10,13 @@ const UIFormStep2_1 = ({ setIsCheckboxChecked }) => {
         <div className="form-step-2_1">
             <div className="form-step-2_1-content">
                 <div className="form-step-2_1-content__title">
-                    <h1><span>Natural Cleansing</span> is the perfect choice for workouts at any fitness level!</h1>
+                    <h1>
+                        <span>Natural Cleansing</span>
+                    </h1>
+                    <p>is the perfect choice for workouts at any fitness level!</p>
                     <p>
-                        Just follow our guidance, embrace the journey, and get ready to achieve your dream physique with
-                        ease!
+                        Just follow our guidance, embrace the journey, <br /> and get ready to achieve your dream
+                        physique <br /> with ease!
                     </p>
                 </div>
                 {/* <div className="form-step-2_1-content__img">

@@ -226,30 +226,43 @@ const FormQuestion = () => {
     };
 
     const steps = [
+        // BASE ON YOUR  AGE
         {
             id: 1,
             content: <UIFormStep1 handleNextStep1={handleNextStep1} />,
         },
+
+        // OVER 1 MILLION WOMEN
         {
             id: 2,
             content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
         },
+
+        // HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
         {
             id: 3,
             content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
         },
+
+        // NATURAL CLEANSING IS THE PERFECT CHOICE
         {
             id: 4,
             content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
         },
+
+        // WHAT IS YOUR FITNESS GOAL?
         {
             id: 5,
             content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
         },
+
+        // HOW MANY DAYS A WEEK DO YOU WANT TO EXERCISE?
         {
             id: 6,
             content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
         },
+
+        // WE'VE GOT THE SOLUTION!
         {
             id: 7,
             content: (
@@ -260,18 +273,25 @@ const FormQuestion = () => {
                 />
             ),
         },
+
+        // DO YOU HAVE ANY HEALTH ISSUES?
         {
             id: 8,
             content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
         },
+
+        // HOW WOULD YOU DESCRIBE YOUR BUILD?
         {
             id: 9,
             content: <UIFormStep7_1 handleNextStep7_1={handleNextStep7_1} />,
         },
+
+        // WHAT'S YOUR DREAM BODY?
         {
             id: 10,
             content: <UIFormStep7_2 handleNextStep7_2={handleNextStep7_2} />,
         },
+
         {
             id: 11,
             content: <UIFormStep9 handleNextStep9={handleNextStep9} />,
