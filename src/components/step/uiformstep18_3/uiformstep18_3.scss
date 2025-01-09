@@ -1,0 +1,198 @@
+@use '../../../untils.scss' as *;
+
+#bmi-slider-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#bmi-slider {
+    position: relative;
+}
+
+#bmi-range {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(
+        to right,
+        #4caf50 0%,
+        /* Underweight */ #8bc34a 20%,
+        /* Normal */ #ffeb3b 50%,
+        /* Overweight */ #ff9800 75%,
+        /* Obese */ #f44336 100% /* Severe Obese */
+    );
+    outline: none;
+}
+
+#bmi-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 3px solid #0077c5;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#bmi-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 3px solid #0077c5;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Label styling */
+#bmi-labels {
+    position: relative;
+    width: 100%;
+    margin-top: -32px;
+    height: 40px;
+
+    span {
+        position: absolute;
+        font-size: 14px;
+        text-align: center;
+        transform: translateX(-50%);
+    }
+
+    /* Align labels based on slider values (15-40) */
+    span:nth-child(1) {
+        left: 0%; /* 15 */
+    }
+    span:nth-child(2) {
+        left: 15%; /* 18.5 */
+    }
+    span:nth-child(3) {
+        left: 40.5%; /* 25 */
+    }
+    span:nth-child(4) {
+        left: 60%; /* 30 */
+    }
+    span:nth-child(5) {
+        left: 100%; /* 40 */
+    }
+}
+
+/* Categories styling */
+#bmi-categories {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+
+    span {
+        position: absolute;
+        font-size: 14px;
+        width: fit-content;
+        text-transform: uppercase;
+    }
+    /* Align labels based on slider values (15-40) */
+    span:nth-child(1) {
+        left: 0%; /* 15 */
+        text-align: start;
+    }
+    span:nth-child(2) {
+        left: 15%; /* 18.5 */
+        width: 25%;
+        text-align: center;
+    }
+    span:nth-child(3) {
+        left: 40.5%; /* 25 */
+        width: 20%;
+        text-align: center;
+    }
+    span:nth-child(4) {
+        left: 60%; /* 30 */
+        width: 40%;
+        text-align: end;
+    }
+}
+
+.form-step-18-3 {
+    width: 80%;
+    margin: 0 auto;
+
+    h1 {
+        font-size: $font-size-text-pc;
+        font-weight: 700;
+        text-align: center;
+    }
+    &_body {
+        width: 100%;
+        margin-top: 24px;
+        padding: 24px 16px 0;
+        border: 1px solid rgba(23, 23, 23, 0.08);
+        border-radius: 12px;
+
+        h2 {
+            font-size: $font-size-input-pc;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        &_desc {
+            margin: 24px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 16px;
+            border-radius: 16px;
+
+            border: 1px solid rgba(250, 45, 45, 0.6);
+            background: rgba(238, 80, 90, 0.12);
+
+            &-header {
+                padding-bottom: 16px;
+            }
+        }
+    }
+
+    &_footer {
+        display: flex;
+        column-gap: 16px;
+        align-items: center;
+        &-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+
+            &_block {
+                display: flex;
+                align-items: center;
+                column-gap: 16px;
+
+                &-info {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 8px;
+                    flex: 1;
+
+                    &-desc {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        &-img {
+            height: 300px;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #bmi-categories {
+        display: none;
+    }
+}
