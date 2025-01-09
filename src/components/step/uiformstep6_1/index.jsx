@@ -7,20 +7,20 @@ const UIFormStep6_1 = ({ setIsCheckboxChecked, age, questionGoal }) => {
         setIsCheckboxChecked(true);
     }, [setIsCheckboxChecked]);
     return (
-        <div className="form-step-2_1">
-            <div className="form-step-2_1-content">
-                <div className="form-step-2_1-content__title">
-                    <h1>
-                        We’ve got the solution! For women in their {age.substring(0, 2)}s,{' '}
-                        <span>Natural Cleansing</span> is an excellent choice to <span>{questionGoal}</span> with
-                        minimal effort.
-                    </h1>
+        <div className="form-step-6_1">
+            <div className="form-step-6_1-content">
+                <div className="form-step-6_1-content__title">
+                    <h1>We’ve got just the solution!</h1>
+                    <p>
+                        For women in <span>their {age.substring(0, 2)}s</span>, Natural Cleansing is an excellent choice
+                        to <span>{questionGoal}</span> with minimal effort.
+                    </p>
                     <p>
                         Just follow our guidance, embrace the journey, and get ready to achieve your dream physique with
                         ease!
                     </p>
                 </div>
-                {/* <div className="form-step-2_1-content__img">
+                {/* <div className="form-step-6_1-content__img">
                     <img src="/img/form-step-6.png" alt="img" />
                 </div> */}
             </div>

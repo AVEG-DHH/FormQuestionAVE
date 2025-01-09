@@ -11,7 +11,7 @@
     .form-step-6-header {
         font-size: $font-size-title-small-pc;
         font-weight: 600;
-        margin-bottom: 30px;
+        // margin-bottom: 30px;
         line-height: 1.5;
     }
 
@@ -45,6 +45,10 @@
             margin-bottom: 10px;
             flex-direction: row-reverse;
             cursor: pointer;
+
+            p {
+                font-weight: bold !important;
+            }
 
             &:hover {
                 background-color: $border-color;

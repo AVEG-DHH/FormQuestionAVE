@@ -6,7 +6,9 @@ const UIFormStep6 = ({ handleNextStep6 }) => {
     return (
         <>
             <div className="form-step-6">
-                <div className='form-step-6-header'>How many days a week do you want to exercise?</div>
+                <div className="form-step-6-header">
+                    How many days a week do you <br /> want to exercise?
+                </div>
                 <div className="form-step-6-body">
                     <div className="form-step-6-body-img">
                         <img src="/img/form-step-6.png" alt="img" />
@@ -17,25 +19,25 @@ const UIFormStep6 = ({ handleNextStep6 }) => {
                                 className="form-step-6__label"
                                 value="2 days"
                                 control={<Radio />}
-                                label="2 days"
+                                label={<p>2 days</p>}
                             />
                             <FormControlLabel
                                 className="form-step-6__label"
                                 value="3 days"
                                 control={<Radio />}
-                                label="3 days"
+                                label={<p>3 days</p>}
                             />
                             <FormControlLabel
                                 className="form-step-6__label"
                                 value="4 days"
                                 control={<Radio />}
-                                label="4 days"
+                                label={<p>4 days</p>}
                             />
                             <FormControlLabel
                                 className="form-step-6__label"
                                 value="5 or more days"
                                 control={<Radio />}
-                                label="5 or more days"
+                                label={<p>5 or more days</p>}
                             />
                         </RadioGroup>
                     </FormControl>
