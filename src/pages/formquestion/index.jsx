@@ -223,8 +223,8 @@ const FormQuestion = () => {
     };
 
     const handleNextStep21 = (value) => {
+        console.log(value);
         setFormStep21({ questionName: value });
-        setTimeout(() => handleNext(), 300);
     };
 
     const steps = [
@@ -398,7 +398,7 @@ const FormQuestion = () => {
         },
         {
             id: 99,
-            content: <UIFormStep18_2 setIsInputValid={setIsInputValid} handleNextStep18_2={handleNextStep18_2} />,
+            content: <UIFormStep18_2 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep18_2={handleNextStep18_2} />,
         },
         {
             id: 100,
@@ -416,11 +416,17 @@ const FormQuestion = () => {
         },
         {
             id: 20,
-            content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
+            content: (
+                <UIFormStep20
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    formStep20={formStep20}
+                    setFormStep20={setFormStep20}
+                />
+            ),
         },
         {
             id: 100,
-            content: <UIFormStep21 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+            content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} />,
         },
     ];
 
@@ -490,13 +496,6 @@ const FormQuestion = () => {
     }, [currentStep]);
 
     const handleSubmit = () => {
-        if (!formStep20.email) {
-            setFormStep20({ error: true });
-            return;
-        } else {
-            setFormStep20({ error: false });
-        }
-
         const userId = Date.now();
         const customerData = {
             Age: formStep1.age || null,

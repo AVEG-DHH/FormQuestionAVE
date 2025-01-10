@@ -2,7 +2,7 @@ import './uiformstep18_2.scss';
 import { useEffect, useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-const UIFormStep18_2 = ({ setIsInputValid, handleNextStep18_2 }) => {
+const UIFormStep18_2 = ({ setIsCheckboxChecked, handleNextStep18_2 }) => {
     const [ageValue, setAgeValue] = useState('');
 
     useEffect(() => {
@@ -10,15 +10,15 @@ const UIFormStep18_2 = ({ setIsInputValid, handleNextStep18_2 }) => {
 
         // Kiểm tra tuổi hợp lệ (18 đến 120)
         if (ageValue.trim() !== '' && numericValue >= 18 && numericValue <= 120) {
-            setIsInputValid(true);
+            setIsCheckboxChecked(true);
         } else {
-            setIsInputValid(false);
+            setIsCheckboxChecked(false);
         }
 
         // Truyền tuổi hợp lệ về component cha
         handleNextStep18_2(numericValue);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [ageValue, setIsInputValid]);
+    }, [ageValue, setIsCheckboxChecked]);
 
     return (
         <div className="form-step-18-2">

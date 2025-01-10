@@ -1,9 +1,18 @@
 import './uiformstep21.scss';
-import { useState } from 'react';
-
-const UIFormStep21 = () => {
+import { useEffect, useState } from 'react';
+//eslint-disable-next-line
+const UIFormStep21 = ({ handleNextStep21, setIsCheckboxChecked }) => {
     const [nameValue, setNameValue] = useState('');
+    useEffect(() => {
+        if (nameValue.trim() !== '') {
+            setIsCheckboxChecked(true);
+        } else {
+            setIsCheckboxChecked(false);
+        }
 
+        handleNextStep21(nameValue);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [nameValue, setIsCheckboxChecked]);
     return (
         <div className="form-step-21">
             <h1>What’s your name?</h1>

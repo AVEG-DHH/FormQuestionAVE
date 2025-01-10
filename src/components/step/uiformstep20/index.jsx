@@ -3,7 +3,27 @@ import LockIcon from '@mui/icons-material/Lock';
 import PropTypes from 'prop-types';
 import './uiformstep20.scss';
 
-const UIFormStep20 = ({ formStep20, setFormStep20 }) => {
+const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
+    const handleChangeEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Simple email regex pattern
+
+        if (email === '') {
+            setFormStep20({ ...formStep20, email, error: true });
+            setIsCheckboxChecked(false);
+            return;
+        }   
+
+        if (!emailRegex.test(email)) {
+            setFormStep20({ ...formStep20, email, error: true });
+            setIsCheckboxChecked(false);
+            return;
+        }
+
+        setFormStep20({ ...formStep20, email, error: false });
+        setIsCheckboxChecked(true);
+
+    };
+    console.log(formStep20);
     return (
         <>
             <div className="form-step-20">
@@ -20,9 +40,9 @@ const UIFormStep20 = ({ formStep20, setFormStep20 }) => {
                             variant="outlined"
                             fullWidth
                             error={formStep20.error}
-                            helperText={formStep20.error ? "This field shouldn't be empty" : ''}
+                            helperText={formStep20.error ? "Please enter a valid email address!" : ''}
                             value={formStep20.email}
-                            onChange={(e) => setFormStep20({ email: e.target.value })}
+                            onChange={(e) => handleChangeEmail(e.target.value)}
                             sx={{ mb: 2 }}
                         />
                     </form>
@@ -57,6 +77,7 @@ UIFormStep20.propTypes = {
         error: PropTypes.bool.isRequired,
     }).isRequired,
     setFormStep20: PropTypes.func.isRequired,
+    setIsCheckboxChecked: PropTypes.func.isRequired,
 };
 
 export default UIFormStep20;
