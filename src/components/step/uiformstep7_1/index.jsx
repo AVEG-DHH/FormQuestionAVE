@@ -1,43 +1,47 @@
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Thay ChevronRightIcon bằng icon tick
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import './uiformstep7_1.scss';
 
 const UIFormStep7_1 = ({ handleNextStep7_1 }) => {
+    const [selected, setSelected] = useState('');
+
+    const imageMapping = {
+        Slim: '/img/age-40-49.png',
+        'Mid-sized': '/img/age-50-59.png',
+        'Full-figured': '/img/age-60-69.png',
+        'Extended size': '/img/age-70+.png',
+    };
+
+    const handleSelect = (value) => {
+        setSelected(value);
+        handleNextStep7_1(value);
+    };
+
     return (
-        <>
-            <div className="form-step-7-1">
-                <h1>How would you describe your build?</h1>
-                <div className="form-step-7-1__content">
-                    <div className="form-step-7-1__img" onClick={() => handleNextStep7_1('Slim')}>
-                        <img src="/img/age-40-49.png" alt="img" />
+        <div className="form-step-7-1">
+            <h1>How would you describe your build?</h1>
+            <div className="form-step-7-1__content">
+                {Object.keys(imageMapping).map((option) => (
+                    <div
+                        key={option}
+                        className={`form-step-7-1__img ${selected === option ? 'selected' : ''}`}
+                        onClick={() => handleSelect(option)}
+                    >
+                        <img src={imageMapping[option]} alt={`${option} img`} />
                         <div className="form-step-7-1__btn">
-                            Slim <ChevronRightIcon />
+                            {option}
+                            {selected === option ? <CheckCircleIcon /> : <div className="circle" />}
                         </div>
                     </div>
-                    <div className="form-step-7-1__img" onClick={() => handleNextStep7_1('Mid-sized')}>
-                        <img src="/img/age-50-59.png" alt="img" />
-                        <div className="form-step-7-1__btn">
-                            Mid-sized <ChevronRightIcon />
-                        </div>
-                    </div>
-                    <div className="form-step-7-1__img" onClick={() => handleNextStep7_1('Full-figured')}>
-                        <img src="/img/age-60-69.png" alt="img" />
-                        <div className="form-step-7-1__btn">
-                            Full-figured <ChevronRightIcon />
-                        </div>
-                    </div>
-                    <div className="form-step-7-1__img" onClick={() => handleNextStep7_1('Extended size')}>
-                        <img src="/img/age-70+.png" alt="img" />
-                        <div className="form-step-7-1__btn">
-                            Extended size <ChevronRightIcon />
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
-        </>
+        </div>
     );
 };
+
 UIFormStep7_1.propTypes = {
     handleNextStep7_1: PropTypes.func.isRequired,
 };
+
 export default UIFormStep7_1;

@@ -124,7 +124,7 @@ const FormQuestion = () => {
         console.log(value);
         setFormStep7_1({ questionYourBuild: value });
         setShowButtonNext(true);
-        handleNext();
+        setTimeout(() => handleNext(), 1000);
     };
 
     // Function Step 7_2:
@@ -132,7 +132,7 @@ const FormQuestion = () => {
         console.log(value);
         setFormStep7_2({ questionDreambody: value });
         setShowButtonNext(true);
-        handleNext();
+        setTimeout(() => handleNext(), 1000);
     };
 
     // Function Step 8:
@@ -402,7 +402,13 @@ const FormQuestion = () => {
         },
         {
             id: 100,
-            content: <UIFormStep18_3 height={formStep3.height} weight={formStep4.weight} setIsCheckboxChecked={setIsCheckboxChecked}/>,
+            content: (
+                <UIFormStep18_3
+                    height={formStep3.height}
+                    weight={formStep4.weight}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
         },
         {
             id: 19,
