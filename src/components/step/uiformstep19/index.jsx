@@ -8,6 +8,63 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
     const totalTime = 6000; // Tổng thời gian: 6 giây (6000ms)
     const intervalTime = 100; // Mỗi lần cập nhật: 100ms
 
+    // const [currentIndex, setCurrentIndex] = useState(0);
+
+    // const nextSlide = () => {
+    //     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+    // };
+
+    // const prevSlide = () => {
+    //     setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+    // };
+
+    const data = [
+        {
+            name: 'I have never felt better 1',
+            description:
+                'When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+            image: 'https://i.postimg.cc/KYPG5YD5/profile1.jpg',
+            auth: 'Rosanna M.',
+        },
+        {
+            name: 'I have never felt better 2',
+            description:
+                'When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+            image: 'https://i.postimg.cc/mg0qgNMd/profile2.jpg',
+            auth: 'Rosanna T.',
+        },
+        {
+            name: 'I have never felt better 2',
+            description:
+                'When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+            image: 'https://i.postimg.cc/mg0qgNMd/profile2.jpg',
+            auth: 'Rosanna T.',
+        },
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isSliding, setIsSliding] = useState(false); // Trạng thái hiệu ứng
+
+    // Hàm tự động chuyển slide
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNextSlide();
+        }, 3000); // 3 giây
+
+        return () => clearInterval(interval); // Xóa interval khi unmount
+    }, [currentIndex]);
+
+    // Hàm chuyển sang slide tiếp theo
+    const handleNextSlide = () => {
+        setIsSliding(true); // Bắt đầu hiệu ứng
+        setTimeout(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length); // Thay đổi slide
+            setIsSliding(false); // Kết thúc hiệu ứng
+        }, 500); // Thời gian khớp với hiệu ứng CSS (0.5s)
+    };
+
+    const currentItem = data[currentIndex]; // Object hiện tại
+
     useEffect(() => {
         const step = (100 / totalTime) * intervalTime;
         const timer = setInterval(() => {
@@ -55,7 +112,7 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
             </Typography>
 
             {/* Testimonial Section */}
-            <Card className="testimonial-card">
+            {/* <Card className="testimonial-card">
                 <CardContent>
                     <Rating value={5} readOnly className="testimonial-rating" />
                     <Typography variant="h6" gutterBottom>
@@ -70,7 +127,24 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
                         - Rosanna M.
                     </Typography>
                 </CardContent>
-            </Card>
+            </Card> */}
+
+            <div className="slider">
+                <div
+                    className={`slider-content ${isSliding ? 'sliding' : ''}`}
+                >
+                    <div className="card">
+                        <div className="card-image">
+                            <Rating value={5} readOnly className="testimonial-rating" />
+                        </div>
+                        <h2 className="name">{currentItem.name}</h2>
+                        <p className="description">{currentItem.description}</p>
+                        <p className="description" style={{ fontWeight: 700 }}>
+                            {currentItem.auth}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </Box>
     );
 };
