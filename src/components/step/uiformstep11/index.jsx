@@ -13,14 +13,12 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
 
     const handleClick = (label) => {
         if (label === 'None of the above') {
-            // Nếu chọn "None of the above", chỉ giữ lại label này và xóa hết mục khác
             setSelected((prev) => (prev.includes(label) ? [] : [label]));
         } else {
-            // Nếu chọn mục khác, bỏ chọn "None of the above"
             setSelected((prev) => {
                 const newSelection = prev.includes(label)
-                    ? prev.filter((item) => item !== label) // Bỏ chọn mục hiện tại
-                    : [...prev.filter((item) => item !== 'None of the above'), label]; // Bỏ "None of the above" nếu nó đang được chọn
+                    ? prev.filter((item) => item !== label)
+                    : [...prev.filter((item) => item !== 'None of the above'), label];
                 return newSelection;
             });
         }

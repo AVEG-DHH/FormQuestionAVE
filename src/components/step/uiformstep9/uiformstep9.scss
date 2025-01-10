@@ -15,7 +15,7 @@
         line-height: 1.5;
     }
 
-    .form-step-9__radio {
+    .form-step-9__checkbox {
         min-width: 500px;
 
         .form-step-9__label {
@@ -29,7 +29,16 @@
             margin-bottom: 10px;
             flex-direction: row-reverse;
             cursor: pointer;
+            position: relative; /* To position the checkbox */
+            transition: background-color 0.3s ease;
 
+            /* Tô đậm background khi checkbox được chọn */
+            &.checked {
+                background-color: $disabled-color; /* Change background color when checked */
+                font-weight: bold;
+            }
+
+            /* Hover effect */
             &:hover {
                 background-color: $border-color;
             }
@@ -37,6 +46,9 @@
             .form-step-9__content {
                 display: flex;
                 align-items: center;
+                width: 100%;
+                position: relative;
+                padding-left: 30px; /* Space for the hidden checkbox */
             }
 
             .form-step-9__icon {
@@ -46,6 +58,23 @@
                 background-color: $disabled-color;
                 border-radius: 50%;
                 padding: 8px;
+            }
+
+            /* Ẩn checkbox đi */
+            input[type='checkbox'] {
+                position: absolute;
+                width: 0;
+                height: 0;
+                opacity: 0; /* Làm cho checkbox vô hình */
+                pointer-events: none; /* Ngăn checkbox gây ảnh hưởng đến sự kiện */
+            }
+
+            span {
+                font-weight: 700;
+            }
+
+            .target-icons {
+                opacity: 0;
             }
         }
     }
@@ -61,7 +90,7 @@
 
 @media (max-width: 600px) {
     .form-step-9 {
-        .form-step-9__radio {
+        .form-step-9__checkbox {
             min-width: 300px;
         }
     }
@@ -69,7 +98,7 @@
 
 @media (max-width: 425px) {
     .form-step-9 {
-        .form-step-9__radio {
+        .form-step-9__checkbox {
             min-width: 200px;
         }
     }
