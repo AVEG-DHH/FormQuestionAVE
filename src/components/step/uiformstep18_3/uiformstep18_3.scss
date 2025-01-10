@@ -1,5 +1,25 @@
 @use '../../../untils.scss' as *;
 
+.under-weight {
+    border: 1px solid rgba(45, 123, 250, 0.6); /* Màu xanh nhạt */
+    background: rgba(45, 123, 250, 0.12); /* Màu xanh nhạt trong suốt */
+}
+
+.normal-weight {
+    border: 1px solid rgba(76, 175, 80, 0.6); /* Màu xanh lá cây */
+    background: rgba(76, 175, 80, 0.12); /* Màu xanh lá cây trong suốt */
+}
+
+.over-weight {
+    border: 1px solid rgba(255, 193, 7, 0.6); /* Màu vàng */
+    background: rgba(255, 193, 7, 0.12); /* Màu vàng trong suốt */
+}
+
+.obese-weight {
+    border: 1px solid rgba(250, 45, 45, 0.6); /* Màu đỏ */
+    background: rgba(238, 80, 90, 0.12); /* Màu đỏ nhạt trong suốt */
+}
+
 #bmi-slider-container {
     margin: 0 auto;
     text-align: center;
@@ -144,8 +164,8 @@
             padding: 16px;
             border-radius: 16px;
 
-            border: 1px solid rgba(250, 45, 45, 0.6);
-            background: rgba(238, 80, 90, 0.12);
+            // border: 1px solid rgba(250, 45, 45, 0.6);
+            // background: rgba(238, 80, 90, 0.12);
 
             &-header {
                 padding-bottom: 16px;

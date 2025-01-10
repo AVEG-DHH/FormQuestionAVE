@@ -402,16 +402,16 @@ const FormQuestion = () => {
         },
         {
             id: 100,
-            content: <UIFormStep18_3 />,
+            content: <UIFormStep18_3 height={formStep3.height} weight={formStep4.weight} setIsCheckboxChecked={setIsCheckboxChecked}/>,
         },
-        // {
-        //     id: 19,
-        //     content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
-        // },
-        // {
-        //     id: 20,
-        //     content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
-        // },
+        {
+            id: 19,
+            content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
+        {
+            id: 20,
+            content: <UIFormStep20 formStep20={formStep20} setFormStep20={setFormStep20} />,
+        },
         {
             id: 100,
             content: <UIFormStep21 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,

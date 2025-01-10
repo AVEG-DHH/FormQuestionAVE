@@ -1,13 +1,76 @@
+import PropTypes from 'prop-types';
 import './uiformstep18_3.scss';
+import { useEffect } from 'react';
+//eslint-disable-next-line
+const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
+    console.log(height, weight);
+    //eslint-disable-next-line
+    const heightNew = parseInt(height.split(' ')[0], 10) / 100;
+    //eslint-disable-next-line
+    const weightNew = parseInt(weight.split(' ')[0], 10);
+    const bmi = weightNew / (heightNew * heightNew);
+    const viewBMI = Math.round(parseFloat(bmi) * 10) / 10;
+    let statusBMI = '';
+    switch (true) {
+        case bmi < 18.5:
+            statusBMI = `
+              <div class="form-step-18-3_body_desc under-weight ">
+                <div class="form-step-18-3_body_desc-header">Risks of underweight BMI:</div>
+                <div class="form-step-18-3_body_desc-container">
+                  Weakened immune system, nutrient deficiencies (e.g., iron, calcium), brittle bones, hair loss, chronic fatigue, increased risk of infections, and potential fertility issues.
+                </div>
+              </div>`;
+            break;
 
-// eslint-disable-next-line react/prop-types
-const UIFormStep18_3 = ({ bmi = 18.5 }) => {
+        case bmi >= 18.5 && bmi <= 24.9:
+            statusBMI = `
+              <div class="form-step-18-3_body_desc normal-weight">
+                <div class="form-step-18-3_body_desc-header">Benefits of healthy BMI:</div>
+                <div class="form-step-18-3_body_desc-container">
+                  Lower risk of chronic diseases (e.g., heart disease, diabetes), improved energy levels, better hormonal balance, and reduced strain on joints and muscles.
+                </div>
+              </div>`;
+            break;
+
+        case bmi >= 25 && bmi <= 29.9:
+            statusBMI = `
+              <div class="form-step-18-3_body_desc over-weight">
+                <div class="form-step-18-3_body_desc-header">Risks of overweight BMI:</div>
+                <div class="form-step-18-3_body_desc-container">
+                  High blood pressure, increased cholesterol levels, risk of developing prediabetes, sleep apnea, chronic joint pain, reduced physical stamina, and higher likelihood of heart disease.
+                </div>
+              </div>`;
+            break;
+
+        case bmi >= 30:
+            statusBMI = `
+              <div class="form-step-18-3_body_desc obese-weight">
+                <div class="form-step-18-3_body_desc-header">Risks of obesity BMI:</div>
+                <div class="form-step-18-3_body_desc-container">
+                  Severe risk of type 2 diabetes, heart attack, stroke, high blood pressure, fatty liver disease, sleep disorders, chronic joint pain, and increased risk of certain cancers (e.g., breast, colon).
+                </div>
+              </div>`;
+            break;
+
+        default:
+            statusBMI = `
+              <div class="form-step-18-3_body_desc">
+                <div class="form-step-18-3_body_desc-header">Invalid BMI value:</div>
+                <div class="form-step-18-3_body_desc-container">
+                  Please check your input and try again.
+                </div>
+              </div>`;
+            break;
+    }
+    useEffect(() => {
+        setIsCheckboxChecked(true);
+    }, [setIsCheckboxChecked]);
     return (
         <>
             <div className="form-step-18-3">
                 <h1>Here’s your wellness profile</h1>
                 <div className="form-step-18-3_body">
-                    <h2>Body Mass Index (BMI)</h2>
+                    <h2>Body Mass Index (BMI) - {viewBMI}</h2>
                     <div id="bmi-slider-container">
                         <div id="bmi-slider">
                             <input type="range" id="bmi-range" min="15" max="40" step="0.01" value={bmi} disabled />
@@ -26,13 +89,7 @@ const UIFormStep18_3 = ({ bmi = 18.5 }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="form-step-18-3_body_desc">
-                        <div className="form-step-18-3_body_desc-header">Risks of unhealthy BMI:</div>
-                        <div className="form-step-18-3_body_desc-container">
-                            High blood pressure, increased risk of heart attack, stroke, type 2 diabetes, chronic back
-                            and joint pain
-                        </div>
-                    </div>
+                    <div dangerouslySetInnerHTML={{ __html: statusBMI }} />
                     <div className="form-step-18-3_footer">
                         <div className="form-step-18-3_footer-text">
                             <div className="form-step-18-3_footer-text_block">
@@ -94,8 +151,8 @@ const UIFormStep18_3 = ({ bmi = 18.5 }) => {
                                     </svg>
                                 </div>
                                 <div className="form-step-18-3_footer-text_block-info">
-                                    <div className="form-step-18-3_footer-text_block-info-title">Body type</div>
-                                    <div className="form-step-18-3_footer-text_block-info-desc">Endomorph</div>
+                                    <div className="form-step-18-3_footer-text_block-info-title">Lifestyle</div>
+                                    <div className="form-step-18-3_footer-text_block-info-desc">Sedentary</div>
                                 </div>
                             </div>
                             <div className="form-step-18-3_footer-text_block">
@@ -117,8 +174,8 @@ const UIFormStep18_3 = ({ bmi = 18.5 }) => {
                                     </svg>
                                 </div>
                                 <div className="form-step-18-3_footer-text_block-info">
-                                    <div className="form-step-18-3_footer-text_block-info-title">Body type</div>
-                                    <div className="form-step-18-3_footer-text_block-info-desc">Endomorph</div>
+                                    <div className="form-step-18-3_footer-text_block-info-title">Fitness level</div>
+                                    <div className="form-step-18-3_footer-text_block-info-desc">Advanced</div>
                                 </div>
                             </div>
                             <div className="form-step-18-3_footer-text_block">
@@ -140,8 +197,10 @@ const UIFormStep18_3 = ({ bmi = 18.5 }) => {
                                     </svg>
                                 </div>
                                 <div className="form-step-18-3_footer-text_block-info">
-                                    <div className="form-step-18-3_footer-text_block-info-title">Body type</div>
-                                    <div className="form-step-18-3_footer-text_block-info-desc">Endomorph</div>
+                                    <div className="form-step-18-3_footer-text_block-info-title">Metabolism</div>
+                                    <div className="form-step-18-3_footer-text_block-info-desc">
+                                        Slow, easy to gain weight
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -154,5 +213,8 @@ const UIFormStep18_3 = ({ bmi = 18.5 }) => {
         </>
     );
 };
-
+UIFormStep18_3.prototype = {
+    height: PropTypes.string.isRequired,
+    weight: PropTypes.string.isRequired,
+};
 export default UIFormStep18_3;
