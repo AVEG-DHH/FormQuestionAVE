@@ -7,7 +7,6 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
-    margin-top: 70px;
 
     div {
         font-size: $font-size-title-small-pc;
@@ -38,6 +37,7 @@
             .form-step-7__content {
                 display: flex;
                 align-items: center;
+                font-weight: bold;
             }
 
             .form-step-7__icon {
