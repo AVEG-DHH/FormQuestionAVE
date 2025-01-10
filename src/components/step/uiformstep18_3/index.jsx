@@ -14,52 +14,52 @@ const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
     switch (true) {
         case bmi < 18.5:
             statusBMI = `
-              <div class="form-step-18-3_body_desc under-weight ">
-                <div class="form-step-18-3_body_desc-header">Risks of underweight BMI:</div>
-                <div class="form-step-18-3_body_desc-container">
-                  Weakened immune system, nutrient deficiencies (e.g., iron, calcium), brittle bones, hair loss, chronic fatigue, increased risk of infections, and potential fertility issues.
-                </div>
-              </div>`;
+                <div class="form-step-18-3_body_desc under-weight ">
+                    <div class="form-step-18-3_body_desc-header">Risks of underweight BMI:</div>
+                    <div class="form-step-18-3_body_desc-container">
+                        Weakened immune system, nutrient deficiencies (e.g., iron, calcium), brittle bones, hair loss, chronic fatigue, increased risk of infections, and potential fertility issues.
+                    </div>
+                </div>`;
             break;
 
         case bmi >= 18.5 && bmi <= 24.9:
             statusBMI = `
-              <div class="form-step-18-3_body_desc normal-weight">
-                <div class="form-step-18-3_body_desc-header">Benefits of healthy BMI:</div>
-                <div class="form-step-18-3_body_desc-container">
-                  Lower risk of chronic diseases (e.g., heart disease, diabetes), improved energy levels, better hormonal balance, and reduced strain on joints and muscles.
-                </div>
-              </div>`;
+                <div class="form-step-18-3_body_desc normal-weight">
+                    <div class="form-step-18-3_body_desc-header">Benefits of healthy BMI:</div>
+                    <div class="form-step-18-3_body_desc-container">
+                    Lower risk of chronic diseases (e.g., heart disease, diabetes), improved energy levels, better hormonal balance, and reduced strain on joints and muscles.
+                    </div>
+                </div>`;
             break;
 
         case bmi >= 25 && bmi <= 29.9:
             statusBMI = `
-              <div class="form-step-18-3_body_desc over-weight">
-                <div class="form-step-18-3_body_desc-header">Risks of overweight BMI:</div>
-                <div class="form-step-18-3_body_desc-container">
-                  High blood pressure, increased cholesterol levels, risk of developing prediabetes, sleep apnea, chronic joint pain, reduced physical stamina, and higher likelihood of heart disease.
-                </div>
-              </div>`;
+                <div class="form-step-18-3_body_desc over-weight">
+                    <div class="form-step-18-3_body_desc-header">Risks of overweight BMI:</div>
+                    <div class="form-step-18-3_body_desc-container">
+                    High blood pressure, increased cholesterol levels, risk of developing prediabetes, sleep apnea, chronic joint pain, reduced physical stamina, and higher likelihood of heart disease.
+                    </div>
+                </div>`;
             break;
 
         case bmi >= 30:
             statusBMI = `
-              <div class="form-step-18-3_body_desc obese-weight">
-                <div class="form-step-18-3_body_desc-header">Risks of obesity BMI:</div>
-                <div class="form-step-18-3_body_desc-container">
-                  Severe risk of type 2 diabetes, heart attack, stroke, high blood pressure, fatty liver disease, sleep disorders, chronic joint pain, and increased risk of certain cancers (e.g., breast, colon).
-                </div>
-              </div>`;
+                <div class="form-step-18-3_body_desc obese-weight">
+                    <div class="form-step-18-3_body_desc-header">Risks of obesity BMI:</div>
+                    <div class="form-step-18-3_body_desc-container">
+                    Severe risk of type 2 diabetes, heart attack, stroke, high blood pressure, fatty liver disease, sleep disorders, chronic joint pain, and increased risk of certain cancers (e.g., breast, colon).
+                    </div>
+                </div>`;
             break;
 
         default:
             statusBMI = `
-              <div class="form-step-18-3_body_desc">
-                <div class="form-step-18-3_body_desc-header">Invalid BMI value:</div>
-                <div class="form-step-18-3_body_desc-container">
-                  Please check your input and try again.
-                </div>
-              </div>`;
+                <div class="form-step-18-3_body_desc">
+                    <div class="form-step-18-3_body_desc-header">Invalid BMI value:</div>
+                    <div class="form-step-18-3_body_desc-container">
+                    Please check your input and try again.
+                    </div>
+                </div>`;
             break;
     }
     useEffect(() => {
