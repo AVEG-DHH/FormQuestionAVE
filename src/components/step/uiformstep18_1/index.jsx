@@ -1,9 +1,14 @@
 import './uiformstep4.scss';
 import { useEffect, useState } from 'react';
 // eslint-disable-next-line react/prop-types
-const UIFormStep4 = ({ setIsInputValid, handleNextStep4 }) => {
+const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
     const [selectedUnit, setSelectedUnit] = useState('kg');
     const [weightValue, setWeightValue] = useState('');
+    const [valueBMI, setValueBMI] = useState(0);
+    const [percent, setPercent] = useState(0);
+    const [checkBMI, setCheckBMI] = useState(0);
+    // eslint-disable-next-line react/prop-types
+    const heightNew = parseInt(height.split(' ')[0], 10) / 100;
 
     useEffect(() => {
         const numericValue = parseFloat(weightValue);
@@ -18,12 +23,41 @@ const UIFormStep4 = ({ setIsInputValid, handleNextStep4 }) => {
             setIsInputValid(false);
         }
         handleNextStep4(selectedUnit === 'kg' ? `${weightValue} kg` : `${weightValue} lbs`);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [weightValue, selectedUnit, setIsInputValid]);
 
     useEffect(() => {
         setWeightValue('');
     }, [selectedUnit]);
 
+    useEffect(() => {
+        if (weightValue !== '') {
+            const weightNew = parseInt(weightValue.split(' ')[0], 10);
+            const bmi = weightNew / (heightNew * heightNew);
+            setValueBMI(bmi);
+        }else {
+            setCheckBMI(0);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [weightValue]);
+
+    useEffect(() => {
+        if (valueBMI > 0) {
+            if (valueBMI < 18.5) {
+                const percent = ((18.5 - valueBMI) / 18.5) * 100;
+                setPercent(percent);
+                setCheckBMI(1);
+            } else if (valueBMI >= 18.5 && valueBMI <= 24.9) {
+                console.log('You are within the normal weight range.');
+                setCheckBMI(2);
+            } else if (valueBMI > 24.9) {
+                const percent = ((valueBMI - 24.9) / 24.9) * 100;
+                setPercent(percent);
+                setCheckBMI(3);
+            }
+            console.log(valueBMI);
+        }
+    }, [valueBMI]);
     return (
         <div className="form-step-4">
             <h1>What’s your current weight?</h1>
@@ -53,7 +87,7 @@ const UIFormStep4 = ({ setIsInputValid, handleNextStep4 }) => {
                         />
                         <span className="input-unit">{selectedUnit}</span>
                     </div>
-                    <p>
+                    <p style={{ paddingBottom: '12px' }}>
                         Please, enter a value from{' '}
                         <strong>
                             {selectedUnit === 'kg' ? '25' : '55'} {selectedUnit}
@@ -63,6 +97,17 @@ const UIFormStep4 = ({ setIsInputValid, handleNextStep4 }) => {
                             {selectedUnit === 'kg' ? '300' : '662'} {selectedUnit}
                         </strong>
                     </p>
+                    {checkBMI == 1 && (
+                        <p style={{ color: 'red' }}>
+                            You are underweight by {percent.toFixed(2)}% compared to the normal range.
+                        </p>
+                    )}
+                    {checkBMI == 2 && <p>You are within the normal weight range.</p>}
+                    {checkBMI == 3 && (
+                        <p style={{ color: 'green' }}>
+                            You are overweight by {percent.toFixed(2)}% compared to the normal range.
+                        </p>
+                    )}
                 </div>
             </div>
         </div>

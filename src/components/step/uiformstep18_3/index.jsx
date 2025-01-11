@@ -1,8 +1,23 @@
 import PropTypes from 'prop-types';
-import './uiformstep18_3.scss';
 import { useEffect } from 'react';
-//eslint-disable-next-line
-const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
+import './uiformstep18_3.scss';
+// eslint-disable-next-line react/prop-types
+const UIFormStep18_3 = ({
+    // eslint-disable-next-line react/prop-types
+    height,
+    // eslint-disable-next-line react/prop-types
+    weight,
+    // eslint-disable-next-line react/prop-types
+    setIsCheckboxChecked,
+    // eslint-disable-next-line react/prop-types
+    yourBuild,
+    // eslint-disable-next-line react/prop-types
+    questionOftenEx,
+    // eslint-disable-next-line react/prop-types
+    questionWorkoutPD,
+    // eslint-disable-next-line react/prop-types
+    goal,
+}) => {
     console.log(height, weight);
     //eslint-disable-next-line
     const heightNew = parseInt(height.split(' ')[0], 10) / 100;
@@ -121,7 +136,9 @@ const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
                                 </div>
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Body type</div>
-                                    <div className="form-step-18-3_footer-text_block-info-desc">Endomorph</div>
+                                    <div className="form-step-18-3_footer-text_block-info-desc">
+                                        {yourBuild == 'Slim' || yourBuild == 'Mid-sized' ? 'Ectomorph' : 'Endomorph'}
+                                    </div>
                                 </div>
                             </div>
                             <div className="form-step-18-3_footer-text_block">
@@ -152,7 +169,12 @@ const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
                                 </div>
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Lifestyle</div>
-                                    <div className="form-step-18-3_footer-text_block-info-desc">Sedentary</div>
+                                    <div className="form-step-18-3_footer-text_block-info-desc">
+                                        {questionOftenEx == 'Almost every day' ||
+                                        questionOftenEx == 'Several times a week'
+                                            ? 'Active'
+                                            : 'Sedentary'}
+                                    </div>
                                 </div>
                             </div>
                             <div className="form-step-18-3_footer-text_block">
@@ -175,7 +197,13 @@ const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
                                 </div>
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Fitness level</div>
-                                    <div className="form-step-18-3_footer-text_block-info-desc">Advanced</div>
+                                    <div className="form-step-18-3_footer-text_block-info-desc">
+                                        {questionWorkoutPD === 'Less than 15 minutes'
+                                            ? 'Basic'
+                                            : questionWorkoutPD === '15-30 minutes'
+                                            ? 'Medium'
+                                            : 'Advanced'}
+                                    </div>
                                 </div>
                             </div>
                             <div className="form-step-18-3_footer-text_block">
@@ -199,7 +227,11 @@ const UIFormStep18_3 = ({ height, weight, setIsCheckboxChecked }) => {
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Metabolism</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        Slow, easy to gain weight
+                                        {questionOftenEx == 'Almost every day' ||
+                                        questionOftenEx == 'Several times a week'
+                                            ? 'Fast, easy to '
+                                            : 'Low, difficult to '}
+                                        {goal}
                                     </div>
                                 </div>
                             </div>

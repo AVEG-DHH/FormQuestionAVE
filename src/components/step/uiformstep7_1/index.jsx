@@ -7,7 +7,7 @@ const UIFormStep7_1 = ({ handleNextStep7_1 }) => {
     const [selected, setSelected] = useState('');
 
     const imageMapping = {
-        Slim: '/img/ave-7_1-Slim.png',
+        'Slim': '/img/ave-7_1-Slim.png',
         'Mid-sized': '/img/ave-7_1-Mid-Size.png',
         'Full-figured': '/img/ave-7_1-Full-Figured.png',
         'Extended size': '/img/ave-7_1-Extended.png',

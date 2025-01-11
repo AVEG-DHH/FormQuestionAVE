@@ -231,7 +231,7 @@ const FormQuestion = () => {
             content: <UIFormStep1 handleNextStep1={handleNextStep1} />,
         },
 
-        // Q2: OVER 1 MILLION WOMEN
+        //Q2: OVER 1 MILLION WOMEN
         {
             id: 2,
             content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
@@ -396,7 +396,13 @@ const FormQuestion = () => {
         // Q26: WHAT'S YOUR CURRENT WEIGHT?
         {
             id: 26,
-            content: <UIFormStep18_1 setIsInputValid={setIsInputValid} handleNextStep4={handleNextStep4} />,
+            content: (
+                <UIFormStep18_1
+                    height={formStep3.height}
+                    setIsInputValid={setIsInputValid}
+                    handleNextStep4={handleNextStep4}
+                />
+            ),
         },
 
         // Q27: WHAT'S YOUR AGE?
@@ -415,6 +421,10 @@ const FormQuestion = () => {
                     height={formStep3.height}
                     weight={formStep4.weight}
                     setIsCheckboxChecked={setIsCheckboxChecked}
+                    yourBuild={formStep7_1.questionYourBuild}
+                    questionOftenEx={formStep10.questionOftenEx}
+                    questionWorkoutPD={formStep13.questionWorkoutPD}
+                    goal={formStep5.questionGoal}
                 />
             ),
         },
