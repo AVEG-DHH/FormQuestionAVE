@@ -12,25 +12,61 @@ const UIFormStep12_2 = ({ handleNextStep12_2 }) => {
                             className="form-step-12-2__label"
                             value="Less than 5 hours"
                             control={<Radio />}
-                            label="Less than 5 hours"
+                            label={
+                                <p className="form-step-12-2__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Less than 5 hours
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-12-2__label"
                             value="5-6 hours"
                             control={<Radio />}
-                            label="5-6 hours"
+                            label={
+                                <p className="form-step-12-2__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    5-6 hours
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-12-2__label"
                             value="7-8 hours"
                             control={<Radio />}
-                            label="7-8 hours"
+                            label={
+                                <p className="form-step-12-2__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    7-8 hours
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-12-2__label"
                             value="More than 8 hours"
                             control={<Radio />}
-                            label="More than 8 hours"
+                            label={
+                                <p className="form-step-12-2__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    More than 8 hours
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>

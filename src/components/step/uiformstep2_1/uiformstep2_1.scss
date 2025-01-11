@@ -10,11 +10,13 @@
 }
 
 .form-step-2_1 {
-    padding: 40px 40rem;
+    // padding: 40px 40rem;
 
     &-content {
         display: flex;
         align-items: center;
+        gap: 48px;
+
         &__title {
             display: flex;
             flex-direction: column;
@@ -24,7 +26,7 @@
                 font-size: $font-size-title-small-pc;
 
                 span {
-                    color: $primary-color;
+                    color: $text-dark;
                     font-weight: bold;
                 }
             }
@@ -33,19 +35,26 @@
                 font-family: $secondary-font !important;
                 font-size: $font-size-input-pc;
                 color: $sub-color;
-                line-height: 1.1;
+                line-height: 1.4;
                 font-weight: 400;
+                letter-spacing: -0.03em;
 
                 span {
+                    color: $text-dark;
                     font-weight: bold;
                 }
             }
         }
+
         &__img {
-            height: 70vh;
+            height: auto;
+
             img {
-                height: 100%;
+                max-width: 488px;
+                height: auto;
                 object-fit: cover;
+                border: 2px solid $border-color;
+                border-radius: 29px;
             }
         }
     }

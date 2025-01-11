@@ -12,25 +12,61 @@ const UIFormStep11_2 = ({ handleNextStep11_2 }) => {
                             className="form-step-11-2__label"
                             value="Low, I feel tired throughout the day"
                             control={<Radio />}
-                            label="Low, I feel tired throughout the day"
+                            label={
+                                <p className="form-step-11-2__content">
+                                    <img
+                                        src="/icons/low-energy.webp"
+                                        alt="Low, I feel tired throughout the day"
+                                        className="form-step-11-2__icon"
+                                    />
+                                    Low, I feel tired throughout the day
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-11-2__label"
                             value="Post lunch slump"
                             control={<Radio />}
-                            label="Post lunch slump"
+                            label={
+                                <p className="form-step-11-2__content">
+                                    <img
+                                        src="/icons/post-lunch.webp"
+                                        alt="Post lunch slump"
+                                        className="form-step-11-2__icon"
+                                    />
+                                    Post lunch slump
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-11-2__label"
                             value="Dragging before meals"
                             control={<Radio />}
-                            label="Dragging before meals"
+                            label={
+                                <p className="form-step-11-2__content">
+                                    <img
+                                        src="/icons/before-meat.webp"
+                                        alt="Dragging before meals"
+                                        className="form-step-11-2__icon"
+                                    />
+                                    Dragging before meals
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-11-2__label"
                             value="High and steady"
                             control={<Radio />}
-                            label="High and steady"
+                            label={
+                                <p className="form-step-11-2__content">
+                                    <img
+                                        src="/icons/high.webp"
+                                        alt="High and steady"
+                                        className="form-step-11-2__icon"
+                                    />
+                                    High and steady
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>

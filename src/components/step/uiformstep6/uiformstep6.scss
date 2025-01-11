@@ -19,6 +19,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 48px;
 
         .form-step-6-body-img {
             max-width: 32%;
@@ -41,13 +42,17 @@
             width: 100%;
             border: 1px solid $border-color;
             border-radius: 8px;
-            padding: 10px 20px;
-            margin-bottom: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
             flex-direction: row-reverse;
             cursor: pointer;
+            transform: scale(1);
+            transition: transform 0.1s ease-in-out;
+            transition: transform 0.1s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
             p {
                 font-weight: bold !important;
+                font-size: $font-size-text-sp;
             }
 
             &:hover {

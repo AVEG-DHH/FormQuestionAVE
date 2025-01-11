@@ -101,6 +101,7 @@ video {
     font: inherit;
     vertical-align: baseline;
     font-family: 'Gilroy-Medium', sans-serif !important;
+    -webkit-font-smoothing: antialiased !important;
     line-height: 1;
 }
 /* HTML5 display-role reset for older browsers */
