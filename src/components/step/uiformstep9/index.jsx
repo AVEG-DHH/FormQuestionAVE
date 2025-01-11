@@ -43,7 +43,7 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
                                 <div className="form-step-9__content">
                                     <p>Belly</p>
                                     <div className="form-step-9__content-img">
-                                        <img src="/public/img/ave-11.png" alt="" />
+                                        <img src="/img/ave-11.png" alt="" />
                                     </div>
                                 </div>
                             }
@@ -58,7 +58,7 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
                                 <div className="form-step-9__content">
                                     <p>Butt</p>
                                     <div className="form-step-9__content-img">
-                                        <img src="/public/img/ave-12.png" alt="" />
+                                        <img src="/img/ave-12.png" alt="" />
                                     </div>
                                 </div>
                             }
@@ -73,7 +73,7 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
                                 <div className="form-step-9__content">
                                     <p>Legs</p>
                                     <div className="form-step-9__content-img">
-                                        <img src="/public/img/ave-13.png" alt="" />
+                                        <img src="/img/ave-13.png" alt="" />
                                     </div>
                                 </div>
                             }
@@ -88,7 +88,7 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
                                 <div className="form-step-9__content">
                                     <p>Chest</p>
                                     <div className="form-step-9__content-img">
-                                        <img src="/public/img/ave-14.png" alt="" />
+                                        <img src="/img/ave-14.png" alt="" />
                                     </div>
                                 </div>
                             }

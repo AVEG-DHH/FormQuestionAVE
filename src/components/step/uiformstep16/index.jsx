@@ -19,7 +19,14 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 label={
                                     <div>
                                         <span>Traditional</span>
-                                        <p>I enjoy everything</p>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Traditional.webp"
+                                                alt="Traditional"
+                                                className="form-step-5__icon"
+                                            />
+                                            I enjoy everything
+                                        </p>
                                     </div>
                                 }
                             />
@@ -29,8 +36,15 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 control={<Radio />}
                                 label={
                                     <div>
-                                        <span>Keto</span>
-                                        <p>I prefer high-fat low-carb meals</p>
+                                        <span>Traditional</span>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Keto.webp"
+                                                alt="Keto"
+                                                className="form-step-5__icon"
+                                            />
+                                            I prefer high-fat low-carb meals
+                                        </p>
                                     </div>
                                 }
                             />
@@ -40,8 +54,15 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 control={<Radio />}
                                 label={
                                     <div>
-                                        <span>Paleo</span>
-                                        <p>I dont eat processed foods</p>
+                                        <span>Traditional</span>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Paleo.webp"
+                                                alt="Paleo"
+                                                className="form-step-5__icon"
+                                            />
+                                            I don{"'"}t eat processed foods
+                                        </p>
                                     </div>
                                 }
                             />
@@ -54,29 +75,50 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 label={
                                     <div>
                                         <span>Vegetarian</span>
-                                        <p>I avoid meat and fish</p>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Vegetarian.webp"
+                                                alt="Vegetarian"
+                                                className="form-step-5__icon"
+                                            />
+                                            I avoid meat and fish
+                                        </p>
                                     </div>
                                 }
                             />
                             <FormControlLabel
                                 className="form-step-16__label"
-                                value=" Vegan (Plant Diet)"
+                                value="Vegan (Plant Diet)"
                                 control={<Radio />}
                                 label={
                                     <div>
-                                        <span> Vegan (Plant Diet)</span>
-                                        <p>I do not eat animal products</p>
+                                        <span>Vegan (Plant Diet)</span>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Vegan.webp"
+                                                alt="Vegan (Plant Diet)"
+                                                className="form-step-5__icon"
+                                            />
+                                            I do not eat animal products
+                                        </p>
                                     </div>
                                 }
                             />
                             <FormControlLabel
                                 className="form-step-16__label"
-                                value=" Keto Vegan"
+                                value="Keto Vegan"
                                 control={<Radio />}
                                 label={
                                     <div>
-                                        <span> Keto Vegan</span>
-                                        <p>I eat low-carb plant-based meals only</p>
+                                        <span>Keto Vegan</span>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Keto_Vegan.webp"
+                                                alt="Keto_Vegan"
+                                                className="form-step-5__icon"
+                                            />
+                                            I eat low-carb plant-based meals only
+                                        </p>
                                     </div>
                                 }
                             />
@@ -92,7 +134,14 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 label={
                                     <div>
                                         <span>Mediterranean</span>
-                                        <p>I eat plenty of veggies, grains, and seafood</p>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Mediterranean.webp"
+                                                alt="Mediterranean"
+                                                className="form-step-5__icon"
+                                            />
+                                            I eat plenty of veggies, grains, and seafood
+                                        </p>
                                     </div>
                                 }
                             />
@@ -103,7 +152,14 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 label={
                                     <div>
                                         <span>Pescatarian</span>
-                                        <p>I avoid meat but enjoy fish</p>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Pescatarian.webp"
+                                                alt="Pescatarian"
+                                                className="form-step-5__icon"
+                                            />
+                                            I avoid meat but enjoy fish
+                                        </p>
                                     </div>
                                 }
                             />
@@ -111,12 +167,19 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                             <h1>WITHOUT ALLERGENS</h1>
                             <FormControlLabel
                                 className="form-step-16__label"
-                                value=" Lactose Free"
+                                value="Lactose Free"
                                 control={<Radio />}
                                 label={
                                     <div>
-                                        <span> Lactose Free</span>
-                                        <p>I do not consume foods with lactose</p>
+                                        <span>Lactose Free</span>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Lactose.webp"
+                                                alt="Lactose Free"
+                                                className="form-step-5__icon"
+                                            />
+                                            I do not consume foods with lactose
+                                        </p>
                                     </div>
                                 }
                             />
@@ -127,7 +190,14 @@ const UIFormStep16 = ({ handleNextStep16 }) => {
                                 label={
                                     <div>
                                         <span>Gluten Free</span>
-                                        <p>I avoid gluten-containing grains</p>
+                                        <p className="form-step-16__content">
+                                            <img
+                                                src="/icons/icons-Q16/Gluten.webp"
+                                                alt="Gluten Free"
+                                                className="form-step-5__icon"
+                                            />
+                                            I avoid gluten-containing grains
+                                        </p>
                                     </div>
                                 }
                             />

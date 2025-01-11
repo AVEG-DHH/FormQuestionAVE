@@ -12,31 +12,76 @@ const UIFormStep15 = ({ handleNextStep15 }) => {
                             className="form-step-15__label"
                             value="None"
                             control={<Radio />}
-                            label="None"
+                            label={
+                                <p className="form-step-15__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    None
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-15__label"
                             value="Chair/mat"
                             control={<Radio />}
-                            label="Chair/mat"
+                            label={
+                                <p className="form-step-15__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Chair/mat
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-15__label"
                             value="Dumbbells"
                             control={<Radio />}
-                            label="Dumbbells"
+                            label={
+                                <p className="form-step-15__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Dumbbells
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-15__label"
                             value="Resistance bands"
                             control={<Radio />}
-                            label="Resistance bands"
+                            label={
+                                <p className="form-step-15__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Resistance bands
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-15__label"
                             value="Other advanced equipment"
                             control={<Radio />}
-                            label="Other advanced equipment"
+                            label={
+                                <p className="form-step-15__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Other advanced equipment
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>

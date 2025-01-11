@@ -1,5 +1,15 @@
 @use '../../../untils.scss' as *;
 
+.like-icon {
+    background: $border-color;
+    color: $border-color;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 8px;
+    margin-bottom: 32px;
+}
+
 .form-step-6_1 {
     padding: 40px 36rem;
 
@@ -22,38 +32,41 @@
                 }
             }
             p {
-                font-size: $font-size-input-pc;
+                font-family: $secondary-font !important;
+                font-size: $font-size-text-sp;
+                line-height: 1.4;
                 color: $sub-color;
 
                 span {
+                    color: $text-dark;
                     font-weight: bold;
                 }
             }
         }
-        &__img {
-            height: 70vh;
-            img {
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+        // &__img {
+        //     height: 70vh;
+        //     img {
+        //         height: 100%;
+        //         object-fit: cover;
+        //     }
+        // }
     }
 }
 
-@media (max-width: 1200px) {
-    .form-step-6_1 {
-        &-content {
-            flex-direction: column;
-            &__img {
-                height: 52vh;
-            }
-        }
-    }
-}
+// @media (max-width: 1200px) {
+//     .form-step-6_1 {
+//         &-content {
+//             flex-direction: column;
+//             &__img {
+//                 height: 52vh;
+//             }
+//         }
+//     }
+// }
 
 @media (max-width: 1500px) {
     .form-step-6_1 {
-        padding: 0;
+        padding: 40px 17rem;
     }
 }
 
@@ -70,9 +83,9 @@
                     font-size: $font-size-text-sp;
                 }
             }
-            &__img {
-                height: 40vh;
-            }
+            // &__img {
+            //     height: 40vh;
+            // }
         }
     }
 }

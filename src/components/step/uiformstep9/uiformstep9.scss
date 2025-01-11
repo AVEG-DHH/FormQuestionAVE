@@ -25,11 +25,11 @@
             width: 100%;
             border: 1px solid $border-color;
             border-radius: 8px;
-            padding: 10px 20px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             flex-direction: row-reverse;
             cursor: pointer;
             position: relative; /* To position the checkbox */
+            padding: 15px;
             transition: background-color 0.3s ease;
 
             &-span {
@@ -38,7 +38,7 @@
 
             /* Tô đậm background khi checkbox được chọn */
             &.checked {
-                background-color: $disabled-color; /* Change background color when checked */
+                background-color: $border-color; /* Change background color when checked */
                 font-weight: bold;
             }
 
@@ -51,6 +51,7 @@
                 display: flex;
                 align-items: center;
                 width: 100%;
+                font-size: $font-size-text-sp;
                 position: relative;
                 height: 60px;
                 // padding-left: 30px;

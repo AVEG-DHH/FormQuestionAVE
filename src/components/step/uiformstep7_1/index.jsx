@@ -7,10 +7,10 @@ const UIFormStep7_1 = ({ handleNextStep7_1 }) => {
     const [selected, setSelected] = useState('');
 
     const imageMapping = {
-        Slim: '/img/age-40-49.png',
-        'Mid-sized': '/img/age-50-59.png',
-        'Full-figured': '/img/age-60-69.png',
-        'Extended size': '/img/age-70+.png',
+        Slim: '/img/ave-7_1-Slim.png',
+        'Mid-sized': '/img/ave-7_1-Mid-Size.png',
+        'Full-figured': '/img/ave-7_1-Full-Figured.png',
+        'Extended size': '/img/ave-7_1-Extended.png',
     };
 
     const handleSelect = (value) => {

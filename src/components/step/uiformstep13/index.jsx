@@ -12,19 +12,46 @@ const UIFormStep13 = ({ handleNextStep13 }) => {
                             className="form-step-13__label"
                             value="Less than 15 minutes"
                             control={<Radio />}
-                            label="Less than 15 minutes"
+                            label={
+                                <p className="form-step-13__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Less than 15 minutes
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-13__label"
                             value="15-30 minutes"
                             control={<Radio />}
-                            label="15-30 minutes"
+                            label={
+                                <p className="form-step-13__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    15-30 minutes
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-13__label"
                             value="More than 60 minutes"
                             control={<Radio />}
-                            label="More than 60 minutes"
+                            label={
+                                <p className="form-step-13__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    More than 60 minutes
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>

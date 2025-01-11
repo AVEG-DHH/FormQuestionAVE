@@ -14,13 +14,13 @@
             row-gap: 8px;
 
             h1 {
-                font-size: $font-size-title-medium-pc;
+                font-size: $font-size-title-small-pc;
                 color: $primary-color;
                 font-weight: bold;
             }
             p {
                 font-size: $font-size-text-pc;
-                line-height: 32px;
+                line-height: 1.2;
                 color: $sub-color;
 
                 span {
@@ -29,6 +29,7 @@
                 }
             }
         }
+
         &__img {
             height: 70vh;
             img {

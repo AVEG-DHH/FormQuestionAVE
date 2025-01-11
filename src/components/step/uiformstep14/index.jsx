@@ -12,25 +12,61 @@ const UIFormStep14 = ({ handleNextStep14 }) => {
                             className="form-step-14__label"
                             value="At home"
                             control={<Radio />}
-                            label="At home"
+                            label={
+                                <p className="form-step-14__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    At home
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-14__label"
                             value="Outdoors"
                             control={<Radio />}
-                            label="Outdoors"
+                            label={
+                                <p className="form-step-14__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Outdoors
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-14__label"
                             value="In a gym"
                             control={<Radio />}
-                            label="In a gym"
+                            label={
+                                <p className="form-step-14__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    In a gym
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-14__label"
                             value="No preference"
                             control={<Radio />}
-                            label="No preference"
+                            label={
+                                <p className="form-step-14__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    No preference
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>

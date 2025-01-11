@@ -10,7 +10,7 @@ const UIFormStep2_1 = ({ setIsCheckboxChecked }) => {
         <div className="form-step-2_1">
             <div className="form-step-2_1-content">
                 <div className="form-step-2_1-content__title">
-                    <div className="form-step-2_1-content__icon">
+                    {/* <div className="form-step-2_1-content__icon">
                         <svg
                             className="like-icon"
                             viewBox="0 0 32 32"
@@ -26,19 +26,20 @@ const UIFormStep2_1 = ({ setIsCheckboxChecked }) => {
                                 clipRule="evenodd"
                             ></path>
                         </svg>
-                    </div>
+                    </div> */}
                     <h1>
-                        <span>Natural Cleansing</span>
+                        <span>You&apos;ll do fantastic!</span>
                     </h1>
-                    <p>is the perfect choice for workouts at any fitness level!</p>
                     <p>
-                        Just follow our guidance, embrace the journey, <br className="form-step-2_1-br" /> and get ready
-                        to achieve your dream physique <br className="form-step-2_1-br" /> with ease!
+                        NaturalCleansing is a gentle and effective fitness <br /> option for all levels.
+                    </p>
+                    <p>
+                        You will <span>get in shape at home</span> by following us and <br /> being ready to go!
                     </p>
                 </div>
-                {/* <div className="form-step-2_1-content__img">
-                    <img src="/img/form-step-6.png" alt="img" />
-                </div> */}
+                <div className="form-step-2_1-content__img">
+                    <img src="/img/ave-02.png" alt="img" />
+                </div>
             </div>
         </div>
     );

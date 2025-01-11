@@ -12,9 +12,32 @@ const UIFormStep12_1 = ({ handleNextStep12_1 }) => {
                             className="form-step-12-1__label"
                             value="Yes"
                             control={<Radio />}
-                            label="Yes"
+                            label={
+                                <p className="form-step-12-1__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    Yes
+                                </p>
+                            }
                         />
-                        <FormControlLabel className="form-step-12-1__label" value="No" control={<Radio />} label="No" />
+                        <FormControlLabel
+                            className="form-step-12-1__label"
+                            value="No"
+                            control={<Radio />}
+                            label={
+                                <p className="form-step-12-1__content">
+                                    {/* <img
+                                        src="/icons/women-weight-decrease-icon.png"
+                                        alt="Maintain Weight Icon"
+                                        className="form-step-5__icon"
+                                    /> */}
+                                    No
+                                </p>
+                            }
+                        />
                     </RadioGroup>
                 </FormControl>
             </div>
