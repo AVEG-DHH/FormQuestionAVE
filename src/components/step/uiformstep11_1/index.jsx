@@ -28,8 +28,8 @@ const UIFormStep11_1 = ({ target, goal, setIsCheckboxChecked }) => {
                     </div>
                     <h1>We got you!</h1>
                     <p>
-                        Get ready to explore a variety of {target.replaceAll(',', ', ')} exercises. Transform your
-                        strength and achieve {goal} effortlessly!
+                        Get ready to explore a variety of <span>{target.replaceAll(',', ', ')}</span> exercises.
+                        Transform your strength and achieve <span>{goal}</span> effortlessly!
                     </p>
                 </div>
                 {/* <div className="form-step-11-1-content__img">
