@@ -3,9 +3,10 @@ import { Grid, Typography, Card, CardActionArea, Checkbox, Box } from '@mui/mate
 import './uiformstep11.scss';
 
 const options = [
-    { id: 1, label: 'Sensitive back', image: '/img/age-40-49.png', value: 'Sensitive back' },
-    { id: 2, label: 'Sensitive knees', image: '/img/age-50-59.png', value: 'Sensitive knees' },
-    { id: 3, label: 'None of the above', image: '/img/age-70+.png', value: 'None of the above' },
+    { id: 1, label: 'Neck Shoulder Nape Pain', image: '/img/ave-02.png', value: 'Neck Shoulder Nape Pain' },
+    { id: 2, label: 'Sensitive back', image: '/img/ave-16.png', value: 'Sensitive back' },
+    { id: 3, label: 'Sensitive knees', image: '/img/ave-15.png', value: 'Sensitive knees' },
+    { id: 4, label: 'None of the above', image: '/img/ave-02.png', value: 'None of the above' },
 ];
 // eslint-disable-next-line react/prop-types
 const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
@@ -41,7 +42,7 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
             </Typography>
             <Grid container spacing={2} justifyContent="center">
                 {options.map((option) => (
-                    <Grid item key={option.id} xs={12} sm={4}>
+                    <Grid item key={option.id} xs={12} sm={6} lg={3}>
                         <Card className={`struggle-card ${selected.includes(option.value) ? 'selected' : ''}`}>
                             <CardActionArea onClick={() => handleClick(option.value)}>
                                 <Box className="card-content">
@@ -56,10 +57,6 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
                     </Grid>
                 ))}
             </Grid>
-            {/* <Box className="selected-options">
-                <Typography variant="h6">Selected Options:</Typography>
-                <Typography>{selected.join(', ') || 'None'}</Typography>
-            </Box> */}
         </Box>
     );
 };

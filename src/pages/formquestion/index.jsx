@@ -312,7 +312,13 @@ const FormQuestion = () => {
         // Q14: WE GOT YOU!
         {
             id: 14,
-            content: <UIFormStep11_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
+            content: (
+                <UIFormStep11_1
+                    target={formStep9.questionTarget}
+                    goal={formStep5.questionGoal}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
         },
 
         //  Q15: HOW ARE YOUR ENERGY LEVELS DURING THE DAY?
