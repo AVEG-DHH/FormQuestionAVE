@@ -32,8 +32,8 @@ const UIFormStep2_1 = ({ setIsCheckboxChecked }) => {
                     </h1>
                     <p>is the perfect choice for workouts at any fitness level!</p>
                     <p>
-                        Just follow our guidance, embrace the journey, <br /> and get ready to achieve your dream
-                        physique <br /> with ease!
+                        Just follow our guidance, embrace the journey, <br className="form-step-2_1-br" /> and get ready
+                        to achieve your dream physique <br className="form-step-2_1-br" /> with ease!
                     </p>
                 </div>
                 {/* <div className="form-step-2_1-content__img">
