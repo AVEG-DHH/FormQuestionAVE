@@ -10,13 +10,17 @@
 
     h1 {
         font-size: $font-size-title-medium-pc;
-        font-weight: bold;
+        font-weight: 600;
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+        line-height: 1.08;
     }
 
     h2 {
         font-size: $font-size-text-pc;
-        font-weight: 400;
+        font-weight: 700;
         color: rgba(23, 23, 23, 0.56);
+        margin-bottom: 32px;
     }
 
     .form-step-1__content {
@@ -58,8 +62,18 @@
     }
 
     .form-step-1__footer {
+        font-size: $font-size-input-sp;
+        letter-spacing: -0.03em;
+        line-height: 1.18;
+        font-family: $secondary-font !important;
+
         p {
             line-height: 1.2;
+
+            span {
+                font-weight: bold;
+                -webkit-font-smoothing: antialiased;
+            }
         }
         a {
             color: $primary-color;
