@@ -30,28 +30,68 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
     return (
         <>
             <div className="form-step-9">
-                <div>What are your target zones?</div>
+                <div className="form-step-9__header">What are your target zones?</div>
                 <FormControl className="form-step-9__checkbox">
                     <FormGroup onChange={handleNextStep9Child}>
                         <FormControlLabel
                             className={`form-step-9__label ${selectedValues.includes('Belly') ? 'checked' : ''}`}
+                            classes={{
+                                label: 'form-step-9__label-span',
+                            }}
                             control={<Checkbox value="Belly" className="target-icons" />}
-                            label={<p className="form-step-9__content">Belly</p>}
+                            label={
+                                <div className="form-step-9__content">
+                                    <p>Belly</p>
+                                    <div className="form-step-9__content-img">
+                                        <img src="/public/img/ave-11.png" alt="" />
+                                    </div>
+                                </div>
+                            }
                         />
                         <FormControlLabel
                             className={`form-step-9__label ${selectedValues.includes('Butt') ? 'checked' : ''}`}
+                            classes={{
+                                label: 'form-step-9__label-span',
+                            }}
                             control={<Checkbox value="Butt" className="target-icons" />}
-                            label={<p className="form-step-9__content">Butt</p>}
+                            label={
+                                <div className="form-step-9__content">
+                                    <p>Butt</p>
+                                    <div className="form-step-9__content-img">
+                                        <img src="/public/img/ave-12.png" alt="" />
+                                    </div>
+                                </div>
+                            }
                         />
                         <FormControlLabel
                             className={`form-step-9__label ${selectedValues.includes('Legs') ? 'checked' : ''}`}
+                            classes={{
+                                label: 'form-step-9__label-span',
+                            }}
                             control={<Checkbox value="Legs" className="target-icons" />}
-                            label={<p className="form-step-9__content">Legs</p>}
+                            label={
+                                <div className="form-step-9__content">
+                                    <p>Legs</p>
+                                    <div className="form-step-9__content-img">
+                                        <img src="/public/img/ave-13.png" alt="" />
+                                    </div>
+                                </div>
+                            }
                         />
                         <FormControlLabel
                             className={`form-step-9__label ${selectedValues.includes('Chest') ? 'checked' : ''}`}
+                            classes={{
+                                label: 'form-step-9__label-span',
+                            }}
                             control={<Checkbox value="Chest" className="target-icons" />}
-                            label={<p className="form-step-9__content">Chest</p>}
+                            label={
+                                <div className="form-step-9__content">
+                                    <p>Chest</p>
+                                    <div className="form-step-9__content-img">
+                                        <img src="/public/img/ave-14.png" alt="" />
+                                    </div>
+                                </div>
+                            }
                         />
                     </FormGroup>
                 </FormControl>

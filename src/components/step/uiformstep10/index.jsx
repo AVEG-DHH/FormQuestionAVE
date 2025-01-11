@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import { IoFemaleSharp, IoMale } from 'react-icons/io5';
 import './uiformstep10.scss';
+
 // eslint-disable-next-line react/prop-types
 const UIFormStep10 = ({ handleNextStep10 }) => {
     return (
@@ -15,7 +15,6 @@ const UIFormStep10 = ({ handleNextStep10 }) => {
                             control={<Radio />}
                             label={
                                 <p className="form-step-10__content">
-                                    <IoMale className="form-step-10__icon" />
                                     Almost every day
                                 </p>
                             }
@@ -26,7 +25,6 @@ const UIFormStep10 = ({ handleNextStep10 }) => {
                             control={<Radio />}
                             label={
                                 <p className="form-step-10__content">
-                                    <IoFemaleSharp className="form-step-10__icon" />
                                     Several times a week
                                 </p>
                             }
@@ -37,7 +35,6 @@ const UIFormStep10 = ({ handleNextStep10 }) => {
                             control={<Radio />}
                             label={
                                 <p className="form-step-10__content">
-                                    <IoFemaleSharp className="form-step-10__icon" />
                                     Several times a month
                                 </p>
                             }
@@ -48,7 +45,6 @@ const UIFormStep10 = ({ handleNextStep10 }) => {
                             control={<Radio />}
                             label={
                                 <p className="form-step-10__content">
-                                    <IoFemaleSharp className="form-step-10__icon" />
                                     Never
                                 </p>
                             }

@@ -12,7 +12,7 @@ const UIFormStep11_1 = ({ setIsCheckboxChecked }) => {
                 <div className="form-step-11-1-content__title">
                     <h1>We got you!</h1>
                     <p>
-                        Get ready to explore a variety of XXX exercises tailored to boost your XXX. Transform your
+                        Get ready to explore a variety of XXX exercises. Transform your
                         strength and achieve YYY effortlessly!
                     </p>
                 </div>
