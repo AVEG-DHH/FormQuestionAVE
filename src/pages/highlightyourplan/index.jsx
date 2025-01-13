@@ -56,7 +56,7 @@ const HightLightYourPlan = () => {
                 </div>
                 <div className="block-highlight-your-plan-right">
                     <div className="block-highlight-your-plan-right-img">
-                        <img src="/img/highlight-introduct.png" alt="img" />
+                        <img src="/gif/HighLight_01.gif" alt="img" />
                     </div>
                 </div>
             </div>

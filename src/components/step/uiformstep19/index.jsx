@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Typography, CircularProgress, Card, CardContent, Rating, Stack } from '@mui/material';
+import { Box, Typography, CircularProgress, Modal, CardContent, Rating, Stack } from '@mui/material';
 import './uiformstep19.scss';
 
 const UIFormStep19 = ({ setIsCheckboxChecked }) => {
@@ -44,6 +44,8 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false); // Trạng thái hiệu ứng
+    const [openModal, setOpenModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     // Hàm tự động chuyển slide
     useEffect(() => {
@@ -52,6 +54,8 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
         }, 3000); // 3 giây
 
         return () => clearInterval(interval); // Xóa interval khi unmount
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentIndex]);
 
     // Hàm chuyển sang slide tiếp theo
@@ -81,6 +85,16 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
         return () => clearInterval(timer);
     }, [setIsCheckboxChecked]);
 
+    const handleImageClick = (image) => {
+        setSelectedImage(image);
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+        setSelectedImage(null);
+    };
+
     return (
         <Box className="chair-yoga-container">
             <Stack spacing={2} direction="row">
@@ -103,7 +117,7 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
                 </Box>
             </Stack>
 
-            {/* 150 Million People Section */}
+            {/* 1.7 Million People Section */}
             <Typography variant="h4" gutterBottom>
                 1.7 million followers
             </Typography>
@@ -143,6 +157,29 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
                     </div>
                 </div>
             </div>
+
+            {/* Page Image */}
+            <img
+                src="/img/NC_page.jpg"
+                alt="Profile"
+                className="page-image"
+                onClick={() => handleImageClick('/img/NC_page.jpg')}
+            />
+
+            {/* Modal to display image when clicked */}
+            <Modal
+                open={openModal}
+                onClose={handleCloseModal}
+                aria-labelledby="modal-title"
+                aria-describedby="modal-description"
+            >
+                <Box
+                    className="modal-content"
+                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                >
+                    <img src={selectedImage} alt="Enlarged" style={{ maxWidth: '80%', maxHeight: '80%' }} />
+                </Box>
+            </Modal>
         </Box>
     );
 };
