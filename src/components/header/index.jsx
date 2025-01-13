@@ -11,9 +11,9 @@ const Header = ({ currentStep, handleBack }) => {
                         <BiArrowBack className="header-content-btn-back-icons" />
                     </div>
                 )}
-                <div className="header-content-img">
+                <a href="https://naturalcleansing.work" className="header-content-img" rel="noopener noreferrer">
                     <img src="/img/logo-1.png" alt="logo" />
-                </div>
+                </a>
             </div>
         </header>
     );

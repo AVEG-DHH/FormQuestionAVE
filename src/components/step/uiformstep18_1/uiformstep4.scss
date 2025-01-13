@@ -1,5 +1,35 @@
 @use '../../../untils.scss' as *;
 
+.under-weight-noti {
+    color: $text-dark !important;
+    background: rgba(245, 222, 179, 0.514);
+    padding: 20px 16px;
+    border-radius: 8px;
+    border: 2px solid $border-color;
+    opacity: 0.9;
+    font-family: $secondary-font !important;
+}
+
+.normal-weight-noti {
+    color: $text-dark !important;
+    background: #e0e0e0 !important;
+    padding: 20px 16px;
+    border-radius: 8px;
+    opacity: 0.5;
+    border: 2px solid $sub-color;
+    font-family: $secondary-font !important;
+}
+
+.over-weight-noti {
+    color: $text-dark !important;
+    background-color: #ee505a4d;
+    padding: 20px 16px;
+    border-radius: 8px;
+    opacity: 0.9;
+    border: 2px solid $error-color;
+    font-family: $secondary-font !important;
+}
+
 .form-step-4 {
     text-align: center;
 

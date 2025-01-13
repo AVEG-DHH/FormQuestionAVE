@@ -13,11 +13,14 @@
         padding: 0 60px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         column-gap: 20px;
 
         &-btn-back {
             display: flex;
             z-index: 99;
+            position: absolute;
+            left: 20px;
             &-icons {
                 width: 24px;
                 height: 24px;
@@ -35,10 +38,11 @@
         }
 
         &-img {
-            height: 100%;
+            flex: 1;
+            text-align: center;
             img {
-                height: 100%;
-                object-fit: cover;
+                height: 64px;
+                object-fit: contain;
             }
         }
     }
