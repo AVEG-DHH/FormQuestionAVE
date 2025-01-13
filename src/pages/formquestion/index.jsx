@@ -232,154 +232,154 @@ const FormQuestion = () => {
         },
 
         //Q2: OVER 1 MILLION WOMEN
-        // {
-        //     id: 2,
-        //     content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
-        // },
+        {
+            id: 2,
+            content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
+        },
 
-        // // Q3: HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
-        // {
-        //     id: 3,
-        //     content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
-        // },
+        // Q3: HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
+        {
+            id: 3,
+            content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
+        },
 
-        // // Q4: NATURAL CLEANSING IS THE PERFECT CHOICE
-        // {
-        //     id: 4,
-        //     content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
-        // },
+        // Q4: NATURAL CLEANSING IS THE PERFECT CHOICE
+        {
+            id: 4,
+            content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
 
-        // // Q5: WHAT IS YOUR FITNESS GOAL?
-        // {
-        //     id: 5,
-        //     content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
-        // },
+        // Q5: WHAT IS YOUR FITNESS GOAL?
+        {
+            id: 5,
+            content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
+        },
 
-        // // Q6: HOW MANY DAYS A WEEK DO YOU WANT TO EXERCISE?
-        // {
-        //     id: 6,
-        //     content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
-        // },
+        // Q6: HOW MANY DAYS A WEEK DO YOU WANT TO EXERCISE?
+        {
+            id: 6,
+            content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
+        },
 
-        // // Q7: WE'VE GOT THE SOLUTION!
-        // {
-        //     id: 7,
-        //     content: (
-        //         <UIFormStep6_1
-        //             setIsCheckboxChecked={setIsCheckboxChecked}
-        //             age={formStep1.age}
-        //             questionGoal={formStep5.questionGoal}
-        //         />
-        //     ),
-        // },
+        // Q7: WE'VE GOT THE SOLUTION!
+        {
+            id: 7,
+            content: (
+                <UIFormStep6_1
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    age={formStep1.age}
+                    questionGoal={formStep5.questionGoal}
+                />
+            ),
+        },
 
-        // // Q8: DO YOU HAVE ANY HEALTH ISSUES?
-        // {
-        //     id: 8,
-        //     content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
-        // },
+        // Q8: DO YOU HAVE ANY HEALTH ISSUES?
+        {
+            id: 8,
+            content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
+        },
 
-        // // Q9: HOW WOULD YOU DESCRIBE YOUR BUILD?
-        // {
-        //     id: 9,
-        //     content: <UIFormStep7_1 handleNextStep7_1={handleNextStep7_1} />,
-        // },
+        // Q9: HOW WOULD YOU DESCRIBE YOUR BUILD?
+        {
+            id: 9,
+            content: <UIFormStep7_1 handleNextStep7_1={handleNextStep7_1} />,
+        },
 
-        // // Q10: WHAT'S YOUR DREAM BODY?
-        // {
-        //     id: 10,
-        //     content: <UIFormStep7_2 handleNextStep7_2={handleNextStep7_2} />,
-        // },
+        // Q10: WHAT'S YOUR DREAM BODY?
+        {
+            id: 10,
+            content: <UIFormStep7_2 handleNextStep7_2={handleNextStep7_2} />,
+        },
 
-        // // Q11: WHAT ARE YOUR TARGET ZONES?
-        // {
-        //     id: 11,
-        //     content: <UIFormStep9 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep9={handleNextStep9} />,
-        // },
+        // Q11: WHAT ARE YOUR TARGET ZONES?
+        {
+            id: 11,
+            content: <UIFormStep9 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep9={handleNextStep9} />,
+        },
 
-        // // Q12: HOW OFTEN DO YOU EXERCISE?
-        // {
-        //     id: 12,
-        //     content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
-        // },
+        // Q12: HOW OFTEN DO YOU EXERCISE?
+        {
+            id: 12,
+            content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
+        },
 
-        // // Q13: DO YOU STRUGGLE WITH ANY OF THE FOLLOWING?
-        // {
-        //     id: 13,
-        //     content: <UIFormStep11 handleNextStep11={handleNextStep11} setIsCheckboxChecked={setIsCheckboxChecked} />,
-        // },
+        // Q13: DO YOU STRUGGLE WITH ANY OF THE FOLLOWING?
+        {
+            id: 13,
+            content: <UIFormStep11 handleNextStep11={handleNextStep11} setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
 
-        // // Q14: WE GOT YOU!
-        // {
-        //     id: 14,
-        //     content: (
-        //         <UIFormStep11_1
-        //             target={formStep9.questionTarget}
-        //             goal={formStep5.questionGoal}
-        //             setIsCheckboxChecked={setIsCheckboxChecked}
-        //         />
-        //     ),
-        // },
+        // Q14: WE GOT YOU!
+        {
+            id: 14,
+            content: (
+                <UIFormStep11_1
+                    target={formStep9.questionTarget}
+                    goal={formStep5.questionGoal}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
+        },
 
-        // //  Q15: HOW ARE YOUR ENERGY LEVELS DURING THE DAY?
-        // {
-        //     id: 15,
-        //     content: <UIFormStep11_2 handleNextStep11_2={handleNextStep11_2} />,
-        // },
+        //  Q15: HOW ARE YOUR ENERGY LEVELS DURING THE DAY?
+        {
+            id: 15,
+            content: <UIFormStep11_2 handleNextStep11_2={handleNextStep11_2} />,
+        },
 
-        // // Q16: NO PROBLEM!
-        // {
-        //     id: 16,
-        //     content: <UIFormStep11_3 setIsCheckboxChecked={setIsCheckboxChecked} />,
-        // },
+        // Q16: NO PROBLEM!
+        {
+            id: 16,
+            content: <UIFormStep11_3 setIsCheckboxChecked={setIsCheckboxChecked} />,
+        },
 
-        // // Q17: WHAT TYPE OF EXERCISE DO YOU ENJOY?
-        // {
-        //     id: 17,
-        //     content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
-        // },
+        // Q17: WHAT TYPE OF EXERCISE DO YOU ENJOY?
+        {
+            id: 17,
+            content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
+        },
 
-        // // Q18: DO YOU STRUGGLE TO SLEEP?
-        // {
-        //     id: 18,
-        //     content: <UIFormStep12_1 handleNextStep12_1={handleNextStep12_1} />,
-        // },
+        // Q18: DO YOU STRUGGLE TO SLEEP?
+        {
+            id: 18,
+            content: <UIFormStep12_1 handleNextStep12_1={handleNextStep12_1} />,
+        },
 
-        // // Q19: HOW MUCH SLEEP DO YOU USUALLY GET?
-        // {
-        //     id: 19,
-        //     content: <UIFormStep12_2 handleNextStep12_2={handleNextStep12_2} />,
-        // },
+        // Q19: HOW MUCH SLEEP DO YOU USUALLY GET?
+        {
+            id: 19,
+            content: <UIFormStep12_2 handleNextStep12_2={handleNextStep12_2} />,
+        },
 
-        // // Q20: HOW MUCH TIME DO YOU USUALLY SPEND ON A WORKOUT?
-        // {
-        //     id: 20,
-        //     content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
-        // },
+        // Q20: HOW MUCH TIME DO YOU USUALLY SPEND ON A WORKOUT?
+        {
+            id: 20,
+            content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
+        },
 
-        // // Q21: WHERE DO YOU PREFER TO WORK OUT?
-        // {
-        //     id: 21,
-        //     content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
-        // },
+        // Q21: WHERE DO YOU PREFER TO WORK OUT?
+        {
+            id: 21,
+            content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
+        },
 
-        // // Q22: WHAT EQUIPMENT DO YOU HAVE ACCESS TO?
-        // {
-        //     id: 22,
-        //     content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
-        // },
+        // Q22: WHAT EQUIPMENT DO YOU HAVE ACCESS TO?
+        {
+            id: 22,
+            content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
+        },
 
-        // // Q23: WHAT TYPE OF DIET DO YOU PREFER?
-        // {
-        //     id: 23,
-        //     content: <UIFormStep16 handleNextStep16={handleNextStep16} />,
-        // },
+        // Q23: WHAT TYPE OF DIET DO YOU PREFER?
+        {
+            id: 23,
+            content: <UIFormStep16 handleNextStep16={handleNextStep16} />,
+        },
 
-        // // Q24: WHAT IS YOUR MAIN REASON TO GET IN SHAPE?
-        // {
-        //     id: 24,
-        //     content: <UIFormStep17 handleNextStep17={handleNextStep17} />,
-        // },
+        // Q24: WHAT IS YOUR MAIN REASON TO GET IN SHAPE?
+        {
+            id: 24,
+            content: <UIFormStep17 handleNextStep17={handleNextStep17} />,
+        },
 
         // Q25: HOW TALL ARE YOU?
         {
