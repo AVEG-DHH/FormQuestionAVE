@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { IoIosClose } from 'react-icons/io';
 import { Checkbox, FormControlLabel, Link } from '@mui/material';
-import './uiformstep3.scss';
 import PropTypes from 'prop-types';
+import './uiformstep3.scss';
 
 const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked }) => {
     const [selectedUnit, setSelectedUnit] = useState('cm');
@@ -37,6 +37,7 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
         } else if (errorMessageRef.current) {
             errorMessageRef.current.classList.remove('horizontal-shaking');
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cmValue, ftValue, inValue, isCheckboxChecked, selectedUnit, hasClosedWarning, checkWarningVisibility]);
 
     useEffect(() => {
@@ -46,6 +47,8 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
         } else {
             setCmValue('');
         }
+        setIsCheckboxChecked(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedUnit]);
 
     useEffect(() => {
@@ -58,6 +61,17 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
     const handleCloseWarning = () => {
         setIsWarningVisible(false);
         setHasClosedWarning(true);
+    };
+
+    const handleCheckPolicy = (e) => {
+        if (cmValue == '' && (ftValue == '' || inValue == '')) {
+            alert('Please enter information');
+            setIsCheckboxChecked(false);
+
+            return;
+        }
+
+        setIsCheckboxChecked(e.target.checked);
     };
 
     return (
@@ -132,7 +146,8 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
                             control={
                                 <Checkbox
                                     checked={isCheckboxChecked}
-                                    onChange={(e) => setIsCheckboxChecked(e.target.checked)}
+                                    // onChange={handleCheckProci() (e) => setIsCheckboxChecked(e.target.checked)}
+                                    onChange={(e) => handleCheckPolicy(e)}
                                     color="primary"
                                 />
                             }

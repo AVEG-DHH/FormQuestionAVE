@@ -3,7 +3,7 @@ import { Grid, Typography, Card, CardActionArea, Checkbox, Box } from '@mui/mate
 import './uiformstep11.scss';
 
 const options = [
-    { id: 1, label: 'Neck Shoulder Nape Pain', image: '/img/ave-02.png', value: 'Neck Shoulder Nape Pain' },
+    { id: 1, label: 'Neck Shoulder Nape Pain', image: '/img/ave-18.png', value: 'Neck Shoulder Nape Pain' },
     { id: 2, label: 'Sensitive back', image: '/img/ave-16.png', value: 'Sensitive back' },
     { id: 3, label: 'Sensitive knees', image: '/img/ave-15.png', value: 'Sensitive knees' },
     { id: 4, label: 'None of the above', image: '/img/ave-02.png', value: 'None of the above' },

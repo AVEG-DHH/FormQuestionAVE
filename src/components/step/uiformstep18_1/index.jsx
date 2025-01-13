@@ -1,18 +1,32 @@
-import './uiformstep4.scss';
 import { useEffect, useState } from 'react';
-// eslint-disable-next-line react/prop-types
+import PropTypes from 'prop-types';
+import './uiformstep4.scss';
+
+const convertToMeters = (feet, inches = 0) => {
+    const meters = feet * 0.3048 + inches * 0.0254;
+    return parseFloat(meters.toFixed(2));
+};
+
 const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
     const [selectedUnit, setSelectedUnit] = useState('kg');
     const [weightValue, setWeightValue] = useState('');
     const [valueBMI, setValueBMI] = useState(0);
     const [percent, setPercent] = useState(0);
     const [checkBMI, setCheckBMI] = useState(0);
-    // eslint-disable-next-line react/prop-types
-    const heightNew = parseInt(height.split(' ')[0], 10) / 100;
+
+    let heightNew = 0;
+    if (height.includes('cm')) {
+        heightNew = parseInt(height.split(' ')[0], 10) / 100;
+    } else {
+        const partsHeight = height.split(' ');
+        const feet = parseInt(partsHeight[0]);
+        const inches = parseInt(partsHeight[2]);
+
+        heightNew = convertToMeters(feet, inches);
+    }
 
     useEffect(() => {
         const numericValue = parseFloat(weightValue);
-        console.log(numericValue);
         if (
             weightValue.trim() !== '' &&
             ((selectedUnit === 'kg' && numericValue >= 25 && numericValue <= 300) ||
@@ -32,10 +46,15 @@ const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
 
     useEffect(() => {
         if (weightValue !== '') {
-            const weightNew = parseInt(weightValue.split(' ')[0], 10);
+            let weightNew = 0;
+            if (selectedUnit === 'kg') {
+                weightNew = parseFloat(weightValue.split(' ')[0], 10);
+            } else {
+                weightNew = parseFloat(weightValue.split(' ')[0], 10) * 0.45359237;
+            }
             const bmi = weightNew / (heightNew * heightNew);
             setValueBMI(bmi);
-        }else {
+        } else {
             setCheckBMI(0);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -48,14 +67,12 @@ const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
                 setPercent(percent);
                 setCheckBMI(1);
             } else if (valueBMI >= 18.5 && valueBMI <= 24.9) {
-                console.log('You are within the normal weight range.');
                 setCheckBMI(2);
             } else if (valueBMI > 24.9) {
                 const percent = ((valueBMI - 24.9) / 24.9) * 100;
                 setPercent(percent);
                 setCheckBMI(3);
             }
-            console.log(valueBMI);
         }
     }, [valueBMI]);
     return (
@@ -112,6 +129,12 @@ const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
             </div>
         </div>
     );
+};
+
+UIFormStep4.propTypes = {
+    handleNextStep4: PropTypes.func.isRequired,
+    setIsInputValid: PropTypes.bool.isRequired,
+    height: PropTypes.string.isRequired,
 };
 
 export default UIFormStep4;

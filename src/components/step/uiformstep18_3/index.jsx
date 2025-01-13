@@ -1,28 +1,40 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './uiformstep18_3.scss';
-// eslint-disable-next-line react/prop-types
+
+const convertToMeters = (feet, inches = 0) => {
+    const meters = feet * 0.3048 + inches * 0.0254;
+    return parseFloat(meters.toFixed(2));
+};
+
 const UIFormStep18_3 = ({
-    // eslint-disable-next-line react/prop-types
     height,
-    // eslint-disable-next-line react/prop-types
     weight,
-    // eslint-disable-next-line react/prop-types
     setIsCheckboxChecked,
-    // eslint-disable-next-line react/prop-types
     yourBuild,
-    // eslint-disable-next-line react/prop-types
     questionOftenEx,
-    // eslint-disable-next-line react/prop-types
     questionWorkoutPD,
-    // eslint-disable-next-line react/prop-types
     goal,
 }) => {
-    console.log(height, weight);
-    //eslint-disable-next-line
-    const heightNew = parseInt(height.split(' ')[0], 10) / 100;
-    //eslint-disable-next-line
-    const weightNew = parseInt(weight.split(' ')[0], 10);
+    let heightNew = 0;
+    if (height.includes('cm')) {
+        heightNew = parseInt(height.split(' ')[0], 10) / 100;
+    } else {
+        const partsHeight = height.split(' ');
+        const feet = parseInt(partsHeight[0]);
+        const inches = parseInt(partsHeight[2]);
+
+        heightNew = convertToMeters(feet, inches);
+    }
+
+    let weightNew = 0;
+
+    if (weight.includes('Kg')) {
+        weightNew = parseFloat(weight.split(' ')[0], 10);
+    } else {
+        weightNew = parseFloat(weight.split(' ')[0], 10) * 0.45359237;
+    }
+
     const bmi = weightNew / (heightNew * heightNew);
     const viewBMI = Math.round(parseFloat(bmi) * 10) / 10;
     let statusBMI = '';
@@ -245,8 +257,13 @@ const UIFormStep18_3 = ({
         </>
     );
 };
-UIFormStep18_3.prototype = {
+UIFormStep18_3.propTypes = {
     height: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
+    yourBuild: PropTypes.string.isRequired,
+    questionOftenEx: PropTypes.string.isRequired,
+    questionWorkoutPD: PropTypes.string.isRequired,
+    goal: PropTypes.string.isRequired,
+    setIsCheckboxChecked: PropTypes.func.isRequired,
 };
 export default UIFormStep18_3;
