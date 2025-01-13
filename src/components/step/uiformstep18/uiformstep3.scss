@@ -147,8 +147,9 @@
             text-align: left;
 
             a {
-                color: #007bff;
+                color: $primary-color;
                 text-decoration: underline;
+                font-weight: bold;
             }
         }
 

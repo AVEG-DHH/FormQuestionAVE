@@ -38,11 +38,7 @@
         border: 1px solid #eff1f4;
         border-radius: 15px;
         margin-bottom: 20px;
-        flex-direction: row-reverse;
         width: 70%;
-        padding: 15px;
-        transform: scale(1);
-        transition: transform 0.1s ease-in-out;
         transition: transform 0.1s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
         .form-step-16__content {
@@ -56,26 +52,24 @@
             margin-right: 15px;
             font-size: 24px;
             color: $text-dark;
-            background-color: $disabled-color;
+            // background-color: $disabled-color;
             border-radius: 50%;
             padding: 8px;
         }
 
-        div {
+        .form-step-16__text {
             display: flex;
             flex-direction: column;
-        }
-
-        span {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        p {
-            font-size: 0.9rem;
-            margin: 0;
-            color: #555;
+            span {
+                font-size: 1rem;
+                font-weight: bold;
+                color: #333;
+            }
+            p {
+                font-size: 0.9rem;
+                margin: 0;
+                color: #555;
+            }
         }
     }
 

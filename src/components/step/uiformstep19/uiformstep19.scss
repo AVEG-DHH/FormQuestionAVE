@@ -77,7 +77,7 @@
 }
 
 .card {
-    background: #ffffff;
+    background: $backgroud-light;
     border-radius: 10px;
     text-align: center;
     padding: 15px;
@@ -101,6 +101,8 @@
 
 .description {
     font-size: 14px;
-    color: #707070;
+    font-family: $secondary-font !important;
+    color: $sub-color;
     padding: 0 20px;
+    line-height: 1.2;
 }

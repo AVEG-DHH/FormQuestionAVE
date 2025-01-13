@@ -22,21 +22,21 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
         {
             name: 'I have never felt better 1',
             description:
-                'When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+                'NC1: When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
             image: 'https://i.postimg.cc/KYPG5YD5/profile1.jpg',
             auth: 'Rosanna M.',
         },
         {
             name: 'I have never felt better 2',
             description:
-                'When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+                'NC2: When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
             image: 'https://i.postimg.cc/mg0qgNMd/profile2.jpg',
             auth: 'Rosanna T.',
         },
         {
             name: 'I have never felt better 2',
             description:
-                'When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+                'NC3: When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
             image: 'https://i.postimg.cc/mg0qgNMd/profile2.jpg',
             auth: 'Rosanna T.',
         },
@@ -105,7 +105,7 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
 
             {/* 150 Million People Section */}
             <Typography variant="h4" gutterBottom>
-                150 million people
+                1.7 million followers
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
                 have chosen Natural Cleansing
@@ -130,9 +130,7 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
             </Card> */}
 
             <div className="slider">
-                <div
-                    className={`slider-content ${isSliding ? 'sliding' : ''}`}
-                >
+                <div className={`slider-content ${isSliding ? 'sliding' : ''}`}>
                     <div className="card">
                         <div className="card-image">
                             <Rating value={5} readOnly className="testimonial-rating" />
