@@ -149,7 +149,25 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Body type</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {yourBuild == 'Slim' || yourBuild == 'Mid-sized' ? 'Ectomorph' : 'Endomorph'}
+                                        {yourBuild === 'Slim' || yourBuild === 'Mid-sized' ? (
+                                            <>
+                                                <p>Ectomorph</p>
+                                                {/* <img
+                                                    className="form-step-18-3_footer-text_block-info-img"
+                                                    src="/img/goal-2.png"
+                                                    alt="Ectomorph"
+                                                /> */}
+                                            </>
+                                        ) : (
+                                            <>
+                                                <p>Endomorph</p>
+                                                {/* <img
+                                                    className="form-step-18-3_footer-text_block-info-img"
+                                                    src="img/goal-1.png"
+                                                    alt="Endomorph"
+                                                /> */}
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -249,7 +267,15 @@ const UIFormStep18_3 = ({
                             </div>
                         </div>
                         <div className="form-step-18-3_footer-img">
-                            <img src="/img/1.png" alt="" />
+                            {yourBuild === 'Slim' || yourBuild === 'Mid-sized' ? (
+                                <>
+                                    <img src="/img/goal-2.png" alt="Ectomorph" />
+                                </>
+                            ) : (
+                                <>
+                                    <img src="img/goal-1.png" alt="Endomorph" />
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
