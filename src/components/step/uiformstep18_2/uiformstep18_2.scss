@@ -95,6 +95,35 @@
             color: $text-dark;
         }
     }
+
+    &__info-box {
+        background-color: #ccc;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: left;
+        color: #333;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column; // Đảm bảo hai dòng tách biệt
+        gap: 5px;
+
+        .icon-wrapper {
+            margin-right: 10px;
+            display: inline-block; // Chỉ ảnh hưởng đến dòng chứa nó
+        }
+
+        .svg-icon {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+    }
 }
 
 @media (max-width: 1024px) {

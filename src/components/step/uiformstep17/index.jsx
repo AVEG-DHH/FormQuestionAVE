@@ -12,31 +12,72 @@ const UIFormStep17 = ({ handleNextStep17 }) => {
                             className="form-step-17__label"
                             value="Feel more confident in my body"
                             control={<Radio />}
-                            label="Feel more confident in my body"
+                            label={
+                                <p className="form-step-17__content">
+                                    <img
+                                        src="/icons/icons-Q17/Confident.webp"
+                                        alt="Feel more confident in my body"
+                                        className="form-step-17__icon"
+                                    />
+                                    Feel more confident in my body
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-17__label"
                             value="Feel healthier and more energetic"
                             control={<Radio />}
-                            label="Feel healthier and more energetic"
+                            label={
+                                <p className="form-step-17__content">
+                                    <img
+                                        src="/icons/icons-Q17/Healthier.webp"
+                                        alt="Feel healthier and more energetic"
+                                        className="form-step-17__icon"
+                                    />
+                                    Feel healthier and more energetic
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-17__label"
                             value="Fit in my clothes better"
                             control={<Radio />}
-                            label="Fit in my clothes better"
+                            label={
+                                <p className="form-step-17__content">
+                                    <img
+                                        src="/icons/icons-Q17/Fit.webp"
+                                        alt="Fit in my clothes better"
+                                        className="form-step-17__icon"
+                                    />
+                                    Fit in my clothes better
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-17__label"
                             value="Get back in shape after giving birth"
                             control={<Radio />}
-                            label="Get back in shape after giving birth"
+                            label={
+                                <p className="form-step-17__content">
+                                    <img
+                                        src="/icons/icons-Q17/Back.webp"
+                                        alt="Get back in shape after giving birth"
+                                        className="form-step-17__icon"
+                                    />
+                                    Get back in shape after giving birth
+                                </p>
+                            }
                         />
                         <FormControlLabel
                             className="form-step-17__label"
                             value="Other"
                             control={<Radio />}
-                            label="Other"
+                            label={
+                                <p className="form-step-17__content">
+                                    <img src="/icons/icons-Q17/Other.webp" alt="Other" className="form-step-17__icon" />
+                                    Other
+                                </p>
+                            }
                         />
                     </RadioGroup>
                 </FormControl>
