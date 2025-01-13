@@ -115,13 +115,13 @@ const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
                         </strong>
                     </p>
                     {checkBMI == 1 && (
-                        <p style={{ color: 'red' }}>
+                        <p className="under-weight-noti">
                             You are underweight by {percent.toFixed(2)}% compared to the normal range.
                         </p>
                     )}
-                    {checkBMI == 2 && <p>You are within the normal weight range.</p>}
+                    {checkBMI == 2 && <p className="normal-weight-noti">You are within the normal weight range.</p>}
                     {checkBMI == 3 && (
-                        <p style={{ color: 'green' }}>
+                        <p className="over-weight-noti">
                             You are overweight by {percent.toFixed(2)}% compared to the normal range.
                         </p>
                     )}
