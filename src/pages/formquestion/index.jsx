@@ -224,6 +224,33 @@ const FormQuestion = () => {
         setFormStep21({ questionName: value });
     };
 
+    const handleNext = () => {
+        setIsLoading(true);
+        setIsCheckboxChecked(false);
+        setIsInputValid(false);
+        setShowButtonNext(false);
+
+        const currentStepElement = document.querySelector(`.step-${currentStep}`);
+        if (currentStepElement) {
+            currentStepElement.classList.add('fade-out');
+        }
+
+        setTimeout(() => {
+            setCurrentStep((prevStep) => prevStep + 1);
+            const nextStepElement = document.querySelector(`.step-${currentStep + 1}`);
+
+            if (nextStepElement) {
+                nextStepElement.classList.add('fade-in');
+            }
+
+            if (currentStepElement) {
+                currentStepElement.classList.remove('fade-out');
+            }
+        }, 500);
+
+        setShowButtonNext(true);
+    };
+
     const steps = [
         // Q1: BASE ON YOUR  AGE
         {
@@ -306,7 +333,14 @@ const FormQuestion = () => {
         // Q13: DO YOU STRUGGLE WITH ANY OF THE FOLLOWING?
         {
             id: 13,
-            content: <UIFormStep11 handleNextStep11={handleNextStep11} setIsCheckboxChecked={setIsCheckboxChecked} />,
+            content: (
+                <UIFormStep11
+                    handleNext={handleNext}
+                    handleNextStep11={handleNextStep11}
+                    isCheckboxChecked={isCheckboxChecked}
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                />
+            ),
         },
 
         // Q14: WE GOT YOU!
@@ -425,6 +459,8 @@ const FormQuestion = () => {
                     questionOftenEx={formStep10.questionOftenEx}
                     questionWorkoutPD={formStep13.questionWorkoutPD}
                     goal={formStep5.questionGoal}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
                 />
             ),
         },
@@ -432,7 +468,13 @@ const FormQuestion = () => {
         // Q29: CALCULATING PROGRESS
         {
             id: 29,
-            content: <UIFormStep19 setIsCheckboxChecked={setIsCheckboxChecked} />,
+            content: (
+                <UIFormStep19
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
+                />
+            ),
         },
 
         // Q30: WHAT'S YOUR EMAIL?
@@ -454,33 +496,6 @@ const FormQuestion = () => {
         },
     ];
 
-    const handleNext = () => {
-        setIsLoading(true);
-        setIsCheckboxChecked(false);
-        setIsInputValid(false);
-        setShowButtonNext(false);
-
-        const currentStepElement = document.querySelector(`.step-${currentStep}`);
-        if (currentStepElement) {
-            currentStepElement.classList.add('fade-out');
-        }
-
-        setTimeout(() => {
-            setCurrentStep((prevStep) => prevStep + 1);
-            const nextStepElement = document.querySelector(`.step-${currentStep + 1}`);
-
-            if (nextStepElement) {
-                nextStepElement.classList.add('fade-in');
-            }
-
-            if (currentStepElement) {
-                currentStepElement.classList.remove('fade-out');
-            }
-        }, 500);
-
-        setShowButtonNext(true);
-    };
-
     const handleBack = () => {
         setShowButtonNext(false); // Disable button during transition
 
@@ -500,16 +515,24 @@ const FormQuestion = () => {
     useEffect(() => {
         if (
             // currentStep == 0 ||
-            currentStep == 300
-            // currentStep == 4 ||
-            // currentStep == 5 ||
-            // currentStep == 7 ||
-            // currentStep == 8 ||
-            // currentStep == 9 ||
-            // currentStep == 10 ||
-            // currentStep == 11 ||
-            // currentStep == 12 ||
-            // currentStep == 13 ||
+            currentStep == 2 ||
+            currentStep == 4 ||
+            currentStep == 5 ||
+            currentStep == 7 ||
+            currentStep == 8 ||
+            currentStep == 9 ||
+            currentStep == 11 ||
+            currentStep == 12 ||
+            currentStep == 14 ||
+            currentStep == 16 ||
+            currentStep == 17 ||
+            currentStep == 18 ||
+            currentStep == 19 ||
+            currentStep == 20 ||
+            currentStep == 21 ||
+            currentStep == 22 ||
+            currentStep == 27 ||
+            currentStep == 28
             // currentStep == 14
         ) {
             setShowButtonNext(false);

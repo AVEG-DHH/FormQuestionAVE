@@ -1,22 +1,12 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Typography, CircularProgress, Modal, CardContent, Rating, Stack } from '@mui/material';
+import { Box, Typography, CircularProgress, Modal, Rating, Stack, Button } from '@mui/material';
 import './uiformstep19.scss';
 
-const UIFormStep19 = ({ setIsCheckboxChecked }) => {
+const UIFormStep19 = ({ setIsCheckboxChecked, handleNext, isCheckboxChecked }) => {
     const [progress, setProgress] = useState(0);
     const totalTime = 6000; // Tổng thời gian: 6 giây (6000ms)
     const intervalTime = 100; // Mỗi lần cập nhật: 100ms
-
-    // const [currentIndex, setCurrentIndex] = useState(0);
-
-    // const nextSlide = () => {
-    //     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-    // };
-
-    // const prevSlide = () => {
-    //     setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
-    // };
 
     const data = [
         {
@@ -125,24 +115,6 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
                 have chosen Natural Cleansing
             </Typography>
 
-            {/* Testimonial Section */}
-            {/* <Card className="testimonial-card">
-                <CardContent>
-                    <Rating value={5} readOnly className="testimonial-rating" />
-                    <Typography variant="h6" gutterBottom>
-                        I have never felt better
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        When I turned 70 I realized I was losing balance and strength to do everyday things. I started
-                        with the routines for the elderly and chair exercises. Now within two years I have never felt
-                        better.
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" className="testimonial-author">
-                        - Rosanna M.
-                    </Typography>
-                </CardContent>
-            </Card> */}
-
             <div className="slider">
                 <div className={`slider-content ${isSliding ? 'sliding' : ''}`}>
                     <div className="card">
@@ -180,12 +152,26 @@ const UIFormStep19 = ({ setIsCheckboxChecked }) => {
                     <img src={selectedImage} alt="Enlarged" style={{ maxWidth: '80%', maxHeight: '80%' }} />
                 </Box>
             </Modal>
+            <div className="btn-continue" style={{ textAlign: 'center' }}>
+                <Button
+                    className="custom-btn-continue"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    disabled={!isCheckboxChecked}
+                    style={{ marginTop: '20px' }}
+                >
+                    Continue
+                </Button>
+            </div>
         </Box>
     );
 };
 
 UIFormStep19.propTypes = {
     setIsCheckboxChecked: PropTypes.func.isRequired,
+    handleNext: PropTypes.func.isRequired,
+    isCheckboxChecked: PropTypes.bool.isRequired,
 };
 
 export default UIFormStep19;

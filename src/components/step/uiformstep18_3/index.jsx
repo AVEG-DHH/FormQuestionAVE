@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import './uiformstep18_3.scss';
 
@@ -15,6 +16,8 @@ const UIFormStep18_3 = ({
     questionOftenEx,
     questionWorkoutPD,
     goal,
+    handleNext,
+    isCheckboxChecked,
 }) => {
     let heightNew = 0;
     if (height.includes('cm')) {
@@ -280,6 +283,18 @@ const UIFormStep18_3 = ({
                     </div>
                 </div>
             </div>
+            <div className="btn-continue" style={{ textAlign: 'center' }}>
+                <Button
+                    className="custom-btn-continue"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    disabled={!isCheckboxChecked}
+                    style={{ marginTop: '20px' }}
+                >
+                    Continue
+                </Button>
+            </div>
         </>
     );
 };
@@ -291,5 +306,7 @@ UIFormStep18_3.propTypes = {
     questionWorkoutPD: PropTypes.string.isRequired,
     goal: PropTypes.string.isRequired,
     setIsCheckboxChecked: PropTypes.func.isRequired,
+    handleNext: PropTypes.func.isRequired,
+    isCheckboxChecked: PropTypes.bool.isRequired,
 };
 export default UIFormStep18_3;

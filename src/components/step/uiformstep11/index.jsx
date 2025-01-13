@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { Grid, Typography, Card, CardActionArea, Checkbox, Box } from '@mui/material';
+import { Grid, Typography, Card, CardActionArea, Checkbox, Box, Button } from '@mui/material';
 import './uiformstep11.scss';
 
 const options = [
@@ -10,7 +10,7 @@ const options = [
     { id: 4, label: 'None of the above', image: '/img/ave-02.png', value: 'None of the above' },
 ];
 
-const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
+const UIFormStep11 = ({ handleNext, handleNextStep11, isCheckboxChecked, setIsCheckboxChecked }) => {
     const [selected, setSelected] = useState([]);
     const [animate, setAnimate] = useState(null);
 
@@ -74,6 +74,16 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
                     </Grid>
                 ))}
             </Grid>
+            <Button
+                className="custom-btn-continue"
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                disabled={!isCheckboxChecked}
+                style={{ marginTop: '20px' }}
+            >
+                Continue
+            </Button>
         </Box>
     );
 };
@@ -81,6 +91,8 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
 UIFormStep11.propTypes = {
     handleNextStep11: PropTypes.func.isRequired,
     setIsCheckboxChecked: PropTypes.func.isRequired,
+    handleNext: PropTypes.func.isRequired,
+    isCheckboxChecked: PropTypes.bool.isRequired,
 };
 
 export default UIFormStep11;
