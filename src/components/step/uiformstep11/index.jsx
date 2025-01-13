@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Grid, Typography, Card, CardActionArea, Checkbox, Box } from '@mui/material';
 import './uiformstep11.scss';
@@ -8,11 +9,17 @@ const options = [
     { id: 3, label: 'Sensitive knees', image: '/img/ave-15.png', value: 'Sensitive knees' },
     { id: 4, label: 'None of the above', image: '/img/ave-02.png', value: 'None of the above' },
 ];
-// eslint-disable-next-line react/prop-types
+
 const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
     const [selected, setSelected] = useState([]);
+    const [animate, setAnimate] = useState(null);
 
     const handleClick = (label) => {
+        setAnimate(label);
+        setTimeout(() => {
+            setAnimate(null);
+        }, 300);
+
         if (label === 'None of the above') {
             setSelected((prev) => (prev.includes(label) ? [] : [label]));
         } else {
@@ -43,15 +50,25 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
             <Grid container spacing={2} justifyContent="center">
                 {options.map((option) => (
                     <Grid item key={option.id} xs={12} sm={6} lg={3}>
-                        <Card className={`struggle-card ${selected.includes(option.value) ? 'selected' : ''}`}>
-                            <CardActionArea onClick={() => handleClick(option.value)}>
+                        <Card
+                            className={`struggle-card ${selected.includes(option.value) ? 'selected' : ''} ${
+                                animate === option.value ? 'animate' : ''
+                            }`}
+                        >
+                            <CardActionArea onClick={() => handleClick(option.value)} disableRipple>
                                 <Box className="card-content">
                                     <img src={option.image} alt={option.label} className="card-image" />
-                                    <Checkbox checked={selected.includes(option.value)} className="checkbox" />
                                 </Box>
-                                <Typography className="card-label" variant="subtitle1">
-                                    {option.label}
-                                </Typography>
+                                <Box className="card-footer">
+                                    <Typography className="card-label" variant="subtitle1">
+                                        {option.label}
+                                    </Typography>
+                                    <Checkbox
+                                        checked={selected.includes(option.value)}
+                                        className="checkbox"
+                                        disableRipple
+                                    />
+                                </Box>
                             </CardActionArea>
                         </Card>
                     </Grid>
@@ -59,6 +76,11 @@ const UIFormStep11 = ({ handleNextStep11, setIsCheckboxChecked }) => {
             </Grid>
         </Box>
     );
+};
+
+UIFormStep11.propTypes = {
+    handleNextStep11: PropTypes.func.isRequired,
+    setIsCheckboxChecked: PropTypes.func.isRequired,
 };
 
 export default UIFormStep11;
