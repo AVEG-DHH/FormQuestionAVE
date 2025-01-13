@@ -32,9 +32,6 @@ const UIFormStep11_1 = ({ target, goal, setIsCheckboxChecked }) => {
                         Transform your strength and achieve <span>{goal}</span> effortlessly!
                     </p>
                 </div>
-                {/* <div className="form-step-11-1-content__img">
-                    <img src="/img/form-step-6.png" alt="img" />
-                </div> */}
             </div>
         </div>
     );

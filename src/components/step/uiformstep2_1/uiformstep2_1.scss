@@ -10,7 +10,8 @@
 }
 
 .form-step-2_1 {
-    // padding: 40px 40rem;
+    height: 100%;
+    overflow: auto;
 
     &-content {
         display: flex;
@@ -116,6 +117,21 @@
             }
             &__img {
                 height: 40vh;
+                img {
+                    max-width: 400px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .form-step-2_1 {
+        &-content {
+            &__img {
+                img {
+                    max-width: 320px;
+                }
             }
         }
     }

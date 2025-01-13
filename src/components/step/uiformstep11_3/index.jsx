@@ -31,9 +31,6 @@ const UIFormStep11_3 = ({ setIsCheckboxChecked }) => {
                         Our exercises are designed to boost your energy levels and keep you feeling your best every day.
                     </p>
                 </div>
-                {/* <div className="form-step-11-3-content__img">
-                    <img src="/img/form-step-6.png" alt="img" />
-                </div> */}
             </div>
         </div>
     );
