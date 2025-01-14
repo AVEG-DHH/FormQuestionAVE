@@ -134,7 +134,7 @@
 }
 
 .form-step-18-3 {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 
     h1 {
@@ -210,9 +210,11 @@
         }
         &-img {
             height: 300px;
+            overflow: hidden;
 
             img {
                 height: 100%;
+                width: 100%;
                 object-fit: cover;
             }
         }
@@ -222,5 +224,15 @@
 @media (max-width: 768px) {
     #bmi-categories {
         display: none;
+    }
+
+    .form-step-18-3 {
+        margin: 0 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-step-18-3 {
+        margin: 0;
     }
 }

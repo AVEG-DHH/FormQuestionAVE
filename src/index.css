@@ -141,3 +141,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+.custom-btn-continue {
+    font-family: 'Gilroy-Medium', sans-serif !important;
+    font-weight: 700 !important;
+}

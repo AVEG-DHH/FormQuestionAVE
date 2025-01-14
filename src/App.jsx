@@ -16,7 +16,6 @@ function App() {
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/highlight-your-plan" element={<HighlightYourPlan />} />
                     <Route path="/goal" element={<Goal />} />
-                    <Route path="/loading" element={<Loading />} />
                     <Route path="/ave-export-excel" element={<ExportExcel />} />
 
                     <Route path="/test" element={<UIFormStep18_3 />} />
