@@ -17,7 +17,7 @@ const Goal = () => {
                 if (newHeight !== bodyHeightRef.current) {
                     bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
                 }
-                window.parent.postMessage({ bodyHeight: newHeight }, '*');
+                window.parent.postMessage({ bodyHeightGoal: newHeight }, '*');
             }
         };
 
