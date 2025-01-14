@@ -1,7 +1,7 @@
 @use '../../untils.scss' as *;
 
 .block-goal {
-    margin: 2rem 24rem;
+    margin: 0 24rem;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -136,7 +136,7 @@
 
 @media (max-width: 1440px) {
     .block-goal {
-        margin: 2rem 8rem;
+        margin: 0 8rem;
     }
 }
 
@@ -155,7 +155,7 @@
 
 @media (max-width: 836px) {
     .block-goal {
-        margin: 2rem 2rem;
+        margin: 0 2rem;
     }
 }
 

@@ -1,10 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
-import './style.scss';
 import { Divider } from '@mui/material';
+import './style.scss';
 
 const Goal = () => {
     const [visibleCount, setVisibleCount] = useState(0);
+    const bodyRef = useRef(null); // Ref cho body
+    const bodyHeightRef = useRef(0); // Ref lưu chiều cao trước đó
+
+    useEffect(() => {
+        const updateBodyHeight = () => {
+            if (bodyRef.current) {
+                const newHeight = bodyRef.current.offsetHeight;
+
+                // Chỉ cập nhật ref nếu chiều cao thực sự thay đổi
+                if (newHeight !== bodyHeightRef.current) {
+                    bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
+                }
+                console.log('Body height updated:', newHeight);
+                window.parent.postMessage({ bodyHeight: newHeight }, '*');
+            }
+        };
+
+        // Gọi hàm để cập nhật chiều cao ban đầu
+        updateBodyHeight();
+
+        // Lắng nghe sự kiện resize
+        window.addEventListener('resize', updateBodyHeight);
+
+        return () => {
+            window.removeEventListener('resize', updateBodyHeight);
+        };
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -14,10 +41,11 @@ const Goal = () => {
         return () => clearInterval(interval);
     }, []);
 
+    console.log('Body height:', bodyHeightRef.current);
     return (
         <>
-            <div className="block-goal">
-                <h1>Your Chair Yoga Plan is ready!</h1>
+            <div className="block-goal" ref={bodyRef}>
+                <h1>Your Workout Plan is ready!</h1>
                 <div className="block-goal-container">
                     <div className="block-goal-container__header">
                         <div className="block-goal-container__header-title">Now</div>
