@@ -17,7 +17,7 @@ const ChoosePlan = () => {
                 if (newHeight !== bodyHeightRef.current) {
                     bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
                 }
-                console.log('Body height updated 20:', newHeight);
+
                 window.parent.postMessage({ bodyHeight: newHeight }, '*');
             }
         };
