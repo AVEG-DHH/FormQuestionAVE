@@ -121,7 +121,7 @@ const FormQuestion = () => {
     const handleNextStep7_1 = (value) => {
         console.log(value);
         setFormStep7_1({ questionYourBuild: value });
-        setShowButtonNext(true);
+        // setShowButtonNext(true);
         setTimeout(() => handleNext(), 1000);
     };
 
@@ -129,7 +129,7 @@ const FormQuestion = () => {
     const handleNextStep7_2 = (value) => {
         console.log(value);
         setFormStep7_2({ questionDreambody: value });
-        setShowButtonNext(true);
+        // setShowButtonNext(true);
         setTimeout(() => handleNext(), 1000);
     };
 
@@ -321,7 +321,14 @@ const FormQuestion = () => {
         // Q11: WHAT ARE YOUR TARGET ZONES?
         {
             id: 11,
-            content: <UIFormStep9 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep9={handleNextStep9} />,
+            content: (
+                <UIFormStep9
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNextStep9={handleNextStep9}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
+                />
+            ),
         },
 
         // Q12: HOW OFTEN DO YOU EXERCISE?
@@ -521,6 +528,7 @@ const FormQuestion = () => {
             currentStep == 7 ||
             currentStep == 8 ||
             currentStep == 9 ||
+            currentStep == 10 ||
             currentStep == 11 ||
             currentStep == 12 ||
             currentStep == 14 ||
