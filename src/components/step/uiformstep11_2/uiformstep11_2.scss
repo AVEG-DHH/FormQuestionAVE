@@ -40,13 +40,18 @@
             .form-step-11-2__content {
                 display: flex;
                 align-items: center;
+                gap: 10px;
+                text-align: left;
                 font-size: $font-size-text-sp;
                 font-weight: bold;
+                word-break: break-word;
+                line-height: 1.2;
             }
 
             .form-step-11-2__icon {
+                flex-shrink: 0;
                 margin-right: 15px;
-                font-size: 20px;
+                font-size: 24px;
             }
         }
     }
@@ -56,6 +61,12 @@
     .form-step-11-2 {
         div {
             font-size: $font-size-title-small-sp;
+        }
+
+        .form-step-11-2__radio {
+            .form-step-5__label {
+                padding: 10px;
+            }
         }
     }
 }
