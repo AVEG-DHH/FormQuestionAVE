@@ -531,6 +531,7 @@ const FormQuestion = () => {
             currentStep == 20 ||
             currentStep == 21 ||
             currentStep == 22 ||
+            currentStep == 23 ||
             currentStep == 27 ||
             currentStep == 28
             // currentStep == 14

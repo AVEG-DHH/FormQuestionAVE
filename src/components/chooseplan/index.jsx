@@ -114,9 +114,9 @@ const ChoosePlan = () => {
             </button>
             <p className="disclaimer">
                 By clicking START MY TRIAL, I agree that the plan I have selected will automatically renew until I
-                cancel, BetterMe will automatically charge my payment method ₫224,000 every 4-week. I can cancel online
-                by visiting the subscription page in <a href="#">my account</a> on the website or in the app to avoid
-                being charged for the next billing cycle.
+                cancel, Natural Cleansing will automatically charge my payment method ₫224,000 every 4-week. I can
+                cancel online by visiting the subscription page in <a href="#">my account</a> on the website or in the
+                app to avoid being charged for the next billing cycle.
             </p>
         </div>
     );
