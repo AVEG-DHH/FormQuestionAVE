@@ -22,6 +22,11 @@
     }
 }
 
+a {
+    color: $primary-color;
+    font-weight: bold;
+}
+
 .progress-section {
     width: 100%;
     max-width: 400px;
