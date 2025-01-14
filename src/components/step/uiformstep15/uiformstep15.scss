@@ -40,8 +40,11 @@
             .form-step-15__content {
                 display: flex;
                 align-items: center;
+                gap: 10px;
+                text-align: left;
                 font-size: $font-size-text-sp;
                 font-weight: bold;
+                word-break: break-word;
             }
 
             // .form-step-5__icon {
@@ -52,6 +55,20 @@
             //     border-radius: 50%;
             //     padding: 8px;
             // }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-step-15 {
+        div {
+            font-size: $font-size-title-medium-sp;
+        }
+
+        .form-step-15__radio {
+            .form-step-15__label {
+                padding: 10px;
+            }
         }
     }
 }

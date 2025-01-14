@@ -40,13 +40,35 @@
             .form-step-17__content {
                 display: flex;
                 align-items: center;
+                gap: 10px;
+                text-align: left;
                 font-size: $font-size-text-sp;
                 font-weight: bold;
+                word-break: break-word;
             }
 
             .form-step-17__icon {
+                flex-shrink: 0;
                 margin-right: 15px;
-                font-size: 20px;
+                font-size: 24px;
+                color: $text-dark;
+                background-color: $disabled-color;
+                border-radius: 50%;
+                padding: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-step-17 {
+        div {
+            font-size: $font-size-title-medium-sp;
+        }
+
+        .form-step-17__radio {
+            .form-step-17__label {
+                padding: 10px;
             }
         }
     }

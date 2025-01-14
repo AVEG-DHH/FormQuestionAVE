@@ -18,12 +18,13 @@ const UIFormStep1_1 = ({ setIsCheckboxChecked, age }) => {
                     </p>
                 </div>
                 <div className="form-step-1_1-content__img">
-                    <img src="/img/form-step-6.png" alt="img" />
+                    <img src="/img/ave-1_1.png" alt="img" />
                 </div>
             </div>
         </div>
     );
 };
+
 UIFormStep1_1.propTypes = {
     setIsCheckboxChecked: PropTypes.func.isRequired,
     age: PropTypes.string.isRequired,

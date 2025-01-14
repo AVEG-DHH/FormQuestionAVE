@@ -39,12 +39,16 @@
 
             .form-step-7__content {
                 display: flex;
+                gap: 10px;
+                text-align: left;
                 font-size: $font-size-text-sp;
                 align-items: center;
                 font-weight: bold;
+                word-break: break-word;
             }
 
             .form-step-7__icon {
+                flex-shrink: 0;
                 margin-right: 15px;
                 font-size: 24px;
                 color: $text-dark;
@@ -60,6 +64,11 @@
     .form-step-7 {
         div {
             font-size: $font-size-title-small-sp;
+        }
+        .form-step-7__radio {
+            .form-step-5__label {
+                padding: 10px;
+            }
         }
     }
 }

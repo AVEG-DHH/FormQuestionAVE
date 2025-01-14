@@ -39,11 +39,15 @@
             .form-step-5__content {
                 display: flex;
                 align-items: center;
+                gap: 10px;
+                text-align: left;
                 font-size: $font-size-text-sp;
                 font-weight: bold;
+                word-break: break-word;
             }
 
             .form-step-5__icon {
+                flex-shrink: 0;
                 margin-right: 15px;
                 font-size: 24px;
                 color: $text-dark;
@@ -60,21 +64,27 @@
         div {
             font-size: $font-size-title-medium-sp;
         }
-    }
-}
 
-@media (max-width: 600px) {
-    .form-step-5 {
         .form-step-5__radio {
-            min-width: 300px;
+            .form-step-5__label {
+                padding: 10px;
+            }
         }
     }
-}
 
-@media (max-width: 425px) {
-    .form-step-5 {
-        .form-step-5__radio {
-            min-width: 200px;
+    @media (max-width: 600px) {
+        .form-step-5 {
+            .form-step-5__radio {
+                min-width: 300px;
+            }
+        }
+    }
+
+    @media (max-width: 425px) {
+        .form-step-5 {
+            .form-step-5__radio {
+                min-width: 200px;
+            }
         }
     }
 }
