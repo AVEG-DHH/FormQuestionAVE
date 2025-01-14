@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { TbTargetArrow } from 'react-icons/tb';
 import { LiaWeightSolid } from 'react-icons/lia';
 import './style.scss';
@@ -6,7 +6,32 @@ import './style.scss';
 const ChoosePlan = () => {
     const [selectedPlan, setSelectedPlan] = useState('4-Week Plan');
     const [isAgreed, setIsAgreed] = useState(false);
+    const bodyRef = useRef(null); // Ref cho body
+    const bodyHeightRef = useRef(0); // Ref lưu chiều cao trước đó
+    useEffect(() => {
+        const updateBodyHeight = () => {
+            if (bodyRef.current) {
+                const newHeight = bodyRef.current.offsetHeight;
 
+                // Chỉ cập nhật ref nếu chiều cao thực sự thay đổi
+                if (newHeight !== bodyHeightRef.current) {
+                    bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
+                }
+                console.log('Body height updated 20:', newHeight);
+                window.parent.postMessage({ bodyHeight: newHeight }, '*');
+            }
+        };
+
+        // Gọi hàm để cập nhật chiều cao ban đầu
+        updateBodyHeight();
+
+        // Lắng nghe sự kiện resize
+        window.addEventListener('resize', updateBodyHeight);
+
+        return () => {
+            window.removeEventListener('resize', updateBodyHeight);
+        };
+    }, []);
     const plans = [
         {
             name: '1-Week Trial',
@@ -47,7 +72,7 @@ const ChoosePlan = () => {
     };
 
     return (
-        <div className="choose-plan">
+        <div className="choose-plan" ref={bodyRef}>
             <h1>Choose Your Plan</h1>
             <div className="goals-container">
                 <div className="goal-section">

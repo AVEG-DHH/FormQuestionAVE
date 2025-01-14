@@ -17,7 +17,6 @@ const Goal = () => {
                 if (newHeight !== bodyHeightRef.current) {
                     bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
                 }
-                console.log('Body height updated:', newHeight);
                 window.parent.postMessage({ bodyHeight: newHeight }, '*');
             }
         };
@@ -41,7 +40,6 @@ const Goal = () => {
         return () => clearInterval(interval);
     }, []);
 
-    console.log('Body height:', bodyHeightRef.current);
     return (
         <>
             <div className="block-goal" ref={bodyRef}>
