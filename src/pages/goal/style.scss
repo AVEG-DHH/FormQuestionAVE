@@ -52,6 +52,11 @@
                 width: 42%;
                 display: flex;
                 justify-content: center;
+
+                img {
+                    width: 200px;
+                    object-fit: cover;
+                }
             }
 
             .block-goal-container__header__body-icons {

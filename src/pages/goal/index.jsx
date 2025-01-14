@@ -35,7 +35,7 @@ const Goal = () => {
                     </div>
                     <div className="block-goal-container__body">
                         <div className="block-goal-container__header__body-img">
-                            <img src="/img/goal-1.png" alt="img" />
+                            <img src="/img/ave-19.png" alt="img" />
                         </div>
                         <div className="block-goal-container__header__body-icons">
                             {[...Array(3)].map((_, index) => (
@@ -46,7 +46,7 @@ const Goal = () => {
                             ))}
                         </div>
                         <div className="block-goal-container__header__body-img">
-                            <img src="/img/goal-2.png" alt="img" />
+                            <img src="/img/ave-17.png" alt="img" />
                         </div>
                     </div>
                     <div className="block-goal-container__footer">
