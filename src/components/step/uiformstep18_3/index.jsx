@@ -32,12 +32,11 @@ const UIFormStep18_3 = ({
 
     let weightNew = 0;
 
-    if (weight.includes('Kg')) {
+    if (weight.includes('kg')) {
         weightNew = parseFloat(weight.split(' ')[0], 10);
     } else {
         weightNew = parseFloat(weight.split(' ')[0], 10) * 0.45359237;
     }
-
     const bmi = weightNew / (heightNew * heightNew);
     const viewBMI = Math.round(parseFloat(bmi) * 10) / 10;
     let statusBMI = '';
@@ -272,11 +271,11 @@ const UIFormStep18_3 = ({
                         <div className="form-step-18-3_footer-img">
                             {yourBuild === 'Slim' || yourBuild === 'Mid-sized' ? (
                                 <>
-                                    <img src="/img/goal-2.png" alt="Ectomorph" />
+                                    <img src="/img/ave-7_1-Slim.png" alt="Ectomorph" />
                                 </>
                             ) : (
                                 <>
-                                    <img src="img/goal-1.png" alt="Endomorph" />
+                                    <img src="img/ave-7_1-Extended.png" alt="Endomorph" />
                                 </>
                             )}
                         </div>

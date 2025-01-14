@@ -1,9 +1,9 @@
-import { Checkbox, FormControl, FormControlLabel, FormGroup } from '@mui/material';
+import { Checkbox, FormControl, FormControlLabel, FormGroup, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import './uiformstep9.scss';
 
 // eslint-disable-next-line react/prop-types
-const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
+const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9, handleNext, isCheckboxChecked }) => {
     const [selectedValues, setSelectedValues] = useState([]);
 
     const handleNextStep9Child = (event) => {
@@ -16,15 +16,14 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
     };
 
     useEffect(() => {
-        console.log(selectedValues);
         const newValue = selectedValues.toString();
-        console.log(newValue);
         if (newValue === '') {
             setIsCheckboxChecked(false);
             return;
         }
         handleNextStep9(newValue);
         setIsCheckboxChecked(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedValues]);
 
     return (
@@ -95,6 +94,15 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9 }) => {
                         />
                     </FormGroup>
                 </FormControl>
+                <Button
+                    className="custom-btn-continue"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    disabled={!isCheckboxChecked}
+                >
+                    Continue
+                </Button>
             </div>
         </>
     );

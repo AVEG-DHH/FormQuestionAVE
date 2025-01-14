@@ -5,13 +5,13 @@ import './uiformstep20.scss';
 
 const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
     const handleChangeEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Simple email regex pattern
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex pattern
 
         if (email === '') {
             setFormStep20({ ...formStep20, email, error: true });
             setIsCheckboxChecked(false);
             return;
-        }   
+        }
 
         if (!emailRegex.test(email)) {
             setFormStep20({ ...formStep20, email, error: true });
@@ -21,9 +21,8 @@ const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
 
         setFormStep20({ ...formStep20, email, error: false });
         setIsCheckboxChecked(true);
-
     };
-    console.log(formStep20);
+
     return (
         <>
             <div className="form-step-20">
@@ -40,7 +39,7 @@ const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
                             variant="outlined"
                             fullWidth
                             error={formStep20.error}
-                            helperText={formStep20.error ? "Please enter a valid email address!" : ''}
+                            helperText={formStep20.error ? 'Please enter a valid email address!' : ''}
                             value={formStep20.email}
                             onChange={(e) => handleChangeEmail(e.target.value)}
                             sx={{ mb: 2 }}
