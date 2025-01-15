@@ -10,25 +10,25 @@ const UIFormStep19 = ({ setIsCheckboxChecked, handleNext, isCheckboxChecked }) =
 
     const data = [
         {
-            name: 'I have never felt better 1',
+            name: 'Improve Overall Health',
             description:
-                'NC1: When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+                'My name is Linda and I am 61 years old. Lately I have been feeling tired and my blood circulation seems to be not as good as before.',
             image: 'https://i.postimg.cc/KYPG5YD5/profile1.jpg',
-            auth: 'Rosanna M.',
+            auth: 'Linda',
         },
         {
-            name: 'I have never felt better 2',
+            name: 'Lose weight',
             description:
-                'NC2: When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+                'I wanted to slim down so that I could fit into the dress my daughter gave me for my birthday. However, at my middle age, it was difficult for me to maintain a daily exercise routine.',
             image: 'https://i.postimg.cc/mg0qgNMd/profile2.jpg',
-            auth: 'Rosanna T.',
+            auth: 'Jennifer',
         },
         {
-            name: 'I have never felt better 2',
+            name: 'Gain muscle',
             description:
-                'NC3: When I turned 70 I realized I was losing balance and strength to do everyday things. I started with the routines for the elderly and chair exercises. Now within two years I have never felt better.',
+                "I'm Lily, an office worker at the age of 52. I want to have a method to gain muscle but I don't like go to the gym. I wanted another solution.",
             image: 'https://i.postimg.cc/mg0qgNMd/profile2.jpg',
-            auth: 'Rosanna T.',
+            auth: 'Lily',
         },
     ];
 

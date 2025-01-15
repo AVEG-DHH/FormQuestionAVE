@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './style.scss';
 
 const HightLightYourPlan = () => {
@@ -93,5 +93,3 @@ const HightLightYourPlan = () => {
 };
 
 export default HightLightYourPlan;
-
-

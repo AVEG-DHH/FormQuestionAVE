@@ -69,6 +69,7 @@
     opacity: 1;
     transform: translateX(0); /* Slide tại vị trí ban đầu */
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Hiệu ứng */
+    height: 192px;
 }
 
 .slider-content.sliding {
