@@ -17,11 +17,11 @@ const Goal = () => {
                 if (newHeight !== bodyHeightGoalRef.current) {
                     bodyHeightGoalRef.current = newHeight; // Lưu chiều cao mới vào ref
                 }
-                console.log('bodyHeightGoal Child: ', newHeight);
-                console.log('bodyHeightGoal Child: ', bodyHeightGoalRef.current);
                 setTimeout(() => {
+                    console.log('bodyHeightGoal Child 1: ', newHeight);
+
                     window.parent.postMessage({ bodyHeightGoal: newHeight }, '*');
-                }, 2000);
+                }, 100);
             }
         };
 
