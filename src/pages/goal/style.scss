@@ -1,10 +1,11 @@
 @use '../../untils.scss' as *;
 
 .block-goal {
-    margin: 0 24rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+    max-width: 1100px;
 
     h1 {
         font-size: 62px;
@@ -173,7 +174,11 @@
         padding: 2rem 1rem !important;
     }
 
-    .block-goal .block-goal-container .block-goal-container__footer .block-goal-container__footer__description .block-goal-container__footer__description-block {
+    .block-goal
+        .block-goal-container
+        .block-goal-container__footer
+        .block-goal-container__footer__description
+        .block-goal-container__footer__description-block {
         padding: 20px 12px !important;
     }
     .block-goal-container__header__body-img {
