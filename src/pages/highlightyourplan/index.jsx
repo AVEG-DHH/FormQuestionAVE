@@ -1,9 +1,37 @@
+import { useState, useEffect, useRef } from 'react';
 import './style.scss';
 
 const HightLightYourPlan = () => {
+    const bodyRef = useRef(null); // Ref cho body
+    const bodyHeightRef = useRef(0); // Ref lưu chiều cao trước đó
+
+    useEffect(() => {
+        const updateBodyHeight = () => {
+            if (bodyRef.current) {
+                const newHeight = bodyRef.current.offsetHeight;
+
+                // Chỉ cập nhật ref nếu chiều cao thực sự thay đổi
+                if (newHeight !== bodyHeightRef.current) {
+                    bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
+                }
+                window.parent.postMessage({ bodyHeightHighlightYourPlan: newHeight }, '*');
+            }
+        };
+
+        // Gọi hàm để cập nhật chiều cao ban đầu
+        updateBodyHeight();
+
+        // Lắng nghe sự kiện resize
+        window.addEventListener('resize', updateBodyHeight);
+
+        return () => {
+            window.removeEventListener('resize', updateBodyHeight);
+        };
+    }, []);
+
     return (
         <>
-            <div className="block-highlight-your-plan">
+            <div className="block-highlight-your-plan" ref={bodyRef}>
                 <div className="block-highlight-your-plan-left">
                     <div className="block-highlight-your-plan-left-title">Highlights of your plan</div>
                     <div className="block-highlight-your-plan-left-desc">
@@ -65,3 +93,5 @@ const HightLightYourPlan = () => {
 };
 
 export default HightLightYourPlan;
+
+
