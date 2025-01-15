@@ -5,17 +5,17 @@ import './style.scss';
 
 const Goal = () => {
     const [visibleCount, setVisibleCount] = useState(0);
-    const bodyRef = useRef(null); // Ref cho body
-    const bodyHeightRef = useRef(0); // Ref lưu chiều cao trước đó
+    const bodyGoalRef = useRef(null); // Ref cho body
+    const bodyHeightGoalRef = useRef(0); // Ref lưu chiều cao trước đó
 
     useEffect(() => {
         const updateBodyHeight = () => {
-            if (bodyRef.current) {
-                const newHeight = bodyRef.current.offsetHeight;
+            if (bodyGoalRef.current) {
+                const newHeight = bodyGoalRef.current.offsetHeight;
 
                 // Chỉ cập nhật ref nếu chiều cao thực sự thay đổi
-                if (newHeight !== bodyHeightRef.current) {
-                    bodyHeightRef.current = newHeight; // Lưu chiều cao mới vào ref
+                if (newHeight !== bodyHeightGoalRef.current) {
+                    bodyHeightGoalRef.current = newHeight; // Lưu chiều cao mới vào ref
                 }
                 console.log('bodyHeightGoal Child: ', newHeight);
                 window.parent.postMessage({ bodyHeightGoal: newHeight }, '*');
@@ -43,7 +43,7 @@ const Goal = () => {
 
     return (
         <>
-            <div className="block-goal" ref={bodyRef}>
+            <div className="block-goal" ref={bodyGoalRef}>
                 <h1>Your Workout Plan is ready!</h1>
                 <div className="block-goal-container">
                     <div className="block-goal-container__header">
