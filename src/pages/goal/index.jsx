@@ -13,27 +13,28 @@ const Goal = () => {
             if (bodyGoalRef.current) {
                 const newHeight = bodyGoalRef.current.offsetHeight;
 
-                // Chỉ cập nhật ref nếu chiều cao thực sự thay đổi
+                // Cập nhật nếu chiều cao thay đổi
                 if (newHeight !== bodyHeightGoalRef.current) {
-                    bodyHeightGoalRef.current = newHeight; // Lưu chiều cao mới vào ref
-                }
-                setTimeout(() => {
-                    console.log('bodyHeightGoal Child 1: ', newHeight);
-
+                    bodyHeightGoalRef.current = newHeight;
                     window.parent.postMessage({ bodyHeightGoal: newHeight }, '*');
-                }, 100);
+                    console.log('Updated height:', newHeight);
+                }
             }
         };
 
-        // Gọi hàm để cập nhật chiều cao ban đầu
-        updateBodyHeight();
+        // Quan sát sự thay đổi trong DOM
+        const observer = new MutationObserver(updateBodyHeight);
 
-        // Lắng nghe sự kiện resize
-        window.addEventListener('resize', updateBodyHeight);
+        if (bodyGoalRef.current) {
+            observer.observe(bodyGoalRef.current, {
+                childList: true, // Theo dõi thêm/xóa các phần tử con
+                subtree: true, // Theo dõi toàn bộ cây DOM
+                attributes: true, // Theo dõi thay đổi thuộc tính (ví dụ: hình ảnh tải xong)
+            });
+        }
 
-        return () => {
-            window.removeEventListener('resize', updateBodyHeight);
-        };
+        // Cleanup
+        return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
