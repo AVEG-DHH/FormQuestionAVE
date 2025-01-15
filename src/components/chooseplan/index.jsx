@@ -6,6 +6,8 @@ import './style.scss';
 const ChoosePlan = () => {
     const [selectedPlan, setSelectedPlan] = useState('4-Week Plan');
     const [isAgreed, setIsAgreed] = useState(false);
+    const targetWeight = localStorage.getItem('targetWeight') ? parseInt(localStorage.getItem('targetWeight'), 10) : 0;
+    const goal = localStorage.getItem('goal') ? localStorage.getItem('goal') : '';
     const bodyRef = useRef(null); // Ref cho body
     const bodyHeightRef = useRef(0); // Ref lưu chiều cao trước đó
     useEffect(() => {
@@ -90,8 +92,8 @@ const ChoosePlan = () => {
                         <LiaWeightSolid />
                     </div>
                     <div className="target-text">
-                        <span>Target weight</span>
-                        <strong>60 kg</strong>
+                        <span>{goal}</span>
+                        <strong>{targetWeight} kg</strong>
                     </div>
                 </div>
             </div>

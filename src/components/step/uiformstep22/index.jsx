@@ -11,8 +11,10 @@ const UIFormStep22 = ({ setIsCheckboxChecked, handleNextStep22 }) => {
         // Kiểm tra tuổi hợp lệ (18 đến 120)
         if (ageValue.trim() !== '' && numericValue >= 25 && numericValue <= 300) {
             setIsCheckboxChecked(true);
+            localStorage.setItem('targetWeight', numericValue);
         } else {
             setIsCheckboxChecked(false);
+            localStorage.removeItem('targetWeight');
         }
 
         // Truyền tuổi hợp lệ về component cha

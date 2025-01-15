@@ -102,6 +102,7 @@ const FormQuestion = () => {
     const handleNextStep5 = (value) => {
         console.log(value.target.value);
         setFormStep5({ questionGoal: value.target.value });
+        localStorage.setItem('goal', value.target.value);
         setTimeout(() => handleNext(), 300);
     };
 
