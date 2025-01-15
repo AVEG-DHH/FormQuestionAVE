@@ -3,7 +3,6 @@ import Checkout from './pages/checkout';
 import FormQuestion from './pages/formquestion';
 import HighlightYourPlan from './pages/highlightyourplan';
 import Goal from './pages/goal';
-import Loading from './components/loading';
 import ExportExcel from './pages/exportexcel';
 import UIFormStep18_3 from './components/step/uiformstep18_3';
 

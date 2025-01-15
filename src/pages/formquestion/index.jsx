@@ -32,6 +32,7 @@ import UIFormStep18_3 from '../../components/step/uiformstep18_3';
 import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
 import UIFormStep21 from '../../components/step/uiformstep21';
+import UIFormStep22 from '../../components/step/uiformstep22';
 import Loading from '../../components/loading';
 import Header from '../../components/header';
 import './style.scss';
@@ -69,6 +70,7 @@ const FormQuestion = () => {
     const [formStep18_2, setFormStep18_2] = useState({ questionAge: '' });
     const [formStep20, setFormStep20] = useState({ email: '', error: false });
     const [formStep21, setFormStep21] = useState({ questionName: '' });
+    const [formStep22, setFormStep22] = useState({ questionTargetWeight: '' });
 
     // Function Step 1:
     const handleNextStep1 = (value) => {
@@ -222,6 +224,12 @@ const FormQuestion = () => {
     const handleNextStep21 = (value) => {
         console.log(value);
         setFormStep21({ questionName: value });
+    };
+
+    // Function Step 22:
+    const handleNextStep22 = (value) => {
+        console.log(value);
+        setFormStep22({ questionTargetWeight: value });
     };
 
     const handleNext = () => {
@@ -446,9 +454,15 @@ const FormQuestion = () => {
             ),
         },
 
-        // Q27: WHAT'S YOUR AGE?
+        // Q27: WHAT'S TARGET WEIGHT?
         {
             id: 27,
+            content: <UIFormStep22 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep22={handleNextStep22} />,
+        },
+
+        // Q27: WHAT'S YOUR AGE?
+        {
+            id: 28,
             content: (
                 <UIFormStep18_2 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep18_2={handleNextStep18_2} />
             ),
@@ -456,7 +470,7 @@ const FormQuestion = () => {
 
         // Q28: WHAT'S YOUR AGE?
         {
-            id: 28,
+            id: 29,
             content: (
                 <UIFormStep18_3
                     height={formStep3.height}
@@ -474,7 +488,7 @@ const FormQuestion = () => {
 
         // Q29: CALCULATING PROGRESS
         {
-            id: 29,
+            id: 30,
             content: (
                 <UIFormStep19
                     setIsCheckboxChecked={setIsCheckboxChecked}
@@ -486,7 +500,7 @@ const FormQuestion = () => {
 
         // Q30: WHAT'S YOUR EMAIL?
         {
-            id: 30,
+            id: 31,
             content: (
                 <UIFormStep20
                     setIsCheckboxChecked={setIsCheckboxChecked}
@@ -498,7 +512,7 @@ const FormQuestion = () => {
 
         // Q31: WHAT'S YOUR NAME?
         {
-            id: 31,
+            id: 32,
             content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} />,
         },
     ];
@@ -540,9 +554,8 @@ const FormQuestion = () => {
             currentStep == 21 ||
             currentStep == 22 ||
             currentStep == 23 ||
-            currentStep == 27 ||
-            currentStep == 28
-            // currentStep == 14
+            currentStep == 28 ||
+            currentStep == 29
         ) {
             setShowButtonNext(false);
         }
@@ -575,6 +588,7 @@ const FormQuestion = () => {
             questionEquipment: formStep15.questionEquipment || null,
             questionMainReason: formStep17.questionMainReason || null,
             questionDiet: formStep16.questionDiet || null,
+            questionTargetWeight: formStep22.questionTargetWeight || null,
             questionAge: formStep18_2.questionAge || null,
             EmailCustomer: formStep20.email || null,
             questionName: formStep21.questionName || null,
