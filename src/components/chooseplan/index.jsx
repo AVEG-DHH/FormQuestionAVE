@@ -37,25 +37,30 @@ const ChoosePlan = () => {
     const plans = [
         {
             name: '1-Week Trial',
-            label: '4-WEEK PLAN',
+            label: '7-Day Free Workout + 7-Day Free Protein Meal Plan (PDF)',
             originalPrice: '$10',
             highlightedPrice: '$1,4',
             perDay: ' per day',
             mostPopular: false,
+            planDetail: ['File PDF'],
         },
         {
             name: '4-Week Plan',
+            label: '30-Day Free Workout + 30-Day Free Protein Meal Plan (PDF)',
             originalPrice: '$30',
             highlightedPrice: '$1',
             perDay: ' per day',
             mostPopular: true,
+            planDetail: ['File PDF', 'Video', '24/7 Support'],
         },
         {
             name: '12-Week Plan',
+            label: '90-Day Free Workout + 90-Day Free Protein Meal Plan (PDF)',
             originalPrice: '$50',
             highlightedPrice: '$0,6',
             perDay: ' per day',
             mostPopular: false,
+            planDetail: ['File PDF', 'Video', '24/7 Support', 'Free access to the 90-day community', '1:1 Support'],
         },
     ];
 
@@ -116,6 +121,13 @@ const ChoosePlan = () => {
                                 <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>
                                     {selectedPlan === plan.name && <span className="tick">✔</span>}
                                 </div>
+                            </div>
+                            <div className="plan-detail">
+                                <ul>
+                                    {plan.planDetail.map((detail, index) => (
+                                        <li key={index}>✔️ {detail}</li>
+                                    ))}
+                                </ul>
                             </div>
                             <div className="highlighted-section">
                                 <span className="highlighted-price">{plan.highlightedPrice}</span>

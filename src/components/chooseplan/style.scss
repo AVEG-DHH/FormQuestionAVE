@@ -93,6 +93,14 @@
             flex-direction: column;
             justify-content: space-between;
 
+            .plan-detail {
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 8px;
+                }
+            }
+
             .block-plans-title {
                 position: absolute;
                 top: 0;
