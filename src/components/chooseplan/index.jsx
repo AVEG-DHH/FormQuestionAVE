@@ -42,7 +42,7 @@ const ChoosePlan = () => {
             highlightedPrice: '$1,4',
             perDay: ' per day',
             mostPopular: false,
-            planDetail: ['File PDF'],
+            planDetail: [],
         },
         {
             name: '4-Week Plan',
@@ -51,7 +51,7 @@ const ChoosePlan = () => {
             highlightedPrice: '$1',
             perDay: ' per day',
             mostPopular: true,
-            planDetail: ['File PDF', 'Video', '24/7 Support'],
+            planDetail: ['E-Book', 'Video', '24/7 Support'],
         },
         {
             name: '12-Week Plan',
@@ -60,7 +60,7 @@ const ChoosePlan = () => {
             highlightedPrice: '$0,6',
             perDay: ' per day',
             mostPopular: false,
-            planDetail: ['File PDF', 'Video', '24/7 Support', 'Free access to the 90-day community', '1:1 Support'],
+            planDetail: ['E-Book', 'Video', '24/7 Support', 'Free access to the 90-day community'],
         },
     ];
 
@@ -122,13 +122,14 @@ const ChoosePlan = () => {
                                     {selectedPlan === plan.name && <span className="tick">✔</span>}
                                 </div>
                             </div>
-                            <div className="plan-detail">
-                                <ul>
-                                    {plan.planDetail.map((detail, index) => (
-                                        <li key={index}>✔️ {detail}</li>
-                                    ))}
-                                </ul>
+                            <div className="plan-custom-list">
+                                {plan.planDetail.map((detail, index) => (
+                                    <div className="plan-label plan-custom-item" key={index}>
+                                        {detail}
+                                    </div>
+                                ))}
                             </div>
+
                             <div className="highlighted-section">
                                 <span className="highlighted-price">{plan.highlightedPrice}</span>
                                 <span className="per-day">{plan.perDay}</span>

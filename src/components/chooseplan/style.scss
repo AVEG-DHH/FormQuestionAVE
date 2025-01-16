@@ -18,7 +18,7 @@
     padding: 50px;
 
     h1 {
-        font-size: 48px;
+        font-size: $font-size-title-small-pc;
         font-weight: 600;
         margin-bottom: 20px;
         letter-spacing: -1px;
@@ -93,11 +93,15 @@
             flex-direction: column;
             justify-content: space-between;
 
-            .plan-detail {
-                ul {
-                    display: flex;
-                    flex-direction: column;
-                    row-gap: 8px;
+            .plan-custom-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4%;
+                margin-bottom: 20px;
+
+                .plan-custom-item {
+                    max-width: 200px !important;
+                    height: fit-content;
                 }
             }
 
@@ -342,8 +346,13 @@
 
 @media (max-width: 768px) {
     .choose-plan {
+        h1 {
+            font-size: $font-size-title-small-sp;
+        }
         .get-plan-button {
+            font-size: $font-size-input-sp;
             width: 40%;
+            height: fit-content;
         }
     }
 }
