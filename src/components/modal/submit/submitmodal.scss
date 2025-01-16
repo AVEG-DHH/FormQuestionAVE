@@ -1,0 +1,136 @@
+// @use '../../../untils.scss' as *;
+
+// @keyframes fadeIn {
+//     from {
+//         opacity: 0;
+//         transform: scale(0.9);
+//     }
+//     to {
+//         opacity: 1;
+//         transform: scale(1);
+//     }
+// }
+
+// @keyframes fadeOut {
+//     from {
+//         opacity: 1;
+//         transform: scale(1);
+//     }
+//     to {
+//         opacity: 0;
+//         transform: scale(0.9);
+//     }
+// }
+
+// @keyframes drawCircle {
+//     from {
+//         transform: scale(0);
+//         opacity: 0;
+//     }
+//     to {
+//         transform: scale(1);
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes drawStroke {
+//     from {
+//         transform: rotate(45deg) scale(0);
+//     }
+//     to {
+//         transform: rotate(45deg) scale(1);
+//     }
+// }
+
+// @keyframes zoomEffect {
+//     0%,
+//     100% {
+//         transform: scale(1);
+//     }
+//     50% {
+//         transform: scale(1.2);
+//     }
+// }
+
+// .modal-overlay {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(0, 0, 0, 0.5);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     z-index: 1000;
+//     animation: fadeIn 0.5s ease;
+//     transition: opacity 0.3s ease-in-out;
+// }
+
+// .modal-content {
+//     background: $backgroud-light;
+//     padding: 20px 30px;
+//     border-radius: 8px;
+//     text-align: center;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//     animation: fadeIn 0.6s ease-in-out;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     transition: opacity 0.3s ease-in-out;
+// }
+
+// .modal-circle-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin-bottom: 20px;
+//     position: relative;
+// }
+
+// .modal-circle {
+//     width: 80px;
+//     height: 80px;
+//     border: 4px solid $primary-color;
+//     border-radius: 50%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     background-color: $backgroud-light;
+//     animation: drawCircle 1s ease-in-out forwards;
+// }
+
+// .circle-completed {
+//     border-color: $primary-color;
+//     transition: background-color 0.5s ease;
+// }
+
+// .modal-check {
+//     position: absolute;
+//     width: 30px;
+//     height: 30px;
+//     transform: scale(0.8);
+//     animation: drawCheck 1s ease-in-out forwards 1s, zoomEffect 1s ease-in-out 2s;
+// }
+
+// .modal-check::before {
+//     content: '';
+//     position: absolute;
+//     width: 19px;
+//     height: 40px;
+//     border: solid $primary-color;
+//     border-width: 0 4px 4px 0;
+//     transform: rotate(45deg);
+//     top: -10px;
+//     left: 7px;
+//     animation: drawStroke 1s ease-in-out forwards;
+// }
+
+// .modal-thank-you {
+//     font-size: 16px;
+//     color: #333;
+//     margin-top: 10px;
+//     font-weight: 500;
+//     transition: opacity 0.3s ease-in-out;
+// }

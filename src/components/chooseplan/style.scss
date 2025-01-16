@@ -177,9 +177,10 @@
             .original-price {
                 text-decoration: line-through;
                 font-size: 17px;
-                color: #888;
+                color: $sub-color;
                 padding-bottom: 16px;
                 line-height: 1.41;
+                font-family: $secondary-font;
             }
 
             .highlighted-section {
@@ -197,7 +198,8 @@
             .per-day {
                 font-size: 12px;
                 line-height: 1.33;
-                color: rgba(23, 23, 23, 0.72);
+                color: $sub-color;
+                font-family: $secondary-font;
             }
 
             &:hover {
