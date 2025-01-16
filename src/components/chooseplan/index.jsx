@@ -128,8 +128,10 @@ const ChoosePlan = () => {
             <div className="terms">
                 <input type="checkbox" id="terms" checked={isAgreed} onChange={handleCheckboxChange} />
                 <label htmlFor="terms">
-                    I agree to the <a href="#">Terms and Conditions</a>, <a href="#">Privacy policy</a>,{' '}
-                    <a href="#">Subscription policy</a>, and the <a href="#">Refund and Cancellation policy</a>.
+                    I agree to the{' '}
+                    <a href="https://naturalcleansing.world/policies/terms-of-service">Terms and Conditions</a>,{' '}
+                    <a href="https://naturalcleansing.world/policies/privacy-policy">Privacy policy</a>, and the{' '}
+                    <a href="https://naturalcleansing.world/policies/refund-policy">Refund and Cancellation policy</a>.
                 </label>
             </div>
             <button

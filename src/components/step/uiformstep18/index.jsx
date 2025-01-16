@@ -156,7 +156,7 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked 
                                     I consent to Natural Cleansing processing my health onboarding to provide services
                                     and enhance my user experience.{' '}
                                     <a
-                                        href="https://naturalcleansing.work/policies/privacy-policy"
+                                        href="https://naturalcleansing.world/policies/privacy-policy"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
