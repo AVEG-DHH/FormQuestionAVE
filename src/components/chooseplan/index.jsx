@@ -111,28 +111,31 @@ const ChoosePlan = () => {
                             onClick={() => handlePlanSelection(plan.name)}
                         >
                             {plan.mostPopular && <div className="block-plans-title">MOST POPULAR</div>}
-                            <div className="plan-header-parent">
-                                <div className="plan-header">
-                                    <h3>{plan.name}</h3>
+                            <div className="plan-header-parent-first-parent">
+                                <div className="plan-header-parent-first">
+                                    <div className="plan-header-parent">
+                                        <div className="plan-header">
+                                            <h3>{plan.name}</h3>
 
-                                    {plan.label && <div className="plan-label">{plan.label}</div>}
-                                    <div className="original-price">{plan.originalPrice}</div>
-                                </div>
-                                <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>
-                                    {selectedPlan === plan.name && <span className="tick">✔</span>}
-                                </div>
-                            </div>
-                            <div className="plan-custom-list">
-                                {plan.planDetail.map((detail, index) => (
-                                    <div className="plan-label plan-custom-item" key={index}>
-                                        {detail}
+                                            {plan.label && <div className="plan-label">{plan.label}</div>}
+                                            <div className="original-price">{plan.originalPrice}</div>
+                                        </div>
+                                        <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>
+                                            {selectedPlan === plan.name && <span className="tick">✔</span>}
+                                        </div>
                                     </div>
-                                ))}
-                            </div>
-
-                            <div className="highlighted-section">
-                                <span className="highlighted-price">{plan.highlightedPrice}</span>
-                                <span className="per-day">{plan.perDay}</span>
+                                    <div className="plan-custom-list">
+                                        {plan.planDetail.map((detail, index) => (
+                                            <div className="plan-label plan-custom-item" key={index}>
+                                                {detail}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="highlighted-section">
+                                    <span className="highlighted-price">{plan.highlightedPrice}</span>
+                                    <span className="per-day">{plan.perDay}</span>
+                                </div>
                             </div>
                         </div>
                     </>

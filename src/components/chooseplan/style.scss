@@ -12,6 +12,13 @@
     }
 }
 
+.plan-header-parent-first-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 .choose-plan {
     text-align: center;
     font-family: Arial, sans-serif;
@@ -312,6 +319,13 @@
 }
 
 @media (max-width: 1024px) {
+    .plan-header-parent-first-parent {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+
     .choose-plan {
         .plans {
             flex-direction: column;
@@ -355,6 +369,18 @@
             height: fit-content;
         }
     }
+
+    .choose-plan .plans .plan-card .plan-header-parent .plan-header h3 {
+        font-size: 20px;
+    }
+
+    .choose-plan .plans .plan-card .highlighted-price {
+        font-size: 20px;
+    }
+
+    .choose-plan .plans .plan-card {
+        padding: 36px 24px 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -367,5 +393,13 @@
         .get-plan-button {
             width: 100%;
         }
+    }
+
+    .choose-plan .plans .plan-card .plan-header-parent .plan-header h3 {
+        font-size: 16px;
+    }
+
+    .choose-plan .plans .plan-card .highlighted-price {
+        font-size: 16px;
     }
 }
