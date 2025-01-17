@@ -102,7 +102,7 @@ const Goal = () => {
                                     />
                                     <div className="block-goal-container__footer__description-block-detail__bodyfat">
                                         <div className="block-goal-container__footer__description-block-detail__bodyfat-title">
-                                            Chair yoga level
+                                            Workout Plan level
                                         </div>
                                         <div className="block-goal-container__footer__description-block-detail__bodyfat-value">
                                             Beginner
@@ -146,7 +146,7 @@ const Goal = () => {
                                     />
                                     <div className="block-goal-container__footer__description-block-detail__bodyfat">
                                         <div className="block-goal-container__footer__description-block-detail__bodyfat-title">
-                                            Chair yoga level
+                                            Workout Plan level
                                         </div>
                                         <div className="block-goal-container__footer__description-block-detail__bodyfat-value">
                                             Advanced
