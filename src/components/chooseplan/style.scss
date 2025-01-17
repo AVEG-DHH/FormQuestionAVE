@@ -26,7 +26,7 @@
 
     h1 {
         font-size: $font-size-title-small-pc;
-        font-weight: 600;
+        font-weight: bold;
         margin-bottom: 20px;
         letter-spacing: -1px;
     }
@@ -59,14 +59,14 @@
 
                 span {
                     font-size: 20px;
-                    color: #555;
+                    color: $sub-color;
                     padding: 5px 0px;
                 }
 
                 strong {
                     font-size: 20px;
                     font-weight: bold;
-                    color: #000;
+                    color: $text-dark;
                 }
             }
         }
@@ -251,6 +251,7 @@
 
         label {
             font-size: 14px;
+            line-height: 1.2;
 
             a {
                 color: $sub-color;
@@ -291,10 +292,16 @@
     }
 
     .disclaimer {
-        font-size: 12px;
-        color: #888;
+        font-size: 14px;
+        color: $sub-color;
         line-height: 1.5;
         margin-top: 20px;
+        display: inline-block;
+        padding: 10px;
+        border: 1px solid $border-color;
+        width: auto;
+        max-width: 100%;
+        border-radius: 10px;
 
         a {
             color: $sub-color;

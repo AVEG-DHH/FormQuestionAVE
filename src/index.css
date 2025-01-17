@@ -1,16 +1,13 @@
 @font-face {
-    font-family: 'Gilroy-Bold';
-    src: local('Gilroy-Bold'), url(./fonts/Gilroy-Bold.ttf) format('truetype');
+    font-family: 'Assistant';
+    src: url('./fonts/Assistant/static/Assistant-Regular.ttf') format('truetype'),
+        url('./fonts/Assistant/static/Assistant-Bold.ttf') format('truetype');
+    font-weight: 400, 600;
+    font-style: normal;
 }
 
-@font-face {
-    font-family: 'Gilroy-Medium';
-    src: local('Gilroy-Medium'), url(./fonts/Gilroy-Medium.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'Gilroy-Light';
-    src: local('Gilroy-Light'), url(./fonts/Gilroy-Light.ttf) format('truetype');
+body {
+    font-family: 'Assistant', sans-serif;
 }
 
 html,
@@ -100,7 +97,7 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Gilroy-Medium', sans-serif !important;
+    font-family: 'Assistant', sans-serif !important;
     -webkit-font-smoothing: antialiased !important;
     line-height: 1;
 }
