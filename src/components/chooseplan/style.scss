@@ -184,7 +184,7 @@
                 align-items: center;
                 justify-content: center;
                 padding: 4px 8px;
-                margin: 3px 0;
+                margin: 5px 0;
                 background: #f1f1f1;
                 border-radius: 6px;
                 gap: 4px;
@@ -197,7 +197,6 @@
                 // text-decoration: line-through;
                 font-size: 17px;
                 color: $sub-color;
-                padding-bottom: 16px;
                 line-height: 1.41;
                 font-family: $secondary-font;
             }
@@ -366,6 +365,9 @@
 }
 
 @media (max-width: 768px) {
+    .plan-label-sp {
+        display: none !important;
+    }
     .choose-plan {
         h1 {
             font-size: $font-size-title-small-sp;
@@ -395,6 +397,14 @@
         .plans {
             .plan-card {
                 flex-direction: column;
+
+                &:first-child {
+                    padding: 8px 24px 0;
+                }
+
+                &:last-child {
+                    padding: 8px 24px 0;
+                }
             }
         }
         .get-plan-button {
@@ -408,5 +418,9 @@
 
     .choose-plan .plans .plan-card .highlighted-price {
         font-size: 16px;
+    }
+
+    .choose-plan .plans .plan-card .plan-custom-list {
+        margin-bottom: 4px;
     }
 }

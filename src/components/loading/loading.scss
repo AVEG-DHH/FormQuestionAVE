@@ -3,9 +3,9 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    z-index: 10;
-    background-color: lightgray;
-    opacity: 0.3;
+    z-index: 100;
+    background-color: $backgroud-secondary;
+    opacity: 0.9;
 }
 .chaotic-orbit {
     --uib-size: 25px;

@@ -117,7 +117,7 @@ const ChoosePlan = () => {
                                         <div className="plan-header">
                                             <h3>{plan.name}</h3>
 
-                                            {plan.label && <div className="plan-label">{plan.label}</div>}
+                                            {plan.label && <div className="plan-label plan-label-sp">{plan.label}</div>}
                                             <div className="original-price">{plan.originalPrice}</div>
                                         </div>
                                         <div className={`status-circle ${selectedPlan === plan.name ? 'active' : ''}`}>

@@ -8,7 +8,7 @@
     max-width: 1100px;
 
     h1 {
-        font-size: 62px;
+        font-size: $font-size-title-small-pc;
         font-weight: bold;
         text-align: center;
     }
@@ -157,6 +157,12 @@
 @media (max-width: 836px) {
     .block-goal {
         margin: 0 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: $font-size-title-small-sp;
     }
 }
 
