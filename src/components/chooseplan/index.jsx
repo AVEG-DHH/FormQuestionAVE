@@ -158,10 +158,11 @@ const ChoosePlan = () => {
                 GET MY PLAN
             </button>
             <p className="disclaimer">
-                By clicking START MY TRIAL, I agree that the plan I have selected will automatically renew until I
-                cancel, Natural Cleansing will automatically charge my payment method ₫224,000 every 4-week. I can
-                cancel online by visiting the subscription page in <a href="#">my account</a> on the website or in the
-                app to avoid being charged for the next billing cycle.
+                By clicking GET MY PLAN, I agree that the plan I have selected will automatically renew until I cancel,
+                Natural Cleansing will automatically charge my payment method $30 every 4-week. I can cancel online by
+                visiting the subscription page in{' '}
+                <a href="https://naturalcleansing.world/policies/refund-policy">Refund and Cancellation policy</a> on
+                the website to avoid being charged for the next billing cycle.
             </p>
         </div>
     );
