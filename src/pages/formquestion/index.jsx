@@ -566,6 +566,8 @@ const FormQuestion = () => {
     }, [currentStep]);
 
     const handleSubmit = () => {
+        setIsLoading(true);
+
         const userId = Date.now();
         const customerData = {
             Age: formStep1.age || null,
@@ -597,7 +599,6 @@ const FormQuestion = () => {
 
         set(ref(db, `customer-answer/${userId}`), customerData)
             .then(() => {
-                alert('Dữ liệu đã được thêm thành công!');
                 window.parent.postMessage('redirect', '*');
             })
             .catch((error) => {
