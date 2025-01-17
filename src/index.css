@@ -117,7 +117,7 @@ section {
 }
 body {
     line-height: 1;
-    font-family: 'Gilroy-Medium', sans-serif;
+    font-family: 'Assistant', sans-serif;
 }
 ol,
 ul {
@@ -139,6 +139,6 @@ table {
     border-spacing: 0;
 }
 .custom-btn-continue {
-    font-family: 'Gilroy-Medium', sans-serif !important;
+    font-family: 'Assistant', sans-serif !important;
     font-weight: 700 !important;
 }
