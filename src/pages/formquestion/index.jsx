@@ -130,7 +130,7 @@ const FormQuestion = () => {
                         className="block-step-new__body__radio__content__icon"
                     />
                 ),
-                value: 'Maintain weight',
+                value: 'Maintain Weight',
             },
             {
                 icon: (
@@ -140,7 +140,7 @@ const FormQuestion = () => {
                         className="block-step-new__body__radio__content__icon"
                     />
                 ),
-                value: 'Gain muscle',
+                value: 'Gain Muscle',
             },
             {
                 icon: (
@@ -150,7 +150,7 @@ const FormQuestion = () => {
                         className="block-step-new__body__radio__content__icon"
                     />
                 ),
-                value: 'Improve overall health',
+                value: 'Improve Overall Health',
             },
             {
                 icon: (
