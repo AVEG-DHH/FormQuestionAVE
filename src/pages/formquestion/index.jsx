@@ -15,9 +15,6 @@ import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep11 from '../../components/step/uiformstep11';
 import UIFormStep11_1 from '../../components/step/uiformstep11_1';
 import UIFormStep11_3 from '../../components/step/uiformstep11_3';
-import UIFormStep13 from '../../components/step/uiformstep13';
-import UIFormStep14 from '../../components/step/uiformstep14';
-import UIFormStep15 from '../../components/step/uiformstep15';
 import UIFormStep16 from '../../components/step/uiformstep16';
 import UIFormStep17 from '../../components/step/uiformstep17';
 import UIFormStep18 from '../../components/step/uiformstep18';
@@ -385,17 +382,47 @@ const FormQuestion = () => {
         setFormStep13({ questionWorkoutPD: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+    const propsFormStep13 = {
+        title: <>How much time do you usually spend on a workout?</>,
+        handleStep: handleNextStep13,
+        arrQuestion: [
+            { icon: '', value: 'Less than 15 minutes' },
+            { icon: '', value: '15-30 minutes' },
+            { icon: '', value: 'More than 60 minutes' },
+        ],
+    };
 
     // Function Step 14:
     const handleNextStep14 = (value) => {
         setFormStep14({ questionWorkoutPD: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+    const propsFormStep14 = {
+        title: <>Where do you prefer to work out?</>,
+        handleStep: handleNextStep14,
+        arrQuestion: [
+            { icon: '', value: 'At home' },
+            { icon: '', value: 'Outdoors' },
+            { icon: '', value: 'In a gym' },
+            { icon: '', value: 'No preference' },
+        ],
+    };
 
     // Function Step 15:
     const handleNextStep15 = (value) => {
         setFormStep15({ questionEquipment: value.target.value });
         setTimeout(() => handleNext(), 300);
+    };
+    const propsFormStep15 = {
+        title: <>What equipment do you have access to?</>,
+        handleStep: handleNextStep15,
+        arrQuestion: [
+            { icon: '', value: 'None' },
+            { icon: '', value: 'Chair/mat' },
+            { icon: '', value: 'Dumbbells' },
+            { icon: '', value: 'Resistance bands' },
+            { icon: '', value: 'Other advanced equipment' },
+        ],
     };
 
     // Function Step 16:
@@ -601,19 +628,19 @@ const FormQuestion = () => {
         // Q20: HOW MUCH TIME DO YOU USUALLY SPEND ON A WORKOUT?
         {
             id: 20,
-            content: <UIFormStep13 handleNextStep13={handleNextStep13} />,
+            content: <StepNew propsFormStep={propsFormStep13} />,
         },
 
         // Q21: WHERE DO YOU PREFER TO WORK OUT?
         {
             id: 21,
-            content: <UIFormStep14 handleNextStep14={handleNextStep14} />,
+            content: <StepNew propsFormStep={propsFormStep14} />,
         },
 
         // Q22: WHAT EQUIPMENT DO YOU HAVE ACCESS TO?
         {
             id: 22,
-            content: <UIFormStep15 handleNextStep15={handleNextStep15} />,
+            content: <StepNew propsFormStep={propsFormStep15} />,
         },
 
         // Q23: WHAT TYPE OF DIET DO YOU PREFER?
