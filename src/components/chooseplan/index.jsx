@@ -88,7 +88,7 @@ const ChoosePlan = () => {
                     </div>
                     <div className="goal-text">
                         <span>Goal</span>
-                        <strong>{goal}</strong>
+                        <strong>Lose weight</strong>
                     </div>
                 </div>
                 <div className="divider" />
@@ -97,7 +97,7 @@ const ChoosePlan = () => {
                         <LiaWeightSolid />
                     </div>
                     <div className="target-text">
-                        <span>Target weight</span>
+                        <span>{goal}</span>
                         <strong>{targetWeight} kg</strong>
                     </div>
                 </div>
