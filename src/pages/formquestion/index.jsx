@@ -12,7 +12,6 @@ import UIFormStep6_1 from '../../components/step/uiformstep6_1';
 import UIFormStep7_1 from '../../components/step/uiformstep7_1';
 import UIFormStep7_2 from '../../components/step/uiformstep7_2';
 import UIFormStep9 from '../../components/step/uiformstep9';
-import UIFormStep10 from '../../components/step/uiformstep10';
 import UIFormStep11 from '../../components/step/uiformstep11';
 import UIFormStep11_1 from '../../components/step/uiformstep11_1';
 import UIFormStep11_2 from '../../components/step/uiformstep11_2';
@@ -266,6 +265,16 @@ const FormQuestion = () => {
         setFormStep10({ questionOftenEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+    const propsFormStep10 = {
+        title: <>How often do you exercise?</>,
+        handleStep: handleNextStep10,
+        arrQuestion: [
+            { icon: '', value: 'Almost every day' },
+            { icon: '', value: 'Several times a week' },
+            { icon: '', value: 'Several times a month' },
+            { icon: '', value: 'Never' },
+        ],
+    };
 
     // Function Step 11:
     const handleNextStep11 = (value) => {
@@ -278,6 +287,52 @@ const FormQuestion = () => {
         console.log(value.target.value);
         setFormStep11_2({ questionEnergyLevel: value.target.value });
         setTimeout(() => handleNext(), 300);
+    };
+    const propsFormStep11_2 = {
+        title: <>How are your energy levels during the day?</>,
+        handleStep: handleNextStep11_2,
+        arrQuestion: [
+            {
+                icon: (
+                    <img
+                        src="/icons/low-energy.webp"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon-2"
+                    />
+                ),
+                value: 'Low, I feel tired throughout the day',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/post-lunch.webp"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon-2"
+                    />
+                ),
+                value: 'Post lunch slump',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/before-meat.webp"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon-2"
+                    />
+                ),
+                value: 'Dragging before meals',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/high.webp"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon-2"
+                    />
+                ),
+                value: 'High and steady',
+            },
+        ],
     };
 
     // Function Step 12:
@@ -461,7 +516,7 @@ const FormQuestion = () => {
         // Q12: HOW OFTEN DO YOU EXERCISE?
         {
             id: 12,
-            content: <UIFormStep10 handleNextStep10={handleNextStep10} />,
+            content: <StepNew propsFormStep={propsFormStep10} />,
         },
 
         // Q13: DO YOU STRUGGLE WITH ANY OF THE FOLLOWING?
@@ -492,7 +547,7 @@ const FormQuestion = () => {
         //  Q15: HOW ARE YOUR ENERGY LEVELS DURING THE DAY?
         {
             id: 15,
-            content: <UIFormStep11_2 handleNextStep11_2={handleNextStep11_2} />,
+            content: <StepNew propsFormStep={propsFormStep11_2} />,
         },
 
         // Q16: NO PROBLEM!
