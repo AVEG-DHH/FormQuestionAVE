@@ -75,7 +75,7 @@ const ChoosePlan = () => {
     const handleGetMyPlan = () => {
         console.log('Get my plan: ', selectedPlan);
         // Gửi giá trị selectedPlan đến parent window
-        window.parent.postMessage({ selectedPlan }, '*');
+        window.parent.postMessage({ selectedPlan, goal }, '*');
     };
 
     return (
