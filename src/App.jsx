@@ -4,7 +4,6 @@ import FormQuestion from './pages/formquestion';
 import HighlightYourPlan from './pages/highlightyourplan';
 import Goal from './pages/goal';
 import ExportExcel from './pages/exportexcel';
-import UIFormStep18_3 from './components/step/uiformstep18_3';
 
 function App() {
     return (
@@ -17,8 +16,7 @@ function App() {
                     <Route path="/goal" element={<Goal />} />
                     <Route path="/ave-export-excel" element={<ExportExcel />} />
 
-                    <Route path="/test" element={<UIFormStep18_3 />} />
-
+                    {/* <Route path="/test" element={<StepNew />} /> */}
                 </Routes>
             </Router>
         </>

@@ -1,11 +1,11 @@
+import { IoScaleOutline } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
+
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
-import UIFormStep2 from '../../components/step/uiformstep2';
 import UIFormStep2_1 from '../../components/step/uiformstep2_1';
-import UIFormStep5 from '../../components/step/uiformstep5';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep6_1 from '../../components/step/uiformstep6_1';
 import UIFormStep7 from '../../components/step/uiformstep7';
@@ -33,6 +33,7 @@ import UIFormStep19 from '../../components/step/uiformstep19';
 import UIFormStep20 from '../../components/step/uiformstep20';
 import UIFormStep21 from '../../components/step/uiformstep21';
 import UIFormStep22 from '../../components/step/uiformstep22';
+import StepNew from '../../components/stepnew';
 import Loading from '../../components/loading';
 import Header from '../../components/header';
 import './style.scss';
@@ -86,6 +87,19 @@ const FormQuestion = () => {
         setFormStep2({ questionHomeEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+    const propsFormStep2 = {
+        title: (
+            <>
+                Have you tried practicing these exercises <br />
+                at home before?
+            </>
+        ),
+        handleStep: handleNextStep2,
+        arrQuestion: [
+            { icon: '', value: 'Yes' },
+            { icon: '', value: 'No' },
+        ],
+    };
 
     // Function Step 3:
     const handleNextStep3 = (value) => {
@@ -104,6 +118,53 @@ const FormQuestion = () => {
         setFormStep5({ questionGoal: value.target.value });
         localStorage.setItem('goal', value.target.value);
         setTimeout(() => handleNext(), 300);
+    };
+    const propsFormStep5 = {
+        title: <>What is your fitness goal?</>,
+        handleStep: handleNextStep5,
+        arrQuestion: [
+            { icon: <IoScaleOutline className="block-step-new__body__radio__content__icon" />, value: 'Lose Weight' },
+            {
+                icon: (
+                    <img
+                        src="/icons/women-weight-decrease-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Maintain weight',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/arm-muscles-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Gain muscle',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/diet-food-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Improve overall health',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/more-options-ellipsis-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Other',
+            },
+        ],
     };
 
     // Function Step 6:
@@ -276,7 +337,7 @@ const FormQuestion = () => {
         // Q3: HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
         {
             id: 3,
-            content: <UIFormStep2 handleNextStep2={handleNextStep2} />,
+            content: <StepNew propsFormStep={propsFormStep2} />,
         },
 
         // Q4: NATURAL CLEANSING IS THE PERFECT CHOICE
@@ -288,7 +349,7 @@ const FormQuestion = () => {
         // Q5: WHAT IS YOUR FITNESS GOAL?
         {
             id: 5,
-            content: <UIFormStep5 handleNextStep5={handleNextStep5} />,
+            content: <StepNew propsFormStep={propsFormStep5} />,
         },
 
         // Q6: HOW MANY DAYS A WEEK DO YOU WANT TO EXERCISE?
