@@ -14,7 +14,6 @@ import UIFormStep7_2 from '../../components/step/uiformstep7_2';
 import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep11 from '../../components/step/uiformstep11';
 import UIFormStep11_1 from '../../components/step/uiformstep11_1';
-import UIFormStep11_2 from '../../components/step/uiformstep11_2';
 import UIFormStep11_3 from '../../components/step/uiformstep11_3';
 import UIFormStep12 from '../../components/step/uiformstep12';
 import UIFormStep12_1 from '../../components/step/uiformstep12_1';
