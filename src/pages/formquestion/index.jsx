@@ -15,9 +15,6 @@ import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep11 from '../../components/step/uiformstep11';
 import UIFormStep11_1 from '../../components/step/uiformstep11_1';
 import UIFormStep11_3 from '../../components/step/uiformstep11_3';
-import UIFormStep12 from '../../components/step/uiformstep12';
-import UIFormStep12_1 from '../../components/step/uiformstep12_1';
-import UIFormStep12_2 from '../../components/step/uiformstep12_2';
 import UIFormStep13 from '../../components/step/uiformstep13';
 import UIFormStep14 from '../../components/step/uiformstep14';
 import UIFormStep15 from '../../components/step/uiformstep15';
@@ -340,6 +337,16 @@ const FormQuestion = () => {
         setFormStep12({ questionTypeExercise: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+    const propsFormStep12 = {
+        title: <>What type of exercises do you enjoy?</>,
+        handleStep: handleNextStep12,
+        arrQuestion: [
+            { icon: '', value: 'Cardio (running, jumping rope)' },
+            { icon: '', value: 'Strength (weights, planks)' },
+            { icon: '', value: 'Flexibility/Balance exercises' },
+            { icon: '', value: 'Not sure yet' },
+        ],
+    };
 
     // Function Step 12_1:
     const handleNextStep12_1 = (value) => {
@@ -347,12 +354,30 @@ const FormQuestion = () => {
         setFormStep12_1({ questionStruggleSleep: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+    const propsFormStep12_1 = {
+        title: <>Do you struggle with sleep?</>,
+        handleStep: handleNextStep12_1,
+        arrQuestion: [
+            { icon: '', value: 'Yes' },
+            { icon: '', value: 'No' },
+        ],
+    };
 
     // Function Step 12_2:
     const handleNextStep12_2 = (value) => {
         console.log(value.target.value);
         setformStep12_2({ questionSleep: value.target.value });
         setTimeout(() => handleNext(), 300);
+    };
+    const propsFormStep12_2 = {
+        title: <>How much sleep do you usually get?</>,
+        handleStep: handleNextStep12_2,
+        arrQuestion: [
+            { icon: '', value: 'Less than 5 hours' },
+            { icon: '', value: '5-6 hours' },
+            { icon: '', value: '7-8 hours' },
+            { icon: '', value: 'More than 8 hours' },
+        ],
     };
 
     // Function Step 13:
@@ -558,19 +583,19 @@ const FormQuestion = () => {
         // Q17: WHAT TYPE OF EXERCISE DO YOU ENJOY?
         {
             id: 17,
-            content: <UIFormStep12 handleNextStep12={handleNextStep12} />,
+            content: <StepNew propsFormStep={propsFormStep12} />,
         },
 
         // Q18: DO YOU STRUGGLE TO SLEEP?
         {
             id: 18,
-            content: <UIFormStep12_1 handleNextStep12_1={handleNextStep12_1} />,
+            content: <StepNew propsFormStep={propsFormStep12_1} />,
         },
 
         // Q19: HOW MUCH SLEEP DO YOU USUALLY GET?
         {
             id: 19,
-            content: <UIFormStep12_2 handleNextStep12_2={handleNextStep12_2} />,
+            content: <StepNew propsFormStep={propsFormStep12_2} />,
         },
 
         // Q20: HOW MUCH TIME DO YOU USUALLY SPEND ON A WORKOUT?
