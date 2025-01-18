@@ -1,4 +1,5 @@
 import { IoScaleOutline } from 'react-icons/io5';
+import { MdClose } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 import { db, ref, set } from '../../firebase';
@@ -8,7 +9,6 @@ import UIFormStep1_1 from '../../components/step/uiformstep1_1';
 import UIFormStep2_1 from '../../components/step/uiformstep2_1';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep6_1 from '../../components/step/uiformstep6_1';
-import UIFormStep7 from '../../components/step/uiformstep7';
 import UIFormStep7_1 from '../../components/step/uiformstep7_1';
 import UIFormStep7_2 from '../../components/step/uiformstep7_2';
 import UIFormStep9 from '../../components/step/uiformstep9';
@@ -179,6 +179,63 @@ const FormQuestion = () => {
         console.log(value.target.value);
         setFormStep7({ questionHealthIssuse: value.target.value });
         setTimeout(() => handleNext(), 300);
+    };
+    const propsFormStep7 = {
+        title: <>Do you have any health issues?</>,
+        handleStep: handleNextStep7,
+        arrQuestion: [
+            { icon: <MdClose className="block-step-new__body__radio__content__icon" />, value: 'None' },
+            {
+                icon: (
+                    <img
+                        src="/icons/back-pain-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Back pain',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/knee-joint-pain-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Joint pain',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/blood-pressure-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'High/low blood pressure',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/diabetes.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Diabetes',
+            },
+            {
+                icon: (
+                    <img
+                        src="/icons/more-options-ellipsis-icon.png"
+                        alt="Maintain Weight Icon"
+                        className="block-step-new__body__radio__content__icon"
+                    />
+                ),
+                value: 'Other',
+            },
+        ],
     };
 
     // Function Step 7_1:
@@ -373,7 +430,7 @@ const FormQuestion = () => {
         // Q8: DO YOU HAVE ANY HEALTH ISSUES?
         {
             id: 8,
-            content: <UIFormStep7 handleNextStep7={handleNextStep7} />,
+            content: <StepNew propsFormStep={propsFormStep7} />,
         },
 
         // Q9: HOW WOULD YOU DESCRIBE YOUR BUILD?
