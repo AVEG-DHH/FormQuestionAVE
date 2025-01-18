@@ -142,3 +142,9 @@ table {
     font-family: 'Assistant', sans-serif !important;
     font-weight: 700 !important;
 }
+
+@media screen and (max-width: 768px) {
+    .br-sp {
+        display: none;
+    }
+}

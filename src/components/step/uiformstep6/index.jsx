@@ -7,7 +7,7 @@ const UIFormStep6 = ({ handleNextStep6 }) => {
         <>
             <div className="form-step-6">
                 <div className="form-step-6-header">
-                    How many days a week do you <br /> want to exercise?
+                    How many days a week do you <br className="br-sp" /> want to exercise?
                 </div>
                 <div className="form-step-6-body">
                     <div className="form-step-6-body-img">
