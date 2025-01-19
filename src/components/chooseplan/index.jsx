@@ -145,9 +145,9 @@ const ChoosePlan = () => {
                 <input type="checkbox" id="terms" checked={isAgreed} onChange={handleCheckboxChange} />
                 <label htmlFor="terms">
                     I agree to the{' '}
-                    <a href="https://naturalcleansing.world/policies/terms-of-service">Terms and Conditions</a>,{' '}
-                    <a href="https://naturalcleansing.world/policies/privacy-policy">Privacy policy</a>, and the{' '}
-                    <a href="https://naturalcleansing.world/policies/refund-policy">Refund and Cancellation policy</a>.
+                    <a href="https://naturalcleansingae.com/policies/terms-of-service">Terms and Conditions</a>,{' '}
+                    <a href="https://naturalcleansingae.com/policies/privacy-policy">Privacy policy</a>, and the{' '}
+                    <a href="https://naturalcleansingae.com/policies/refund-policy">Refund and Cancellation policy</a>.
                 </label>
             </div>
             <button
@@ -161,7 +161,7 @@ const ChoosePlan = () => {
                 By clicking GET MY PLAN, I agree that the plan I have selected will automatically renew until I cancel,
                 Natural Cleansing will automatically charge my payment method $30 every 4-week. I can cancel online by
                 visiting the subscription page in{' '}
-                <a href="https://naturalcleansing.world/policies/refund-policy">Refund and Cancellation policy</a> on
+                <a href="https://naturalcleansingae.com/policies/refund-policy">Refund and Cancellation policy</a> on
                 the website to avoid being charged for the next billing cycle.
             </p>
         </div>

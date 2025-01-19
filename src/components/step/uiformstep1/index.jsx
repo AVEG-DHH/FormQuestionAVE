@@ -41,11 +41,11 @@ const UIFormStep1 = ({ handleNextStep1 }) => {
                 <div className="form-step-1__footer">
                     <p>
                         By <span> choosing your age and continuing </span> you agree to our{' '}
-                        <a href="https://naturalcleansing.world/policies/terms-of-service" target="_blank">
+                        <a href="https://naturalcleansingae.com/policies/terms-of-service" target="_blank">
                             <span>Terms of Service</span>
                         </a>{' '}
                         |{' '}
-                        <a href="https://naturalcleansing.world/policies/privacy-policy" target="_blank">
+                        <a href="https://naturalcleansingae.com/policies/privacy-policy" target="_blank">
                             <span>Privacy Policy</span>
                         </a>
                     </p>

@@ -58,7 +58,7 @@ const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
                         <Typography variant="body2">
                             We respect your privacy and are committed to protecting your personal data. Your data will
                             be processed in accordance with our{' '}
-                            <a href="https://naturalcleansing.world/policies/privacy-policy">Privacy Policy</a>.
+                            <a href="https://naturalcleansingae.com/policies/privacy-policy">Privacy Policy</a>.
                         </Typography>
                     </Box>
                 </Box>

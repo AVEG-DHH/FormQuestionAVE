@@ -15,7 +15,7 @@
 
         .block-highlight-your-plan-left-title {
             font-weight: bold;
-            font-size: 40px;
+            font-size: $font-size-title-small-pc;
         }
 
         .block-highlight-your-plan-left-desc {
@@ -79,6 +79,16 @@
 
         .block-highlight-your-plan-left {
             width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .block-highlight-your-plan {
+        &-left {
+            &-title {
+                font-size: $font-size-title-small-sp !important;
+            }
         }
     }
 }
