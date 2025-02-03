@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import ImgAve1_1 from '../../../../public/img/ave-1_1.png';
+import ImgAve1_1 from '/img/ave-1_1.png';
 import PropTypes from 'prop-types';
 import './uiformstep1_1.scss';
 

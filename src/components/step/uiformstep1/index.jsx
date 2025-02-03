@@ -1,8 +1,9 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ImgAge40 from '../../../../public/img/age-40-49.png';
-import ImgAge50 from '../../../../public/img/age-50-59.png';
-import ImgAge60 from '../../../../public/img/age-60-69.png';
-import ImgAge70 from '../../../../public/img/age-70+.png';
+import ImgAge40 from '/img/age-40-49.png';
+import ImgAge50 from '/img/age-50-59.png';
+import ImgAge60 from '/img/age-60-69.png';
+import ImgAge70 from '/img/age-70+.png';
+
 import './uiformstep1.scss';
 
 // eslint-disable-next-line react/prop-types

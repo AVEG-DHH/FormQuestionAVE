@@ -2,7 +2,8 @@ import { IoScaleOutline } from 'react-icons/io5';
 import { MdClose } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
-import { db, ref, set } from '../../firebase';
+import { db } from '../../firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
@@ -789,10 +790,19 @@ const FormQuestion = () => {
         }, 1000);
     }, [currentStep]);
 
-    const handleSubmit = () => {
+    const saveDataToFirestore = async (userId, customerData) => {
+        try {
+            await setDoc(doc(db, 'customer-answer', userId), customerData);
+            window.parent.postMessage('redirect', '*');
+        } catch (error) {
+            console.error('Lỗi khi thêm dữ liệu lên Firestore:', error);
+        }
+    };
+
+    const handleSubmit = async () => {
         setIsLoading(true);
 
-        const userId = Date.now();
+        const userId = Date.now().toString();
         const customerData = {
             Age: formStep1.age || null,
             questionHomeEx: formStep2.questionHomeEx || null,
@@ -819,15 +829,14 @@ const FormQuestion = () => {
             questionAge: formStep18_2.questionAge || null,
             EmailCustomer: formStep20.email || null,
             questionName: formStep21.questionName || null,
+            createdAt: new Date().toISOString(),
         };
 
-        set(ref(db, `customer-answer/${userId}`), customerData)
-            .then(() => {
-                window.parent.postMessage('redirect', '*');
-            })
-            .catch((error) => {
-                console.error('Lỗi khi thêm dữ liệu lên Firebase:', error);
-            });
+        try {
+            await saveDataToFirestore(userId, customerData); // Đợi hoàn thành trước khi tiếp tục
+        } catch (error) {
+            console.error('Lỗi khi lưu dữ liệu:', error);
+        }
     };
 
     useEffect(() => {

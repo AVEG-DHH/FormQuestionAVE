@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { db, ref } from '../../firebase'; // Import cấu hình Firebase
+import { dbRT, ref } from '../../firebase'; // Import cấu hình Firebase
 import { onValue } from 'firebase/database';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
@@ -17,7 +17,7 @@ const MyDataGrid = () => {
 
   useEffect(() => {
     const fetchData = () => {
-      const dbRef = ref(db, 'customer-answer');
+      const dbRef = ref(dbRT, 'customer-answer');
       onValue(dbRef, (snapshot) => {
         const data = snapshot.val();
         if (data) {
