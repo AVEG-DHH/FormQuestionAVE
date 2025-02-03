@@ -830,6 +830,7 @@ const FormQuestion = () => {
             EmailCustomer: formStep20.email || null,
             questionName: formStep21.questionName || null,
             createdAt: new Date().toISOString(),
+            timestamp: Date.now(),
         };
 
         try {
