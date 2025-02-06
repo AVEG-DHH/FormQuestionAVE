@@ -1,9 +1,9 @@
-import { Box, Typography, TextField, Link } from '@mui/material';
+import { Box, Typography, TextField, Button } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PropTypes from 'prop-types';
 import './uiformstep20.scss';
 
-const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
+const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked, handleNext, isCheckboxChecked }) => {
     const handleChangeEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex pattern
 
@@ -62,6 +62,18 @@ const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked }) => {
                         </Typography>
                     </Box>
                 </Box>
+            </div>
+            <div className="btn-continue" style={{ textAlign: 'center' }}>
+                <Button
+                    className="custom-btn-continue"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    disabled={!isCheckboxChecked}
+                    style={{ margin: '40px 0' }}
+                >
+                    Continue
+                </Button>
             </div>
         </>
     );

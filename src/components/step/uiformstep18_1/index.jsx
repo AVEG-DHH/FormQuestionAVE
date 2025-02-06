@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import './uiformstep4.scss';
 
@@ -7,7 +8,7 @@ const convertToMeters = (feet, inches = 0) => {
     return parseFloat(meters.toFixed(2));
 };
 
-const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
+const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4, handleNext, isInputValid }) => {
     const [selectedUnit, setSelectedUnit] = useState('kg');
     const [weightValue, setWeightValue] = useState('');
     const [valueBMI, setValueBMI] = useState(0);
@@ -76,58 +77,72 @@ const UIFormStep4 = ({ height, setIsInputValid, handleNextStep4 }) => {
         }
     }, [valueBMI]);
     return (
-        <div className="form-step-4">
-            <h1>What’s your current weight?</h1>
-            <div className="form-step-4__container">
-                <div className="form-step-4__weight">
-                    <div className="form-step-4__toggle">
-                        <button
-                            className={`toggle-btn ${selectedUnit === 'lbs' ? 'active' : ''}`}
-                            onClick={() => setSelectedUnit('lbs')}
-                        >
-                            lbs
-                        </button>
-                        <button
-                            className={`toggle-btn ${selectedUnit === 'kg' ? 'active' : ''}`}
-                            onClick={() => setSelectedUnit('kg')}
-                        >
-                            kg
-                        </button>
+        <>
+            <div className="form-step-4">
+                <h1>What’s your current weight?</h1>
+                <div className="form-step-4__container">
+                    <div className="form-step-4__weight">
+                        <div className="form-step-4__toggle">
+                            <button
+                                className={`toggle-btn ${selectedUnit === 'lbs' ? 'active' : ''}`}
+                                onClick={() => setSelectedUnit('lbs')}
+                            >
+                                lbs
+                            </button>
+                            <button
+                                className={`toggle-btn ${selectedUnit === 'kg' ? 'active' : ''}`}
+                                onClick={() => setSelectedUnit('kg')}
+                            >
+                                kg
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div className="form-step-4__input">
-                    <div className="input-wrapper">
-                        <input
-                            value={weightValue}
-                            placeholder="Weight"
-                            onChange={(e) => setWeightValue(e.target.value.replace(/[^0-9.]/g, ''))}
-                        />
-                        <span className="input-unit">{selectedUnit}</span>
+                    <div className="form-step-4__input">
+                        <div className="input-wrapper">
+                            <input
+                                value={weightValue}
+                                placeholder="Weight"
+                                onChange={(e) => setWeightValue(e.target.value.replace(/[^0-9.]/g, ''))}
+                            />
+                            <span className="input-unit">{selectedUnit}</span>
+                        </div>
+                        <p style={{ paddingBottom: '12px' }}>
+                            Please, enter a value from{' '}
+                            <strong>
+                                {selectedUnit === 'kg' ? '25' : '55'} {selectedUnit}
+                            </strong>{' '}
+                            to{' '}
+                            <strong>
+                                {selectedUnit === 'kg' ? '300' : '662'} {selectedUnit}
+                            </strong>
+                        </p>
+                        {checkBMI == 1 && (
+                            <p className="under-weight-noti">
+                                You are underweight by {percent.toFixed(2)}% compared to the normal range.
+                            </p>
+                        )}
+                        {checkBMI == 2 && <p className="normal-weight-noti">You are within the normal weight range.</p>}
+                        {checkBMI == 3 && (
+                            <p className="over-weight-noti">
+                                You are overweight by {percent.toFixed(2)}% compared to the normal range.
+                            </p>
+                        )}
                     </div>
-                    <p style={{ paddingBottom: '12px' }}>
-                        Please, enter a value from{' '}
-                        <strong>
-                            {selectedUnit === 'kg' ? '25' : '55'} {selectedUnit}
-                        </strong>{' '}
-                        to{' '}
-                        <strong>
-                            {selectedUnit === 'kg' ? '300' : '662'} {selectedUnit}
-                        </strong>
-                    </p>
-                    {checkBMI == 1 && (
-                        <p className="under-weight-noti">
-                            You are underweight by {percent.toFixed(2)}% compared to the normal range.
-                        </p>
-                    )}
-                    {checkBMI == 2 && <p className="normal-weight-noti">You are within the normal weight range.</p>}
-                    {checkBMI == 3 && (
-                        <p className="over-weight-noti">
-                            You are overweight by {percent.toFixed(2)}% compared to the normal range.
-                        </p>
-                    )}
                 </div>
             </div>
-        </div>
+            <div className="btn-continue" style={{ textAlign: 'center' }}>
+                <Button
+                    className="custom-btn-continue"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    disabled={!isInputValid}
+                    style={{ margin: '40px 0' }}
+                >
+                    Continue
+                </Button>
+            </div>
+        </>
     );
 };
 

@@ -4,9 +4,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(0.8);
     }
+
     100% {
         transform: scale(1);
     }
@@ -21,6 +23,7 @@
     margin: 0 80px;
     padding-top: 40px !important;
 }
+
 .step-content {
     opacity: 1;
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -33,7 +36,8 @@
 
 .step-content.fade-out {
     opacity: 0;
-    transform: translateY(-50px); /* Optional: Move the content up a bit */
+    transform: translateY(-50px);
+    /* Optional: Move the content up a bit */
 }
 
 .step-content.fade-in {
@@ -60,6 +64,7 @@
             font-weight: bold;
             margin-bottom: 8px;
         }
+
         .form-step-20__box-color {
             margin-bottom: 24px;
             color: $primary-color;
@@ -101,6 +106,10 @@
             animation: scale-up 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
     }
+}
+
+.btn-continue {
+    text-align: center;
 }
 
 .custom-btn-continue {

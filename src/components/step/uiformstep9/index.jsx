@@ -94,16 +94,17 @@ const UIFormStep9 = ({ setIsCheckboxChecked, handleNextStep9, handleNext, isChec
                         />
                     </FormGroup>
                 </FormControl>
-                <Button
-                    className="custom-btn-continue"
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    disabled={!isCheckboxChecked}
-                >
-                    Continue
-                </Button>
+
             </div>
+            <Button
+                className="custom-btn-continue"
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                disabled={!isCheckboxChecked}
+            >
+                Continue
+            </Button>
         </>
     );
 };

@@ -395,7 +395,7 @@ const FormQuestion = () => {
 
     // Function Step 14:
     const handleNextStep14 = (value) => {
-        setFormStep14({ questionWorkoutPD: value.target.value });
+        setFormStep14({ questionWorkoutPref: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
     const propsFormStep14 = {
@@ -495,7 +495,7 @@ const FormQuestion = () => {
         //Q2: OVER 1 MILLION WOMEN
         {
             id: 2,
-            content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} />,
+            content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} handleNext={handleNext} />,
         },
 
         // Q3: HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
@@ -507,7 +507,7 @@ const FormQuestion = () => {
         // Q4: NATURAL CLEANSING IS THE PERFECT CHOICE
         {
             id: 4,
-            content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} />,
+            content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} handleNext={handleNext} />,
         },
 
         // Q5: WHAT IS YOUR FITNESS GOAL?
@@ -530,6 +530,7 @@ const FormQuestion = () => {
                     setIsCheckboxChecked={setIsCheckboxChecked}
                     age={formStep1.age}
                     questionGoal={formStep5.questionGoal}
+                    handleNext={handleNext}
                 />
             ),
         },
@@ -592,6 +593,7 @@ const FormQuestion = () => {
                     target={formStep9.questionTarget}
                     goal={formStep5.questionGoal}
                     setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNext={handleNext}
                 />
             ),
         },
@@ -605,7 +607,7 @@ const FormQuestion = () => {
         // Q16: NO PROBLEM!
         {
             id: 16,
-            content: <UIFormStep11_3 setIsCheckboxChecked={setIsCheckboxChecked} />,
+            content: <UIFormStep11_3 setIsCheckboxChecked={setIsCheckboxChecked} handleNext={handleNext} />,
         },
 
         // Q17: WHAT TYPE OF EXERCISE DO YOU ENJOY?
@@ -664,6 +666,7 @@ const FormQuestion = () => {
                     handleNextStep3={handleNextStep3}
                     isCheckboxChecked={isCheckboxChecked}
                     setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNext={handleNext}
                 />
             ),
         },
@@ -676,6 +679,8 @@ const FormQuestion = () => {
                     height={formStep3.height}
                     setIsInputValid={setIsInputValid}
                     handleNextStep4={handleNextStep4}
+                    handleNext={handleNext}
+                    isInputValid={isInputValid}
                 />
             ),
         },
@@ -683,14 +688,14 @@ const FormQuestion = () => {
         // Q27: WHAT'S TARGET WEIGHT?
         {
             id: 27,
-            content: <UIFormStep22 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep22={handleNextStep22} />,
+            content: <UIFormStep22 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep22={handleNextStep22} handleNext={handleNext} isCheckboxChecked={isCheckboxChecked} />,
         },
 
         // Q27: WHAT'S YOUR AGE?
         {
             id: 28,
             content: (
-                <UIFormStep18_2 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep18_2={handleNextStep18_2} />
+                <UIFormStep18_2 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep18_2={handleNextStep18_2} handleNext={handleNext} isCheckboxChecked={isCheckboxChecked} />
             ),
         },
 
@@ -732,6 +737,8 @@ const FormQuestion = () => {
                     setIsCheckboxChecked={setIsCheckboxChecked}
                     formStep20={formStep20}
                     setFormStep20={setFormStep20}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
                 />
             ),
         },
@@ -760,31 +767,6 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
-        if (
-            // currentStep == 0 ||
-            currentStep == 2 ||
-            currentStep == 4 ||
-            currentStep == 5 ||
-            currentStep == 7 ||
-            currentStep == 8 ||
-            currentStep == 9 ||
-            currentStep == 10 ||
-            currentStep == 11 ||
-            currentStep == 12 ||
-            currentStep == 14 ||
-            currentStep == 16 ||
-            currentStep == 17 ||
-            currentStep == 18 ||
-            currentStep == 19 ||
-            currentStep == 20 ||
-            currentStep == 21 ||
-            currentStep == 22 ||
-            currentStep == 23 ||
-            currentStep == 28 ||
-            currentStep == 29
-        ) {
-            setShowButtonNext(false);
-        }
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
@@ -857,28 +839,7 @@ const FormQuestion = () => {
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
                     {currentStep < steps.length - 1 ? (
-                        showButtonNext &&
-                        (isCheckboxChecked ? (
-                            <Button
-                                className="custom-btn-continue"
-                                variant="contained"
-                                color="primary"
-                                onClick={handleNext}
-                                disabled={!isCheckboxChecked}
-                            >
-                                Continue
-                            </Button>
-                        ) : (
-                            <Button
-                                className="custom-btn-continue"
-                                variant="contained"
-                                color="primary"
-                                onClick={handleNext}
-                                disabled={!isInputValid}
-                            >
-                                Continue
-                            </Button>
-                        ))
+                        <></>
                     ) : (
                         <Button
                             className="custom-btn-continue"
