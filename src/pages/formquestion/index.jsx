@@ -33,7 +33,6 @@ import './style.scss';
 
 const FormQuestion = () => {
     const [currentStep, setCurrentStep] = useState(0);
-    const [showButtonNext, setShowButtonNext] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     // state - Step 2
@@ -68,15 +67,12 @@ const FormQuestion = () => {
 
     // Function Step 1:
     const handleNextStep1 = (value) => {
-        console.log(value);
         setFormStep1({ age: value });
-        setShowButtonNext(true);
         handleNext();
     };
 
     // Function Step 2:
     const handleNextStep2 = (value) => {
-        console.log(value.target.value);
         setFormStep2({ questionHomeEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -96,18 +92,15 @@ const FormQuestion = () => {
 
     // Function Step 3:
     const handleNextStep3 = (value) => {
-        console.log(value);
         setFormStep3({ height: value });
     };
     // Function Step 4:
     const handleNextStep4 = (value) => {
-        console.log(value);
         setFormStep4({ weight: value });
     };
 
     // Function Step 5:
     const handleNextStep5 = (value) => {
-        console.log(value.target.value);
         setFormStep5({ questionGoal: value.target.value });
         localStorage.setItem('goal', value.target.value);
         setTimeout(() => handleNext(), 300);
@@ -162,14 +155,12 @@ const FormQuestion = () => {
 
     // Function Step 6:
     const handleNextStep6 = (value) => {
-        console.log(value.target.value);
         setFormStep6({ questionExercise: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 7:
     const handleNextStep7 = (value) => {
-        console.log(value.target.value);
         setFormStep7({ questionHealthIssuse: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -233,29 +224,23 @@ const FormQuestion = () => {
 
     // Function Step 7_1:
     const handleNextStep7_1 = (value) => {
-        console.log(value);
         setFormStep7_1({ questionYourBuild: value });
-        // setShowButtonNext(true);
         setTimeout(() => handleNext(), 1000);
     };
 
     // Function Step 7_2:
     const handleNextStep7_2 = (value) => {
-        console.log(value);
         setFormStep7_2({ questionDreambody: value });
-        // setShowButtonNext(true);
         setTimeout(() => handleNext(), 1000);
     };
 
     // Function Step 9:
     const handleNextStep9 = (value) => {
-        console.log(value);
         setFormStep9({ questionTarget: value });
     };
 
     // Function Step 10:
     const handleNextStep10 = (value) => {
-        console.log(value.target.value);
         setFormStep10({ questionOftenEx: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -272,13 +257,11 @@ const FormQuestion = () => {
 
     // Function Step 11:
     const handleNextStep11 = (value) => {
-        console.log(value);
         setFormStep11({ questionStruggle: value });
     };
 
     // Function Step 11_2:
     const handleNextStep11_2 = (value) => {
-        console.log(value.target.value);
         setFormStep11_2({ questionEnergyLevel: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -331,7 +314,6 @@ const FormQuestion = () => {
 
     // Function Step 12:
     const handleNextStep12 = (value) => {
-        console.log(value.target.value);
         setFormStep12({ questionTypeExercise: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -348,7 +330,6 @@ const FormQuestion = () => {
 
     // Function Step 12_1:
     const handleNextStep12_1 = (value) => {
-        console.log(value.target.value);
         setFormStep12_1({ questionStruggleSleep: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -363,7 +344,6 @@ const FormQuestion = () => {
 
     // Function Step 12_2:
     const handleNextStep12_2 = (value) => {
-        console.log(value.target.value);
         setformStep12_2({ questionSleep: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
@@ -428,33 +408,28 @@ const FormQuestion = () => {
 
     // Function Step 16:
     const handleNextStep16 = (value) => {
-        console.log(value.target.value);
         setFormStep16({ questionDiet: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 17:
     const handleNextStep17 = (value) => {
-        console.log(value.target.value);
         setFormStep17({ questionMainReason: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
 
     // Function Step 18_2:
     const handleNextStep18_2 = (value) => {
-        console.log(value);
         setFormStep18_2({ questionAge: value });
     };
 
     // Function Step 21:
     const handleNextStep21 = (value) => {
-        console.log(value);
         setFormStep21({ questionName: value });
     };
 
     // Function Step 22:
     const handleNextStep22 = (value) => {
-        console.log(value);
         setFormStep22({ questionTargetWeight: value });
     };
 
@@ -462,7 +437,6 @@ const FormQuestion = () => {
         setIsLoading(true);
         setIsCheckboxChecked(false);
         setIsInputValid(false);
-        setShowButtonNext(false);
 
         const currentStepElement = document.querySelector(`.step-${currentStep}`);
         if (currentStepElement) {
@@ -481,8 +455,6 @@ const FormQuestion = () => {
                 currentStepElement.classList.remove('fade-out');
             }
         }, 500);
-
-        setShowButtonNext(true);
     };
 
     const steps = [
@@ -751,8 +723,6 @@ const FormQuestion = () => {
     ];
 
     const handleBack = () => {
-        setShowButtonNext(false); // Disable button during transition
-
         const currentStepElement = document.querySelector(`.step-${currentStep}`);
         currentStepElement.classList.add('fade-out'); // Add fade-out class
 
@@ -762,8 +732,6 @@ const FormQuestion = () => {
             prevStepElement.classList.add('fade-in'); // Add fade-in class to previous step
             currentStepElement.classList.remove('fade-out'); // Remove fade-out class
         }, 500); // Match the duration of the fade transition
-
-        setShowButtonNext(true); // Re-enable the button after transition
     };
 
     useEffect(() => {

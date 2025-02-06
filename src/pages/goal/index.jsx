@@ -17,7 +17,6 @@ const Goal = () => {
                 if (newHeight !== bodyHeightGoalRef.current) {
                     bodyHeightGoalRef.current = newHeight;
                     window.parent.postMessage({ bodyHeightGoal: newHeight }, '*');
-                    console.log('Updated height:', newHeight);
                 }
             }
         };

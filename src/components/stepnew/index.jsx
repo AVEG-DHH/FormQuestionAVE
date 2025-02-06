@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './stepnew.scss';
 
 const StepNew = ({ propsFormStep }) => {
-    console.log(propsFormStep);
     return (
         <div className="block-step-new">
             <div className="block-step-new__header">{propsFormStep.title}</div>
