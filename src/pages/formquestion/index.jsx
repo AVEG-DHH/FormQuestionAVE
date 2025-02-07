@@ -791,6 +791,63 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
+        const handleBeforeUnload = async (event) => {
+            const userId = Date.now().toString();
+            const customerData = {
+                Age: formStep1.age || null,
+                questionHomeEx: formStep2.questionHomeEx || null,
+                height: formStep3.height || null,
+                weight: formStep4.weight || null,
+                questionGoal: formStep5.questionGoal || null,
+                questionExercise: formStep6.questionExercise || null,
+                questionHealthIssues: formStep7.questionHealthIssuse || null,
+                questionYourBuild: formStep7_1.questionYourBuild || null,
+                questionDreambody: formStep7_2.questionDreambody || null,
+                questionTarget: formStep9.questionTarget || null,
+                questionOftenEx: formStep10.questionOftenEx || null,
+                questionStruggle: formStep11.questionStruggle || null,
+                questionEnergyLevel: formStep11_2.questionEnergyLevel || null,
+                questionTypeExercise: formStep12.questionTypeExercise || null,
+                questionStruggleSleep: formStep12_1.questionStruggleSleep || null,
+                questionSleep: formStep12_2.questionSleep || null,
+                questionWorkoutPD: formStep13.questionWorkoutPD || null,
+                questionWorkoutPref: formStep14.questionWorkoutPref || null,
+                questionEquipment: formStep15.questionEquipment || null,
+                questionMainReason: formStep17.questionMainReason || null,
+                questionDiet: formStep16.questionDiet || null,
+                questionTargetWeight: formStep22.questionTargetWeight || null,
+                questionAge: formStep18_2.questionAge || null,
+                EmailCustomer: formStep20.email || null,
+                questionName: formStep21.questionName || null,
+                createdAt: new Date().toISOString(),
+                timestamp: Date.now(),
+            };
+            const url = "https://form-question-ave-be.vercel.app/api/save-firestore-not-complete"; // Cập nhật URL API backend của bạn
+            const blob = new Blob([JSON.stringify({ userId, customerData })], { type: "application/json" });
+
+            const sent = navigator.sendBeacon(url, blob);
+
+            if (!sent) {
+                fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userId, customerData }),
+                    keepalive: true,
+                })
+                    .then(res => console.log("Backup fetch success:", res.status))
+                    .catch(err => console.error("Backup fetch failed:", err));
+            }
+
+            // event.returnValue = "Are you sure to close this tab?";
+        };
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+
+    }, [formStep1, formStep2, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_1, formStep7_2, formStep9, formStep10, formStep11, formStep11_2, formStep12, formStep12_1, formStep12_2, formStep13, formStep14, formStep15, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
+
+    useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);

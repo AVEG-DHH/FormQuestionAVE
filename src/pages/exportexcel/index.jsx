@@ -1,7 +1,7 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { dbRT, ref } from '../../firebase'; // Import cấu hình Firebase
-import { onValue } from 'firebase/database';
+import { db } from '../../firebase'; // Import cấu hình Firebase
+import { collection, getDocs } from 'firebase/firestore';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -16,16 +16,19 @@ const MyDataGrid = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = () => {
-      const dbRef = ref(dbRT, 'customer-answer');
-      onValue(dbRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          const formattedData = Object.keys(data).map((key) => ({
-            id: key,
-            ...data[key],
-          }));
+    const fetchData = async () => {
+      try {
+        // Tham chiếu đến collection 'customer-answer' trong Firestore
+        const querySnapshot = await getDocs(collection(db, 'customer-answer'));
 
+        // Dữ liệu từ Firestore trả về
+        const formattedData = querySnapshot.docs.map((doc) => ({
+          id: doc.id, // Sử dụng doc.id là ID của document
+          ...doc.data(), // Lấy dữ liệu của document
+        }));
+
+        // Kiểm tra nếu dữ liệu có
+        if (formattedData.length > 0) {
           const firstRow = formattedData[0];
           const generatedColumns = Object.keys(firstRow).map((key) => ({
             field: key,
@@ -38,7 +41,10 @@ const MyDataGrid = () => {
           setColumns(generatedColumns);
         }
         setLoading(false);
-      });
+      } catch (error) {
+        console.error('Error fetching data from Firestore:', error);
+        setLoading(false); // Set loading false in case of error
+      }
     };
 
     fetchData();
@@ -98,7 +104,7 @@ const MyDataGrid = () => {
           rows={filteredRows} // Sử dụng dữ liệu đã lọc
           columns={columns}
           loading={loading}
-          initialState={{ pagination: { paginationModel: { pageSize: 5, page: 0 } } }}
+          initialState={{ pagination: { paginationModel: { pageSize: 10, page: 0 } } }}
           pageSizeOptions={[5, 10, 20]}
           checkboxSelection
           sx={{ border: 0 }}
