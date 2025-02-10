@@ -791,7 +791,20 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
+        if (formStep1.age === "") return;
+
+        if (formStep1.age !== "" && formStep2.questionHomeEx !== "" && formStep3.height !== "" && formStep4.weight !== ""
+            && formStep5.questionGoal !== "" && formStep6.questionExercise !== "" && formStep7.questionHealthIssuse !== ""
+            && formStep7_1.questionYourBuild !== "" && formStep7_2.questionDreambody !== "" && formStep9.questionTarget !== ""
+            && formStep10.questionOftenEx !== "" && formStep11.questionStruggle !== "" && formStep11_2.questionEnergyLevel !== ""
+            && formStep12.questionTypeExercise !== "" && formStep12_1.questionStruggleSleep !== "" && formStep12_2.questionSleep !== ""
+            && formStep13.questionWorkoutPD !== "" && formStep14.questionWorkoutPref !== "" && formStep15.questionEquipment !== ""
+            && formStep16.questionDiet !== "" && formStep17.questionMainReason !== "" && formStep18_2.questionAge !== ""
+            && formStep20.email !== "" && formStep21.questionName !== "") return;
+
         const handleBeforeUnload = async (event) => {
+            if (document.visibilityState == "hidden") return;
+
             const userId = Date.now().toString();
             const customerData = {
                 Age: formStep1.age || null,
@@ -840,9 +853,9 @@ const FormQuestion = () => {
 
             // event.returnValue = "Are you sure to close this tab?";
         };
-        window.addEventListener('beforeunload', handleBeforeUnload);
+        window.addEventListener('pagehide', handleBeforeUnload);
         return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
+            window.removeEventListener('pagehide', handleBeforeUnload);
         };
 
     }, [formStep1, formStep2, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_1, formStep7_2, formStep9, formStep10, formStep11, formStep11_2, formStep12, formStep12_1, formStep12_2, formStep13, formStep14, formStep15, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
