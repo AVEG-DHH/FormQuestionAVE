@@ -2,8 +2,6 @@ import { IoScaleOutline } from 'react-icons/io5';
 import { MdClose } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
-import { db } from '../../firebase';
-import { doc, setDoc } from 'firebase/firestore';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
@@ -741,15 +739,6 @@ const FormQuestion = () => {
             setIsLoading(false);
         }, 1000);
     }, [currentStep]);
-
-    const saveDataToFirestore = async (userId, customerData) => {
-        try {
-            await setDoc(doc(db, 'customer-answer', userId), customerData);
-            window.parent.postMessage('redirect', '*');
-        } catch (error) {
-            console.error('Lỗi khi thêm dữ liệu lên Firestore:', error);
-        }
-    };
 
     const saveDataToLarkBase = async () => {
         try {
