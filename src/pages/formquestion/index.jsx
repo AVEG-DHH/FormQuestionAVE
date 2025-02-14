@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 import { db } from '../../firebase';
 import { doc, setDoc } from 'firebase/firestore';
+import axios from 'axios';
 
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
@@ -749,42 +750,55 @@ const FormQuestion = () => {
         }
     };
 
+    const saveDataToLarkBase = async () => {
+        try {
+            const customerData = {
+                Age: formStep1.age || "",
+                QuestionHomeEx: formStep2.questionHomeEx || "",
+                QuestionGoal: formStep5.questionGoal || "",
+                QuestionExercise: formStep6.questionExercise || "",
+                QuestionHealthIssues: formStep7.questionHealthIssuse || "",
+                QuestionYourBuild: formStep7_1.questionYourBuild || "",
+                QuestionDreambody: formStep7_2.questionDreambody || "",
+                QuestionTarget: formStep9.questionTarget || "",
+                QuestionOftenEx: formStep10.questionOftenEx || "",
+                QuestionStruggle: formStep11.questionStruggle || "",
+                QuestionEnergyLevel: formStep11_2.questionEnergyLevel || "",
+                QuestionTypeExercise: formStep12.questionTypeExercise || "",
+                QuestionStruggleSleep: formStep12_1.questionStruggleSleep || "",
+                QuestionSleep: formStep12_2.questionSleep || "",
+                QuestionWorkoutPD: formStep13.questionWorkoutPD || "",
+                QuestionWorkoutPref: formStep14.questionWorkoutPref || "",
+                QuestionEquipment: formStep15.questionEquipment || "",
+                QuestionMainReason: formStep17.questionMainReason || "",
+                QuestionDiet: formStep16.questionDiet || "",
+                Height: formStep3.height || "",
+                Weight: formStep4.weight || "",
+                QuestionTargetWeight: formStep22.questionTargetWeight.toString() || "",
+                QuestionAge: formStep18_2.questionAge.toString() || "",
+                EmailCustomer: formStep20.email || "",
+                QuestionName: formStep21.questionName || ""
+            };
+
+            const url = `https://form-question-ave-be.vercel.app/api/lark-data`;
+
+            await axios.post(url,
+                {
+                    fields: customerData
+                },
+            );
+            window.parent.postMessage('redirect', '*');
+
+        } catch (error) {
+            console.error('Lỗi khi thêm dữ liệu lên Firestore:', error);
+        }
+    };
+
     const handleSubmit = async () => {
         setIsLoading(true);
 
-        const userId = Date.now().toString();
-        const customerData = {
-            Age: formStep1.age || null,
-            questionHomeEx: formStep2.questionHomeEx || null,
-            height: formStep3.height || null,
-            weight: formStep4.weight || null,
-            questionGoal: formStep5.questionGoal || null,
-            questionExercise: formStep6.questionExercise || null,
-            questionHealthIssues: formStep7.questionHealthIssuse || null,
-            questionYourBuild: formStep7_1.questionYourBuild || null,
-            questionDreambody: formStep7_2.questionDreambody || null,
-            questionTarget: formStep9.questionTarget || null,
-            questionOftenEx: formStep10.questionOftenEx || null,
-            questionStruggle: formStep11.questionStruggle || null,
-            questionEnergyLevel: formStep11_2.questionEnergyLevel || null,
-            questionTypeExercise: formStep12.questionTypeExercise || null,
-            questionStruggleSleep: formStep12_1.questionStruggleSleep || null,
-            questionSleep: formStep12_2.questionSleep || null,
-            questionWorkoutPD: formStep13.questionWorkoutPD || null,
-            questionWorkoutPref: formStep14.questionWorkoutPref || null,
-            questionEquipment: formStep15.questionEquipment || null,
-            questionMainReason: formStep17.questionMainReason || null,
-            questionDiet: formStep16.questionDiet || null,
-            questionTargetWeight: formStep22.questionTargetWeight || null,
-            questionAge: formStep18_2.questionAge || null,
-            EmailCustomer: formStep20.email || null,
-            questionName: formStep21.questionName || null,
-            createdAt: new Date().toISOString(),
-            timestamp: Date.now(),
-        };
-
         try {
-            await saveDataToFirestore(userId, customerData); // Đợi hoàn thành trước khi tiếp tục
+            await saveDataToLarkBase()
         } catch (error) {
             console.error('Lỗi khi lưu dữ liệu:', error);
         }
