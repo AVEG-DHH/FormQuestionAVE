@@ -51,9 +51,8 @@ const UIFormStep11 = ({ handleNext, handleNextStep11, isCheckboxChecked, setIsCh
                 {options.map((option) => (
                     <Grid item key={option.id} xs={12} sm={6} lg={3}>
                         <Card
-                            className={`struggle-card ${selected.includes(option.value) ? 'selected' : ''} ${
-                                animate === option.value ? 'animate' : ''
-                            }`}
+                            className={`struggle-card ${selected.includes(option.value) ? 'selected' : ''} ${animate === option.value ? 'animate' : ''
+                                }`}
                         >
                             <CardActionArea onClick={() => handleClick(option.value)} disableRipple>
                                 <Box className="card-content">
@@ -74,16 +73,18 @@ const UIFormStep11 = ({ handleNext, handleNextStep11, isCheckboxChecked, setIsCh
                     </Grid>
                 ))}
             </Grid>
-            <Button
-                className="custom-btn-continue"
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                disabled={!isCheckboxChecked}
-                style={{ marginTop: '20px' }}
-            >
-                Continue
-            </Button>
+            <div className="btn-continue" style={{ textAlign: 'center' }}>
+                <Button
+                    className="custom-btn-continue"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    disabled={!isCheckboxChecked}
+                    style={{ marginTop: '20px' }}
+                >
+                    Continue
+                </Button>
+            </div>
         </Box>
     );
 };

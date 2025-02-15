@@ -802,71 +802,60 @@ const FormQuestion = () => {
     };
 
     useEffect(() => {
+        console.log(805)
         if (formStep1.age === "") return;
 
-        if (formStep1.age !== "" && formStep2.questionHomeEx !== "" && formStep3.height !== "" && formStep4.weight !== ""
-            && formStep5.questionGoal !== "" && formStep6.questionExercise !== "" && formStep7.questionHealthIssuse !== ""
-            && formStep7_1.questionYourBuild !== "" && formStep7_2.questionDreambody !== "" && formStep9.questionTarget !== ""
-            && formStep10.questionOftenEx !== "" && formStep11.questionStruggle !== "" && formStep11_2.questionEnergyLevel !== ""
-            && formStep12.questionTypeExercise !== "" && formStep12_1.questionStruggleSleep !== "" && formStep12_2.questionSleep !== ""
-            && formStep13.questionWorkoutPD !== "" && formStep14.questionWorkoutPref !== "" && formStep15.questionEquipment !== ""
-            && formStep16.questionDiet !== "" && formStep17.questionMainReason !== "" && formStep18_2.questionAge !== ""
-            && formStep20.email !== "" && formStep21.questionName !== "") return;
+        if (formStep21.questionName !== "") return;
 
         const handleBeforeUnload = async (event) => {
-            if (document.visibilityState == "hidden") return;
+            // if (document.visibilityState == "hidden") return;
 
-            const userId = Date.now().toString();
             const customerData = {
-                Age: formStep1.age || null,
-                questionHomeEx: formStep2.questionHomeEx || null,
-                height: formStep3.height || null,
-                weight: formStep4.weight || null,
-                questionGoal: formStep5.questionGoal || null,
-                questionExercise: formStep6.questionExercise || null,
-                questionHealthIssues: formStep7.questionHealthIssuse || null,
-                questionYourBuild: formStep7_1.questionYourBuild || null,
-                questionDreambody: formStep7_2.questionDreambody || null,
-                questionTarget: formStep9.questionTarget || null,
-                questionOftenEx: formStep10.questionOftenEx || null,
-                questionStruggle: formStep11.questionStruggle || null,
-                questionEnergyLevel: formStep11_2.questionEnergyLevel || null,
-                questionTypeExercise: formStep12.questionTypeExercise || null,
-                questionStruggleSleep: formStep12_1.questionStruggleSleep || null,
-                questionSleep: formStep12_2.questionSleep || null,
-                questionWorkoutPD: formStep13.questionWorkoutPD || null,
-                questionWorkoutPref: formStep14.questionWorkoutPref || null,
-                questionEquipment: formStep15.questionEquipment || null,
-                questionMainReason: formStep17.questionMainReason || null,
-                questionDiet: formStep16.questionDiet || null,
-                questionTargetWeight: formStep22.questionTargetWeight || null,
-                questionAge: formStep18_2.questionAge || null,
-                EmailCustomer: formStep20.email || null,
-                questionName: formStep21.questionName || null,
-                createdAt: new Date().toISOString(),
-                timestamp: Date.now(),
+                Age: formStep1.age || "",
+                QuestionHomeEx: formStep2.questionHomeEx || "",
+                QuestionGoal: formStep5.questionGoal || "",
+                QuestionExercise: formStep6.questionExercise || "",
+                QuestionHealthIssues: formStep7.questionHealthIssuse || "",
+                QuestionYourBuild: formStep7_1.questionYourBuild || "",
+                QuestionDreambody: formStep7_2.questionDreambody || "",
+                QuestionTarget: formStep9.questionTarget || "",
+                QuestionOftenEx: formStep10.questionOftenEx || "",
+                QuestionStruggle: formStep11.questionStruggle || "",
+                QuestionEnergyLevel: formStep11_2.questionEnergyLevel || "",
+                QuestionTypeExercise: formStep12.questionTypeExercise || "",
+                QuestionStruggleSleep: formStep12_1.questionStruggleSleep || "",
+                QuestionSleep: formStep12_2.questionSleep || "",
+                QuestionWorkoutPD: formStep13.questionWorkoutPD || "",
+                QuestionWorkoutPref: formStep14.questionWorkoutPref || "",
+                QuestionEquipment: formStep15.questionEquipment || "",
+                QuestionMainReason: formStep17.questionMainReason || "",
+                QuestionDiet: formStep16.questionDiet || "",
+                Height: formStep3.height || "",
+                Weight: formStep4.weight || "",
+                QuestionTargetWeight: formStep22.questionTargetWeight.toString() || "",
+                QuestionAge: formStep18_2.questionAge.toString() || "",
+                EmailCustomer: formStep20.email || "",
+                QuestionName: formStep21.questionName
             };
-            const url = "https://form-question-ave-be.vercel.app/api/save-firestore-not-complete"; // Cập nhật URL API backend của bạn
-            const blob = new Blob([JSON.stringify({ userId, customerData })], { type: "application/json" });
-
-            const sent = navigator.sendBeacon(url, blob);
-
-            if (!sent) {
+            const url = "https://form-question-ave-be.vercel.app/api/lark-data-not-complete";
+            const data = new Blob([JSON.stringify({ fields: customerData })], {
+                type: "application/json",
+            });
+            const success = navigator.sendBeacon(url, data);
+            if (!success) {
+                console.error("sendBeacon failed, trying fetch...");
                 fetch(url, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ userId, customerData }),
-                    keepalive: true,
-                })
-                    .then(res => console.log("Backup fetch success:", res.status))
-                    .catch(err => console.error("Backup fetch failed:", err));
+                    body: data,
+                    keepalive: true, // Dự phòng khi sendBeacon thất bại
+                });
             }
-
             // event.returnValue = "Are you sure to close this tab?";
         };
-        window.addEventListener('pagehide', handleBeforeUnload);
+        window.addEventListener('beforeunload', handleBeforeUnload);
         return () => {
-            window.removeEventListener('pagehide', handleBeforeUnload);
+            window.removeEventListener('beforeunload', handleBeforeUnload);
         };
 
     }, [formStep1, formStep2, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_1, formStep7_2, formStep9, formStep10, formStep11, formStep11_2, formStep12, formStep12_1, formStep12_2, formStep13, formStep14, formStep15, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
