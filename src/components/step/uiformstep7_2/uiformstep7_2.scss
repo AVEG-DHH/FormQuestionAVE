@@ -39,6 +39,7 @@
                 position: relative;
                 object-fit: cover;
                 transition: transform 0.6s ease;
+                overflow: hidden;
 
                 &.selected {
                     .form-step-7-2__btn {
@@ -63,6 +64,9 @@
                 justify-content: space-between;
                 align-items: center;
                 justify-content: space-between;
+                position: relative;
+                z-index: 2;
+                margin-top: -5px;
 
                 .circle {
                     width: 16px;

@@ -31,10 +31,11 @@
         cursor: pointer;
 
         .form-step-1__img {
-            width: 23%;
-            background-color: #f6f7f9;
+            width: 18%;
+            background-color: $backgroud-secondary;
             border-radius: 8px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
 
             img {
                 width: 100%;
@@ -48,15 +49,18 @@
             }
 
             .form-step-1__btn {
+                margin-top: -5px;
                 background: $primary-color;
                 padding: 8px 12px;
                 border-radius: 8px;
                 font-size: $font-size-input-pc;
-                color: #fff;
+                color: $text-light;
                 font-weight: bold;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                position: relative;
+                z-index: 2;
             }
         }
     }

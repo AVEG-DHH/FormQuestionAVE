@@ -1,16 +1,16 @@
 @use '../../../untils.scss' as *;
 
-@keyframes zoomInOut {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+// @keyframes zoomInOut {
+//     0% {
+//         transform: scale(1);
+//     }
+//     50% {
+//         transform: scale(0.9);
+//     }
+//     100% {
+//         transform: scale(1);
+//     }
+// }
 
 .struggle-container {
     text-align: center;
@@ -36,9 +36,9 @@
             background-color: $backgroud-secondary;
         }
 
-        &.animate {
-            animation: zoomInOut 0.5s ease forwards;
-        }
+        // &.animate {
+        //     animation: zoomInOut 0.5s ease forwards;
+        // }
     }
 
     .card-content {

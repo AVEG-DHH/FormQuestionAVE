@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import ButtonContinue from '../../buttoncontinue';
 import './uiformstep11_1.scss';
 
-
-
 const UIFormStep11_1 = ({ target, goal, setIsCheckboxChecked, handleNext }) => {
     useEffect(() => {
         setIsCheckboxChecked(true);
@@ -42,7 +40,6 @@ const UIFormStep11_1 = ({ target, goal, setIsCheckboxChecked, handleNext }) => {
         </>
     );
 };
-
 
 UIFormStep11_1.propTypes = {
     setIsCheckboxChecked: PropTypes.func.isRequired,
