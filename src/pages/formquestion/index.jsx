@@ -68,6 +68,7 @@ const FormQuestion = () => {
     // Function Step 1:
     const handleNextStep1 = (value) => {
         setFormStep1({ age: value });
+        localStorage.setItem('ageAround', value);
         handleNext();
     };
 

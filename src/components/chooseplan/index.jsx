@@ -8,6 +8,8 @@ const ChoosePlan = () => {
     const [isAgreed, setIsAgreed] = useState(false);
     const targetWeight = localStorage.getItem('targetWeight') ? parseInt(localStorage.getItem('targetWeight'), 10) : 0;
     const goal = localStorage.getItem('goal') ? localStorage.getItem('goal') : '';
+    const ageAround = localStorage.getItem('ageAround') ? localStorage.getItem('ageAround') : '';
+
     const bodyRef = useRef(null); // Ref cho body
     const bodyHeightRef = useRef(0); // Ref lưu chiều cao trước đó
     useEffect(() => {
@@ -74,7 +76,7 @@ const ChoosePlan = () => {
 
     const handleGetMyPlan = () => {
         // Gửi giá trị selectedPlan đến parent window
-        window.parent.postMessage({ selectedPlan, goal }, '*');
+        window.parent.postMessage({ selectedPlan, goal, ageAround }, '*');
     };
 
     return (

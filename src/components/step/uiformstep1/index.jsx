@@ -14,10 +14,10 @@ const UIFormStep1 = ({ handleNextStep1 }) => {
                 <h1>WALL PILATES WORKOUT PLAN</h1>
                 <h2>BASED ON YOUR AGE</h2>
                 <div className="form-step-1__content">
-                    <div className="form-step-1__img" onClick={() => handleNextStep1('30-40')}>
+                    <div className="form-step-1__img" onClick={() => handleNextStep1('25-40')}>
                         <img src={ImgAge40} alt="img" loading="lazy" />
                         <div className="form-step-1__btn">
-                            Age: 30-40 <ChevronRightIcon />
+                            Age: 25-40 <ChevronRightIcon />
                         </div>
                     </div>
                     <div className="form-step-1__img" onClick={() => handleNextStep1('40-49')}>
@@ -36,12 +36,6 @@ const UIFormStep1 = ({ handleNextStep1 }) => {
                         <img src={ImgAge60} alt="img" loading="lazy" />
                         <div className="form-step-1__btn">
                             Age: 60-69 <ChevronRightIcon />
-                        </div>
-                    </div>
-                    <div className="form-step-1__img" onClick={() => handleNextStep1('70+')}>
-                        <img src={ImgAge70} alt="img" loading="lazy" />
-                        <div className="form-step-1__btn">
-                            Age: 70+ <ChevronRightIcon />
                         </div>
                     </div>
                 </div>
