@@ -1,8 +1,8 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ImgAge25 from '/img/age-25-40.png';
 import ImgAge40 from '/img/age-40-49.png';
 import ImgAge50 from '/img/age-50-59.png';
 import ImgAge60 from '/img/age-60-69.png';
-import ImgAge70 from '/img/age-70+.png';
 
 import './uiformstep1.scss';
 
@@ -15,7 +15,7 @@ const UIFormStep1 = ({ handleNextStep1 }) => {
                 <h2>BASED ON YOUR AGE</h2>
                 <div className="form-step-1__content">
                     <div className="form-step-1__img" onClick={() => handleNextStep1('25-40')}>
-                        <img src={ImgAge40} alt="img" loading="lazy" />
+                        <img src={ImgAge25} alt="img" loading="lazy" />
                         <div className="form-step-1__btn">
                             Age: 25-40 <ChevronRightIcon />
                         </div>
