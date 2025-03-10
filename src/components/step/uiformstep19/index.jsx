@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Typography, CircularProgress, Modal, Rating, Stack, Button } from '@mui/material';
 import './uiformstep19.scss';
 
-const UIFormStep19 = ({ setIsCheckboxChecked, handleNext, isCheckboxChecked }) => {
+const UIFormStep19 = ({ setIsCheckboxChecked, handleSubmit, isCheckboxChecked }) => {
     const [progress, setProgress] = useState(0);
     const totalTime = 6000; // Tổng thời gian: 6 giây (6000ms)
     const intervalTime = 100; // Mỗi lần cập nhật: 100ms
@@ -157,11 +157,11 @@ const UIFormStep19 = ({ setIsCheckboxChecked, handleNext, isCheckboxChecked }) =
                     className="custom-btn-continue"
                     variant="contained"
                     color="primary"
-                    onClick={handleNext}
+                    onClick={handleSubmit}
                     disabled={!isCheckboxChecked}
                     style={{ marginTop: '20px' }}
                 >
-                    Continue
+                    Finish
                 </Button>
             </div>
         </Box>
@@ -170,7 +170,7 @@ const UIFormStep19 = ({ setIsCheckboxChecked, handleNext, isCheckboxChecked }) =
 
 UIFormStep19.propTypes = {
     setIsCheckboxChecked: PropTypes.func.isRequired,
-    handleNext: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
     isCheckboxChecked: PropTypes.bool.isRequired,
 };
 

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
 import UIFormStep2_1 from '../../components/step/uiformstep2_1';
+import Uiformstep4_1 from '../../components/step/uiformstep4_1';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep6_1 from '../../components/step/uiformstep6_1';
 import UIFormStep7_1 from '../../components/step/uiformstep7_1';
@@ -458,6 +459,16 @@ const FormQuestion = () => {
         }, 500);
     };
 
+    const handleSubmit = async () => {
+        setIsLoading(true);
+
+        try {
+            await saveDataToLarkBase()
+        } catch (error) {
+            console.error('Lỗi khi lưu dữ liệu:', error);
+        }
+    };
+
     const steps = [
         // Q1: BASE ON YOUR  AGE
         {
@@ -469,6 +480,33 @@ const FormQuestion = () => {
         {
             id: 2,
             content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} handleNext={handleNext} />,
+        },
+
+        // Q30: WHAT'S YOUR EMAIL?
+        {
+            id: 31,
+            content: (
+                <UIFormStep20
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    formStep20={formStep20}
+                    setFormStep20={setFormStep20}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
+                />
+            ),
+        },
+
+        // Q31: WHAT'S YOUR NAME?
+        {
+            id: 32,
+            content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} handleNext={handleNext} />,
+        },
+
+        // Q7: WE'VE GOT THE SOLUTION!
+        {
+            id: 70,
+            content: <Uiformstep4_1 name={formStep21.questionName}  handleNext={handleNext} />
+            ,
         },
 
         // Q3: HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
@@ -500,7 +538,6 @@ const FormQuestion = () => {
             id: 7,
             content: (
                 <UIFormStep6_1
-                    setIsCheckboxChecked={setIsCheckboxChecked}
                     age={formStep1.age}
                     questionGoal={formStep5.questionGoal}
                     handleNext={handleNext}
@@ -696,31 +733,12 @@ const FormQuestion = () => {
             content: (
                 <UIFormStep19
                     setIsCheckboxChecked={setIsCheckboxChecked}
-                    handleNext={handleNext}
+                    handleSubmit={handleSubmit}
                     isCheckboxChecked={isCheckboxChecked}
                 />
             ),
         },
 
-        // Q30: WHAT'S YOUR EMAIL?
-        {
-            id: 31,
-            content: (
-                <UIFormStep20
-                    setIsCheckboxChecked={setIsCheckboxChecked}
-                    formStep20={formStep20}
-                    setFormStep20={setFormStep20}
-                    handleNext={handleNext}
-                    isCheckboxChecked={isCheckboxChecked}
-                />
-            ),
-        },
-
-        // Q31: WHAT'S YOUR NAME?
-        {
-            id: 32,
-            content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} />,
-        },
     ];
 
     const handleBack = () => {
@@ -792,18 +810,9 @@ const FormQuestion = () => {
         setIsLoading(false);
     };
 
-    const handleSubmit = async () => {
-        setIsLoading(true);
-
-        try {
-            await saveDataToLarkBase()
-        } catch (error) {
-            console.error('Lỗi khi lưu dữ liệu:', error);
-        }
-    };
+    
 
     useEffect(() => {
-        console.log(805)
         if (formStep1.age === "") return;
 
         if (formStep21.questionName !== "") return;
@@ -875,21 +884,6 @@ const FormQuestion = () => {
                 <Typography variant="h6" className="custom-block-step">
                     <div className={`step-content step-${currentStep}`}>{steps[currentStep].content}</div>
                 </Typography>
-
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                    {currentStep < steps.length - 1 ? (
-                        <></>
-                    ) : (
-                        <Button
-                            className="custom-btn-continue"
-                            variant="contained"
-                            color="success"
-                            onClick={handleSubmit}
-                        >
-                            Finish
-                        </Button>
-                    )}
-                </Box>
             </Box>
         </>
     );

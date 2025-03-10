@@ -1,12 +1,8 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ButtonContinue from '../../buttoncontinue';
 import './uiformstep6_1.scss';
 
-const UIFormStep6_1 = ({ setIsCheckboxChecked, age, questionGoal, handleNext }) => {
-    useEffect(() => {
-        setIsCheckboxChecked(true);
-    }, [setIsCheckboxChecked]);
+const UIFormStep6_1 = ({ age, questionGoal, handleNext }) => {
     return (
         <>
             <div className="form-step-6_1">
@@ -52,7 +48,6 @@ const UIFormStep6_1 = ({ setIsCheckboxChecked, age, questionGoal, handleNext }) 
     );
 };
 UIFormStep6_1.propTypes = {
-    setIsCheckboxChecked: PropTypes.func.isRequired,
     age: PropTypes.string.isRequired,
     questionGoal: PropTypes.string.isRequired,
     handleNext: PropTypes.func.isRequired,
