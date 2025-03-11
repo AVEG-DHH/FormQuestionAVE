@@ -154,20 +154,10 @@ const UIFormStep18_3 = ({
                                         {yourBuild === 'Slim' || yourBuild === 'Mid-sized' ? (
                                             <>
                                                 <p>Ectomorph</p>
-                                                {/* <img
-                                                    className="form-step-18-3_footer-text_block-info-img"
-                                                    src="/img/goal-2.png"
-                                                    alt="Ectomorph"
-                                                /> */}
                                             </>
                                         ) : (
                                             <>
                                                 <p>Endomorph</p>
-                                                {/* <img
-                                                    className="form-step-18-3_footer-text_block-info-img"
-                                                    src="img/goal-1.png"
-                                                    alt="Endomorph"
-                                                /> */}
                                             </>
                                         )}
                                     </div>

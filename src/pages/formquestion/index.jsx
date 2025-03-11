@@ -1,22 +1,19 @@
 import { IoScaleOutline } from 'react-icons/io5';
 import { MdClose } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-import { Button, Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
-import UIFormStep2_1 from '../../components/step/uiformstep2_1';
 import Uiformstep4_1 from '../../components/step/uiformstep4_1';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep6_1 from '../../components/step/uiformstep6_1';
 import UIFormStep7_1 from '../../components/step/uiformstep7_1';
 import UIFormStep7_2 from '../../components/step/uiformstep7_2';
 import UIFormStep9 from '../../components/step/uiformstep9';
-import UIFormStep11 from '../../components/step/uiformstep11';
 import UIFormStep11_1 from '../../components/step/uiformstep11_1';
-import UIFormStep11_3 from '../../components/step/uiformstep11_3';
 import UIFormStep16 from '../../components/step/uiformstep16';
 import UIFormStep17 from '../../components/step/uiformstep17';
 import UIFormStep18 from '../../components/step/uiformstep18';
@@ -41,7 +38,6 @@ const FormQuestion = () => {
     const [isInputValid, setIsInputValid] = useState(false);
 
     const [formStep1, setFormStep1] = useState({ age: '' });
-    const [formStep2, setFormStep2] = useState({ questionHomeEx: '' });
     const [formStep3, setFormStep3] = useState({ height: '' });
     const [formStep4, setFormStep4] = useState({ weight: '' });
     const [formStep5, setFormStep5] = useState({ questionGoal: '' });
@@ -51,14 +47,8 @@ const FormQuestion = () => {
     const [formStep7_2, setFormStep7_2] = useState({ questionDreambody: '' });
     const [formStep9, setFormStep9] = useState({ questionTarget: '' });
     const [formStep10, setFormStep10] = useState({ questionOftenEx: '' });
-    const [formStep11, setFormStep11] = useState({ questionStruggle: '' });
-    const [formStep11_2, setFormStep11_2] = useState({ questionEnergyLevel: '' });
     const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
-    const [formStep12_1, setFormStep12_1] = useState({ questionStruggleSleep: '' });
-    const [formStep12_2, setformStep12_2] = useState({ questionSleep: '' });
     const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
-    const [formStep14, setFormStep14] = useState({ questionWorkoutPref: '' });
-    const [formStep15, setFormStep15] = useState({ questionEquipment: '' });
     const [formStep17, setFormStep17] = useState({ questionMainReason: '' });
     const [formStep16, setFormStep16] = useState({ questionDiet: '' });
     const [formStep18_2, setFormStep18_2] = useState({ questionAge: '' });
@@ -71,25 +61,6 @@ const FormQuestion = () => {
         setFormStep1({ age: value });
         localStorage.setItem('ageAround', value);
         handleNext();
-    };
-
-    // Function Step 2:
-    const handleNextStep2 = (value) => {
-        setFormStep2({ questionHomeEx: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep2 = {
-        title: (
-            <>
-                Have you tried practicing these exercises <br />
-                at home before?
-            </>
-        ),
-        handleStep: handleNextStep2,
-        arrQuestion: [
-            { icon: '', value: 'Yes' },
-            { icon: '', value: 'No' },
-        ],
     };
 
     // Function Step 3:
@@ -166,6 +137,7 @@ const FormQuestion = () => {
         setFormStep7({ questionHealthIssuse: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+
     const propsFormStep7 = {
         title: <>Do you have any health issues?</>,
         handleStep: handleNextStep7,
@@ -257,63 +229,6 @@ const FormQuestion = () => {
         ],
     };
 
-    // Function Step 11:
-    const handleNextStep11 = (value) => {
-        setFormStep11({ questionStruggle: value });
-    };
-
-    // Function Step 11_2:
-    const handleNextStep11_2 = (value) => {
-        setFormStep11_2({ questionEnergyLevel: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep11_2 = {
-        title: <>How are your energy levels during the day?</>,
-        handleStep: handleNextStep11_2,
-        arrQuestion: [
-            {
-                icon: (
-                    <img
-                        src="/icons/low-energy.webp"
-                        alt="Maintain Weight Icon"
-                        className="block-step-new__body__radio__content__icon-2"
-                    />
-                ),
-                value: 'Low, I feel tired throughout the day',
-            },
-            {
-                icon: (
-                    <img
-                        src="/icons/post-lunch.webp"
-                        alt="Maintain Weight Icon"
-                        className="block-step-new__body__radio__content__icon-2"
-                    />
-                ),
-                value: 'Post lunch slump',
-            },
-            {
-                icon: (
-                    <img
-                        src="/icons/before-meat.webp"
-                        alt="Maintain Weight Icon"
-                        className="block-step-new__body__radio__content__icon-2"
-                    />
-                ),
-                value: 'Dragging before meals',
-            },
-            {
-                icon: (
-                    <img
-                        src="/icons/high.webp"
-                        alt="Maintain Weight Icon"
-                        className="block-step-new__body__radio__content__icon-2"
-                    />
-                ),
-                value: 'High and steady',
-            },
-        ],
-    };
-
     // Function Step 12:
     const handleNextStep12 = (value) => {
         setFormStep12({ questionTypeExercise: value.target.value });
@@ -330,41 +245,12 @@ const FormQuestion = () => {
         ],
     };
 
-    // Function Step 12_1:
-    const handleNextStep12_1 = (value) => {
-        setFormStep12_1({ questionStruggleSleep: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep12_1 = {
-        title: <>Do you struggle with sleep?</>,
-        handleStep: handleNextStep12_1,
-        arrQuestion: [
-            { icon: '', value: 'Yes' },
-            { icon: '', value: 'No' },
-        ],
-    };
-
-    // Function Step 12_2:
-    const handleNextStep12_2 = (value) => {
-        setformStep12_2({ questionSleep: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep12_2 = {
-        title: <>How much sleep do you usually get?</>,
-        handleStep: handleNextStep12_2,
-        arrQuestion: [
-            { icon: '', value: 'Less than 5 hours' },
-            { icon: '', value: '5-6 hours' },
-            { icon: '', value: '7-8 hours' },
-            { icon: '', value: 'More than 8 hours' },
-        ],
-    };
-
     // Function Step 13:
     const handleNextStep13 = (value) => {
         setFormStep13({ questionWorkoutPD: value.target.value });
         setTimeout(() => handleNext(), 300);
     };
+
     const propsFormStep13 = {
         title: <>How much time do you usually spend on a workout?</>,
         handleStep: handleNextStep13,
@@ -372,39 +258,6 @@ const FormQuestion = () => {
             { icon: '', value: 'Less than 15 minutes' },
             { icon: '', value: '15-30 minutes' },
             { icon: '', value: 'More than 60 minutes' },
-        ],
-    };
-
-    // Function Step 14:
-    const handleNextStep14 = (value) => {
-        setFormStep14({ questionWorkoutPref: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep14 = {
-        title: <>Where do you prefer to work out?</>,
-        handleStep: handleNextStep14,
-        arrQuestion: [
-            { icon: '', value: 'At home' },
-            { icon: '', value: 'Outdoors' },
-            { icon: '', value: 'In a gym' },
-            { icon: '', value: 'No preference' },
-        ],
-    };
-
-    // Function Step 15:
-    const handleNextStep15 = (value) => {
-        setFormStep15({ questionEquipment: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep15 = {
-        title: <>What equipment do you have access to?</>,
-        handleStep: handleNextStep15,
-        arrQuestion: [
-            { icon: '', value: 'None' },
-            { icon: '', value: 'Chair/mat' },
-            { icon: '', value: 'Dumbbells' },
-            { icon: '', value: 'Resistance bands' },
-            { icon: '', value: 'Other advanced equipment' },
         ],
     };
 
@@ -482,9 +335,15 @@ const FormQuestion = () => {
             content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} handleNext={handleNext} />,
         },
 
+        // Q31: WHAT'S YOUR NAME?
+        {
+            id: 3,
+            content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} handleNext={handleNext} />,
+        },
+
         // Q30: WHAT'S YOUR EMAIL?
         {
-            id: 31,
+            id: 4,
             content: (
                 <UIFormStep20
                     setIsCheckboxChecked={setIsCheckboxChecked}
@@ -496,46 +355,27 @@ const FormQuestion = () => {
             ),
         },
 
-        // Q31: WHAT'S YOUR NAME?
+        // Q7: keep going!
         {
-            id: 32,
-            content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} handleNext={handleNext} />,
-        },
-
-        // Q7: WE'VE GOT THE SOLUTION!
-        {
-            id: 70,
-            content: <Uiformstep4_1 name={formStep21.questionName}  handleNext={handleNext} />
-            ,
-        },
-
-        // Q3: HAVE YOU TRIED PRACTICING THESE EXERCISES AT HOME BEFORE?
-        {
-            id: 3,
-            content: <StepNew propsFormStep={propsFormStep2} />,
-        },
-
-        // Q4: NATURAL CLEANSING IS THE PERFECT CHOICE
-        {
-            id: 4,
-            content: <UIFormStep2_1 setIsCheckboxChecked={setIsCheckboxChecked} handleNext={handleNext} />,
+            id: 5,
+            content: <Uiformstep4_1 name={formStep21.questionName} handleNext={handleNext} />
         },
 
         // Q5: WHAT IS YOUR FITNESS GOAL?
         {
-            id: 5,
+            id: 6,
             content: <StepNew propsFormStep={propsFormStep5} />,
         },
 
         // Q6: HOW MANY DAYS A WEEK DO YOU WANT TO EXERCISE?
         {
-            id: 6,
+            id: 7,
             content: <UIFormStep6 handleNextStep6={handleNextStep6} />,
         },
 
         // Q7: WE'VE GOT THE SOLUTION!
         {
-            id: 7,
+            id: 8,
             content: (
                 <UIFormStep6_1
                     age={formStep1.age}
@@ -547,13 +387,13 @@ const FormQuestion = () => {
 
         // Q8: DO YOU HAVE ANY HEALTH ISSUES?
         {
-            id: 8,
+            id: 9,
             content: <StepNew propsFormStep={propsFormStep7} />,
         },
 
         // Q9: HOW WOULD YOU DESCRIBE YOUR BUILD?
         {
-            id: 9,
+            id: 90,
             content: <UIFormStep7_1 handleNextStep7_1={handleNextStep7_1} />,
         },
 
@@ -578,26 +418,13 @@ const FormQuestion = () => {
 
         // Q12: HOW OFTEN DO YOU EXERCISE?
         {
-            id: 12,
+            id: 120,
             content: <StepNew propsFormStep={propsFormStep10} />,
-        },
-
-        // Q13: DO YOU STRUGGLE WITH ANY OF THE FOLLOWING?
-        {
-            id: 13,
-            content: (
-                <UIFormStep11
-                    handleNext={handleNext}
-                    handleNextStep11={handleNextStep11}
-                    isCheckboxChecked={isCheckboxChecked}
-                    setIsCheckboxChecked={setIsCheckboxChecked}
-                />
-            ),
         },
 
         // Q14: WE GOT YOU!
         {
-            id: 14,
+            id: 12,
             content: (
                 <UIFormStep11_1
                     target={formStep9.questionTarget}
@@ -608,69 +435,33 @@ const FormQuestion = () => {
             ),
         },
 
-        //  Q15: HOW ARE YOUR ENERGY LEVELS DURING THE DAY?
-        {
-            id: 15,
-            content: <StepNew propsFormStep={propsFormStep11_2} />,
-        },
-
-        // Q16: NO PROBLEM!
-        {
-            id: 16,
-            content: <UIFormStep11_3 setIsCheckboxChecked={setIsCheckboxChecked} handleNext={handleNext} />,
-        },
-
         // Q17: WHAT TYPE OF EXERCISE DO YOU ENJOY?
         {
-            id: 17,
+            id: 13,
             content: <StepNew propsFormStep={propsFormStep12} />,
-        },
-
-        // Q18: DO YOU STRUGGLE TO SLEEP?
-        {
-            id: 18,
-            content: <StepNew propsFormStep={propsFormStep12_1} />,
-        },
-
-        // Q19: HOW MUCH SLEEP DO YOU USUALLY GET?
-        {
-            id: 19,
-            content: <StepNew propsFormStep={propsFormStep12_2} />,
         },
 
         // Q20: HOW MUCH TIME DO YOU USUALLY SPEND ON A WORKOUT?
         {
-            id: 20,
+            id: 200,
             content: <StepNew propsFormStep={propsFormStep13} />,
-        },
-
-        // Q21: WHERE DO YOU PREFER TO WORK OUT?
-        {
-            id: 21,
-            content: <StepNew propsFormStep={propsFormStep14} />,
-        },
-
-        // Q22: WHAT EQUIPMENT DO YOU HAVE ACCESS TO?
-        {
-            id: 22,
-            content: <StepNew propsFormStep={propsFormStep15} />,
         },
 
         // Q23: WHAT TYPE OF DIET DO YOU PREFER?
         {
-            id: 23,
+            id: 14,
             content: <UIFormStep16 handleNextStep16={handleNextStep16} />,
         },
 
         // Q24: WHAT IS YOUR MAIN REASON TO GET IN SHAPE?
         {
-            id: 24,
+            id: 15,
             content: <UIFormStep17 handleNextStep17={handleNextStep17} />,
         },
 
         // Q25: HOW TALL ARE YOU?
         {
-            id: 25,
+            id: 16,
             content: (
                 <UIFormStep18
                     handleNextStep3={handleNextStep3}
@@ -683,7 +474,7 @@ const FormQuestion = () => {
 
         // Q26: WHAT'S YOUR CURRENT WEIGHT?
         {
-            id: 26,
+            id: 17,
             content: (
                 <UIFormStep18_1
                     height={formStep3.height}
@@ -697,13 +488,13 @@ const FormQuestion = () => {
 
         // Q27: WHAT'S TARGET WEIGHT?
         {
-            id: 27,
+            id: 18,
             content: <UIFormStep22 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep22={handleNextStep22} handleNext={handleNext} isCheckboxChecked={isCheckboxChecked} />,
         },
 
         // Q27: WHAT'S YOUR AGE?
         {
-            id: 28,
+            id: 19,
             content: (
                 <UIFormStep18_2 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep18_2={handleNextStep18_2} handleNext={handleNext} isCheckboxChecked={isCheckboxChecked} />
             ),
@@ -711,7 +502,7 @@ const FormQuestion = () => {
 
         // Q28: WHAT'S YOUR AGE?
         {
-            id: 29,
+            id: 20,
             content: (
                 <UIFormStep18_3
                     height={formStep3.height}
@@ -729,7 +520,7 @@ const FormQuestion = () => {
 
         // Q29: CALCULATING PROGRESS
         {
-            id: 30,
+            id: 21,
             content: (
                 <UIFormStep19
                     setIsCheckboxChecked={setIsCheckboxChecked}
@@ -763,7 +554,6 @@ const FormQuestion = () => {
         try {
             const customerData = {
                 Age: formStep1.age || "",
-                QuestionHomeEx: formStep2.questionHomeEx || "",
                 QuestionGoal: formStep5.questionGoal || "",
                 QuestionExercise: formStep6.questionExercise || "",
                 QuestionHealthIssues: formStep7.questionHealthIssuse || "",
@@ -771,14 +561,7 @@ const FormQuestion = () => {
                 QuestionDreambody: formStep7_2.questionDreambody || "",
                 QuestionTarget: formStep9.questionTarget || "",
                 QuestionOftenEx: formStep10.questionOftenEx || "",
-                QuestionStruggle: formStep11.questionStruggle || "",
-                QuestionEnergyLevel: formStep11_2.questionEnergyLevel || "",
                 QuestionTypeExercise: formStep12.questionTypeExercise || "",
-                QuestionStruggleSleep: formStep12_1.questionStruggleSleep || "",
-                QuestionSleep: formStep12_2.questionSleep || "",
-                QuestionWorkoutPD: formStep13.questionWorkoutPD || "",
-                QuestionWorkoutPref: formStep14.questionWorkoutPref || "",
-                QuestionEquipment: formStep15.questionEquipment || "",
                 QuestionMainReason: formStep17.questionMainReason || "",
                 QuestionDiet: formStep16.questionDiet || "",
                 Height: formStep3.height || "",
@@ -810,7 +593,7 @@ const FormQuestion = () => {
         setIsLoading(false);
     };
 
-    
+
 
     useEffect(() => {
         if (formStep1.age === "") return;
@@ -822,7 +605,6 @@ const FormQuestion = () => {
 
             const customerData = {
                 Age: formStep1.age || "",
-                QuestionHomeEx: formStep2.questionHomeEx || "",
                 QuestionGoal: formStep5.questionGoal || "",
                 QuestionExercise: formStep6.questionExercise || "",
                 QuestionHealthIssues: formStep7.questionHealthIssuse || "",
@@ -830,14 +612,7 @@ const FormQuestion = () => {
                 QuestionDreambody: formStep7_2.questionDreambody || "",
                 QuestionTarget: formStep9.questionTarget || "",
                 QuestionOftenEx: formStep10.questionOftenEx || "",
-                QuestionStruggle: formStep11.questionStruggle || "",
-                QuestionEnergyLevel: formStep11_2.questionEnergyLevel || "",
                 QuestionTypeExercise: formStep12.questionTypeExercise || "",
-                QuestionStruggleSleep: formStep12_1.questionStruggleSleep || "",
-                QuestionSleep: formStep12_2.questionSleep || "",
-                QuestionWorkoutPD: formStep13.questionWorkoutPD || "",
-                QuestionWorkoutPref: formStep14.questionWorkoutPref || "",
-                QuestionEquipment: formStep15.questionEquipment || "",
                 QuestionMainReason: formStep17.questionMainReason || "",
                 QuestionDiet: formStep16.questionDiet || "",
                 Height: formStep3.height || "",
@@ -868,7 +643,8 @@ const FormQuestion = () => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };
 
-    }, [formStep1, formStep2, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_1, formStep7_2, formStep9, formStep10, formStep11, formStep11_2, formStep12, formStep12_1, formStep12_2, formStep13, formStep14, formStep15, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
+    }, [formStep1, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_1, formStep7_2, formStep9,
+        formStep10, formStep12, formStep13, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
 
     useEffect(() => {
         setTimeout(() => {
