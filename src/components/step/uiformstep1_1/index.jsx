@@ -14,10 +14,16 @@ const UIFormStep1_1 = ({ setIsCheckboxChecked, handleNext, age }) => {
                 <div className="form-step-1_1-content">
                     <div className="form-step-1_1-content__title">
                         <h1>
-                            Over 1.7 million <br /> women
+                            Over 1.8 million <br /> women
                         </h1>
                         <p>
                             in <span>their {age.substring(0, 2)}s</span> have already tried <br /> Natural Cleansing
+                        </p>
+
+                        <p>
+                            Would you like to receive a <span> FREE </span> <br /> personalized workout plan to reach{' '}
+                            <br />
+                            your goals faster?
                         </p>
                     </div>
                     <div className="form-step-1_1-content__img">
