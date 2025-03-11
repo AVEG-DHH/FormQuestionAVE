@@ -33,12 +33,12 @@ const UIFormStep6_1 = ({ age, questionGoal, handleNext }) => {
                         </div>
                         <h1>We’ve got just the solution!</h1>
                         <p>
-                            For women in <span>their {age.substring(0, 2)}s</span>, Natural Cleansing is an excellent choice
-                            to <span>{questionGoal}</span> with minimal effort.
+                            For women in <span>their {age.substring(0, 2)}s</span>, Natural Cleansing is an excellent
+                            choice to <span>{questionGoal}</span> with minimal effort.
                         </p>
                         <p>
-                            Just follow our guidance, embrace the journey, and get ready to achieve your dream physique with
-                            ease!
+                            Just follow our guidance, embrace the journey, and get ready to achieve your dream physique
+                            with ease!
                         </p>
                     </div>
                 </div>
