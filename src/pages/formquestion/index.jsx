@@ -10,7 +10,6 @@ import UIFormStep1_1 from '../../components/step/uiformstep1_1';
 import Uiformstep4_1 from '../../components/step/uiformstep4_1';
 import UIFormStep6 from '../../components/step/uiformstep6';
 import UIFormStep6_1 from '../../components/step/uiformstep6_1';
-import UIFormStep7_1 from '../../components/step/uiformstep7_1';
 import UIFormStep7_2 from '../../components/step/uiformstep7_2';
 import UIFormStep9 from '../../components/step/uiformstep9';
 import UIFormStep11_1 from '../../components/step/uiformstep11_1';
@@ -43,12 +42,9 @@ const FormQuestion = () => {
     const [formStep5, setFormStep5] = useState({ questionGoal: '' });
     const [formStep6, setFormStep6] = useState({ questionExercise: '' });
     const [formStep7, setFormStep7] = useState({ questionHealthIssuse: '' });
-    const [formStep7_1, setFormStep7_1] = useState({ questionYourBuild: '' });
     const [formStep7_2, setFormStep7_2] = useState({ questionDreambody: '' });
     const [formStep9, setFormStep9] = useState({ questionTarget: '' });
-    const [formStep10, setFormStep10] = useState({ questionOftenEx: '' });
     const [formStep12, setFormStep12] = useState({ questionTypeExercise: '' });
-    const [formStep13, setFormStep13] = useState({ questionWorkoutPD: '' });
     const [formStep17, setFormStep17] = useState({ questionMainReason: '' });
     const [formStep16, setFormStep16] = useState({ questionDiet: '' });
     const [formStep18_2, setFormStep18_2] = useState({ questionAge: '' });
@@ -196,12 +192,6 @@ const FormQuestion = () => {
         ],
     };
 
-    // Function Step 7_1:
-    const handleNextStep7_1 = (value) => {
-        setFormStep7_1({ questionYourBuild: value });
-        setTimeout(() => handleNext(), 1000);
-    };
-
     // Function Step 7_2:
     const handleNextStep7_2 = (value) => {
         setFormStep7_2({ questionDreambody: value });
@@ -211,22 +201,6 @@ const FormQuestion = () => {
     // Function Step 9:
     const handleNextStep9 = (value) => {
         setFormStep9({ questionTarget: value });
-    };
-
-    // Function Step 10:
-    const handleNextStep10 = (value) => {
-        setFormStep10({ questionOftenEx: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-    const propsFormStep10 = {
-        title: <>How often do you exercise?</>,
-        handleStep: handleNextStep10,
-        arrQuestion: [
-            { icon: '', value: 'Almost every day' },
-            { icon: '', value: 'Several times a week' },
-            { icon: '', value: 'Several times a month' },
-            { icon: '', value: 'Never' },
-        ],
     };
 
     // Function Step 12:
@@ -245,26 +219,9 @@ const FormQuestion = () => {
         ],
     };
 
-    // Function Step 13:
-    const handleNextStep13 = (value) => {
-        setFormStep13({ questionWorkoutPD: value.target.value });
-        setTimeout(() => handleNext(), 300);
-    };
-
-    const propsFormStep13 = {
-        title: <>How much time do you usually spend on a workout?</>,
-        handleStep: handleNextStep13,
-        arrQuestion: [
-            { icon: '', value: 'Less than 15 minutes' },
-            { icon: '', value: '15-30 minutes' },
-            { icon: '', value: 'More than 60 minutes' },
-        ],
-    };
-
     // Function Step 16:
     const handleNextStep16 = (value) => {
-        setFormStep16({ questionDiet: value.target.value });
-        setTimeout(() => handleNext(), 300);
+        setFormStep16({ questionDiet: value });
     };
 
     // Function Step 17:
@@ -391,12 +348,6 @@ const FormQuestion = () => {
             content: <StepNew propsFormStep={propsFormStep7} />,
         },
 
-        // Q9: HOW WOULD YOU DESCRIBE YOUR BUILD?
-        {
-            id: 90,
-            content: <UIFormStep7_1 handleNextStep7_1={handleNextStep7_1} />,
-        },
-
         // Q10: WHAT'S YOUR DREAM BODY?
         {
             id: 10,
@@ -414,12 +365,6 @@ const FormQuestion = () => {
                     isCheckboxChecked={isCheckboxChecked}
                 />
             ),
-        },
-
-        // Q12: HOW OFTEN DO YOU EXERCISE?
-        {
-            id: 120,
-            content: <StepNew propsFormStep={propsFormStep10} />,
         },
 
         // Q14: WE GOT YOU!
@@ -441,16 +386,10 @@ const FormQuestion = () => {
             content: <StepNew propsFormStep={propsFormStep12} />,
         },
 
-        // Q20: HOW MUCH TIME DO YOU USUALLY SPEND ON A WORKOUT?
-        {
-            id: 200,
-            content: <StepNew propsFormStep={propsFormStep13} />,
-        },
-
         // Q23: WHAT TYPE OF DIET DO YOU PREFER?
         {
             id: 14,
-            content: <UIFormStep16 handleNextStep16={handleNextStep16} />,
+            content: <UIFormStep16 handleNextStep16={handleNextStep16} handleNext={handleNext} />,
         },
 
         // Q24: WHAT IS YOUR MAIN REASON TO GET IN SHAPE?
@@ -500,7 +439,7 @@ const FormQuestion = () => {
             ),
         },
 
-        // Q28: WHAT'S YOUR AGE?
+        // Here's your wellness profile
         {
             id: 20,
             content: (
@@ -508,9 +447,7 @@ const FormQuestion = () => {
                     height={formStep3.height}
                     weight={formStep4.weight}
                     setIsCheckboxChecked={setIsCheckboxChecked}
-                    yourBuild={formStep7_1.questionYourBuild}
-                    questionOftenEx={formStep10.questionOftenEx}
-                    questionWorkoutPD={formStep13.questionWorkoutPD}
+                    questionExercise={formStep6.questionExercise}
                     goal={formStep5.questionGoal}
                     handleNext={handleNext}
                     isCheckboxChecked={isCheckboxChecked}
@@ -557,10 +494,8 @@ const FormQuestion = () => {
                 QuestionGoal: formStep5.questionGoal || "",
                 QuestionExercise: formStep6.questionExercise || "",
                 QuestionHealthIssues: formStep7.questionHealthIssuse || "",
-                QuestionYourBuild: formStep7_1.questionYourBuild || "",
                 QuestionDreambody: formStep7_2.questionDreambody || "",
                 QuestionTarget: formStep9.questionTarget || "",
-                QuestionOftenEx: formStep10.questionOftenEx || "",
                 QuestionTypeExercise: formStep12.questionTypeExercise || "",
                 QuestionMainReason: formStep17.questionMainReason || "",
                 QuestionDiet: formStep16.questionDiet || "",
@@ -608,10 +543,8 @@ const FormQuestion = () => {
                 QuestionGoal: formStep5.questionGoal || "",
                 QuestionExercise: formStep6.questionExercise || "",
                 QuestionHealthIssues: formStep7.questionHealthIssuse || "",
-                QuestionYourBuild: formStep7_1.questionYourBuild || "",
                 QuestionDreambody: formStep7_2.questionDreambody || "",
                 QuestionTarget: formStep9.questionTarget || "",
-                QuestionOftenEx: formStep10.questionOftenEx || "",
                 QuestionTypeExercise: formStep12.questionTypeExercise || "",
                 QuestionMainReason: formStep17.questionMainReason || "",
                 QuestionDiet: formStep16.questionDiet || "",
@@ -643,8 +576,8 @@ const FormQuestion = () => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };
 
-    }, [formStep1, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_1, formStep7_2, formStep9,
-        formStep10, formStep12, formStep13, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
+    }, [formStep1, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_2, formStep9,
+        formStep12, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
 
     useEffect(() => {
         setTimeout(() => {

@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
 
-    & > div:first-child {
+    &>div:first-child {
         font-size: $font-size-title-medium-pc;
         font-weight: bold;
         margin-bottom: 2rem;
@@ -21,10 +21,24 @@
         column-gap: 2%;
         flex-wrap: wrap;
 
-        & > div {
+        &>div {
             width: 49%;
             display: flex;
             flex-direction: column;
+
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: $sub-color;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+
+        &>.right {
+            .form-step-16__label {
+                margin-left: auto;
+            }
         }
     }
 
@@ -59,11 +73,13 @@
         .form-step-16__text {
             display: flex;
             flex-direction: column;
+
             span {
                 font-size: 1rem;
                 font-weight: bold;
                 color: #333;
             }
+
             p {
                 font-size: 0.9rem;
                 margin: 0;
@@ -89,18 +105,19 @@
         flex-direction: column;
         align-items: center;
 
-        & > div:first-child {
+        &>div:first-child {
             font-size: $font-size-title-medium-sp;
             font-weight: bold;
             margin-bottom: 2rem;
             text-align: center;
         }
+
         &__columns {
             display: flex;
             column-gap: 10%;
             flex-wrap: wrap;
 
-            & > div {
+            &>div {
                 width: 44%;
                 display: flex;
                 flex-direction: column;
@@ -110,6 +127,10 @@
         &__label {
             width: 100%;
         }
+    }
+
+    .block-form-question {
+        margin: 0 80px;
     }
 }
 
@@ -129,6 +150,7 @@
                 width: 100%;
             }
         }
+
         .form-step-16__radio {
             min-width: 300px;
         }

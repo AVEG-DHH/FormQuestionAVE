@@ -12,9 +12,7 @@ const UIFormStep18_3 = ({
     height,
     weight,
     setIsCheckboxChecked,
-    yourBuild,
-    questionOftenEx,
-    questionWorkoutPD,
+    questionExercise,
     goal,
     handleNext,
     isCheckboxChecked,
@@ -151,15 +149,11 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Body type</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {yourBuild === 'Slim' || yourBuild === 'Mid-sized' ? (
-                                            <>
-                                                <p>Ectomorph</p>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <p>Endomorph</p>
-                                            </>
-                                        )}
+                                        {bmi < 18.5 ? (
+                                            <p>Ectomorph</p>
+                                        ) : (bmi > 29.9 ? (
+                                            <p>Endomorph</p>
+                                        ) : (<p>Mesomorph</p>))}
                                     </div>
                                 </div>
                             </div>
@@ -192,10 +186,7 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Lifestyle</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {questionOftenEx == 'Almost every day' ||
-                                        questionOftenEx == 'Several times a week'
-                                            ? 'Active'
-                                            : 'Sedentary'}
+                                        {questionExercise[0] === "2" ? 'Sedentary' : 'Active'}
                                     </div>
                                 </div>
                             </div>
@@ -220,11 +211,7 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Fitness level</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {questionWorkoutPD === 'Less than 15 minutes'
-                                            ? 'Basic'
-                                            : questionWorkoutPD === '15-30 minutes'
-                                            ? 'Medium'
-                                            : 'Advanced'}
+                                        {questionExercise[0] === '5' ? 'Advanced' : questionExercise[0] === '4' ? 'Medium' : 'Basic'}
                                     </div>
                                 </div>
                             </div>
@@ -249,25 +236,20 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Metabolism</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {questionOftenEx == 'Almost every day' ||
-                                        questionOftenEx == 'Several times a week'
-                                            ? 'Fast, easy to '
-                                            : 'Low, difficult to '}
+                                        {questionExercise[0] === "2" ? 'Low, difficult to' : 'Fast, easy to'}
                                         {goal}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="form-step-18-3_footer-img">
-                            {yourBuild === 'Slim' || yourBuild === 'Mid-sized' ? (
-                                <>
-                                    <img src="/img/ave-7_1-Slim.png" alt="Ectomorph" />
-                                </>
-                            ) : (
-                                <>
-                                    <img src="img/ave-7_1-Extended.png" alt="Endomorph" />
-                                </>
-                            )}
+                            {bmi < 18.5 ? (
+                                <img src="/img/ave-7_1-Slim.png" alt="Ectomorph" />
+                            ) : (bmi > 29.9 ? (
+                                <img src="img/ave-7_1-Extended.png" alt="Endomorph" />
+                            ) : (<>
+                                <img src="/img/ave-7_1-Mid-Size.png" alt="Ectomorph" />
+                            </>))}
                         </div>
                     </div>
                 </div>
@@ -290,9 +272,7 @@ const UIFormStep18_3 = ({
 UIFormStep18_3.propTypes = {
     height: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
-    yourBuild: PropTypes.string.isRequired,
-    questionOftenEx: PropTypes.string.isRequired,
-    questionWorkoutPD: PropTypes.string.isRequired,
+    questionExercise: PropTypes.string.isRequired,
     goal: PropTypes.string.isRequired,
     setIsCheckboxChecked: PropTypes.func.isRequired,
     handleNext: PropTypes.func.isRequired,

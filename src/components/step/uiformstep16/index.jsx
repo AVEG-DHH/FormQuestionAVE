@@ -1,216 +1,104 @@
-import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import PropTypes from 'prop-types';
-import './uiformstep16.scss';
+import { useState } from "react";
+import { FormControl, FormControlLabel, Checkbox } from "@mui/material";
+import PropTypes from "prop-types";
+import "./uiformstep16.scss";
+import ButtonContinue from "../../buttoncontinue";
 
-const UIFormStep16 = ({ handleNextStep16 }) => {
+const dietOptions = [
+    {
+        category: "WITH MEAT",
+        options: [
+            { value: "Traditional", img: "Traditional.webp", title: "Traditional", desc: "I enjoy everything" },
+            { value: "Keto", img: "Keto.webp", title: "Keto", desc: "I prefer high-fat low-carb meals" },
+            { value: "Paleo", img: "Paleo.webp", title: "Paleo", desc: "I don't eat processed foods" },
+        ]
+    },
+    {
+        category: "WITHOUT MEAT",
+        options: [
+            { value: "Vegetarian", img: "Vegetarian.webp", title: "Vegetarian", desc: "I avoid meat and fish" },
+            { value: "Vegan (Plant Diet)", img: "Vegan.webp", title: "Vegan (Plant Diet)", desc: "I do not eat animal products" },
+            { value: "Keto Vegan", img: "Keto_Vegan.webp", title: "Keto Vegan", desc: "I eat low-carb plant-based meals only" },
+        ]
+    },
+    {
+        category: "WITH FISH",
+        options: [
+            { value: "Mediterranean", img: "Mediterranean.webp", title: "Mediterranean", desc: "I eat plenty of veggies, grains, and seafood" },
+            { value: "Pescatarian", img: "Pescatarian.webp", title: "Pescatarian", desc: "I avoid meat but enjoy fish" },
+        ]
+    },
+    {
+        category: "WITHOUT ALLERGENS",
+        options: [
+            { value: "Lactose Free", img: "Lactose.webp", title: "Lactose Free", desc: "I do not consume foods with lactose" },
+            { value: "Gluten Free", img: "Gluten.webp", title: "Gluten Free", desc: "I avoid gluten-containing grains" },
+        ]
+    }
+];
+
+const UIFormStep16 = ({ handleNextStep16, handleNext }) => {
+    const [selectedDiets, setSelectedDiets] = useState([]);
+
+    const handleCheckboxChange = (event) => {
+        const { value, checked } = event.target;
+        const updatedDiets = checked
+            ? [...selectedDiets, value] // Nếu chọn thì thêm vào danh sách
+            : selectedDiets.filter((diet) => diet !== value); // Nếu bỏ chọn thì loại ra
+
+        setSelectedDiets(updatedDiets);
+        handleNextStep16(updatedDiets.join()); // Truyền danh sách mới lên component cha
+    };
+
     return (
-        <div className="form-step-16">
-            <div>What type of diet do you prefer?</div>
-            <FormControl className="form-step-16__radio">
-                <RadioGroup name="radio-buttons-group" onChange={handleNextStep16}>
+        <>
+            <div className="form-step-16">
+                <div>What type of diet do you prefer?</div>
+                <FormControl className="form-step-16__checkbox">
                     <div className="form-step-16__columns">
-                        {/* Left Column */}
-                        <div className="form-step-16__left-column">
-                            <h1>WITH MEAT</h1>
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Traditional"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Traditional.webp"
-                                            alt="Traditional"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Traditional</span>
-                                            <p>I enjoy everything</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Keto"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Keto.webp"
-                                            alt="Keto"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Keto</span>
-                                            <p>I prefer high-fat low-carb meals</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Paleo"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Paleo.webp"
-                                            alt="Paleo"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Paleo</span>
-                                            <p>I don{"'"}t eat processed foods</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-
-                            <h1>WITHOUT MEAT</h1>
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Vegetarian"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Vegetarian.webp"
-                                            alt="Vegetarian"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Vegetarian</span>
-                                            <p>I avoid meat and fish</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Vegan (Plant Diet)"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Vegan.webp"
-                                            alt="Vegan (Plant Diet)"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Vegan (Plant Diet)</span>
-                                            <p>I do not eat animal products</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Keto Vegan"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Keto_Vegan.webp"
-                                            alt="Keto Vegan"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Keto Vegan</span>
-                                            <p>I eat low-carb plant-based meals only</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                        </div>
-
-                        {/* Right Column */}
-                        <div className="form-step-16__right-column">
-                            <h1>WITH FISH</h1>
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Mediterranean"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Mediterranean.webp"
-                                            alt="Mediterranean"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Mediterranean</span>
-                                            <p>I eat plenty of veggies, grains, and seafood</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Pescatarian"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Pescatarian.webp"
-                                            alt="Pescatarian"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Pescatarian</span>
-                                            <p>I avoid meat but enjoy fish</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-
-                            <h1>WITHOUT ALLERGENS</h1>
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Lactose Free"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Lactose.webp"
-                                            alt="Lactose Free"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Lactose Free</span>
-                                            <p>I do not consume foods with lactose</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <FormControlLabel
-                                className="form-step-16__label"
-                                value="Gluten Free"
-                                control={<Radio />}
-                                label={
-                                    <div className="form-step-16__content">
-                                        <img
-                                            src="/icons/icons-Q16/Gluten.webp"
-                                            alt="Gluten Free"
-                                            className="form-step-16__icon"
-                                        />
-                                        <div className="form-step-16__text">
-                                            <span>Gluten Free</span>
-                                            <p>I avoid gluten-containing grains</p>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                        </div>
+                        {/* Lặp qua từng danh mục */}
+                        {dietOptions.map((group, index) => (
+                            <div key={index} className={`form-step-16__column ${index % 2 === 0 ? "left" : "right"}`}>
+                                <h1>{group.category}</h1>
+                                {group.options.map((diet) => (
+                                    <FormControlLabel
+                                        key={diet.value}
+                                        className="form-step-16__label"
+                                        control={
+                                            <Checkbox
+                                                value={diet.value}
+                                                checked={selectedDiets.includes(diet.value)}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        }
+                                        label={
+                                            <div className="form-step-16__content">
+                                                <img
+                                                    src={`/icons/icons-Q16/${diet.img}`}
+                                                    alt={diet.title}
+                                                    className="form-step-16__icon"
+                                                />
+                                                <div className="form-step-16__text">
+                                                    <span>{diet.title}</span>
+                                                    <p>{diet.desc}</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        ))}
                     </div>
-                </RadioGroup>
-            </FormControl>
-        </div>
+                </FormControl>
+            </div>
+            <ButtonContinue handleNext={handleNext} />
+        </>
     );
 };
 
 UIFormStep16.propTypes = {
-    handleNextStep16: PropTypes.func.isRequired, // Xác định handleNextStep16 là một hàm bắt buộc
+    handleNextStep16: PropTypes.func.isRequired,
+    handleNext: PropTypes.func.isRequired,
 };
 
 export default UIFormStep16;
