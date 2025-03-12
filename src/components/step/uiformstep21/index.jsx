@@ -26,7 +26,7 @@ const UIFormStep21 = ({ handleNextStep21, setIsCheckboxChecked, handleNext, isCh
                                 value={nameValue}
                                 placeholder="Name"
                                 onChange={(e) => {
-                                    setNameValue(e.target.value);
+                                    setNameValue(e.target.value); // Cập nhật state
                                 }}
                             />
                         </div>
