@@ -1,4 +1,5 @@
 import { Button } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const ButtonContinue = ({ handleNext }) => {
     return (
@@ -16,6 +17,8 @@ const ButtonContinue = ({ handleNext }) => {
     );
 };
 
+ButtonContinue.propTypes = {
+    handleNext: PropTypes.func.isRequired,
+};
+
 export default ButtonContinue;
-
-

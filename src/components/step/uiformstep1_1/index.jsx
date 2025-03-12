@@ -21,8 +21,8 @@ const UIFormStep1_1 = ({ setIsCheckboxChecked, handleNext, age }) => {
                         </p>
 
                         <p>
-                            Would you like to receive a <span> FREE </span> <br /> personalized workout plan to reach{' '}
-                            <br />
+                            Would you like to receive a <span style={{ color: '#55ac60' }}> FREE </span> <br />{' '}
+                            personalized workout plan to reach <br />
                             your goals faster?
                         </p>
                     </div>

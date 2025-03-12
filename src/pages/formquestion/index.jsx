@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 import UIFormStep1 from '../../components/step/uiformstep1';
 import UIFormStep1_1 from '../../components/step/uiformstep1_1';
@@ -273,7 +273,7 @@ const FormQuestion = () => {
         setIsLoading(true);
 
         try {
-            await saveDataToLarkBase()
+            await saveDataToLarkBase();
         } catch (error) {
             console.error('Lỗi khi lưu dữ liệu:', error);
         }
@@ -289,13 +289,26 @@ const FormQuestion = () => {
         //Q2: OVER 1 MILLION WOMEN
         {
             id: 2,
-            content: <UIFormStep1_1 setIsCheckboxChecked={setIsCheckboxChecked} age={formStep1.age} handleNext={handleNext} />,
+            content: (
+                <UIFormStep1_1
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    age={formStep1.age}
+                    handleNext={handleNext}
+                />
+            ),
         },
 
         // Q31: WHAT'S YOUR NAME?
         {
             id: 3,
-            content: <UIFormStep21 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep21={handleNextStep21} handleNext={handleNext} />,
+            content: (
+                <UIFormStep21
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNextStep21={handleNextStep21}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
+                />
+            ),
         },
 
         // Q30: WHAT'S YOUR EMAIL?
@@ -315,7 +328,7 @@ const FormQuestion = () => {
         // Q7: keep going!
         {
             id: 5,
-            content: <Uiformstep4_1 name={formStep21.questionName} handleNext={handleNext} />
+            content: <Uiformstep4_1 name={formStep21.questionName} handleNext={handleNext} />,
         },
 
         // Q5: WHAT IS YOUR FITNESS GOAL?
@@ -334,11 +347,7 @@ const FormQuestion = () => {
         {
             id: 8,
             content: (
-                <UIFormStep6_1
-                    age={formStep1.age}
-                    questionGoal={formStep5.questionGoal}
-                    handleNext={handleNext}
-                />
+                <UIFormStep6_1 age={formStep1.age} questionGoal={formStep5.questionGoal} handleNext={handleNext} />
             ),
         },
 
@@ -428,14 +437,26 @@ const FormQuestion = () => {
         // Q27: WHAT'S TARGET WEIGHT?
         {
             id: 18,
-            content: <UIFormStep22 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep22={handleNextStep22} handleNext={handleNext} isCheckboxChecked={isCheckboxChecked} />,
+            content: (
+                <UIFormStep22
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNextStep22={handleNextStep22}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
+                />
+            ),
         },
 
         // Q27: WHAT'S YOUR AGE?
         {
             id: 19,
             content: (
-                <UIFormStep18_2 setIsCheckboxChecked={setIsCheckboxChecked} handleNextStep18_2={handleNextStep18_2} handleNext={handleNext} isCheckboxChecked={isCheckboxChecked} />
+                <UIFormStep18_2
+                    setIsCheckboxChecked={setIsCheckboxChecked}
+                    handleNextStep18_2={handleNextStep18_2}
+                    handleNext={handleNext}
+                    isCheckboxChecked={isCheckboxChecked}
+                />
             ),
         },
 
@@ -466,7 +487,6 @@ const FormQuestion = () => {
                 />
             ),
         },
-
     ];
 
     const handleBack = () => {
@@ -490,81 +510,76 @@ const FormQuestion = () => {
     const saveDataToLarkBase = async () => {
         try {
             const customerData = {
-                Age: formStep1.age || "",
-                QuestionGoal: formStep5.questionGoal || "",
-                QuestionExercise: formStep6.questionExercise || "",
-                QuestionHealthIssues: formStep7.questionHealthIssuse || "",
-                QuestionDreambody: formStep7_2.questionDreambody || "",
-                QuestionTarget: formStep9.questionTarget || "",
-                QuestionTypeExercise: formStep12.questionTypeExercise || "",
-                QuestionMainReason: formStep17.questionMainReason || "",
-                QuestionDiet: formStep16.questionDiet || "",
-                Height: formStep3.height || "",
-                Weight: formStep4.weight || "",
-                QuestionTargetWeight: formStep22.questionTargetWeight.toString() || "",
-                QuestionAge: formStep18_2.questionAge.toString() || "",
-                EmailCustomer: formStep20.email || "",
-                QuestionName: formStep21.questionName || ""
+                Age: formStep1.age || '',
+                QuestionGoal: formStep5.questionGoal || '',
+                QuestionExercise: formStep6.questionExercise || '',
+                QuestionHealthIssues: formStep7.questionHealthIssuse || '',
+                QuestionDreambody: formStep7_2.questionDreambody || '',
+                QuestionTarget: formStep9.questionTarget || '',
+                QuestionTypeExercise: formStep12.questionTypeExercise || '',
+                QuestionMainReason: formStep17.questionMainReason || '',
+                QuestionDiet: formStep16.questionDiet || '',
+                Height: formStep3.height || '',
+                Weight: formStep4.weight || '',
+                QuestionTargetWeight: formStep22.questionTargetWeight.toString() || '',
+                QuestionAge: formStep18_2.questionAge.toString() || '',
+                EmailCustomer: formStep20.email || '',
+                QuestionName: formStep21.questionName || '',
             };
 
             const url = `https://form-question-ave-be.vercel.app/api/lark-data`;
 
-            await axios.post(url,
-                {
-                    fields: customerData
-                },
-            );
+            await axios.post(url, {
+                fields: customerData,
+            });
             window.parent.postMessage('redirect', '*');
-
         } catch (error) {
             console.error('Lỗi khi thêm dữ liệu lên Firestore:', error);
             Swal.fire({
-                icon: "error",
-                title: "",
-                text: "An error occurred! Please try again.",
-                footer: ''
+                icon: 'error',
+                title: '',
+                text: 'An error occurred! Please try again.',
+                footer: '',
             });
         }
         setIsLoading(false);
     };
 
-
-
     useEffect(() => {
-        if (formStep1.age === "") return;
+        if (formStep1.age === '') return;
 
-        if (formStep21.questionName !== "") return;
+        if (formStep21.questionName !== '') return;
 
         const handleBeforeUnload = async (event) => {
             // if (document.visibilityState == "hidden") return;
 
             const customerData = {
-                Age: formStep1.age || "",
-                QuestionGoal: formStep5.questionGoal || "",
-                QuestionExercise: formStep6.questionExercise || "",
-                QuestionHealthIssues: formStep7.questionHealthIssuse || "",
-                QuestionDreambody: formStep7_2.questionDreambody || "",
-                QuestionTarget: formStep9.questionTarget || "",
-                QuestionTypeExercise: formStep12.questionTypeExercise || "",
-                QuestionMainReason: formStep17.questionMainReason || "",
-                QuestionDiet: formStep16.questionDiet || "",
-                Height: formStep3.height || "",
-                Weight: formStep4.weight || "",
-                QuestionTargetWeight: formStep22.questionTargetWeight.toString() || "",
-                QuestionAge: formStep18_2.questionAge.toString() || "",
-                EmailCustomer: formStep20.email || "",
-                QuestionName: formStep21.questionName
+                Age: formStep1.age || '',
+                QuestionGoal: formStep5.questionGoal || '',
+                QuestionExercise: formStep6.questionExercise || '',
+                QuestionHealthIssues: formStep7.questionHealthIssuse || '',
+                QuestionDreambody: formStep7_2.questionDreambody || '',
+                QuestionTarget: formStep9.questionTarget || '',
+                QuestionTypeExercise: formStep12.questionTypeExercise || '',
+                QuestionMainReason: formStep17.questionMainReason || '',
+                QuestionDiet: formStep16.questionDiet || '',
+                Height: formStep3.height || '',
+                Weight: formStep4.weight || '',
+                QuestionTargetWeight: formStep22.questionTargetWeight.toString() || '',
+                QuestionAge: formStep18_2.questionAge.toString() || '',
+                EmailCustomer: formStep20.email || '',
+                QuestionName: formStep21.questionName,
             };
-            const url = "https://form-question-ave-be.vercel.app/api/lark-data-not-complete";
+            const url = 'https://form-question-ave-be.vercel.app/api/lark-data-not-complete';
             const data = new Blob([JSON.stringify({ fields: customerData })], {
-                type: "application/json",
+                type: 'application/json',
             });
             const success = navigator.sendBeacon(url, data);
             if (!success) {
-                console.error("sendBeacon failed, trying fetch...");
+                console.error('sendBeacon failed, trying fetch...');
                 fetch(url, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
                     body: data,
                     keepalive: true, // Dự phòng khi sendBeacon thất bại
                 });
@@ -575,9 +590,23 @@ const FormQuestion = () => {
         return () => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };
-
-    }, [formStep1, formStep3, formStep4, formStep5, formStep6, formStep7, formStep7_2, formStep9,
-        formStep12, formStep16, formStep17, formStep18_2, formStep20, formStep21, formStep22]);
+    }, [
+        formStep1,
+        formStep3,
+        formStep4,
+        formStep5,
+        formStep6,
+        formStep7,
+        formStep7_2,
+        formStep9,
+        formStep12,
+        formStep16,
+        formStep17,
+        formStep18_2,
+        formStep20,
+        formStep21,
+        formStep22,
+    ]);
 
     useEffect(() => {
         setTimeout(() => {

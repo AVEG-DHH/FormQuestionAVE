@@ -17,6 +17,10 @@ const UIFormStep4_1 = ({ name, handleNext }) => {
 
                         <h1>Hey {name}, keep going!</h1>
                         <p>Complete the survey to get your personalized plan and reach your goals faster!</p>
+                        <p>
+                            Each suggestion is designed to fit your lifestyle and keep you motivated every step of the
+                            way.
+                        </p>
                     </div>
                 </div>
             </div>

@@ -42,6 +42,10 @@
 
 @media (max-width: 1200px) {
     .form-step-1_1 {
+        br {
+            display: none;
+        }
+
         &-content {
             flex-direction: column;
             &__img {
@@ -53,6 +57,10 @@
 
 @media (max-width: 768px) {
     .form-step-1_1 {
+        br {
+            display: none;
+        }
+
         &-content {
             &__title {
                 h1 {
