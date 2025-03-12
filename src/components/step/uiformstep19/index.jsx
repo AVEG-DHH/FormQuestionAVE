@@ -107,9 +107,8 @@ const UIFormStep19 = ({ setIsCheckboxChecked, handleSubmit, isCheckboxChecked })
                 </Box>
             </Stack>
 
-            {/* 1.7 Million People Section */}
             <Typography variant="h4" gutterBottom>
-                1.7 million followers
+                1.8 million followers
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
                 have chosen Natural Cleansing
