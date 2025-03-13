@@ -548,8 +548,6 @@ const FormQuestion = () => {
     useEffect(() => {
         if (formStep1.age === '') return;
 
-        if (formStep21.questionName !== '') return;
-
         const handleBeforeUnload = async (event) => {
             // if (document.visibilityState == "hidden") return;
 
