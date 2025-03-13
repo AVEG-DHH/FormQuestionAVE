@@ -151,9 +151,11 @@ const UIFormStep18_3 = ({
                                     <div className="form-step-18-3_footer-text_block-info-desc">
                                         {bmi < 18.5 ? (
                                             <p>Ectomorph</p>
-                                        ) : (bmi > 29.9 ? (
+                                        ) : bmi > 29.9 ? (
                                             <p>Endomorph</p>
-                                        ) : (<p>Mesomorph</p>))}
+                                        ) : (
+                                            <p>Mesomorph</p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +188,7 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Lifestyle</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {questionExercise[0] === "2" ? 'Sedentary' : 'Active'}
+                                        {questionExercise[0] === '2' ? 'Sedentary' : 'Active'}
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +213,11 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Fitness level</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {questionExercise[0] === '5' ? 'Advanced' : questionExercise[0] === '4' ? 'Medium' : 'Basic'}
+                                        {questionExercise[0] === '5'
+                                            ? 'Advanced'
+                                            : questionExercise[0] === '4'
+                                            ? 'Medium'
+                                            : 'Basic'}
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +242,7 @@ const UIFormStep18_3 = ({
                                 <div className="form-step-18-3_footer-text_block-info">
                                     <div className="form-step-18-3_footer-text_block-info-title">Metabolism</div>
                                     <div className="form-step-18-3_footer-text_block-info-desc">
-                                        {questionExercise[0] === "2" ? 'Low, difficult to' : 'Fast, easy to'}
+                                        {questionExercise[0] === '2' ? 'Low, difficult to' : 'Fast, easy to'}
                                         {goal}
                                     </div>
                                 </div>
@@ -245,11 +251,13 @@ const UIFormStep18_3 = ({
                         <div className="form-step-18-3_footer-img">
                             {bmi < 18.5 ? (
                                 <img src="/img/ave-7_1-Slim.png" alt="Ectomorph" />
-                            ) : (bmi > 29.9 ? (
+                            ) : bmi > 29.9 ? (
                                 <img src="img/ave-7_1-Extended.png" alt="Endomorph" />
-                            ) : (<>
-                                <img src="/img/ave-7_1-Mid-Size.png" alt="Ectomorph" />
-                            </>))}
+                            ) : (
+                                <>
+                                    <img src="/img/ave-7_1-Mid-Size.png" alt="Ectomorph" />
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import './uiformstep20.scss';
 
 const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked, handleNext, isCheckboxChecked }) => {
     const handleChangeEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex pattern
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 
         if (email === '') {
             setFormStep20({ ...formStep20, email, error: true });
@@ -42,7 +42,12 @@ const UIFormStep20 = ({ formStep20, setFormStep20, setIsCheckboxChecked, handleN
                             helperText={formStep20.error ? 'Please enter a valid email address!' : ''}
                             value={formStep20.email}
                             onChange={(e) => handleChangeEmail(e.target.value)}
-                            sx={{ mb: 2 }}
+                            sx={{
+                                mb: 2,
+                                '& .MuiInputBase-input': {
+                                    fontWeight: 'bold',
+                                },
+                            }}
                         />
                     </form>
                     <Box
@@ -86,6 +91,8 @@ UIFormStep20.propTypes = {
     }).isRequired,
     setFormStep20: PropTypes.func.isRequired,
     setIsCheckboxChecked: PropTypes.func.isRequired,
+    handleNext: PropTypes.func.isRequired,
+    isCheckboxChecked: PropTypes.bool.isRequired,
 };
 
 export default UIFormStep20;

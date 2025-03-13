@@ -1,9 +1,8 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { IoIosClose } from 'react-icons/io';
-import { Checkbox, FormControlLabel, Link, Button } from '@mui/material';
+import { Checkbox, FormControlLabel, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import './uiformstep3.scss';
-
 
 const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked, handleNext }) => {
     const [selectedUnit, setSelectedUnit] = useState('cm');
@@ -155,8 +154,8 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked,
                                 }
                                 label={
                                     <>
-                                        I consent to Natural Cleansing processing my health onboarding to provide services
-                                        and enhance my user experience.{' '}
+                                        I consent to Natural Cleansing processing my health onboarding to provide
+                                        services and enhance my user experience.{' '}
                                         <a
                                             href="https://naturalcleansingae.com/policies/privacy-policy"
                                             target="_blank"
@@ -168,12 +167,16 @@ const UIFormStep3 = ({ handleNextStep3, isCheckboxChecked, setIsCheckboxChecked,
                                 }
                             />
                         </div>
-                        {!isCheckboxChecked && (cmValue !== '' || ftValue !== '' || inValue !== '') && isWarningVisible && (
-                            <div className={`error-message-consent ${isWarningVisible ? 'horizontal-shaking' : ''}`}>
-                                <span>Consent required to continue</span>
-                                <IoIosClose className="close-btn" onClick={handleCloseWarning} />
-                            </div>
-                        )}
+                        {!isCheckboxChecked &&
+                            (cmValue !== '' || ftValue !== '' || inValue !== '') &&
+                            isWarningVisible && (
+                                <div
+                                    className={`error-message-consent ${isWarningVisible ? 'horizontal-shaking' : ''}`}
+                                >
+                                    <span>Consent required to continue</span>
+                                    <IoIosClose className="close-btn" onClick={handleCloseWarning} />
+                                </div>
+                            )}
                     </div>
                 </div>
             </div>
@@ -197,6 +200,7 @@ UIFormStep3.propTypes = {
     handleNextStep3: PropTypes.func.isRequired,
     isCheckboxChecked: PropTypes.bool.isRequired,
     setIsCheckboxChecked: PropTypes.func.isRequired,
+    handleNext: PropTypes.func.isRequired,
 };
 
 export default UIFormStep3;
