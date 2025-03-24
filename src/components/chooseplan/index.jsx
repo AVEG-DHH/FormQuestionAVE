@@ -40,9 +40,9 @@ const ChoosePlan = () => {
         {
             name: '1-Week Trial',
             label: '7-Day Free Workout + 7-Day Free Protein Meal Plan (PDF)',
-            originalPrice: '$10',
-            highlightedPrice: '$1,4',
-            perDay: ' per day',
+            originalPrice: 'Free',
+            highlightedPrice: 'Free',
+            perDay: '',
             mostPopular: false,
             planDetail: [],
         },
