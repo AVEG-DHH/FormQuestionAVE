@@ -25,6 +25,10 @@ const UIFormStep1_1 = ({ setIsCheckboxChecked, handleNext, age }) => {
                             personalized workout plan to reach <br />
                             your goals faster?
                         </p>
+
+                        <p>
+                            It only takes 1 minute to fill out the survey to receive a <span style={{ color: '#55ac60' }}>FREE</span> personalized workout plan to help you reach your goals faster!
+                        </p>
                     </div>
                     <div className="form-step-1_1-content__img">
                         <img src={ImgAve1_1} alt="img" loading="lazy" />
